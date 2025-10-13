@@ -1,1 +1,26 @@
+#details {
+    background: white;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+#details.hidden {
+    display: none;
+}
+
+#details button {
+    background-color: #b81c1c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#details button:hover {
+    background-color: #d32f2f;
+}
