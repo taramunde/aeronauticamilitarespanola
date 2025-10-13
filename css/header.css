@@ -1,19 +1,20 @@
 header {
-    background: linear-gradient(rgba(0, 48, 135, 0.8), rgba(0, 48, 135, 0.8)), url('https://via.placeholder.com/1200x400?text=Header+Image');
+    background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://via.placeholder.com/1200x400?text=Spanish+Air+Force');
     background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     animation: fadeIn 2s ease-in;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 @keyframes fadeIn {
@@ -23,6 +24,10 @@ header p {
 
 @media (max-width: 600px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
     }
 }
