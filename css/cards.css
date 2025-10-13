@@ -1,36 +1,36 @@
 #aircraft {
-    padding: 2rem;
+    padding: 3rem 2rem;
     text-align: center;
 }
 
 #aircraft h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 2rem;
     color: #003087;
 }
 
 #aircraft-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     padding: 0 2rem;
 }
 
 .aircraft-card {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .aircraft-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .aircraft-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 1rem 0 0.5rem;
     color: #003087;
 }
@@ -38,15 +38,16 @@
 .aircraft-card p {
     color: #666;
     padding: 0 1rem;
+    font-size: 0.95rem;
 }
 
 .aircraft-card button {
     background: #b81c1c;
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.6rem;
     margin: 1rem;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s;
 }
