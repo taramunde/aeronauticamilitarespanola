@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -24,8 +25,27 @@
             <li class="dropdown">
                 <a href="#aircraft">Aviones</a>
                 <ul class="submenu">
-                    <li><a href="#fighters">Cazas</a></li>
-                    <li><a href="#trainers">Entrenadores</a></li>
+                    <li class="dropdown">
+                        <a href="#">Por Décadas</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="filterAircraft('decade', '1970s')">1970s</a></li>
+                            <li><a href="#" onclick="filterAircraft('decade', '1980s')">1980s</a></li>
+                            <li><a href="#" onclick="filterAircraft('decade', '1990s')">1990s</a></li>
+                            <li><a href="#" onclick="filterAircraft('decade', '2000s')">2000s</a></li>
+                            <li><a href="#" onclick="filterAircraft('decade', '2010s')">2010s</a></li>
+                            <li><a href="#" onclick="filterAircraft('decade', '2020s')">2020s</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Por Hechos Históricos</a>
+                        <ul class="submenu">
+                            <li><a href="#" onclick="filterAircraft('history', 'guerra-civil')">Guerra Civil</a></li>
+                            <li><a href="#" onclick="filterAircraft('history', 'posguerra')">Posguerra</a></li>
+                            <li><a href="#" onclick="filterAircraft('history', 'guerra-fria')">Guerra Fría</a></li>
+                            <li><a href="#" onclick="filterAircraft('history', 'era-moderna')">Era Moderna</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="filterAircraft('all', '')">Todos</a></li>
                 </ul>
             </li>
             <li><a href="#history">Historia</a></li>
@@ -35,39 +55,14 @@
 
     <header id="home">
         <h1>Aeronáutica Militar Española</h1>
-        <p>Descubre la fuerza aérea de España</p>
+        <p>Explora la evolución de la fuerza aérea española</p>
     </header>
 
     <main>
         <section id="aircraft">
             <h2>Nuestros Aviones</h2>
             <div id="aircraft-list">
-                <div class="aircraft-card" data-aircraft="eurofighter">
-                    <div class="carousel">
-                        <div class="carousel-images">
-                            <img src="https://via.placeholder.com/300x200?text=Eurofighter+1" alt="Eurofighter 1">
-                            <img src="https://via.placeholder.com/300x200?text=Eurofighter+2" alt="Eurofighter 2">
-                        </div>
-                        <button class="carousel-prev" onclick="moveCarousel('eurofighter', -1)">&#10094;</button>
-                        <button class="carousel-next" onclick="moveCarousel('eurofighter', 1)">&#10095;</button>
-                    </div>
-                    <h3>Eurofighter Typhoon</h3>
-                    <p>Caza polivalente de cuarta generación.</p>
-                    <button onclick="showDetails('eurofighter')">Ver Detalles</button>
-                </div>
-                <div class="aircraft-card" data-aircraft="c101">
-                    <div class="carousel">
-                        <div class="carousel-images">
-                            <img src="https://via.placeholder.com/300x200?text=C-101+1" alt="C-101 1">
-                            <img src="https://via.placeholder.com/300x200?text=C-101+2" alt="C-101 2">
-                        </div>
-                        <button class="carousel-prev" onclick="moveCarousel('c101', -1)">&#10094;</button>
-                        <button class="carousel-next" onclick="moveCarousel('c101', 1)">&#10095;</button>
-                    </div>
-                    <h3>CASA C-101 Aviojet</h3>
-                    <p>Avión de entrenamiento y ataque ligero.</p>
-                    <button onclick="showDetails('c101')">Ver Detalles</button>
-                </div>
+                <!-- Tarjetas generadas dinámicamente por JavaScript -->
             </div>
         </section>
 
@@ -86,5 +81,6 @@
     <script src="js/nav.js"></script>
     <script src="js/details.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/filter.js"></script>
 </body>
- </html>
+                </html>
