@@ -1,13 +1,58 @@
-.galeria {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
+#aircraft-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
 }
 
-.galeria img {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+.aircraft-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s;
+}
+
+.aircraft-card:hover {
+    transform: scale(1.05);
+}
+
+.aircraft-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.aircraft-card h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.aircraft-card p {
+    color: #666;
+}
+
+.aircraft-card button {
+    background-color: #003087;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.aircraft-card button:hover {
+    background-color: #0051b8;
+}
+
+@media (max-width: 600px) {
+    .aircraft-card {
+        width: 100%;
+        max-width: 300px;
+    }
 }
