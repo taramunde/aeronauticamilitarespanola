@@ -1,12 +1,12 @@
 footer {
-    background: #003087;
+    background: linear-gradient(to right, #003087, #0051b8);
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     position: relative;
     width: 100%;
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
