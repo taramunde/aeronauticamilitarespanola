@@ -1,20 +1,23 @@
 .navbar {
-    background: #003087;
+    background: linear-gradient(to right, #003087, #0051b8);
     color: white;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .brand {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 .hamburger {
     display: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
@@ -25,14 +28,15 @@
 
 .nav-menu li {
     position: relative;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 }
 
 .nav-menu a {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 0.5rem;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
@@ -44,9 +48,10 @@
     position: absolute;
     background: #004aad;
     list-style: none;
-    min-width: 150px;
+    min-width: 200px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .dropdown:hover .submenu {
@@ -60,6 +65,12 @@
 .submenu a {
     padding: 0.5rem 1rem;
     display: block;
+    font-size: 1rem;
+}
+
+.submenu .dropdown .submenu {
+    top: 0;
+    left: 100%;
 }
 
 @media (max-width: 768px) {
@@ -95,4 +106,4 @@
     .dropdown.active .submenu {
         display: block;
     }
-}
+    }
