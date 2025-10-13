@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aeronáutica Militar Española</title>
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="manifest" href="manifest.json" />
-  <script src="js/nav.js" defer></script>
-  <script src="js/animaciones.js" defer></script>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeronáutica Militar Española</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-  <header>
-  <h1>Aeronáutica Militar Española</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="historia.html">Historia</a></li>
-      <li><a href="aviones.html">Aviones</a></li>
-      <li><a href="galeria.html">Galería</a></li>
-      <li><a href="mapa.html">Mapa</a></li>
-      <li><a href="linea-tiempo.html">Línea de tiempo</a></li>
-    </ul>
-  </nav>
-</header>
-  <main>
-    <h2>Bienvenido</h2>
-    <p>Explora la historia, los aviones, las misiones y mucho más sobre la aeronáutica militar española.</p>
-  </main>
+    <header>
+        <h1>Aeronáutica Militar Española</h1>
+        <p>Explora los aviones del Ejército del Aire y del Espacio</p>
+    </header>
+
+    <main>
+        <section id="aircraft-list">
+            <div class="aircraft-card" data-aircraft="eurofighter">
+                <img src="https://via.placeholder.com/300x200?text=Eurofighter+Typhoon" alt="Eurofighter Typhoon">
+                <h2>Eurofighter Typhoon</h2>
+                <p>Caza polivalente de cuarta generación.</p>
+                <button onclick="showDetails('eurofighter')">Ver Detalles</button>
+            </div>
+            <div class="aircraft-card" data-aircraft="c101">
+                <img src="https://via.placeholder.com/300x200?text=CASA+C-101+Aviojet" alt="CASA C-101 Aviojet">
+                <h2>CASA C-101 Aviojet</h2>
+                <p>Avión de entrenamiento y ataque ligero.</p>
+                <button onclick="showDetails('c101')">Ver Detalles</button>
+            </div>
+        </section>
+
+        <section id="details" class="hidden">
+            <h2 id="details-title"></h2>
+            <p id="details-description"></p>
+            <button onclick="closeDetails()">Cerrar</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aeronáutica Militar Española. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/details.js"></script>
 </body>
 </html>
