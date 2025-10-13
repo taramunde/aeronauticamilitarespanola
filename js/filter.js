@@ -1,7 +1,26 @@
 function renderAircraft(filterType, filterValue) {
     const aircraftList = document.getElementById('aircraft-list');
+    const aircraftTitle = document.getElementById('aircraft-title');
+
+    // Limpiar la lista actual
     aircraftList.innerHTML = '';
 
+    // Actualizar el título según el filtro
+    if (filterType === 'decade') {
+        aircraftTitle.textContent = `Aviones de los ${filterValue}`;
+    } else if (filterType === 'history') {
+        const historyLabels = {
+            'guerra-civil': 'Guerra Civil Española',
+            'posguerra': 'Posguerra',
+            'guerra-fria': 'Guerra Fría',
+            'era-moderna': 'Era Moderna'
+        };
+        aircraftTitle.textContent = `Aviones de la ${historyLabels[filterValue]}`;
+    } else {
+        aircraftTitle.textContent = 'Nuestros Aviones';
+    }
+
+    // Filtrar y renderizar aviones
     Object.keys(aircraftData).forEach(id => {
         const aircraft = aircraftData[id];
         if (filterType === 'all' || aircraft[filterType] === filterValue) {
@@ -23,7 +42,14 @@ function renderAircraft(filterType, filterValue) {
             aircraftList.appendChild(card);
         }
     });
+
+    // Mostrar mensaje si no hay aviones
+    if (aircraftList.children.length === 0) {
+        aircraftList.innerHTML = '<p>No se encontraron aviones para este filtro.</p>';
+    }
 }
 
 // Renderizar todos los aviones al cargar la página
-document.addEventListener('DOMContentLoaded', () => renderAircraft('all', ''));
+document.addEventListener('DOMContentLoaded', () => {
+    renderAircraft('all', '');
+});
