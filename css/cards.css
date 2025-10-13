@@ -1,58 +1,56 @@
-#aircraft-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+#aircraft {
     padding: 2rem;
+    text-align: center;
+}
+
+#aircraft h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #003087;
+}
+
+#aircraft-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
 }
 
 .aircraft-card {
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    padding: 1rem;
-    transition: transform 0.3s;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .aircraft-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.aircraft-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.aircraft-card h2 {
+.aircraft-card h3 {
     font-size: 1.5rem;
-    margin: 0.5rem 0;
+    margin: 1rem 0 0.5rem;
+    color: #003087;
 }
 
 .aircraft-card p {
     color: #666;
+    padding: 0 1rem;
 }
 
 .aircraft-card button {
-    background-color: #003087;
+    background: #b81c1c;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    margin: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 0.5rem;
+    transition: background 0.3s;
 }
 
 .aircraft-card button:hover {
-    background-color: #0051b8;
-}
-
-@media (max-width: 600px) {
-    .aircraft-card {
-        width: 100%;
-        max-width: 300px;
-    }
+    background: #d32f2f;
 }
