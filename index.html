@@ -5,30 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aeronáutica Militar Española</title>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar">
+        <div class="brand">Aeronáutica Española</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#aircraft">Aviones</a>
+                <ul class="submenu">
+                    <li><a href="#fighters">Cazas</a></li>
+                    <li><a href="#trainers">Entrenadores</a></li>
+                </ul>
+            </li>
+            <li><a href="#history">Historia</a></li>
+            <li><a href="#patrulla">Patrulla Águila</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
         <h1>Aeronáutica Militar Española</h1>
-        <p>Explora los aviones del Ejército del Aire y del Espacio</p>
+        <p>Descubre la fuerza aérea de España</p>
     </header>
 
     <main>
-        <section id="aircraft-list">
-            <div class="aircraft-card" data-aircraft="eurofighter">
-                <img src="https://via.placeholder.com/300x200?text=Eurofighter+Typhoon" alt="Eurofighter Typhoon">
-                <h2>Eurofighter Typhoon</h2>
-                <p>Caza polivalente de cuarta generación.</p>
-                <button onclick="showDetails('eurofighter')">Ver Detalles</button>
-            </div>
-            <div class="aircraft-card" data-aircraft="c101">
-                <img src="https://via.placeholder.com/300x200?text=CASA+C-101+Aviojet" alt="CASA C-101 Aviojet">
-                <h2>CASA C-101 Aviojet</h2>
-                <p>Avión de entrenamiento y ataque ligero.</p>
-                <button onclick="showDetails('c101')">Ver Detalles</button>
+        <section id="aircraft">
+            <h2>Nuestros Aviones</h2>
+            <div id="aircraft-list">
+                <div class="aircraft-card" data-aircraft="eurofighter">
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="https://via.placeholder.com/300x200?text=Eurofighter+1" alt="Eurofighter 1">
+                            <img src="https://via.placeholder.com/300x200?text=Eurofighter+2" alt="Eurofighter 2">
+                        </div>
+                        <button class="carousel-prev" onclick="moveCarousel('eurofighter', -1)">&#10094;</button>
+                        <button class="carousel-next" onclick="moveCarousel('eurofighter', 1)">&#10095;</button>
+                    </div>
+                    <h3>Eurofighter Typhoon</h3>
+                    <p>Caza polivalente de cuarta generación.</p>
+                    <button onclick="showDetails('eurofighter')">Ver Detalles</button>
+                </div>
+                <div class="aircraft-card" data-aircraft="c101">
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="https://via.placeholder.com/300x200?text=C-101+1" alt="C-101 1">
+                            <img src="https://via.placeholder.com/300x200?text=C-101+2" alt="C-101 2">
+                        </div>
+                        <button class="carousel-prev" onclick="moveCarousel('c101', -1)">&#10094;</button>
+                        <button class="carousel-next" onclick="moveCarousel('c101', 1)">&#10095;</button>
+                    </div>
+                    <h3>CASA C-101 Aviojet</h3>
+                    <p>Avión de entrenamiento y ataque ligero.</p>
+                    <button onclick="showDetails('c101')">Ver Detalles</button>
+                </div>
             </div>
         </section>
 
@@ -44,6 +83,8 @@
     </footer>
 
     <script src="js/data.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/details.js"></script>
+    <script src="js/carousel.js"></script>
 </body>
-</html>
+ </html>
