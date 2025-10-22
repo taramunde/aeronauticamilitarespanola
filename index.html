@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeronáutica Militar Española</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Aviación Militar Española</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Aeronáutica Militar Española</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="historia.html">Historia</a></li>
-                <li><a href="aeronaves.html">Aeronaves</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-home"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-plane"></i> Aeronaves</a>
+                <ul class="submenu">
+                    <li><a href="#">Cazas</a></li>
+                    <li><a href="#">Bombarderos</a></li>
+                    <li><a href="#">Aviones de transporte</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-users"></i> Unidades</a>
+                <ul class="submenu">
+                    <li><a href="#">Ejército del Aire</a></li>
+                    <li><a href="#">Armada</a></li>
+                    <li><a href="#">Fuerza Aérea</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-newspaper"></i> Noticias</a></li>
+        </ul>
+    </div>
 
-    <main>
-        <section id="bienvenida">
-            <h2>Bienvenidos</h2>
-            <p>Explora la historia, las aeronaves y el legado de la fuerza aérea de España.</p>
-            
-        </section>
-    </main>
+    <div class="hero">
+        <h1>Aviación Militar Española</h1>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Aeronáutica Militar Española. Todos los derechos reservados.</p>
-    </footer>
+    <div class="noticias">
+        <h2>Noticias recientes</h2>
+        <article>
+            <h2>La Fuerza Aérea Española recibe nuevos aviones Eurofighter</h2>
+            <p>La Fuerza Aérea Española ha recibido recientemente una nueva entrega de aviones Eurofighter Typhoon, que serán destinados a la base aérea de Los Llanos.</p>
+        </article>
+        <article>
+            <h2>El Ejército del Aire participa en ejercicios internacionales</h2>
+            <p>El Ejército del Aire ha participado en ejercicios internacionales de defensa aérea en Polonia, junto a fuerzas aéreas de otros países de la OTAN.</p>
+        </article>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="footer">
+        <ul>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+        </ul>
+        <p>&copy; 2023 Aviación Militar Española</p>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
