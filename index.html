@@ -3,58 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviación Militar Española</title>
-    <link rel="stylesheet" href="css/estilos.css?nocache=20251231v4">
-    <link rel="stylesheet" href="css/responsive.css?nocache=20251231v4">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Ejército del Aire y del Espacio | España</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="menu">
-        <ul>
-            <li><a href="#"><i class="fa-solid fa-home"></i> Inicio</a></li>
-            <li><a href="#"><i class="fa-solid fa-plane"></i> Aeronaves</a>
-                <ul class="submenu">
-                    <li><a href="#">Cazas</a></li>
-                    <li><a href="#">Bombarderos</a></li>
-                    <li><a href="#">Aviones de transporte</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fa-solid fa-users"></i> Unidades</a>
-                <ul class="submenu">
-                    <li><a href="#">Ejército del Aire</a></li>
-                    <li><a href="#">Armada</a></li>
-                    <li><a href="#">Fuerza Aérea</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fa-solid fa-newspaper"></i> Noticias</a></li>
-        </ul>
+<body class="tail-container bg-zinc-950 text-zinc-100 overflow-x-hidden">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="h-16 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-2xl border-2 border-yellow-400">🇪🇸</div>
+                    <div>
+                        <span class="font-bold text-2xl tracking-tighter">EAE</span>
+                        <span class="block text-[10px] leading-none -mt-1 text-amber-400">EJÉRCITO DEL AIRE</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#inicio" onclick="smoothScrollTo('inicio')" class="hover:text-red-500 transition-colors">INICIO</a>
+                    
+                    <div class="relative group">
+                        <button onclick="toggleDropdown(this)" 
+                                class="flex items-center gap-x-1 hover:text-red-500 transition-colors focus:outline-none">
+                            FLOTA
+                            <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                        </button>
+                        <div id="dropdown-flota" 
+                             class="hidden absolute top-12 left-0 bg-zinc-900 border border-zinc-700 rounded-xl py-3 w-56 shadow-2xl dropdown-content">
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
+                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Cazas de Combate</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
+                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Transporte Aéreo</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
+                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Helicópteros</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
+                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Entrenamiento</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#historia" onclick="smoothScrollTo('historia')" class="hover:text-red-500 transition-colors">HISTORIA</a>
+                    <a href="#operaciones" onclick="smoothScrollTo('operaciones')" class="hover:text-red-500 transition-colors">OPERACIONES</a>
+                    <a href="#galeria" onclick="smoothScrollTo('galeria')" class="hover:text-red-500 transition-colors">GALERÍA</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <button onclick="window.location.reload()" 
+                            class="hidden sm:flex items-center gap-x-2 bg-white text-zinc-900 hover:bg-amber-300 transition-colors px-5 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-search"></i>
+                        <span>BUSCAR</span>
+                    </button>
+                    
+                    <button id="hamburger" 
+                            onclick="toggleMobileMenu()"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-2xl hover:text-red-500 transition-colors">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 py-6">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col gap-y-6 text-lg">
+                <a href="#inicio" onclick="toggleMobileMenu();smoothScrollTo('inicio')" class="hover:text-red-500">Inicio</a>
+                
+                <div>
+                    <button onclick="toggleMobileDropdown(this)" 
+                            class="flex w-full justify-between items-center hover:text-red-500">
+                        <span>Flota</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="mobile-dropdown-flota" class="hidden pl-6 mt-3 flex flex-col gap-y-3 text-base">
+                        <a href="#flota" onclick="toggleMobileMenu();smoothScrollTo('flota')" class="hover:text-red-500">Cazas</a>
+                        <a href="#flota" onclick="toggleMobileMenu();smoothScrollTo('flota')" class="hover:text-red-500">Transporte</a>
+                        <a href="#flota" onclick="toggleMobileMenu();smoothScrollTo('flota')" class="hover:text-red-500">Helicópteros</a>
+                    </div>
+                </div>
+                
+                <a href="#historia" onclick="toggleMobileMenu();smoothScrollTo('historia')" class="hover:text-red-500">Historia</a>
+                <a href="#operaciones" onclick="toggleMobileMenu();smoothScrollTo('operaciones')" class="hover:text-red-500">Operaciones</a>
+                <a href="#galeria" onclick="toggleMobileMenu();smoothScrollTo('galeria')" class="hover:text-red-500">Galería</a>
+                
+                <div class="pt-6 border-t border-zinc-700">
+                    <button onclick="toggleMobileMenu()" 
+                            class="w-full bg-red-600 hover:bg-red-700 py-4 rounded-2xl font-semibold text-lg transition-colors">
+                        UNIRSE A LAS FUERZAS AÉREAS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-5xl mx-auto px-6 text-center z-10">
+            <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-8 border border-white/20">
+                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span class="uppercase text-sm tracking-[3px] font-mono">Defendiendo los cielos de España</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                EJÉRCITO DEL AIRE<br>Y DEL ESPACIO
+            </h1>
+            <p class="max-w-lg mx-auto text-xl text-zinc-300 mb-10">
+                Más de 80 años protegiendo el espacio aéreo español y contribuyendo a la seguridad global.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="smoothScrollTo('flota')" 
+                        class="bg-red-600 hover:bg-red-700 transition-all px-10 py-5 rounded-3xl text-lg font-semibold flex items-center justify-center gap-x-3 group">
+                    EXPLORAR FLOTA
+                    <i class="fas fa-arrow-right group-active:translate-x-2 transition"></i>
+                </button>
+                
+                <button onclick="smoothScrollTo('historia')" 
+                        class="border border-white/60 hover:bg-white/10 transition-all px-10 py-5 rounded-3xl text-lg font-semibold">
+                    CONOCE NUESTRA HISTORIA
+                </button>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-x-10 text-sm">
+                <div class="text-center">
+                    <div class="text-3xl font-mono font-bold text-amber-400">135</div>
+                    <div class="text-zinc-400 text-xs tracking-widest">AERONAVES</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-mono font-bold text-amber-400">22</div>
+                    <div class="text-zinc-400 text-xs tracking-widest">BASES</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-mono font-bold text-amber-400">4.800</div>
+                    <div class="text-zinc-400 text-xs tracking-widest">MILITARES</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-y-1 text-xs tracking-widest">
+            <span>DESLIZA</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+        
+        <div class="absolute bottom-8 right-8 hidden lg:flex items-center gap-x-4 opacity-30">
+            <div class="w-16 h-10 bg-red-600"></div>
+            <div class="w-16 h-10 bg-yellow-400"></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <span class="uppercase text-red-500 text-sm font-mono tracking-widest">Desde 1939</span>
+                    <h2 class="text-5xl font-bold leading-none tracking-tighter mt-3">Somos los guardianes del cielo español</h2>
+                    <p class="mt-8 text-lg text-zinc-400 leading-relaxed">
+                        El Ejército del Aire y del Espacio es la rama aérea de las Fuerzas Armadas Españolas. 
+                        Con más de 4.800 efectivos y una flota moderna, garantizamos la soberanía aérea de España 
+                        y participamos en misiones internacionales de la OTAN, UE y ONU.
+                    </p>
+                    <div class="mt-10 flex items-center gap-x-8">
+                        <div>
+                            <div class="text-4xl font-mono font-bold">85</div>
+                            <div class="text-xs uppercase tracking-widest">Años de historia</div>
+                        </div>
+                        <div class="h-12 w-px bg-zinc-700"></div>
+                        <button onclick="smoothScrollTo('historia')" 
+                                class="flex items-center gap-x-3 group">
+                            <span class="text-red-500 group-hover:underline">Ver cronología completa →</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-2 gap-6">
+                        <img src="https://picsum.photos/id/201/600/400" 
+                             alt="Eurofighter Typhoon" 
+                             class="rounded-3xl object-cover h-full w-full shadow-2xl">
+                        <div class="space-y-6">
+                            <img src="https://picsum.photos/id/866/600/190" 
+                                 alt="F/A-18 Hornet" 
+                                 class="rounded-3xl object-cover w-full">
+                            <img src="https://picsum.photos/id/1016/600/190" 
+                                 alt="A400M Atlas" 
+                                 class="rounded-3xl object-cover w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flota" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="uppercase font-mono text-red-500">NUESTRA FUERZA</span>
+                    <h2 class="text-5xl font-bold tracking-tighter">Flota Aérea</h2>
+                </div>
+                <a href="#" onclick="alert('En una web real se abriría catálogo completo')" 
+                   class="hidden md:flex items-center gap-x-2 text-sm group">
+                    VER TODA LA FLOTA 
+                    <span class="block w-8 h-px bg-white group-hover:w-12 transition-all"></span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div onclick="showAircraftModal(0)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/201/800/600')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-mono text-red-500 text-sm">C.16</div>
+                                <h3 class="text-2xl font-bold">Eurofighter Typhoon</h3>
+                            </div>
+                            <span class="px-3 py-1 text-xs bg-emerald-900 text-emerald-400 rounded-full">Caza</span>
+                        </div>
+                        <p class="text-zinc-400 mt-3 text-sm line-clamp-3">
+                            Caza polivalente de 5ª generación. Velocidad supersónica, radar AESA y armamento avanzado.
+                        </p>
+                        <div class="mt-6 text-xs flex justify-between text-zinc-500">
+                            <div>70+ unidades</div>
+                            <div>Base: Albacete</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="showAircraftModal(1)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/866/800/600')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-mono text-red-500 text-sm">C.15</div>
+                                <h3 class="text-2xl font-bold">F/A-18 Hornet</h3>
+                            </div>
+                            <span class="px-3 py-1 text-xs bg-amber-900 text-amber-400 rounded-full">Caza</span>
+                        </div>
+                        <p class="text-zinc-400 mt-3 text-sm line-clamp-3">
+                            Caza naval polivalente. Principal plataforma de ataque del Ejército del Aire.
+                        </p>
+                        <div class="mt-6 text-xs flex justify-between text-zinc-500">
+                            <div>60+ unidades</div>
+                            <div>Base: Zaragoza</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="showAircraftModal(2)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1016/800/600')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-mono text-red-500 text-sm">T.23</div>
+                                <h3 class="text-2xl font-bold">Airbus A400M</h3>
+                            </div>
+                            <span class="px-3 py-1 text-xs bg-sky-900 text-sky-400 rounded-full">Transporte</span>
+                        </div>
+                        <p class="text-zinc-400 mt-3 text-sm line-clamp-3">
+                            Avión de transporte estratégico y táctico. Capacidad de reabastecimiento en vuelo.
+                        </p>
+                        <div class="mt-6 text-xs flex justify-between text-zinc-500">
+                            <div>14 unidades</div>
+                            <div>Base: Zaragoza</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="showAircraftModal(3)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/133/800/600')"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-mono text-red-500 text-sm">T.21</div>
+                                <h3 class="text-2xl font-bold">CASA C-295</h3>
+                            </div>
+                            <span class="px-3 py-1 text-xs bg-violet-900 text-violet-400 rounded-full">Patrulla</span>
+                        </div>
+                        <p class="text-zinc-400 mt-3 text-sm line-clamp-3">
+                            Avión de patrulla marítima y transporte táctico ligero.
+                        </p>
+                        <div class="mt-6 text-xs flex justify-between text-zinc-500">
+                            <div>22 unidades</div>
+                            <div>Base: Morón</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="historia" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-mono text-red-500">1939 — 2026</span>
+                <h2 class="text-5xl font-bold tracking-tighter">Nuestra Historia</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto relative pl-12">
+                <div class="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-red-600 via-zinc-700 to-transparent"></div>
+                
+                <div class="space-y-16">
+                    <div class="relative timeline-item">
+                        <div class="absolute -left-12 w-8 h-8 bg-red-600 rounded-2xl flex items-center justify-center text-xs font-mono">39</div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-lg">Fundación del Ejército del Aire</div>
+                            <div class="text-sm text-zinc-400">Creación tras la Guerra Civil Española</div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item">
+                        <div class="absolute -left-12 w-8 h-8 bg-red-600 rounded-2xl flex items-center justify-center text-xs font-mono">82</div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-lg">Entrada en la OTAN</div>
+                            <div class="text-sm text-zinc-400">Incorporación a la Alianza Atlántica</div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item">
+                        <div class="absolute -left-12 w-8 h-8 bg-red-600 rounded-2xl flex items-center justify-center text-xs font-mono">85</div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-lg">Adquisición de F/A-18 Hornet</div>
+                            <div class="text-sm text-zinc-400">Modernización de la flota de combate</div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item">
+                        <div class="absolute -left-12 w-8 h-8 bg-red-600 rounded-2xl flex items-center justify-center text-xs font-mono">06</div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-lg">Llegada del Eurofighter Typhoon</div>
+                            <div class="text-sm text-zinc-400">Incorporación del caza de última generación</div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative timeline-item">
+                        <div class="absolute -left-12 w-8 h-8 bg-red-600 rounded-2xl flex items-center justify-center text-xs font-mono">23</div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-lg">Creación del Espacio</div>
+                            <div class="text-sm text-zinc-400">El Ejército del Aire pasa a llamarse Ejército del Aire y del Espacio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="operaciones" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold tracking-tighter text-center mb-16">Operaciones Actuales</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-amber-400 transition-colors">
+                    <div class="text-amber-400 mb-4">
+                        <i class="fas fa-shield-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold">Vigilancia Aérea Integrada (VAI)</h3>
+                    <p class="mt-4 text-zinc-400">Protección 24/7 del espacio aéreo español y control de tráfico aéreo militar.</p>
+                    <div class="mt-8 text-xs uppercase tracking-widest text-zinc-500">Activo • Todo el territorio nacional</div>
+                </div>
+                
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-amber-400 transition-colors">
+                    <div class="text-amber-400 mb-4">
+                        <i class="fas fa-globe text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold">Misión OTAN Air Policing</h3>
+                    <p class="mt-4 text-zinc-400">Patrulla aérea en el Báltico y protección del espacio aéreo aliado.</p>
+                    <div class="mt-8 text-xs uppercase tracking-widest text-zinc-500">2024-2025 • Lituania</div>
+                </div>
+                
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-amber-400 transition-colors">
+                    <div class="text-amber-400 mb-4">
+                        <i class="fas fa-plane text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold">Apoyo Humanitario</h3>
+                    <p class="mt-4 text-zinc-400">Transporte de ayuda y evacuaciones médicas en catástrofes internacionales.</p>
+                    <div class="mt-8 text-xs uppercase tracking-widest text-zinc-500">Activo • África y Oriente Medio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold tracking-tighter mb-16 text-center">Galería de Imágenes</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/201/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/866/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/1016/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/133/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/1015/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img onclick="showImageModal(this.src)" src="https://picsum.photos/id/870/600/400" class="rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-y-12">
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <div class="w-9 h-9 bg-red-600 rounded-full flex items-center justify-center text-3xl">🇪🇸</div>
+                        <span class="font-bold text-3xl">EAE</span>
+                    </div>
+                    <p class="text-zinc-400 max-w-xs">
+                        Ministerio de Defensa • Gobierno de España
+                    </p>
+                    <div class="mt-8 flex gap-x-6 text-2xl">
+                        <i class="fab fa-x-twitter hover:text-white cursor-pointer"></i>
+                        <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
+                        <i class="fab fa-youtube hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <div class="font-mono uppercase text-xs mb-4">Enlaces</div>
+                    <div class="space-y-3 text-sm">
+                        <a href="#" class="block hover:text-red-500">Reclutamiento</a>
+                        <a href="#" class="block hover:text-red-500">Museo del Aire</a>
+                        <a href="#" class="block hover:text-red-500">Prensa</a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <div class="font-mono uppercase text-xs mb-4">Bases Principales</div>
+                    <div class="space-y-3 text-sm">
+                        <div>Torrejón</div>
+                        <div>Albacete</div>
+                        <div>Zaragoza</div>
+                        <div>Morón</div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-3">
+                    <div class="bg-zinc-900 rounded-3xl p-6 text-center">
+                        <div class="text-red-500 text-sm font-medium">¿Quieres volar con nosotros?</div>
+                        <button onclick="alert('¡Gracias por tu interés! En una web real se abriría el formulario de reclutamiento.')"
+                                class="mt-6 w-full bg-white text-black py-6 rounded-2xl font-semibold hover:bg-amber-300 transition">
+                            ÚNETE A LA ÉLITE
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-xs text-zinc-500 mt-20">
+                © 2026 Ejército del Aire y del Espacio de España • Todos los derechos reservados
+            </div>
+        </div>
+    </footer>
+
+    <div id="aircraft-modal" class="hidden fixed inset-0 z-[999] bg-black/90 flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="max-w-2xl w-full mx-4 bg-zinc-900 rounded-3xl overflow-hidden">
+            <div id="modal-image" class="h-80 bg-cover bg-center"></div>
+            
+            <div class="p-8">
+                <div class="flex justify-between">
+                    <div id="modal-title" class="text-3xl font-bold"></div>
+                    <button onclick="closeModal()" class="text-3xl leading-none text-zinc-400 hover:text-white">×</button>
+                </div>
+                <div id="modal-subtitle" class="text-red-500 font-mono"></div>
+                
+                <div id="modal-desc" class="mt-6 text-zinc-300 leading-relaxed"></div>
+                
+                <div class="grid grid-cols-3 gap-6 mt-10 text-sm">
+                    <div>
+                        <div class="text-zinc-500">Velocidad máx.</div>
+                        <div id="modal-speed" class="font-mono text-2xl font-bold"></div>
+                    </div>
+                    <div>
+                        <div class="text-zinc-500">Alcance</div>
+                        <div id="modal-range" class="font-mono text-2xl font-bold"></div>
+                    </div>
+                    <div>
+                        <div class="text-zinc-500">Tripulación</div>
+                        <div id="modal-crew" class="font-mono text-2xl font-bold"></div>
+                    </div>
+                </div>
+                
+                <button onclick="closeModal()" 
+                        class="mt-10 w-full py-5 border border-white/30 hover:bg-white/5 rounded-2xl text-sm tracking-widest">
+                    CERRAR
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div class="hero">
-        <h1>Aviación Militar Española</h1>
+    <div id="image-modal" onclick="if(event.target === this) closeImageModal()" 
+         class="hidden fixed inset-0 z-[999] bg-black/95 flex items-center justify-center">
+        <div class="relative max-w-4xl w-full mx-4">
+            <img id="modal-full-image" class="max-h-[85vh] w-full object-contain rounded-3xl" alt="">
+            <button onclick="closeImageModal()" 
+                    class="absolute -top-4 -right-4 bg-zinc-900 text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl shadow-xl">
+                ×
+            </button>
+        </div>
     </div>
 
-    <div class="noticias">
-        <h2>Noticias recientes</h2>
-        <article>
-            <h2>La Fuerza Aérea Española recibe nuevos aviones Eurofighter</h2>
-            <p>La Fuerza Aérea Española ha recibido recientemente una nueva entrega de aviones Eurofighter Typhoon, que serán destinados a la base aérea de Los Llanos.</p>
-        </article>
-        <article>
-            <h2>El Ejército del Aire participa en ejercicios internacionales</h2>
-            <p>El Ejército del Aire ha participado en ejercicios internacionales de defensa aérea en Polonia, junto a fuerzas aéreas de otros países de la OTAN.</p>
-        </article>
-    </div>
-
-    <div class="footer">
-        <ul>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-        </ul>
-        <p>&copy; 2023 Aviación Militar Española</p>
-    </div>
-
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
