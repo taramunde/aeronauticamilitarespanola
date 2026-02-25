@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+    --accent: #c8102e;
+}
+
+.tail-container {
+    font-family: 'Inter', system_ui, sans-serif;
+}
+
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://picsum.photos/id/1015/1920/1080');
+    background-size: cover;
+    background-position: center 30%;
+}
+
+.nav-scrolled {
+    background-color: rgba(9, 9, 11, 0.95);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+}
+
+.dropdown-content {
+    animation: dropdown 0.2s ease forwards;
+}
+
+@keyframes dropdown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.aircraft-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aircraft-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 50px -12px rgb(200 16 46 / 0.4);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #c8102e, #f8f8f8);
+}
