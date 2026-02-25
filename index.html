@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="tail-container bg-zinc-950 text-zinc-100 overflow-x-hidden">
+
+    <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950 border-b border-zinc-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="h-16 flex items-center justify-between">
@@ -20,25 +22,19 @@
                     </div>
                 </div>
 
+                <!-- DESKTOP MENU -->
                 <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
                     <a href="#inicio" onclick="smoothScrollTo('inicio')" class="hover:text-red-500 transition-colors">INICIO</a>
                     
                     <div class="relative group">
-                        <button onclick="toggleDropdown(this)" 
-                                class="flex items-center gap-x-1 hover:text-red-500 transition-colors focus:outline-none">
-                            FLOTA
-                            <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                        <button onclick="toggleDropdown(this)" class="flex items-center gap-x-1 hover:text-red-500 transition-colors focus:outline-none">
+                            FLOTA <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
                         </button>
-                        <div id="dropdown-flota" 
-                             class="hidden absolute top-12 left-0 bg-zinc-900 border border-zinc-700 rounded-xl py-3 w-56 shadow-2xl dropdown-content">
-                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
-                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Cazas de Combate</a>
-                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
-                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Transporte Aéreo</a>
-                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
-                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Helicópteros</a>
-                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" 
-                               class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Entrenamiento</a>
+                        <div id="dropdown-flota" class="hidden absolute top-12 left-0 bg-zinc-900 border border-zinc-700 rounded-xl py-3 w-56 shadow-2xl dropdown-content">
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Cazas de Combate</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Transporte Aéreo</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Helicópteros</a>
+                            <a href="#flota" onclick="smoothScrollTo('flota');closeAllDropdowns()" class="block px-6 py-2 hover:bg-zinc-800 transition-colors">Entrenamiento</a>
                         </div>
                     </div>
                     
@@ -48,28 +44,22 @@
                 </div>
 
                 <div class="flex items-center gap-x-4">
-                    <button onclick="window.location.reload()" 
-                            class="hidden sm:flex items-center gap-x-2 bg-white text-zinc-900 hover:bg-amber-300 transition-colors px-5 py-2 rounded-full text-sm font-semibold">
-                        <i class="fas fa-search"></i>
-                        <span>BUSCAR</span>
+                    <button onclick="window.location.reload()" class="hidden sm:flex items-center gap-x-2 bg-white text-zinc-900 hover:bg-amber-300 transition-colors px-5 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-search"></i> BUSCAR
                     </button>
-                    
-                    <button id="hamburger" 
-                            onclick="toggleMobileMenu()"
-                            class="md:hidden w-10 h-10 flex items-center justify-center text-2xl hover:text-red-500 transition-colors">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl hover:text-red-500 transition-colors">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
-
+    <!-- MOBILE MENU -->
         <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 py-6">
             <div class="max-w-7xl mx-auto px-6 flex flex-col gap-y-6 text-lg">
                 <a href="#inicio" onclick="toggleMobileMenu();smoothScrollTo('inicio')" class="hover:text-red-500">Inicio</a>
                 
                 <div>
-                    <button onclick="toggleMobileDropdown(this)" 
-                            class="flex w-full justify-between items-center hover:text-red-500">
+                    <button onclick="toggleMobileDropdown(this)" class="flex w-full justify-between items-center hover:text-red-500">
                         <span>Flota</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </button>
@@ -85,15 +75,14 @@
                 <a href="#galeria" onclick="toggleMobileMenu();smoothScrollTo('galeria')" class="hover:text-red-500">Galería</a>
                 
                 <div class="pt-6 border-t border-zinc-700">
-                    <button onclick="toggleMobileMenu()" 
-                            class="w-full bg-red-600 hover:bg-red-700 py-4 rounded-2xl font-semibold text-lg transition-colors">
+                    <button onclick="toggleMobileMenu()" class="w-full bg-red-600 hover:bg-red-700 py-4 rounded-2xl font-semibold text-lg transition-colors">
                         UNIRSE A LAS FUERZAS AÉREAS
                     </button>
                 </div>
             </div>
         </div>
     </nav>
-
+<!-- HERO -->
     <section id="inicio" class="hero-bg h-screen flex items-center relative">
         <div class="max-w-5xl mx-auto px-6 text-center z-10">
             <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-8 border border-white/20">
@@ -137,17 +126,20 @@
             </div>
         </div>
         
+        <!-- SCROLL INDICATOR -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-y-1 text-xs tracking-widest">
             <span>DESLIZA</span>
             <i class="fas fa-chevron-down animate-bounce"></i>
         </div>
         
+        <!-- FLAG DECOR -->
         <div class="absolute bottom-8 right-8 hidden lg:flex items-center gap-x-4 opacity-30">
             <div class="w-16 h-10 bg-red-600"></div>
             <div class="w-16 h-10 bg-yellow-400"></div>
         </div>
     </section>
 
+    <!-- SOBRE NOSOTROS -->
     <section class="py-24 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-16 items-center">
@@ -159,6 +151,7 @@
                         Con más de 4.800 efectivos y una flota moderna, garantizamos la soberanía aérea de España 
                         y participamos en misiones internacionales de la OTAN, UE y ONU.
                     </p>
+
                     <div class="mt-10 flex items-center gap-x-8">
                         <div>
                             <div class="text-4xl font-mono font-bold">85</div>
@@ -191,6 +184,7 @@
         </div>
     </section>
 
+    <!-- FLOTA -->
     <section id="flota" class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-end mb-16">
@@ -206,6 +200,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 Eurofighter -->
                 <div onclick="showAircraftModal(0)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
                     <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/201/800/600')"></div>
                     <div class="p-6">
@@ -225,7 +220,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Card 2 F-18 -->
                 <div onclick="showAircraftModal(1)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
                     <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/866/800/600')"></div>
                     <div class="p-6">
@@ -246,6 +241,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3 A400M -->
                 <div onclick="showAircraftModal(2)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
                     <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1016/800/600')"></div>
                     <div class="p-6">
@@ -266,6 +262,7 @@
                     </div>
                 </div>
 
+                <!-- Card 4 C-295 -->
                 <div onclick="showAircraftModal(3)" class="aircraft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-red-600">
                     <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/133/800/600')"></div>
                     <div class="p-6">
@@ -288,7 +285,7 @@
             </div>
         </div>
     </section>
-
+    <!-- HISTORIA TIMELINE -->
     <section id="historia" class="py-24 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -297,6 +294,7 @@
             </div>
             
             <div class="max-w-3xl mx-auto relative pl-12">
+                <!-- Timeline line -->
                 <div class="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-red-600 via-zinc-700 to-transparent"></div>
                 
                 <div class="space-y-16">
@@ -344,6 +342,7 @@
         </div>
     </section>
 
+    <!-- OPERACIONES -->
     <section id="operaciones" class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold tracking-tighter text-center mb-16">Operaciones Actuales</h2>
@@ -351,7 +350,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-amber-400 transition-colors">
                     <div class="text-amber-400 mb-4">
-                        <i class="fas fa-shield-alt text-4xl"></i>
+                    <i class="fas fa-shield-alt text-4xl"></i>
                     </div>
                     <h3 class="text-2xl font-semibold">Vigilancia Aérea Integrada (VAI)</h3>
                     <p class="mt-4 text-zinc-400">Protección 24/7 del espacio aéreo español y control de tráfico aéreo militar.</p>
@@ -379,6 +378,7 @@
         </div>
     </section>
 
+    <!-- GALERÍA -->
     <section id="galeria" class="py-24 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold tracking-tighter mb-16 text-center">Galería de Imágenes</h2>
@@ -394,6 +394,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-black py-16 border-t border-zinc-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-y-12">
@@ -403,7 +404,7 @@
                         <span class="font-bold text-3xl">EAE</span>
                     </div>
                     <p class="text-zinc-400 max-w-xs">
-                        Ministerio de Defensa • Gobierno de España
+                Ministerio de Defensa • Gobierno de España
                     </p>
                     <div class="mt-8 flex gap-x-6 text-2xl">
                         <i class="fab fa-x-twitter hover:text-white cursor-pointer"></i>
@@ -413,89 +414,8 @@
                 </div>
                 
                 <div class="md:col-span-2">
-                    <div class="font-mono uppercase text-xs mb-4">Enlaces</div>
-                    <div class="space-y-3 text-sm">
-                        <a href="#" class="block hover:text-red-500">Reclutamiento</a>
-                        <a href="#" class="block hover:text-red-500">Museo del Aire</a>
-                        <a href="#" class="block hover:text-red-500">Prensa</a>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <div class="font-mono uppercase text-xs mb-4">Bases Principales</div>
-                    <div class="space-y-3 text-sm">
-                        <div>Torrejón</div>
-                        <div>Albacete</div>
-                        <div>Zaragoza</div>
-                        <div>Morón</div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-3">
-                    <div class="bg-zinc-900 rounded-3xl p-6 text-center">
-                        <div class="text-red-500 text-sm font-medium">¿Quieres volar con nosotros?</div>
-                        <button onclick="alert('¡Gracias por tu interés! En una web real se abriría el formulario de reclutamiento.')"
-                                class="mt-6 w-full bg-white text-black py-6 rounded-2xl font-semibold hover:bg-amber-300 transition">
-                            ÚNETE A LA ÉLITE
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center text-xs text-zinc-500 mt-20">
-                © 2026 Ejército del Aire y del Espacio de España • Todos los derechos reservados
-            </div>
-        </div>
-    </footer>
+                    <div class="font-mono uppercase text-xs mb-4">Enlaces</div>        
 
-    <div id="aircraft-modal" class="hidden fixed inset-0 z-[999] bg-black/90 flex items-center justify-center">
-        <div onclick="event.stopImmediatePropagation()" 
-             class="max-w-2xl w-full mx-4 bg-zinc-900 rounded-3xl overflow-hidden">
-            <div id="modal-image" class="h-80 bg-cover bg-center"></div>
-            
-            <div class="p-8">
-                <div class="flex justify-between">
-                    <div id="modal-title" class="text-3xl font-bold"></div>
-                    <button onclick="closeModal()" class="text-3xl leading-none text-zinc-400 hover:text-white">×</button>
-                </div>
-                <div id="modal-subtitle" class="text-red-500 font-mono"></div>
-                
-                <div id="modal-desc" class="mt-6 text-zinc-300 leading-relaxed"></div>
-                
-                <div class="grid grid-cols-3 gap-6 mt-10 text-sm">
-                    <div>
-                        <div class="text-zinc-500">Velocidad máx.</div>
-                        <div id="modal-speed" class="font-mono text-2xl font-bold"></div>
-                    </div>
-                    <div>
-                        <div class="text-zinc-500">Alcance</div>
-                        <div id="modal-range" class="font-mono text-2xl font-bold"></div>
-                    </div>
-                    <div>
-                        <div class="text-zinc-500">Tripulación</div>
-                        <div id="modal-crew" class="font-mono text-2xl font-bold"></div>
-                    </div>
-                </div>
-                
-                <button onclick="closeModal()" 
-                        class="mt-10 w-full py-5 border border-white/30 hover:bg-white/5 rounded-2xl text-sm tracking-widest">
-                    CERRAR
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="image-modal" onclick="if(event.target === this) closeImageModal()" 
-         class="hidden fixed inset-0 z-[999] bg-black/95 flex items-center justify-center">
-        <div class="relative max-w-4xl w-full mx-4">
-            <img id="modal-full-image" class="max-h-[85vh] w-full object-contain rounded-3xl" alt="">
-            <button onclick="closeImageModal()" 
-                    class="absolute -top-4 -right-4 bg-zinc-900 text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl shadow-xl">
-                ×
-            </button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
-</html>
+</html>   
