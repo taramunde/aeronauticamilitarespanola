@@ -658,28 +658,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Re-observe any dynamically needed reveals
     document.querySelectorAll('.reveal, .reveal-fade').forEach(el => io.observe(el));
-});
 
+    /* ── Back to top button ─────────────────────────── */
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
 
-/* ══════════════════════════════════════════════════════
-   BACK TO TOP BUTTON
-   ══════════════════════════════════════════════════════ */
-const backToTopBtn = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-    // Mostrar el botón a partir de 500px de scroll
-    if (window.scrollY > 500) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
-}, { passive: true });
-
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
 });
 
 /* ══════════════════════════════════════════════════════
