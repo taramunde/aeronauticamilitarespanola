@@ -527,7 +527,7 @@ textarea, input, select { font: inherit; color: inherit; }
     display: flex; flex-direction: column;
     transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     opacity: 0; transform: translateY(20px);
-    animation: cardIn .5s var(--ease-out forwards;
+    animation: cardIn .5s var(--ease-out) forwards;
     animation-delay: var(--card-delay, 0s);
 }
 @keyframes cardIn { to { opacity:1; transform:none } }
