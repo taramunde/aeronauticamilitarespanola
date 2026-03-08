@@ -13,7 +13,6 @@
 </head>
 <body>
 
-    <!-- PAGE LOADER -->
     <div id="page-loader">
         <div class="loader-inner">
             <div class="loader-emblem">🇪🇸</div>
@@ -22,10 +21,8 @@
         </div>
     </div>
 
-    <!-- SCROLL PROGRESS BAR -->
     <div id="scroll-progress-bar"></div>
 
-    <!-- ═══════ NAVBAR ═══════ -->
     <nav id="navbar">
         <div class="nav-container">
             <a class="nav-brand" href="#inicio" onclick="smoothScrollTo('inicio',event)">
@@ -41,6 +38,8 @@
                 <li><a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a></li>
                 <li><a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a></li>
                 <li><a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a></li>
+                <li><a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a></li>
+                <li><a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a></li>
                 <li><a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a></li>
                 <li><a href="#contacto" onclick="smoothScrollTo('contacto',event)" class="nav-cta">Contacto</a></li>
             </ul>
@@ -55,12 +54,13 @@
             <a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a>
             <a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a>
             <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
+            <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
+            <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
             <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
             <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
         </div>
     </nav>
 
-    <!-- ═══════ HERO ═══════ -->
     <section id="inicio" class="hero">
         <div class="hero-image"></div>
         <div class="hero-gradient"></div>
@@ -93,7 +93,6 @@
         </div>
     </section>
 
-    <!-- ═══════ CIFRAS ═══════ -->
     <section id="cifras" class="s-cifras">
         <div class="container">
             <div class="cifras-row">
@@ -121,7 +120,6 @@
         </div>
     </section>
 
-    <!-- ═══════ MISIONES ═══════ -->
     <section id="misiones" class="s-misiones">
         <div class="container">
             <header class="s-head reveal">
@@ -171,7 +169,6 @@
         </div>
     </section>
 
-    <!-- ═══════ FLOTA ═══════ -->
     <section id="flota" class="s-flota">
         <div class="container">
             <header class="flota-header">
@@ -203,7 +200,78 @@
         </div>
     </section>
 
-    <!-- ═══════ HISTORIA ═══════ -->
+    <section id="unidades" class="s-unidades">
+        <div class="container">
+            <header class="s-head reveal">
+                <span class="s-tag">02.5 · Fuerzas Especiales</span>
+                <h2>Unidades de Élite</h2>
+                <p>Nuestra fuerza no solo reside en el aire, sino en el personal altamente cualificado que opera en los entornos más hostiles.</p>
+            </header>
+
+            <div class="unidades-grid">
+                <a href="#" class="unidad-card reveal" style="--d:0s">
+                    <img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cb?w=800&q=80" alt="EZAPAC" loading="lazy">
+                    <div class="unidad-overlay">
+                        <span class="u-tag">Operaciones Especiales</span>
+                        <h3>EZAPAC</h3>
+                        <p>Escuadrón de Zapadores Paracaidistas. Especialistas en control aerotáctico, operaciones de rescate en combate (CSAR) y reconocimiento especial.</p>
+                        <span class="u-link">Conocer más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="unidad-card reveal" style="--d:.1s">
+                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" alt="EADA" loading="lazy">
+                    <div class="unidad-overlay">
+                        <span class="u-tag">Defensa y Apoyo</span>
+                        <h3>EADA y SEADA</h3>
+                        <p>Escuadrones de Apoyo al Despliegue Aéreo. Garantizan la defensa, seguridad y operatividad de las bases aéreas desplegadas en el exterior.</p>
+                        <span class="u-link">Conocer más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="actualidad" class="s-noticias">
+        <div class="container">
+            <header class="flota-header">
+                <div class="reveal">
+                    <span class="s-tag">02.6 · Sala de prensa</span>
+                    <h2>Actualidad Operativa</h2>
+                </div>
+                <button class="btn btn-outline reveal" style="--d:.1s">
+                    Ver todas las noticias
+                </button>
+            </header>
+
+            <div class="noticias-grid">
+                <article class="news-card reveal" style="--d:0s">
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80" alt="Noticia 1"></div>
+                    <div class="news-body">
+                        <time>12 de Marzo, 2026</time>
+                        <h3>Despliegue del Ala 14 en el Báltico</h3>
+                        <p>Seis Eurofighter Typhoon españoles asumen el mando de la Policía Aérea de la OTAN en Lituania para asegurar el flanco este.</p>
+                    </div>
+                </article>
+                <article class="news-card reveal" style="--d:.1s">
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="Noticia 2"></div>
+                    <div class="news-body">
+                        <time>08 de Marzo, 2026</time>
+                        <h3>Evacuación aeromédica completada con éxito</h3>
+                        <p>Un A400M medicalizado repatria a civiles desde zona de conflicto en una operación coordinada con el Ministerio de Asuntos Exteriores.</p>
+                    </div>
+                </article>
+                <article class="news-card reveal" style="--d:.2s">
+                    <div class="news-img"><img src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=600&q=80" alt="Noticia 3"></div>
+                    <div class="news-body">
+                        <time>01 de Marzo, 2026</time>
+                        <h3>Nuevo satélite militar operativo</h3>
+                        <p>El Ejército del Aire y del Espacio asume el control del nuevo satélite de observación SPAINSAT-NG I, mejorando la inteligencia estratégica.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section id="historia" class="s-historia">
         <div class="container">
             <header class="s-head reveal">
@@ -273,7 +341,6 @@
         </div>
     </section>
 
-    <!-- ═══════ CONTACTO ═══════ -->
     <section id="contacto" class="s-contacto">
         <div class="container">
             <div class="contacto-layout">
@@ -358,7 +425,6 @@
         </div>
     </section>
 
-    <!-- ═══════ FOOTER ═══════ -->
     <footer class="site-footer">
         <div class="container footer-wrap">
             <div class="footer-brand">
@@ -372,6 +438,8 @@
                 <a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a>
                 <a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a>
                 <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
+                <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
+                <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
                 <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
                 <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
             </nav>
@@ -379,7 +447,10 @@
         </div>
     </footer>
 
-    <!-- ═══════ MODAL ═══════ -->
+    <button id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <div id="aircraft-modal" class="modal-backdrop" onclick="handleBackdropClick(event)" role="dialog" aria-modal="true">
         <div class="modal-panel" id="modal-panel">
             <div class="modal-header">
