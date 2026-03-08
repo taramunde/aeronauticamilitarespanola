@@ -6,93 +6,411 @@
     <title>Ejército del Aire y del Espacio | España 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?nocache=20251231v1">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="tail-container bg-zinc-950 text-zinc-100 overflow-x-hidden">
+<body class="bg-zinc-950 text-zinc-100 overflow-x-hidden">
 
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950 border-b border-zinc-800">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="nav-inner max-w-7xl mx-auto px-6">
             <div class="h-16 flex items-center justify-between">
-                <div class="flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-2xl border-2 border-yellow-400">🇪🇸</div>
+                <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="flex items-center gap-x-3 group">
+                    <div class="logo-circle w-9 h-9 rounded-full flex items-center justify-center text-lg border-2 border-yellow-400 group-hover:scale-110 transition-transform">🇪🇸</div>
                     <div>
-                        <span class="font-bold text-2xl tracking-tighter">EAE</span>
-                        <span class="block text-[10px] leading-none -mt-1 text-amber-400">EJÉRCITO DEL AIRE Y DEL ESPACIO</span>
+                        <span class="font-black text-2xl tracking-tighter leading-none">EAE</span>
+                        <span class="block text-[9px] leading-none mt-0.5 text-amber-400 font-mono tracking-widest">EJÉRCITO DEL AIRE Y DEL ESPACIO</span>
                     </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-x-8 text-xs font-bold tracking-widest">
+                    <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="nav-link">INICIO</a>
+                    <a href="#misiones" onclick="smoothScrollTo('misiones', event)" class="nav-link">MISIONES</a>
+                    <a href="#flota" onclick="smoothScrollTo('flota', event)" class="nav-link">FLOTA</a>
+                    <a href="#historia" onclick="smoothScrollTo('historia', event)" class="nav-link">HISTORIA</a>
+                    <a href="#contacto" onclick="smoothScrollTo('contacto', event)" class="nav-link">CONTACTO</a>
                 </div>
 
-                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                    <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="hover:text-red-500 transition-colors">INICIO</a>
-                    <a href="#flota" onclick="smoothScrollTo('flota', event)" class="hover:text-red-500 transition-colors">FLOTA</a>
-                </div>
-
-                <button id="hamburger" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl hover:text-red-500">
+                <button id="hamburger" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-xl hover:text-red-500 transition-colors">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b border-zinc-800 px-6 py-4 flex flex-col gap-4">
-            <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="hover:text-red-500 font-medium">INICIO</a>
-            <a href="#flota" onclick="smoothScrollTo('flota', event)" class="hover:text-red-500 font-medium">FLOTA</a>
+
+        <div id="mobile-menu" class="hidden md:hidden mobile-menu-panel border-t border-zinc-800 px-6 py-5 flex flex-col gap-4">
+            <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="nav-link text-sm font-bold tracking-widest">INICIO</a>
+            <a href="#misiones" onclick="smoothScrollTo('misiones', event)" class="nav-link text-sm font-bold tracking-widest">MISIONES</a>
+            <a href="#flota" onclick="smoothScrollTo('flota', event)" class="nav-link text-sm font-bold tracking-widest">FLOTA</a>
+            <a href="#historia" onclick="smoothScrollTo('historia', event)" class="nav-link text-sm font-bold tracking-widest">HISTORIA</a>
+            <a href="#contacto" onclick="smoothScrollTo('contacto', event)" class="nav-link text-sm font-bold tracking-widest">CONTACTO</a>
         </div>
     </nav>
 
-    <section id="inicio" class="hero-bg h-screen flex items-center relative">
-        <div class="max-w-5xl mx-auto px-6 text-center z-10 w-full mt-16">
-            <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tighter mb-6">EJÉRCITO DEL AIRE<br>Y DEL ESPACIO</h1>
-            <p class="max-w-lg mx-auto text-xl text-zinc-300 mb-10">Defendiendo España 2026</p>
-            <button onclick="smoothScrollTo('flota', event)" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-3xl text-lg font-semibold flex items-center gap-x-3 mx-auto transition-transform hover:scale-105">
-                EXPLORAR FLOTA <i class="fas fa-arrow-right"></i>
-            </button>
+    <!-- HERO -->
+    <section id="inicio" class="hero-bg h-screen flex items-end relative overflow-hidden">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="absolute inset-0 grid-overlay"></div>
+        <div class="max-w-7xl mx-auto px-6 pb-20 z-10 w-full">
+            <div class="hero-badge font-mono text-xs tracking-widest text-amber-400 mb-6 flex items-center gap-2">
+                <span class="w-8 h-px bg-amber-400"></span>
+                FUERZA AÉREA ESPAÑOLA · DESDE 1939
+            </div>
+            <h1 class="hero-title text-6xl md:text-9xl font-black leading-none tracking-tighter mb-6 uppercase">
+                EJÉRCITO<br>
+                <span class="text-outline">DEL AIRE</span><br>
+                Y DEL ESPACIO
+            </h1>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10">
+                <button onclick="smoothScrollTo('flota', event)" class="cta-btn flex items-center gap-3 px-8 py-4 text-sm font-bold tracking-widest uppercase">
+                    EXPLORAR FLOTA <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="flex gap-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-white">150+</div>
+                        <div class="text-xs text-zinc-400 font-mono mt-1">AERONAVES</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-white">21.000</div>
+                        <div class="text-xs text-zinc-400 font-mono mt-1">EFECTIVOS</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-white">9</div>
+                        <div class="text-xs text-zinc-400 font-mono mt-1">BASES AÉREAS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500">
+            <span class="text-xs font-mono tracking-widest">SCROLL</span>
+            <div class="scroll-line w-px h-10 bg-zinc-600"></div>
         </div>
     </section>
 
-    <section id="flota" class="py-24 bg-black min-h-screen">
+    <!-- MISIONES -->
+    <section id="misiones" class="py-28 bg-zinc-950 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+            <div class="section-header mb-16">
+                <div class="font-mono text-xs text-red-500 tracking-widest mb-3 flex items-center gap-2"><span class="w-6 h-px bg-red-500"></span> 01 · MISIONES</div>
+                <h2 class="section-title text-5xl md:text-7xl font-black tracking-tighter uppercase">Nuestra<br>Misión</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-shield-alt text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Defensa Aérea</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Vigilancia y control permanente del espacio aéreo nacional e identificación de amenazas en tiempo real mediante sistemas AWACS y radares de vigilancia integrados en la red OTAN.</p>
+                </div>
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-globe text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Proyección de Fuerza</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Despliegue rápido de capacidades militares en teatros de operaciones internacionales, asegurando la presencia española en misiones de paz y estabilización lideradas por la ONU y la OTAN.</p>
+                </div>
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-hands-helping text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Ayuda Humanitaria</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Transporte de ayuda humanitaria, evacuación de ciudadanos en zonas de conflicto y apoyo en catástrofes naturales a nivel nacional e internacional mediante aeronaves especializadas.</p>
+                </div>
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-satellite text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Dominio Espacial</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Vigilancia del espacio exterior, gestión de satélites militares y monitoreo de objetos en órbita para garantizar la seguridad de las infraestructuras espaciales críticas de España y sus aliados.</p>
+                </div>
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-search text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">SAR Marítimo</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Búsqueda y rescate en el mar Mediterráneo y el Océano Atlántico con helicópteros y aviones de patrulla marítima, coordinando con Salvamento Marítimo y la Guardia Civil.</p>
+                </div>
+                <div class="mission-card rounded-2xl p-8 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                    <div class="mission-icon w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 transition-all duration-300">
+                        <i class="fas fa-fire text-red-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Extinción de Incendios</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">Apoyo aéreo en la lucha contra incendios forestales mediante los aviones CL-415 Bombardier del Ejército del Aire, operando en estrecha colaboración con brigadas de tierra de la BRIF.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOTA -->
+    <section id="flota" class="py-28 bg-black min-h-screen relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
                 <div>
-                    <h2 class="text-5xl font-bold tracking-tighter">Flota 2026</h2>
-                    <p id="results-count" class="text-zinc-400 mt-2 text-sm font-mono"></p> </div>
-                
+                    <div class="font-mono text-xs text-red-500 tracking-widest mb-3 flex items-center gap-2"><span class="w-6 h-px bg-red-500"></span> 02 · FLOTA</div>
+                    <h2 class="section-title text-5xl md:text-7xl font-black tracking-tighter uppercase">Flota<br>2026</h2>
+                    <p id="results-count" class="text-zinc-500 mt-3 text-xs font-mono tracking-wider"></p>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <input id="search-input" 
-                           onkeyup="filterFleet()" 
-                           type="text" 
-                           placeholder="Buscar aeronave..." 
-                           class="bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-3 focus:outline-none focus:border-red-600 w-full md:w-64 transition-colors">
-                    
-                    <div class="flex gap-2 overflow-x-auto pb-2 sm:pb-0">
-                        <button onclick="filterByType('all', this)" class="filter-btn active px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap">TODOS</button>
-                        <button onclick="filterByType('caza', this)" class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap">CAZA</button>
-                        <button onclick="filterByType('transporte', this)" class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap">TRANSPORTE</button>
-                        <button onclick="filterByType('helicoptero', this)" class="filter-btn px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap">HELICÓPTERO</button>
+                    <div class="relative">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
+                        <input id="search-input"
+                               onkeyup="filterFleet()"
+                               type="text"
+                               placeholder="Buscar aeronave..."
+                               class="search-input bg-zinc-900 border border-zinc-800 rounded-xl pl-10 pr-5 py-3 focus:outline-none focus:border-red-600 w-full md:w-64 transition-colors text-sm">
+                    </div>
+                    <div class="flex gap-2 overflow-x-auto pb-1 hide-scrollbar flex-wrap">
+                        <button onclick="filterByType('all', this)" class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">TODOS</button>
+                        <button onclick="filterByType('caza', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">CAZA</button>
+                        <button onclick="filterByType('transporte', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">TRANSPORTE</button>
+                        <button onclick="filterByType('helicóptero', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">HELICÓPTERO</button>
+                        <button onclick="filterByType('patrulla', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">PATRULLA</button>
+                        <button onclick="filterByType('entrenamiento', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-widest whitespace-nowrap">ENTRENAMIENTO</button>
                     </div>
                 </div>
             </div>
 
-            <div id="fleet-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+            <div id="fleet-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
         </div>
     </section>
 
-    <div id="aircraft-modal" class="hidden fixed inset-0 z-[999] bg-black/95 flex items-center justify-center p-4 transition-opacity" onclick="closeModalOnOutsideClick(event)">
-        <div class="max-w-4xl w-full bg-zinc-900 rounded-3xl overflow-hidden max-h-[90vh] flex flex-col shadow-2xl shadow-red-900/20">
-            <div class="flex justify-between items-center border-b border-zinc-700 px-6 py-4">
-                <div>
-                    <div id="modal-title" class="text-2xl font-bold"></div>
-                    <div id="modal-subtitle" class="text-red-500 font-mono text-sm mt-1"></div>
-                </div>
-                <button onclick="closeModal()" class="text-4xl text-zinc-400 hover:text-white transition-colors">&times;</button>
+     <!-- HISTORIA -->
+    <section id="historia" class="py-28 bg-zinc-950 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header mb-16">
+                <div class="font-mono text-xs text-red-500 tracking-widest mb-3 flex items-center gap-2"><span class="w-6 h-px bg-red-500"></span> 03 · HISTORIA</div>
+                <h2 class="section-title text-5xl md:text-7xl font-black tracking-tighter uppercase">85 años<br>de historia</h2>
             </div>
-            <div class="flex border-b border-zinc-700 px-6 overflow-x-auto hide-scrollbar">
-                <button onclick="switchTab(0)" class="tab-btn active px-4 py-3 whitespace-nowrap">General</button>
-                <button onclick="switchTab(1)" class="tab-btn px-4 py-3 whitespace-nowrap">Especificaciones</button>
-                <button onclick="switchTab(2)" class="tab-btn px-4 py-3 whitespace-nowrap">En España</button>
+            <div class="timeline relative">
+                <div class="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-zinc-800 md:-translate-x-1/2"></div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 mb-16 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 md:pr-16 md:text-right">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-red-600 border-4 border-zinc-950 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-red-500 text-xs tracking-widest mb-2">1939</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">Fundación del Ejército del Aire</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">El Ejército del Aire se constituyó como cuerpo independiente mediante decreto del 7 de octubre de 1939. España pasó a contar con una fuerza aérea autónoma, separada del Ejército de Tierra, con sus propias estructuras de mando y formación.</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 hidden md:block"></div>
+                </div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 mb-16 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 hidden md:block"></div>
+                    <div class="md:w-1/2 md:pl-16">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-red-600 border-4 border-zinc-950 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-red-500 text-xs tracking-widest mb-2">1982</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">Ingreso en la OTAN</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">España ingresa en la Alianza Atlántica, integrando el Ejército del Aire en las estructuras de defensa colectiva de la OTAN. Esto supuso la modernización acelerada de la flota y la incorporación de aeronaves de fabricación occidental.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 mb-16 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 md:pr-16 md:text-right">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-red-600 border-4 border-zinc-950 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-red-500 text-xs tracking-widest mb-2">1992</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">Llegada del EF-18 Hornet</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">España adquirió 72 cazas F/A-18 Hornet, revolucionando sus capacidades de combate aéreo. Estos aviones se convirtieron en la espina dorsal de la defensa aérea española durante décadas y aún operan en la actualidad.</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 hidden md:block"></div>
+                </div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 mb-16 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 hidden md:block"></div>
+                    <div class="md:w-1/2 md:pl-16">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-red-600 border-4 border-zinc-950 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-red-500 text-xs tracking-widest mb-2">2003</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">Eurofighter Typhoon</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Inicio de la incorporación del Eurofighter Typhoon (C.16), el caza más avanzado jamás operado por España. Desarrollado en consorcio europeo, este avión de cuarta generación avanzada supuso un salto tecnológico sin precedentes para la fuerza aérea española.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 mb-16 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 md:pr-16 md:text-right">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-amber-500 border-4 border-zinc-950 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-amber-400 text-xs tracking-widest mb-2">2022</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">Ejército del Aire y del Espacio</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Por Real Decreto 176/2022, el Ejército del Aire pasa a denominarse oficialmente "Ejército del Aire y del Espacio", reconociendo el dominio del espacio como un ámbito operativo más del Ejército, junto con las capacidades de observación y comunicación satelital.</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 hidden md:block"></div>
+                </div>
+
+                <div class="timeline-item flex flex-col md:flex-row gap-8 relative pl-12 md:pl-0">
+                    <div class="md:w-1/2 hidden md:block"></div>
+                    <div class="md:w-1/2 md:pl-16">
+                        <div class="timeline-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-amber-500 border-4 border-zinc-950 flex items-center justify-center ring-4 ring-amber-500/20">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="font-mono text-amber-400 text-xs tracking-widest mb-2">2026 · HOY</div>
+                        <h3 class="text-2xl font-black tracking-tight mb-3">El Futuro: FCAS</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">España participa activamente en el programa FCAS (Future Combat Air System), el sistema de combate aéreo de próxima generación que definirá la aviación militar europea en 2040. El caza de sexta generación vendrá acompañado de drones de combate y un sistema de gestión de combate en red.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-28 bg-black relative overflow-hidden">
+        <div class="contact-bg absolute inset-0"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <div class="font-mono text-xs text-red-500 tracking-widest mb-3 flex items-center gap-2"><span class="w-6 h-px bg-red-500"></span> 04 · CONTACTO</div>
+                    <h2 class="section-title text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8">Únete<br>a Nosotros</h2>
+                    <p class="text-zinc-400 text-base leading-relaxed mb-10 max-w-md">Forma parte de una de las instituciones más destacadas de España. El Ejército del Aire y del Espacio ofrece una carrera profesional única, con formación de élite y misiones de alto impacto nacional e internacional.</p>
+                    <div class="flex flex-col gap-5">
+                        <a href="tel:+34900101060" class="contact-link flex items-center gap-5 p-4 rounded-xl border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-all duration-300">
+                                <i class="fas fa-phone text-red-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-zinc-500 font-mono tracking-wider mb-0.5">TELÉFONO</div>
+                                <div class="font-bold">900 101 060</div>
+                            </div>
+                        </a>
+                        <a href="mailto:info@ejercitodelaire.mde.es" class="contact-link flex items-center gap-5 p-4 rounded-xl border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-all duration-300">
+                                <i class="fas fa-envelope text-red-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-zinc-500 font-mono tracking-wider mb-0.5">EMAIL</div>
+                                <div class="font-bold text-sm">info@ejercitodelaire.mde.es</div>
+                            </div>
+                        </a>
+                        <div class="contact-link flex items-center gap-5 p-4 rounded-xl border border-zinc-800">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-red-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-zinc-500 font-mono tracking-wider mb-0.5">SEDE CENTRAL</div>
+                                <div class="font-bold text-sm">C/ Romero Robledo, 14 · Madrid</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper rounded-2xl p-8 border border-zinc-800">
+                    <h3 class="text-2xl font-black tracking-tight mb-6">Envíanos un Mensaje</h3>
+                    <div class="flex flex-col gap-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-500 tracking-widest mb-2">NOMBRE</label>
+                                <input type="text" placeholder="Tu nombre" class="form-input w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-600 transition-colors placeholder-zinc-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-500 tracking-widest mb-2">APELLIDOS</label>
+                                <input type="text" placeholder="Tus apellidos" class="form-input w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-600 transition-colors placeholder-zinc-600">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 tracking-widest mb-2">EMAIL</label>
+                            <input type="email" placeholder="tu@email.com" class="form-input w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-600 transition-colors placeholder-zinc-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 tracking-widest mb-2">ASUNTO</label>
+                            <select class="form-input w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-600 transition-colors text-zinc-300">
+                                <option value="" class="text-zinc-600">Seleccionar...</option>
+                                <option>Información sobre acceso</option>
+                                <option>Información general</option>
+                                <option>Proceso de selección</option>
+                                <option>Visitas y actos públicos</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 tracking-widest mb-2">MENSAJE</label>
+                            <textarea placeholder="Escribe tu mensaje..." rows="4" class="form-input w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-600 transition-colors placeholder-zinc-600 resize-none"></textarea>
+                        </div>
+                        <button onclick="handleFormSubmit()" class="cta-btn w-full py-4 text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3">
+                            ENVIAR MENSAJE <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="form-success" class="hidden bg-green-900/30 border border-green-700 rounded-xl p-4 text-center text-green-400 text-sm font-medium">
+                            <i class="fas fa-check-circle mr-2"></i>Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="text-2xl">🇪🇸</div>
+                        <div>
+                            <div class="font-black text-xl tracking-tighter">EAE</div>
+                            <div class="text-[9px] text-amber-400 font-mono tracking-widest">EJÉRCITO DEL AIRE Y DEL ESPACIO</div>
+                        </div>
+                    </div>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Vigilamos el cielo. Defendemos España. Proyectamos el futuro.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs tracking-widest font-mono text-zinc-400 mb-4">NAVEGACIÓN</h4>
+                    <div class="flex flex-col gap-2">
+                        <a href="#inicio" onclick="smoothScrollTo('inicio', event)" class="text-zinc-500 hover:text-white transition-colors text-sm">Inicio</a>
+                        <a href="#misiones" onclick="smoothScrollTo('misiones', event)" class="text-zinc-500 hover:text-white transition-colors text-sm">Misiones</a>
+                        <a href="#flota" onclick="smoothScrollTo('flota', event)" class="text-zinc-500 hover:text-white transition-colors text-sm">Flota 2026</a>
+                        <a href="#historia" onclick="smoothScrollTo('historia', event)" class="text-zinc-500 hover:text-white transition-colors text-sm">Historia</a>
+                        <a href="#contacto" onclick="smoothScrollTo('contacto', event)" class="text-zinc-500 hover:text-white transition-colors text-sm">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs tracking-widest font-mono text-zinc-400 mb-4">REDES OFICIALES</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:border-red-600 hover:text-red-500 transition-all duration-300">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:border-red-600 hover:text-red-500 transition-all duration-300">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:border-red-600 hover:text-red-500 transition-all duration-300">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:border-red-600 hover:text-red-500 transition-all duration-300">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between gap-4 items-center">
+                <p class="text-zinc-600 text-xs font-mono">© 2026 EJÉRCITO DEL AIRE Y DEL ESPACIO · MINISTERIO DE DEFENSA · ESPAÑA</p>
+                <p class="text-zinc-700 text-xs font-mono">SITIO WEB NO OFICIAL · CON FINES DEMOSTRATIVOS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DETALLE AERONAVE -->
+    <div id="aircraft-modal" class="hidden fixed inset-0 z-[999] bg-black/95 flex items-center justify-center p-4" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-box max-w-4xl w-full bg-zinc-900 rounded-2xl overflow-hidden max-h-[90vh] flex flex-col shadow-2xl shadow-red-900/20 border border-zinc-800">
+            <div class="flex justify-between items-center border-b border-zinc-800 px-6 py-4 flex-shrink-0">
+                <div>
+                    <div id="modal-title" class="text-2xl font-black tracking-tight"></div>
+                    <div id="modal-subtitle" class="text-red-500 font-mono text-xs mt-1 tracking-widest"></div>
+                </div>
+                <button onclick="closeModal()" class="w-10 h-10 rounded-xl bg-zinc-800 hover:bg-red-600 flex items-center justify-center text-2xl text-zinc-400 hover:text-white transition-all duration-300 leading-none">&times;</button>
+            </div>
+            <div class="flex border-b border-zinc-800 px-6 overflow-x-auto hide-scrollbar flex-shrink-0">
+                <button onclick="switchTab(0)" class="tab-btn px-5 py-4 text-sm font-bold tracking-wider whitespace-nowrap">GENERAL</button>
+                <button onclick="switchTab(1)" class="tab-btn px-5 py-4 text-sm font-bold tracking-wider whitespace-nowrap">ESPECIFICACIONES</button>
+                <button onclick="switchTab(2)" class="tab-btn px-5 py-4 text-sm font-bold tracking-wider whitespace-nowrap">EN ESPAÑA</button>
+                <button onclick="switchTab(3)" class="tab-btn px-5 py-4 text-sm font-bold tracking-wider whitespace-nowrap">GALERÍA</button>
             </div>
             <div id="modal-content" class="flex-1 overflow-auto p-6 text-zinc-300"></div>
         </div>
     </div>
 
-    <script src="js/script.js?nocache=20251231v1"></script>
+    <script src="script.js"></script>
 </body>
 </html>
