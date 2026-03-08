@@ -660,16 +660,39 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal, .reveal-fade').forEach(el => io.observe(el));
 });
 
+
+/* ══════════════════════════════════════════════════════
+   BACK TO TOP BUTTON
+   ══════════════════════════════════════════════════════ */
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    // Mostrar el botón a partir de 500px de scroll
+    if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+}, { passive: true });
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 /* ══════════════════════════════════════════════════════
    ACTIVE NAV LINK — resalta el enlace de la sección visible
    ══════════════════════════════════════════════════════ */
 (function () {
-    const sections = ['inicio','cifras','misiones','flota','historia','contacto'];
+    // Añadidas las nuevas secciones al array para que el scroll spy funcione
+    const sections = ['inicio','cifras','misiones','flota','unidades','actualidad','historia','contacto'];
     const navLinks = document.querySelectorAll('.nav-links a');
 
     function setActive() {
         let current = 'inicio';
-        const offset = document.getElementById('navbar').offsetHeight + 40;
+        const offset = document.getElementById('navbar').offsetHeight + 60;
 
         sections.forEach(id => {
             const el = document.getElementById(id);
