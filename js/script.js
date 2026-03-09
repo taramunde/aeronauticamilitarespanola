@@ -987,12 +987,34 @@ function renderBases() {
             <div class="bi-type">${b.type}</div>
         </div>`).join('');
 
-    // Also attach pin listeners
+    // Hook div overlay pins (transparent, for click area)
     document.querySelectorAll('.base-pin').forEach(pin => {
-        pin.addEventListener('click', () => {
-            const id = parseInt(pin.dataset.base);
-            selectBase(id);
-        });
+        pin.addEventListener('click', () => selectBase(parseInt(pin.dataset.base)));
+        pin.style.cursor = 'pointer';
+        // Make the pin div large enough to click over SVG dot
+        pin.style.width = '28px';
+        pin.style.height = '28px';
+        pin.style.zIndex = '20';
+    });
+
+    // Also hook SVG circles directly
+    document.querySelectorAll('#spain-svg circle.map-base-dot').forEach((circle, i) => {
+        if (i < basesData.length) {
+            circle.style.cursor = 'pointer';
+            circle.addEventListener('click', () => selectBase(i));
+        }
+    });
+}
+
+function highlightSVGBase(id) {
+    const circles = document.querySelectorAll('#spain-svg circle.map-base-dot');
+    circles.forEach((c, i) => {
+        if (i === id) {
+            c.setAttribute('r', '8');
+            c.style.fill = id < 8 ? 'var(--red)' : 'var(--gold)';
+        } else {
+            c.setAttribute('r', '5');
+        }
     });
 }
 
@@ -1009,6 +1031,9 @@ function selectBase(id) {
     document.querySelectorAll('.base-pin').forEach(pin => {
         pin.classList.toggle('active', parseInt(pin.dataset.base) === id);
     });
+
+    // Highlight the SVG dot
+    highlightSVGBase(id);
 
     const detail = document.getElementById('base-detail');
     detail.innerHTML = `
