@@ -987,33 +987,40 @@ function renderBases() {
             <div class="bi-type">${b.type}</div>
         </div>`).join('');
 
-    // Hook div overlay pins (transparent, for click area)
-    document.querySelectorAll('.base-pin').forEach(pin => {
-        pin.addEventListener('click', () => selectBase(parseInt(pin.dataset.base)));
-        pin.style.cursor = 'pointer';
-        // Make the pin div large enough to click over SVG dot
-        pin.style.width = '28px';
-        pin.style.height = '28px';
-        pin.style.zIndex = '20';
-    });
-
-    // Also hook SVG circles directly
-    document.querySelectorAll('#spain-svg circle.map-base-dot').forEach((circle, i) => {
-        if (i < basesData.length) {
-            circle.style.cursor = 'pointer';
-            circle.addEventListener('click', () => selectBase(i));
+    // Hook SVG group clicks
+    document.querySelectorAll('#spain-svg .map-base-group').forEach(g => {
+        const circle = g.querySelector('circle.map-base-dot');
+        if (circle) {
+            const onclick = g.getAttribute('onclick');
+            // already set via HTML onclick attribute
         }
     });
 }
 
 function highlightSVGBase(id) {
-    const circles = document.querySelectorAll('#spain-svg circle.map-base-dot');
-    circles.forEach((c, i) => {
-        if (i === id) {
-            c.setAttribute('r', '8');
-            c.style.fill = id < 8 ? 'var(--red)' : 'var(--gold)';
+    document.querySelectorAll('#spain-svg .map-base-group circle.map-base-dot').forEach((c) => {
+        c.setAttribute('r', c.classList.contains('map-base-gold') ? '6' : '6');
+        c.style.opacity = '0.6';
+    });
+    // Highlight the selected one
+    const groups = document.querySelectorAll('#spain-svg .map-base-group');
+    // find group by onclick attribute containing selectBase(id)
+    groups.forEach(g => {
+        const onc = g.getAttribute('onclick') || '';
+        if (onc.includes(`selectBase(${id})`)) {
+            const c = g.querySelector('circle.map-base-dot');
+            if (c) {
+                c.setAttribute('r', '9');
+                c.style.opacity = '1';
+                c.style.filter = 'drop-shadow(0 0 10px rgba(200,16,46,1))';
+            }
         } else {
-            c.setAttribute('r', '5');
+            const c = g.querySelector('circle.map-base-dot');
+            if (c) {
+                c.setAttribute('r', '6');
+                c.style.opacity = '0.7';
+                c.style.filter = '';
+            }
         }
     });
 }
