@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?nocache=20251231v26">
+    <link rel="stylesheet" href="css/styles.css?nocache=20251231v25">
 </head>
 <body>
 
@@ -489,64 +489,102 @@
             <div class="bases-layout">
                 <div class="bases-map-wrap reveal">
                     <div class="bases-map" id="bases-map">
-                        <svg viewBox="0 0 900 700" class="spain-svg" id="spain-svg">
-                            <!-- Spain simplified outline -->
-                            <path class="spain-land" d="M180,80 L220,60 L280,55 L350,45 L420,50 L490,40 L560,50 L620,60 L680,80 L720,110 L740,150 L750,200 L755,250 L760,300 L750,350 L730,400 L710,440 L690,470 L660,500 L620,520 L580,535 L540,545 L500,550 L460,545 L420,535 L380,520 L340,500 L300,475 L260,450 L230,420 L200,385 L175,350 L160,310 L150,270 L148,230 L150,190 L160,150 L180,120 Z"/>
-                            <!-- Portugal -->
-                            <path class="spain-land portugal" d="M148,230 L150,190 L160,150 L180,120 L180,80 L150,90 L120,120 L110,160 L108,200 L112,240 L118,280 L125,320 L135,350 L148,380 L160,310 Z"/>
-                            <!-- Andalucía lower coast -->
-                            <path class="spain-land" d="M200,385 L230,420 L260,450 L300,475 L340,500 L290,510 L250,505 L215,490 L195,460 L185,430 Z"/>
-                            <!-- Canarias (simplified) -->
-                            <circle class="spain-land canarias-bg" cx="140" cy="600" r="55"/>
-                            <text x="140" y="585" class="map-island-label">Canarias</text>
+
+                        <!-- ── Mapa España (coordenadas geográficas reales) ── -->
+                        <svg viewBox="-5 10 815 500" class="spain-svg" id="spain-svg" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="glow-red">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                            </defs>
+
+                            <!-- Portugal (fondo diferente) -->
+                            <path class="spain-land portugal" d="M34.3,120.5 L41.1,130.0 L44.6,140.8 L48.0,148.4 L48.0,158.5 L49.7,172.5 L55.4,188.3 L61.7,208.0 L70.9,227.0 L89.7,249.2 L101.7,268.9 L140.6,317.1 L149.1,347.5 L140.6,362.7 L132.0,380.5 L128.6,398.2 L121.7,404.0 L113.1,413.5 L112.6,428.7 L114.3,440.1 L85.7,432.5 L46.9,407.8 L40.0,404.0 L34.3,371.0 L11.4,348.8 L-1.1,334.8 L0.0,289.2 L11.4,279.0 L34.3,235.9 L48.6,190.2 L48.6,148.4 Z"/>
+
+                            <!-- España peninsular -->
+                            <path class="spain-land" d="M34.3,120.5 L34.3,100.2 L30.9,79.3 L33.1,64.7 L36.0,43.8 L43.4,33.0 L49.1,26.0 L62.3,22.8 L72.6,24.1 L83.4,23.5 L97.7,22.2 L106.9,21.6 L123.4,23.5 L141.7,22.2 L154.3,22.2 L174.9,20.9 L193.1,20.9 L214.3,27.9 L232.6,31.1 L253.1,31.1 L270.9,31.7 L289.1,30.4 L309.1,27.9 L328.6,26.6 L341.7,25.4 L362.3,25.4 L384.0,26.0 L400.6,27.3 L416.6,27.3 L434.3,27.9 L441.1,33.6 L462.9,40.0 L490.3,43.1 L525.7,66.0 L553.7,74.8 L584.0,75.5 L626.3,82.4 L644.6,88.8 L662.9,97.0 L690.9,91.3 L709.7,97.0 L723.4,93.2 L732.0,100.2 L725.1,124.9 L712.0,144.0 L700.6,157.3 L677.7,175.7 L649.1,179.5 L630.9,187.1 L610.3,196.6 L590.9,204.2 L581.7,214.3 L570.3,219.4 L554.9,253.0 L547.4,270.1 L540.0,287.3 L533.1,319.6 L517.7,353.9 L506.3,376.0 L501.1,398.2 L478.3,427.4 L458.9,438.8 L438.3,455.3 L424.0,457.9 L397.1,459.1 L372.0,457.9 L342.9,461.7 L320.6,462.3 L289.1,465.5 L271.4,470.5 L260.6,473.7 L240.0,489.6 L223.4,501.0 L208.6,499.7 L196.6,489.6 L178.3,464.2 L163.4,428.0 L147.4,404.0 L137.1,408.4 L127.4,413.5 L114.3,440.1 L112.6,428.7 L113.1,413.5 L121.7,404.0 L128.6,398.2 L132.0,380.5 L140.6,362.7 L149.1,347.5 L140.6,317.1 L101.7,268.9 L89.7,249.2 L70.9,227.0 L61.7,208.0 L55.4,188.3 L49.7,172.5 L48.0,158.5 L48.0,148.4 L44.6,140.8 L41.1,130.0 L34.3,120.5 Z"/>
+
+                            <!-- Mallorca -->
+                            <path class="spain-land island" d="M674.3,280.3 L689.1,294.2 L713.1,297.4 L730.3,293.6 L741.1,287.3 L742.3,277.8 L733.1,261.3 L717.1,249.2 L702.9,248.0 L689.1,254.3 L678.9,263.2 L674.3,270.8 Z"/>
+                            <!-- Menorca -->
+                            <path class="spain-land island" d="M761.1,255.6 L774.9,258.7 L788.0,251.8 L790.3,242.9 L778.3,237.8 L765.7,243.5 Z"/>
+                            <!-- Ibiza -->
+                            <path class="spain-land island" d="M610.3,317.7 L625.1,319.0 L633.7,312.6 L632.0,303.8 L621.7,303.1 L612.6,308.8 Z"/>
+
+                            <!-- Canarias (inset abajo-izquierda) — coordenadas escaladas a zona 0-200,420-500 aprox -->
+                            <g transform="translate(10,390) scale(1.08)">
+                                <rect x="-4" y="-4" width="196" height="78" rx="4" class="canarias-box"/>
+                                <text x="96" y="-8" class="map-island-label canarias-title">Islas Canarias</text>
+                                <!-- Tenerife -->
+                                <path class="spain-land island" d="M46.1,52.1 L56.2,53.2 L67.7,50.7 L74.9,44.8 L69.8,37.5 L62.3,33.6 L51.5,32.2 L46.1,35.7 L45.0,43.1 Z"/>
+                                <!-- Gran Canaria -->
+                                <path class="spain-land island" d="M85.0,62.3 L94.7,62.3 L102.2,57.4 L102.2,50.4 L94.7,46.2 L85.7,46.5 L77.8,51.4 L77.4,57.0 Z"/>
+                                <!-- Fuerteventura -->
+                                <path class="spain-land island" d="M133.2,53.6 L151.2,55.6 L158.4,50.7 L159.5,38.5 L149.8,27.6 L140.8,22.0 L133.2,22.0 L129.2,28.0 L131.8,39.9 Z"/>
+                                <!-- Lanzarote -->
+                                <path class="spain-land island" d="M157.0,23.1 L167.4,23.1 L172.1,17.1 L170.3,9.8 L163.8,9.4 L157.0,13.3 L154.8,17.9 Z"/>
+                                <!-- La Palma -->
+                                <path class="spain-land island" d="M9.4,36.1 L15.5,38.1 L17.6,32.9 L15.8,25.9 L10.8,23.1 L5.4,25.6 L4.3,30.5 Z"/>
+                                <!-- La Gomera -->
+                                <path class="spain-land island" d="M33.8,52.9 L40.0,52.9 L42.5,49.4 L40.3,45.8 L36.0,45.1 L32.4,48.0 Z"/>
+                                <!-- El Hierro -->
+                                <path class="spain-land island" d="M0.7,62.3 L7.2,65.5 L11.5,61.9 L11.5,56.7 L7.2,53.9 L0.7,57.4 Z"/>
+                                <!-- Pin Gando (Gran Canaria) -->
+                                <circle class="map-base-dot map-base-gold" cx="90" cy="52" r="4"/>
+                                <circle class="map-base-ring map-base-gold-ring" cx="90" cy="52" r="8"/>
+                                <text x="96" y="50" class="map-base-label-svg">Gando</text>
+                            </g>
+
+                            <!-- Separador inset Canarias -->
+                            <line x1="10" y1="388" x2="210" y2="388" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+                            <!-- Bases como círculos SVG nativos (más precisos que divs CSS en overlay) -->
+                            <!-- Zaragoza: lon -0.87, lat 41.66 → x=493, y=142 -->
+                            <circle class="map-base-dot" cx="493" cy="142" r="5"/>
+                            <circle class="map-base-ring" cx="493" cy="142" r="10"/>
+                            <text x="500" y="137" class="map-base-label-svg">Zaragoza</text>
+
+                            <!-- Morón: lon -5.61, lat 37.17 → x=222, y=427 -->
+                            <circle class="map-base-dot" cx="222" cy="427" r="5"/>
+                            <circle class="map-base-ring" cx="222" cy="427" r="10"/>
+                            <text x="228" y="422" class="map-base-label-svg">Morón</text>
+
+                            <!-- Albacete: lon -1.86, lat 38.95 → x=437, y=314 -->
+                            <circle class="map-base-dot" cx="437" cy="314" r="5"/>
+                            <circle class="map-base-ring" cx="437" cy="314" r="10"/>
+                            <text x="444" y="309" class="map-base-label-svg">Albacete</text>
+
+                            <!-- Torrejón: lon -3.44, lat 40.50 → x=346, y=216 -->
+                            <circle class="map-base-dot" cx="346" cy="216" r="5"/>
+                            <circle class="map-base-ring" cx="346" cy="216" r="10"/>
+                            <text x="353" y="211" class="map-base-label-svg">Torrejón</text>
+
+                            <!-- Getafe: lon -3.72, lat 40.30 → x=330, y=228 -->
+                            <circle class="map-base-dot" cx="330" cy="231" r="4"/>
+                            <text x="310" y="244" class="map-base-label-svg">Getafe</text>
+
+                            <!-- Reus: lon 1.12, lat 41.15 → x=607, y=174 -->
+                            <circle class="map-base-dot" cx="607" cy="174" r="5"/>
+                            <circle class="map-base-ring" cx="607" cy="174" r="10"/>
+                            <text x="614" y="169" class="map-base-label-svg">Reus</text>
+
+                            <!-- Palma Son San Juan: lon 2.74, lat 39.55 → x=699, y=276 -->
+                            <circle class="map-base-dot" cx="699" cy="276" r="5"/>
+                            <circle class="map-base-ring" cx="699" cy="276" r="10"/>
+                            <text x="706" y="271" class="map-base-label-svg">Palma</text>
                         </svg>
 
-                        <!-- Base markers -->
-                        <div class="base-pin" data-base="0" style="left:56%;top:28%" title="Zaragoza">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Zaragoza</div>
-                        </div>
-                        <div class="base-pin" data-base="1" style="left:44%;top:62%" title="Morón de la Frontera">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Morón</div>
-                        </div>
-                        <div class="base-pin" data-base="2" style="left:62%;top:52%" title="Albacete">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Albacete</div>
-                        </div>
-                        <div class="base-pin" data-base="3" style="left:58%;top:38%" title="Torrejón de Ardoz">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Torrejón</div>
-                        </div>
-                        <div class="base-pin" data-base="4" style="left:52%;top:42%" title="Getafe">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Getafe</div>
-                        </div>
-                        <div class="base-pin base-pin--gold" data-base="5" style="left:16%;top:85%" title="Gando, Gran Canaria">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Gando</div>
-                        </div>
-                        <div class="base-pin" data-base="6" style="left:76%;top:22%" title="Reus">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Reus</div>
-                        </div>
-                        <div class="base-pin" data-base="7" style="left:70%;top:70%" title="Son San Juan, Palma">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Palma</div>
-                        </div>
-                        <div class="base-pin base-pin--red" data-base="8" style="left:88%;top:80%" title="Gando Ext / NATO">
-                            <div class="pin-dot"></div>
-                            <div class="pin-ring"></div>
-                            <div class="pin-label">Exterior</div>
-                        </div>
+                        <!-- Overlay pins para interacción (conectados a JS) -->
+                        <div class="base-pin" data-base="0" style="left:61.6%;top:27.4%" title="Zaragoza"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="1" style="left:27.8%;top:82.2%" title="Morón"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="2" style="left:54.6%;top:60.4%" title="Albacete"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="3" style="left:43.3%;top:41.6%" title="Torrejón"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="4" style="left:41.3%;top:44.4%" title="Getafe"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin base-pin--gold" data-base="5" style="left:12.8%;top:91.2%" title="Gando"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="6" style="left:75.9%;top:33.5%" title="Reus"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin" data-base="7" style="left:87.4%;top:53.1%" title="Palma"><div class="pin-dot"></div><div class="pin-ring"></div></div>
+                        <div class="base-pin base-pin--red" data-base="8" style="left:97%;top:8%" title="Exterior OTAN"><div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-label" style="left:-60px;top:14px">Ext. OTAN</div></div>
                     </div>
                 </div>
 
@@ -666,6 +704,6 @@
         </div>
     </section>
 
-    <script src="js/script.js?nocache=20251231v26"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
