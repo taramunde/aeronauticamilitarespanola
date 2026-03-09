@@ -698,3 +698,499 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', setActive, { passive: true });
     window.addEventListener('load', setActive);
 })();
+
+/* ══════════════════════════════════════════════════════
+   HERO PARTICLES — canvas animation
+   ══════════════════════════════════════════════════════ */
+(function initParticles() {
+    const canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    const COUNT = 60;
+
+    function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+    }
+
+    function Particle() {
+        this.reset = function() {
+            this.x = Math.random() * W;
+            this.y = Math.random() * H;
+            this.vx = (Math.random() - .5) * .4;
+            this.vy = -Math.random() * .6 - .2;
+            this.r  = Math.random() * 1.5 + .5;
+            this.alpha = Math.random() * .5 + .1;
+            this.life = 0;
+            this.maxLife = Math.random() * 300 + 150;
+        };
+        this.reset();
+        this.life = Math.random() * this.maxLife; // stagger
+    }
+
+    function init() {
+        resize();
+        particles = Array.from({length: COUNT}, () => new Particle());
+        window.addEventListener('resize', () => { resize(); });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy; p.life++;
+            const progress = p.life / p.maxLife;
+            const alpha = p.alpha * Math.sin(progress * Math.PI);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(200,16,46,${alpha})`;
+            ctx.fill();
+            if (p.life >= p.maxLife || p.y < -10) p.reset();
+        });
+        requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+})();
+
+/* ══════════════════════════════════════════════════════
+   RADAR CANVAS
+   ══════════════════════════════════════════════════════ */
+(function initRadar() {
+    const canvas = document.getElementById('radar-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const cx = 180, cy = 180, R = 170;
+    let angle = 0;
+    const blips = [];
+
+    // Generate random blips
+    for (let i = 0; i < 8; i++) {
+        const a = Math.random() * Math.PI * 2;
+        const r = Math.random() * R * .85;
+        blips.push({ x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r, age: Math.random() * 360 });
+    }
+
+    function drawFrame() {
+        ctx.clearRect(0, 0, 360, 360);
+
+        // Background
+        const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+        bg.addColorStop(0, 'rgba(9,9,11,1)');
+        bg.addColorStop(1, 'rgba(4,4,6,1)');
+        ctx.fillStyle = bg;
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Grid rings
+        [.25,.5,.75,1].forEach(f => {
+            ctx.beginPath();
+            ctx.arc(cx, cy, R * f, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(200,16,46,.12)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        });
+
+        // Cross hairs
+        ctx.strokeStyle = 'rgba(200,16,46,.1)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Sweep gradient
+        const sweep = ctx.createConicalGradient ? null : null;
+        // fallback sweep using arc fill
+        const grad = ctx.createConicGradient ? ctx.createConicGradient(angle, cx, cy) : null;
+        if (grad) {
+            grad.addColorStop(0, 'rgba(200,16,46,.35)');
+            grad.addColorStop(.12, 'rgba(200,16,46,.08)');
+            grad.addColorStop(.13, 'transparent');
+            grad.addColorStop(1, 'transparent');
+            ctx.fillStyle = grad;
+            ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+        } else {
+            // simple rotating sector
+            ctx.save();
+            const secGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+            secGrad.addColorStop(0, 'rgba(200,16,46,.3)');
+            secGrad.addColorStop(1, 'rgba(200,16,46,.0)');
+            ctx.fillStyle = secGrad;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, R, angle, angle + .45);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        // Sweep line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * R, cy + Math.sin(angle) * R);
+        ctx.strokeStyle = 'rgba(200,16,46,.7)';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = '#c8102e';
+        ctx.shadowBlur = 8;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Blips
+        blips.forEach(b => {
+            const blipAngle = Math.atan2(b.y - cy, b.x - cx);
+            const diff = ((blipAngle - angle) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+            const glow = diff < .4 ? 1 : Math.max(0, 1 - (diff / (Math.PI * 1.5)));
+            if (glow > 0.05) {
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(200,16,46,${glow})`;
+                ctx.shadowColor = '#c8102e';
+                ctx.shadowBlur = 8 * glow;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        });
+
+        // Border
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(200,16,46,.25)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        angle += 0.025;
+        if (angle > Math.PI * 2) angle -= Math.PI * 2;
+        requestAnimationFrame(drawFrame);
+    }
+    drawFrame();
+
+    // Animated counters for radar section
+    function animateRadarCounters() {
+        animateValue('rs-sorties', 0, 34, 1800);
+        animateValue('rs-hours', 0, 127, 2000);
+        animateValue('rs-countries', 0, 8, 1400);
+    }
+
+    function animateValue(id, from, to, duration) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const start = performance.now();
+        function update(now) {
+            const p = Math.min((now - start) / duration, 1);
+            el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+    }
+
+    // Trigger when section visible
+    const radarSection = document.querySelector('.s-radar');
+    if (radarSection) {
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                animateRadarCounters();
+                obs.disconnect();
+            }
+        }, { threshold: 0.3 });
+        obs.observe(radarSection);
+    }
+})();
+
+/* ══════════════════════════════════════════════════════
+   BASES AÉREAS — datos y lógica
+   ══════════════════════════════════════════════════════ */
+const basesData = [
+    {
+        id: 0, name: 'Base Aérea de Zaragoza', loc: 'Zaragoza, Aragón',
+        type: 'MULTIROL', badge: '', badgeClass: '',
+        units: 'Ala 31 — A400M Atlas', craft: 'A400M Atlas (T.23)',
+        nato: 'Aeródromo certificado OTAN. Zona de apoyo logístico para despliegues internacionales.',
+        pista: '3.798 m principal + 2.743 m secundaria',
+        efectivos: '~2.200 militares'
+    },
+    {
+        id: 1, name: 'Base Aérea de Morón de la Frontera', loc: 'Sevilla, Andalucía',
+        type: 'CONJUNTA OTAN', badge: 'NATO', badgeClass: '',
+        units: 'Ala 11 — Eurofighter | Ala 21 — F/A-18', craft: 'Eurofighter Typhoon · F/A-18 Hornet',
+        nato: 'Base conjunta hispano-estadounidense. Alberga recursos de USAF de forma permanente.',
+        pista: '3.810 m',
+        efectivos: '~1.800 + personal EEUU'
+    },
+    {
+        id: 2, name: 'Base Aérea de Albacete', loc: 'Albacete, Castilla-La Mancha',
+        type: 'COMBATE', badge: '', badgeClass: '',
+        units: 'Ala 14 — Eurofighter | CLAEX', craft: 'Eurofighter Typhoon (C.16)',
+        nato: 'Centro de excelencia Eurofighter. Sede del CLAEX (Centro Logístico Aéreo).',
+        pista: '3.507 m',
+        efectivos: '~2.500 militares'
+    },
+    {
+        id: 3, name: 'Base Aérea de Torrejón de Ardoz', loc: 'Madrid',
+        type: 'TRANSPORTE VIP', badge: '', badgeClass: '',
+        units: 'Ala 12 — F/A-18 | GEA', craft: 'F/A-18 Hornet · Falcon 900 · A310',
+        nato: 'Sede del Grupo de Escuadrillas de Apoyo. Transporte VIP presidencial y gubernamental.',
+        pista: '3.660 m',
+        efectivos: '~3.000 militares'
+    },
+    {
+        id: 4, name: 'Base Aérea de Getafe', loc: 'Madrid Sur',
+        type: 'LOGÍSTICA', badge: '', badgeClass: '',
+        units: 'Ala 35 — C-295 | Ala 78 — NH90', craft: 'CASA C-295 · NH90 TTH',
+        nato: 'CLAV (Centro Logístico de Armamento y Experimentación). Sede del Museo del Aire.',
+        pista: '2.500 m',
+        efectivos: '~1.600 militares'
+    },
+    {
+        id: 5, name: 'Base Aérea de Gando', loc: 'Gran Canaria, Islas Canarias',
+        type: 'FRONTERA SUR', badge: 'CANARIAS', badgeClass: 'bdc-badge--gold',
+        units: 'Ala 46 — Eurofighter', craft: 'Eurofighter Typhoon (C.16) · C-295',
+        nato: 'Cubre el espacio aéreo del Atlántico Sur y ejerce vigilancia sobre rutas migratorias del continente africano.',
+        pista: '3.100 m',
+        efectivos: '~1.200 militares'
+    },
+    {
+        id: 6, name: 'Base Aérea de Reus', loc: 'Tarragona, Cataluña',
+        type: 'MIXTA CIVIL', badge: '', badgeClass: '',
+        units: 'Apoyo 2.ª Región Aérea', craft: 'C-295 · Helicópteros SAR',
+        nato: 'Base de uso mixto civil-militar. Apoyo SAR en el Mediterráneo noroccidental.',
+        pista: '2.700 m',
+        efectivos: '~500 militares'
+    },
+    {
+        id: 7, name: 'Base Aérea de Son San Juan', loc: 'Palma de Mallorca, Baleares',
+        type: 'SAR MEDITERRÁNEO', badge: 'SAR', badgeClass: '',
+        units: 'Ala 48 — NH90 · P-3 Orion', craft: 'NH90 · CASA CN-235 Vigía',
+        nato: 'Control del Mediterráneo Occidental. Misiones SAR, vigilancia marítima y cooperación con la Guardia Civil.',
+        pista: '3.270 m',
+        efectivos: '~900 militares'
+    },
+    {
+        id: 8, name: 'Despliegue Exterior — Lituania (eFP)', loc: 'Šiauliai Air Base, Lituania',
+        type: 'MISIÓN OTAN', badge: 'EXTERIOR', badgeClass: 'bdc-badge--gold',
+        units: 'Rotación Ala 14 — 6 × Eurofighter', craft: 'Eurofighter Typhoon',
+        nato: 'Enhanced Forward Presence de la OTAN. España lidera la Policía Aérea en el Báltico desde 2026.',
+        pista: '2.800 m (base anfitriona)',
+        efectivos: '~130 militares rotación'
+    }
+];
+
+function renderBases() {
+    const list = document.getElementById('bases-list');
+    if (!list) return;
+    list.innerHTML = basesData.map(b => `
+        <div class="base-item" data-id="${b.id}" onclick="selectBase(${b.id})">
+            <div class="bi-dot ${b.type === 'FRONTERA SUR' || b.type === 'MISIÓN OTAN' ? 'bi-dot--gold' : ''}"></div>
+            <div class="bi-name">${b.name.replace('Base Aérea de ', '').replace('Base Aérea — ', '').replace('Despliegue Exterior — ', '')}</div>
+            <div class="bi-type">${b.type}</div>
+        </div>`).join('');
+
+    // Also attach pin listeners
+    document.querySelectorAll('.base-pin').forEach(pin => {
+        pin.addEventListener('click', () => {
+            const id = parseInt(pin.dataset.base);
+            selectBase(id);
+        });
+    });
+}
+
+function selectBase(id) {
+    const b = basesData.find(x => x.id === id);
+    if (!b) return;
+
+    // Update list active state
+    document.querySelectorAll('.base-item').forEach(el => {
+        el.classList.toggle('active', parseInt(el.dataset.id) === id);
+    });
+
+    // Update pin active state
+    document.querySelectorAll('.base-pin').forEach(pin => {
+        pin.classList.toggle('active', parseInt(pin.dataset.base) === id);
+    });
+
+    const detail = document.getElementById('base-detail');
+    detail.innerHTML = `
+        <div class="base-detail-content">
+            <div class="bdc-header">
+                <div>
+                    <div class="bdc-name">${b.name}</div>
+                    <div class="bdc-loc"><i class="fas fa-location-dot" style="color:var(--red);margin-right:5px"></i>${b.loc}</div>
+                </div>
+                <span class="bdc-badge ${b.badgeClass}">${b.badge || b.type}</span>
+            </div>
+            <div class="bdc-rows">
+                <div class="bdc-row"><strong>Unidades</strong>${b.units}</div>
+                <div class="bdc-row"><strong>Aeronaves</strong>${b.craft}</div>
+                <div class="bdc-row"><strong>Pista</strong>${b.pista}</div>
+                <div class="bdc-row"><strong>Efectivos</strong>${b.efectivos}</div>
+                <div class="bdc-row"><strong>Nota</strong>${b.nato}</div>
+            </div>
+        </div>`;
+}
+
+/* ══════════════════════════════════════════════════════
+   QUIZ DE RECLUTAMIENTO
+   ══════════════════════════════════════════════════════ */
+const quizQuestions = [
+    {
+        q: '¿Cuál de estas actividades te apasiona más?',
+        opts: [
+            { icon: '✈️', text: 'Volar y aviación', tags: ['piloto'] },
+            { icon: '🔧', text: 'Mecánica y tecnología', tags: ['mantenimiento'] },
+            { icon: '🛡️', text: 'Seguridad y defensa', tags: ['seguridad'] },
+            { icon: '📡', text: 'Telecomunicaciones', tags: ['telecom'] }
+        ]
+    },
+    {
+        q: '¿Cómo defines tu perfil de trabajo ideal?',
+        opts: [
+            { icon: '🎯', text: 'Alta exigencia, operaciones de élite', tags: ['piloto','seguridad'] },
+            { icon: '🤝', text: 'Trabajo en equipo coordinado', tags: ['mantenimiento','telecom'] },
+            { icon: '🌍', text: 'Misiones en el exterior', tags: ['piloto','seguridad'] },
+            { icon: '🏗️', text: 'Ingeniería y sistemas complejos', tags: ['mantenimiento','telecom'] }
+        ]
+    },
+    {
+        q: '¿Cuál es tu nivel académico o al que aspiras?',
+        opts: [
+            { icon: '🎓', text: 'Grado universitario / Ingeniería', tags: ['piloto'] },
+            { icon: '📚', text: 'FP o Bachillerato', tags: ['mantenimiento','telecom'] },
+            { icon: '🏅', text: 'ESO y disposición absoluta', tags: ['seguridad'] },
+            { icon: '⭐', text: 'Máster / postgrado', tags: ['piloto','telecom'] }
+        ]
+    },
+    {
+        q: '¿Qué tipo de aeronave te resulta más fascinante?',
+        opts: [
+            { icon: '🦅', text: 'Cazas supersónicos', tags: ['piloto'] },
+            { icon: '🚁', text: 'Helicópteros de rescate', tags: ['seguridad','piloto'] },
+            { icon: '🛸', text: 'Drones y sistemas no tripulados', tags: ['telecom','mantenimiento'] },
+            { icon: '📦', text: 'Aviones de transporte y carga', tags: ['mantenimiento','piloto'] }
+        ]
+    },
+    {
+        q: '¿Qué valor militar consideras más importante?',
+        opts: [
+            { icon: '⚡', text: 'Reacción instantánea bajo presión', tags: ['piloto','seguridad'] },
+            { icon: '🔍', text: 'Precisión técnica sin margen de error', tags: ['mantenimiento','telecom'] },
+            { icon: '🌐', text: 'Visión estratégica global', tags: ['piloto','telecom'] },
+            { icon: '💪', text: 'Resistencia física y mental', tags: ['seguridad','piloto'] }
+        ]
+    }
+];
+
+const quizResults = {
+    piloto: {
+        icon: '✈️',
+        title: 'Piloto Militar',
+        label: 'TU DESTINO',
+        desc: 'Tu perfil encaja con la línea de vuelo. Con formación en la Academia General del Aire y años de práctica, podrías pilotar Eurofighters sobre el Báltico o A400M en misiones humanitarias. El cielo no es el límite: es tu área de operaciones.'
+    },
+    mantenimiento: {
+        icon: '🔧',
+        title: 'Especialista en Mantenimiento',
+        label: 'TU DESTINO',
+        desc: 'Eres la razón por la que los aviones despegan. Los especialistas en mantenimiento aeronáutico son el corazón técnico del Ejército del Aire, garantizando la operatividad de los sistemas más avanzados del mundo.'
+    },
+    seguridad: {
+        icon: '🛡️',
+        title: 'Policía Militar / EZAPAC',
+        label: 'TU DESTINO',
+        desc: 'Tu vocación es la protección. Desde la defensa de bases aéreas hasta operaciones de rescate en combate (CSAR) con el EZAPAC, tu papel garantiza que las misiones se ejecuten con seguridad absoluta.'
+    },
+    telecom: {
+        icon: '📡',
+        title: 'Especialista en Telecomunicaciones y CIS',
+        label: 'TU DESTINO',
+        desc: 'Sin comunicaciones no hay misión. Los especialistas CIS conectan a pilotos, controladores y mandos en tiempo real, gestionando sistemas SATCOM, redes cifradas y ciberdefensa que son la columna vertebral del combate moderno.'
+    }
+};
+
+let quizScores = { piloto: 0, mantenimiento: 0, seguridad: 0, telecom: 0 };
+let quizStep = 0;
+
+function renderQuizStep() {
+    const q = quizQuestions[quizStep];
+    document.getElementById('quiz-q-num').textContent = `Pregunta ${quizStep + 1} de ${quizQuestions.length}`;
+    document.getElementById('quiz-question').textContent = q.q;
+    document.getElementById('quiz-progress').style.width = `${(quizStep / quizQuestions.length) * 100}%`;
+
+    const opts = document.getElementById('quiz-options');
+    opts.innerHTML = q.opts.map((o, i) => `
+        <button class="quiz-opt" onclick="answerQuiz(${i})">
+            <span class="opt-icon">${o.icon}</span>
+            ${o.text}
+        </button>`).join('');
+
+    document.getElementById('quiz-step').classList.remove('hidden');
+    document.getElementById('quiz-result').classList.add('hidden');
+}
+
+function answerQuiz(optIdx) {
+    const q = quizQuestions[quizStep];
+    const chosen = q.opts[optIdx];
+    chosen.tags.forEach(tag => { quizScores[tag]++; });
+
+    quizStep++;
+    if (quizStep < quizQuestions.length) {
+        document.getElementById('quiz-progress').style.width = `${(quizStep / quizQuestions.length) * 100}%`;
+        // animate out / in
+        const stepEl = document.getElementById('quiz-step');
+        stepEl.style.opacity = '0';
+        stepEl.style.transform = 'translateX(20px)';
+        setTimeout(() => {
+            renderQuizStep();
+            stepEl.style.transition = 'opacity .3s, transform .3s';
+            stepEl.style.opacity = '1';
+            stepEl.style.transform = 'translateX(0)';
+        }, 250);
+    } else {
+        showQuizResult();
+    }
+}
+
+function showQuizResult() {
+    document.getElementById('quiz-progress').style.width = '100%';
+    const top = Object.entries(quizScores).sort((a,b) => b[1]-a[1])[0][0];
+    const res = quizResults[top];
+
+    document.getElementById('quiz-step').classList.add('hidden');
+    const resEl = document.getElementById('quiz-result');
+    resEl.classList.remove('hidden');
+    resEl.innerHTML = `
+        <div class="qr-icon">${res.icon}</div>
+        <div class="qr-label">${res.label}</div>
+        <h3 class="qr-title">${res.title}</h3>
+        <p class="qr-desc">${res.desc}</p>
+        <div class="qr-actions">
+            <button class="btn btn-red" onclick="resetQuiz()">
+                <i class="fas fa-redo"></i> Repetir test
+            </button>
+            <button class="btn btn-outline" onclick="smoothScrollTo('contacto', event)">
+                Más información <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>`;
+}
+
+function resetQuiz() {
+    quizScores = { piloto: 0, mantenimiento: 0, seguridad: 0, telecom: 0 };
+    quizStep = 0;
+    renderQuizStep();
+}
+
+/* ══════════════════════════════════════════════════════
+   INIT EXTENDIDO
+   ══════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+    renderBases();
+    renderQuizStep();
+
+    // Update sections scroll spy
+    const extSections = ['inicio','cifras','misiones','flota','unidades','actualidad','historia','bases','contacto'];
+    // override existing scroll spy if needed — sections array already updated via IIFE
+
+    // Select first base by default after a short delay
+    setTimeout(() => selectBase(0), 800);
+});
