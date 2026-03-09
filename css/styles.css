@@ -1923,3 +1923,53 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
     max-width: 100%;
     padding: 0;
 }
+
+/* ═══════════════════════════════════════════════════════
+   MAPA REAL SIMPLEMAPS — override estilos anteriores
+   ═══════════════════════════════════════════════════════ */
+.bases-map-wrap {
+    min-height: 420px;
+    padding: 8px;
+    background: var(--bg);
+}
+
+.bases-map {
+    padding: 0;
+    width: 100%;
+}
+
+.spain-svg {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    display: block;
+    overflow: visible;
+}
+
+/* El path real de España */
+#ES {
+    fill: rgba(200,16,46,0.08);
+    stroke: rgba(200,16,46,0.35);
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+    transition: fill 0.3s;
+}
+
+/* Grupos de base clicables */
+.map-base-group {
+    cursor: pointer;
+}
+.map-base-group:hover circle.map-base-dot {
+    filter: drop-shadow(0 0 8px rgba(200,16,46,1));
+}
+
+/* Punto exterior OTAN en naranja-rojizo */
+.map-base-ext {
+    fill: #ff6b6b !important;
+    filter: drop-shadow(0 0 4px rgba(255,107,107,0.8)) !important;
+}
+
+/* Aseguramos que los pins div overlay no interfieran (ya no se usan) */
+.base-pin {
+    display: none;
+}
