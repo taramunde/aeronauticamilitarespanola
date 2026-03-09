@@ -1803,3 +1803,123 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
     border-radius: 50%;
     box-shadow: 0 0 40px rgba(200,16,46,.15), inset 0 0 60px rgba(0,0,0,.6);
 }
+
+/* ═══════════════════════════════════════════════════════
+   MAPA SVG REAL — estilos específicos
+   ═══════════════════════════════════════════════════════ */
+.spain-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.spain-land {
+    fill: rgba(255,255,255,0.06);
+    stroke: rgba(255,255,255,0.15);
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+
+.spain-land.portugal {
+    fill: rgba(255,255,255,0.03);
+    stroke: rgba(255,255,255,0.08);
+}
+
+.spain-land.island {
+    fill: rgba(255,255,255,0.07);
+    stroke: rgba(255,255,255,0.12);
+    stroke-width: 0.8;
+}
+
+.canarias-box {
+    fill: rgba(9,9,11,0.8);
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 1;
+}
+
+.canarias-title {
+    fill: rgba(255,255,255,0.3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    text-anchor: middle;
+    letter-spacing: 0.05em;
+}
+
+/* Puntos de bases en SVG */
+.map-base-dot {
+    fill: var(--red);
+    filter: drop-shadow(0 0 4px rgba(200,16,46,0.8));
+    animation: basePulse 2s ease-in-out infinite;
+}
+
+.map-base-gold {
+    fill: var(--gold) !important;
+    filter: drop-shadow(0 0 4px rgba(245,158,11,0.8)) !important;
+}
+
+.map-base-ring {
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 1;
+    opacity: 0;
+    animation: mapRingPulse 2.5s ease-out infinite;
+}
+
+.map-base-gold-ring {
+    stroke: var(--gold) !important;
+}
+
+.map-base-label-svg {
+    fill: rgba(255,255,255,0.65);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.03em;
+    pointer-events: none;
+}
+
+@keyframes basePulse {
+    0%,100% { opacity:1; r: 5; }
+    50% { opacity: 0.7; r: 6; }
+}
+
+@keyframes mapRingPulse {
+    0% { opacity: 0.7; r: 7; }
+    100% { opacity: 0; r: 18; }
+}
+
+/* Hacer los círculos SVG aniambles via CSS */
+.spain-svg circle.map-base-dot {
+    transition: r 0.2s;
+}
+
+.spain-svg circle.map-base-dot:hover {
+    r: 8;
+    cursor: pointer;
+}
+
+/* Los divs .base-pin son ahora transparentes — solo para click events */
+.base-pin .pin-dot,
+.base-pin .pin-ring {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* pero los que tienen label sí lo muestran */
+.base-pin .pin-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Ajuste del wrapper con el SVG real */
+.bases-map-wrap {
+    min-height: 360px;
+    padding: 16px;
+}
+
+.bases-map {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
