@@ -41,6 +41,7 @@
                 <li><a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a></li>
                 <li><a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a></li>
                 <li><a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a></li>
+                <li><a href="#bases"   onclick="smoothScrollTo('bases',event)">Bases</a></li>
                 <li><a href="#contacto" onclick="smoothScrollTo('contacto',event)" class="nav-cta">Contacto</a></li>
             </ul>
 
@@ -57,11 +58,13 @@
             <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
             <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
             <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
+            <a href="#bases" onclick="smoothScrollTo('bases',event)">Bases</a>
             <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
         </div>
     </nav>
 
     <section id="inicio" class="hero">
+        <canvas id="hero-particles" class="hero-particles"></canvas>
         <div class="hero-image"></div>
         <div class="hero-gradient"></div>
 
@@ -358,11 +361,11 @@
                                 <strong>900 101 060</strong>
                             </div>
                         </a>
-                        <a href="mailto:ejercito.aire@defensa.gob.es" class="ci-row">
+                        <a href="/cdn-cgi/l/email-protection#b8ddd2ddcadbd1ccd796d9d1caddf8dcdddeddd6cbd996dfd7da96ddcb" class="ci-row">
                             <div class="ci-ico"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <small>Correo electrónico</small>
-                                <strong>ejercito.aire@defensa.gob.es</strong>
+                                <strong><span class="__cf_email__" data-cfemail="55303f3027363c213a7b343c273015313033303b26347b323a377b3026">[email&#160;protected]</span></strong>
                             </div>
                         </a>
                         <div class="ci-row">
@@ -440,6 +443,7 @@
                 <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
                 <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
                 <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
+                <a href="#bases"    onclick="smoothScrollTo('bases',event)">Bases</a>
                 <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
                 <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
             </nav>
@@ -472,6 +476,196 @@
         </div>
     </div>
 
-    <script src="js/script.js?nocache=20251231v24"></script>
+    <!-- ══════════════════════════════════════════════
+         SECCIÓN: MAPA DE BASES AÉREAS
+    ══════════════════════════════════════════════ -->
+    <section id="bases" class="s-bases">
+        <div class="container">
+            <header class="s-head reveal">
+                <span class="s-tag">05 · Despliegue</span>
+                <h2>Bases Aéreas</h2>
+                <p>Red de instalaciones estratégicas distribuidas por todo el territorio nacional y en el exterior.</p>
+            </header>
+            <div class="bases-layout">
+                <div class="bases-map-wrap reveal">
+                    <div class="bases-map" id="bases-map">
+                        <svg viewBox="0 0 900 700" class="spain-svg" id="spain-svg">
+                            <!-- Spain simplified outline -->
+                            <path class="spain-land" d="M180,80 L220,60 L280,55 L350,45 L420,50 L490,40 L560,50 L620,60 L680,80 L720,110 L740,150 L750,200 L755,250 L760,300 L750,350 L730,400 L710,440 L690,470 L660,500 L620,520 L580,535 L540,545 L500,550 L460,545 L420,535 L380,520 L340,500 L300,475 L260,450 L230,420 L200,385 L175,350 L160,310 L150,270 L148,230 L150,190 L160,150 L180,120 Z"/>
+                            <!-- Portugal -->
+                            <path class="spain-land portugal" d="M148,230 L150,190 L160,150 L180,120 L180,80 L150,90 L120,120 L110,160 L108,200 L112,240 L118,280 L125,320 L135,350 L148,380 L160,310 Z"/>
+                            <!-- Andalucía lower coast -->
+                            <path class="spain-land" d="M200,385 L230,420 L260,450 L300,475 L340,500 L290,510 L250,505 L215,490 L195,460 L185,430 Z"/>
+                            <!-- Canarias (simplified) -->
+                            <circle class="spain-land canarias-bg" cx="140" cy="600" r="55"/>
+                            <text x="140" y="585" class="map-island-label">Canarias</text>
+                        </svg>
+
+                        <!-- Base markers -->
+                        <div class="base-pin" data-base="0" style="left:56%;top:28%" title="Zaragoza">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Zaragoza</div>
+                        </div>
+                        <div class="base-pin" data-base="1" style="left:44%;top:62%" title="Morón de la Frontera">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Morón</div>
+                        </div>
+                        <div class="base-pin" data-base="2" style="left:62%;top:52%" title="Albacete">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Albacete</div>
+                        </div>
+                        <div class="base-pin" data-base="3" style="left:58%;top:38%" title="Torrejón de Ardoz">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Torrejón</div>
+                        </div>
+                        <div class="base-pin" data-base="4" style="left:52%;top:42%" title="Getafe">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Getafe</div>
+                        </div>
+                        <div class="base-pin base-pin--gold" data-base="5" style="left:16%;top:85%" title="Gando, Gran Canaria">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Gando</div>
+                        </div>
+                        <div class="base-pin" data-base="6" style="left:76%;top:22%" title="Reus">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Reus</div>
+                        </div>
+                        <div class="base-pin" data-base="7" style="left:70%;top:70%" title="Son San Juan, Palma">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Palma</div>
+                        </div>
+                        <div class="base-pin base-pin--red" data-base="8" style="left:88%;top:80%" title="Gando Ext / NATO">
+                            <div class="pin-dot"></div>
+                            <div class="pin-ring"></div>
+                            <div class="pin-label">Exterior</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bases-panel reveal" style="--d:.1s">
+                    <div id="bases-list" class="bases-list">
+                        <!-- filled by JS -->
+                    </div>
+                    <div class="base-detail" id="base-detail">
+                        <div class="base-detail-placeholder">
+                            <i class="fas fa-location-crosshairs"></i>
+                            <p>Selecciona una base en el mapa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SECCIÓN: RECLUTAMIENTO / QUIZ
+    ══════════════════════════════════════════════ -->
+    <section id="reclutamiento" class="s-reclutamiento">
+        <div class="container">
+            <header class="s-head reveal">
+                <span class="s-tag">06 · Reclutamiento</span>
+                <h2>¿Cuál es tu destino?</h2>
+                <p>Descubre qué cuerpo y especialidad del Ejército del Aire encaja con tu perfil en menos de 60 segundos.</p>
+            </header>
+
+            <div class="quiz-wrap reveal" style="--d:.1s">
+                <div class="quiz-card" id="quiz-card">
+                    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress"></div></div>
+                    <div class="quiz-step" id="quiz-step">
+                        <div class="quiz-q-num" id="quiz-q-num">Pregunta 1 de 5</div>
+                        <h3 class="quiz-question" id="quiz-question">¿Cuál de estas actividades te apasiona más?</h3>
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- filled by JS -->
+                        </div>
+                    </div>
+                    <div class="quiz-result hidden" id="quiz-result">
+                        <!-- filled by JS -->
+                    </div>
+                </div>
+
+                <div class="quiz-sidebar">
+                    <div class="quiz-info-card">
+                        <div class="qi-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Academia General del Aire</h4>
+                        <p>San Javier, Murcia. Formación de oficiales durante 5 años con nivel universitario integrado.</p>
+                    </div>
+                    <div class="quiz-info-card">
+                        <div class="qi-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h4>Tropa Profesional</h4>
+                        <p>Acceso desde los 18 años con titulación mínima de ESO. Formación específica por especialidad.</p>
+                    </div>
+                    <div class="quiz-info-card">
+                        <div class="qi-icon qi-icon--gold"></div>
+                        <h4>Suboficiales</h4>
+                        <p>Centro Universitario de la Defensa. Liderazgo técnico en especialidades aeronáuticas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SECCIÓN: RADAR / ESTADO OPERATIVO EN VIVO
+    ══════════════════════════════════════════════ -->
+    <section class="s-radar">
+        <div class="container">
+            <div class="radar-layout">
+                <div class="radar-left reveal">
+                    <span class="s-tag">SISTEMA · EN LÍNEA</span>
+                    <h2>Estado Operativo</h2>
+                    <p>Red de vigilancia activa sobre el espacio aéreo nacional e internacional en tiempo real.</p>
+                    <div class="radar-stats">
+                        <div class="rs-item">
+                            <span class="rs-num" id="rs-sorties">0</span>
+                            <span class="rs-label">Salidas hoy</span>
+                        </div>
+                        <div class="rs-item">
+                            <span class="rs-num" id="rs-hours">0</span>
+                            <span class="rs-label">Horas de vuelo</span>
+                        </div>
+                        <div class="rs-item">
+                            <span class="rs-num" id="rs-countries">0</span>
+                            <span class="rs-label">Países desplegados</span>
+                        </div>
+                    </div>
+                    <div class="radar-alerts">
+                        <div class="ra-item ra-green">
+                            <span class="ra-dot"></span>
+                            <span>Espacio aéreo nacional · NORMAL</span>
+                        </div>
+                        <div class="ra-item ra-yellow">
+                            <span class="ra-dot"></span>
+                            <span>Flanco Este OTAN · ELEVADO</span>
+                        </div>
+                        <div class="ra-item ra-green">
+                            <span class="ra-dot"></span>
+                            <span>Estrecho de Gibraltar · NORMAL</span>
+                        </div>
+                        <div class="ra-item ra-green">
+                            <span class="ra-dot"></span>
+                            <span>Canarias · NORMAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="radar-right reveal" style="--d:.15s">
+                    <div class="radar-scope" id="radar-scope">
+                        <canvas id="radar-canvas" width="360" height="360"></canvas>
+                        <div class="radar-label-center">RADAR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
