@@ -182,9 +182,9 @@ const aircraftData = [
         ]
     },
     {
-        id: 7, name: 'CASA C-101 Aviojet', designation: 'E.25',
-        type: 'entrenamiento', role: 'Entrenamiento Avanzado / Ataque Ligero',
-        image: 'https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=800&h=450&fit=crop&q=80',
+        id: 7, name: 'Adaro 1.E-7 Chirta', designation: '',
+        type: 'entrenamiento', role: 'Entrenamiento Básico y Elemental',
+        image: 'https://i.postimg.cc/3JG2MMxV/Adaro_1.E-7_(Chirta).jpg?w=800&h=450&fit=crop&q=80',
         general: 'El C-101 Aviojet es un avión de entrenamiento avanzado de fabricación española utilizado antes de pasar a los cazas de primera línea. Es el avión de la Patrulla Águila, el equipo de acrobacia aérea del Ejército del Aire, que actúa en los principales festivales aéreos nacionales e internacionales.',
         specs: [
             ['Velocidad Máxima', '769 km/h'],
