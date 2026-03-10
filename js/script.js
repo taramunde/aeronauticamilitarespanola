@@ -392,9 +392,22 @@ function smoothScrollTo(id, event) {
     if (event) event.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-        const offset = document.getElementById('navbar').offsetHeight;
+        const navbar = document.getElementById('navbar');
+        // Force scrolled state immediately to prevent background split during animated scroll
+        navbar.classList.add('scrolled');
+        const offset = navbar.offsetHeight;
         const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
+        // If scrolling to top (inicio), remove scrolled class once scroll finishes
+        if (id === 'inicio') {
+            const checkScroll = setInterval(() => {
+                if (window.scrollY <= 40) {
+                    navbar.classList.remove('scrolled');
+                    clearInterval(checkScroll);
+                }
+            }, 100);
+            setTimeout(() => clearInterval(checkScroll), 2000);
+        }
     }
     if (menuOpen) toggleMobileMenu();
 }
