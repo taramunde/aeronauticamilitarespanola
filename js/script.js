@@ -393,16 +393,25 @@ function smoothScrollTo(id, event) {
     const el = document.getElementById(id);
     if (el) {
         const navbar = document.getElementById('navbar');
-        // Force scrolled state immediately to prevent background split during animated scroll
+        // Disable transition so background switches instantly — prevents the "split" glitch
+        navbar.style.transition = 'none';
         navbar.classList.add('scrolled');
+        // Force reflow before re-enabling transitions
+        navbar.getBoundingClientRect();
+        navbar.style.transition = '';
+
         const offset = navbar.offsetHeight;
         const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
-        // If scrolling to top (inicio), remove scrolled class once scroll finishes
+
+        // If navigating back to top, remove scrolled class once we arrive
         if (id === 'inicio') {
             const checkScroll = setInterval(() => {
                 if (window.scrollY <= 40) {
+                    navbar.style.transition = 'none';
                     navbar.classList.remove('scrolled');
+                    navbar.getBoundingClientRect();
+                    navbar.style.transition = '';
                     clearInterval(checkScroll);
                 }
             }, 100);
