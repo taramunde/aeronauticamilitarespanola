@@ -39,7 +39,7 @@
 
 /* ── Reset ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: var(--nav-h); }
 body {
     font-family: var(--font-body);
     background: var(--bg);
@@ -115,7 +115,8 @@ textarea, input, select { font: inherit; color: inherit; }
    ═══════════════════════════════════════════════════════ */
 #navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+    transition: box-shadow .4s, backdrop-filter .4s;
+    background: transparent;
 }
 #navbar.scrolled {
     background: rgba(9,9,11,.9);
