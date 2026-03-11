@@ -1,737 +1,2030 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejército del Aire y del Espacio — España 2026</title>
-    <meta name="description" content="Portal del Ejército del Aire y del Espacio de España. Flota 2026, misiones, historia y más.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?nocache=20251231v28">
-</head>
-<body>
+/* ═══════════════════════════════════════════════════════
+   EAE 2026 — Stylesheet
+   ═══════════════════════════════════════════════════════ */
 
-    <div id="page-loader">
-        <div class="loader-inner">
-            <div class="loader-emblem">🇪🇸</div>
-            <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
-            <p class="loader-label">Ejército del Aire y del Espacio</p>
-        </div>
-    </div>
+/* ── Variables ──────────────────────────────────────── */
+:root {
+    --red:      #c8102e;
+    --red-dark: #9b0c22;
+    --red-glow: rgba(200,16,46,.18);
+    --gold:     #f59e0b;
+    --gold-dim: rgba(245,158,11,.15);
 
-    <div id="scroll-progress-bar"></div>
+    --bg:       #09090b;
+    --surface:  #111113;
+    --surface2: #18181b;
+    --border:   rgba(255,255,255,.07);
+    --border-h: rgba(255,255,255,.13);
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a class="nav-brand" href="#inicio" onclick="smoothScrollTo('inicio',event)">
-                <span class="brand-emblem">🇪🇸</span>
-                <span class="brand-text">
-                    <b>EAE</b>
-                    <small>Ejército del Aire y del Espacio</small>
-                </span>
-            </a>
+    --text:     #f4f4f5;
+    --muted:    #71717a;
+    --subtle:   #3f3f46;
 
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a></li>
-                <li><a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a></li>
-                <li><a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a></li>
-                <li><a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a></li>
-                <li><a href="#flota-historica" onclick="smoothScrollTo('flota-historica',event)">Flota Histórica</a></li>
-                <li><a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a></li>
-                <li><a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a></li>
-                <li><a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a></li>
-                <li><a href="#bases"   onclick="smoothScrollTo('bases',event)">Bases</a></li>
-                <li><a href="#contacto" onclick="smoothScrollTo('contacto',event)" class="nav-cta">Contacto</a></li>
-            </ul>
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
 
-            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false">
-                <i class="fas fa-bars" id="hamburger-icon"></i>
-            </button>
-        </div>
+    --radius-sm:  8px;
+    --radius:     14px;
+    --radius-lg:  20px;
+    --radius-xl:  28px;
 
-        <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-            <a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a>
-            <a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a>
-            <a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a>
-            <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
-            <a href="#flota-historica" onclick="smoothScrollTo('flota-historica',event)">Flota Histórica</a>
-            <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
-            <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
-            <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
-            <a href="#bases" onclick="smoothScrollTo('bases',event)">Bases</a>
-            <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
-        </div>
-    </nav>
+    --ease-out:  cubic-bezier(.22,1,.36,1);
+    --ease-in-out: cubic-bezier(.65,0,.35,1);
+    --transition: .25s var(--ease-out);
 
-    <section id="inicio" class="hero">
-        <canvas id="hero-particles" class="hero-particles"></canvas>
-        <div class="hero-image"></div>
-        <div class="hero-gradient"></div>
+    --nav-h: 64px;
+    --max-w: 1240px;
+}
 
-        <div class="hero-body">
-            <p class="hero-eyebrow fade-in" style="--d:0s">
-                <span></span> Fuerza Aérea Española
-            </p>
-            <h1 class="hero-heading fade-in" style="--d:.12s">
-                Ejército<br>
-                <span class="heading-stroke">del Aire</span><br>
-                y del Espacio
-            </h1>
-            <p class="hero-lead fade-in" style="--d:.24s">
-                Vigilando el cielo. Defendiendo España.<br>Proyectando el futuro hacia las estrellas.
-            </p>
-            <div class="hero-buttons fade-in" style="--d:.36s">
-                <button class="btn btn-red" onclick="smoothScrollTo('flota',event)">
-                    Explorar la flota <i class="fas fa-arrow-right"></i>
-                </button>
-                <button class="btn btn-outline" onclick="smoothScrollTo('misiones',event)">
-                    Nuestras misiones
-                </button>
-            </div>
-        </div>
+/* ── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: var(--nav-h); }
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+textarea, input, select { font: inherit; color: inherit; }
 
-        <div class="hero-scroll-cue">
-            <div class="mouse-icon"><div class="mouse-wheel"></div></div>
-            <span>Scroll</span>
-        </div>
-    </section>
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--subtle); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
 
-    <section id="cifras" class="s-cifras">
-        <div class="container">
-            <div class="cifras-row">
-                <div class="cifra reveal" style="--d:0s">
-                    <strong class="cifra-n" data-target="150" data-suffix="+">0</strong>
-                    <span>Aeronaves operativas</span>
-                </div>
-                <div class="cifra reveal" style="--d:.07s">
-                    <strong class="cifra-n" data-target="21000">0</strong>
-                    <span>Efectivos militares</span>
-                </div>
-                <div class="cifra reveal" style="--d:.14s">
-                    <strong class="cifra-n" data-target="9">0</strong>
-                    <span>Bases aéreas</span>
-                </div>
-                <div class="cifra reveal" style="--d:.21s">
-                    <strong class="cifra-n" data-target="85">0</strong>
-                    <span>Años de historia</span>
-                </div>
-                <div class="cifra reveal" style="--d:.28s">
-                    <strong class="cifra-n" data-target="30" data-suffix="+">0</strong>
-                    <span>Misiones internacionales</span>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ── Container ──────────────────────────────────────── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
 
-    <section id="misiones" class="s-misiones">
-        <div class="container">
-            <header class="s-head reveal">
-                <span class="s-tag">01 · Misiones</span>
-                <h2>Nuestra misión</h2>
-                <p>Operamos en múltiples dominios para garantizar la seguridad de España y sus aliados en cualquier escenario.</p>
-            </header>
+/* ═══════════════════════════════════════════════════════
+   PAGE LOADER
+   ═══════════════════════════════════════════════════════ */
+#page-loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .5s var(--ease-out), visibility .5s;
+}
+#page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-            <div class="misiones-grid">
-                <article class="m-card reveal" style="--d:0s">
-                    <div class="m-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Defensa Aérea</h3>
-                    <p>Vigilancia y control permanente del espacio aéreo nacional mediante sistemas AWACS, radares avanzados y cazas de alerta rápida integrados en la red OTAN.</p>
-                    <span class="m-badge">Alta prioridad</span>
-                </article>
-                <article class="m-card reveal" style="--d:.06s">
-                    <div class="m-icon"><i class="fas fa-earth-europe"></i></div>
-                    <h3>Proyección de Fuerza</h3>
-                    <p>Despliegue rápido en teatros internacionales asegurando la presencia española en misiones de paz y estabilización bajo mandato ONU y OTAN.</p>
-                    <span class="m-badge">Internacional</span>
-                </article>
-                <article class="m-card reveal" style="--d:.12s">
-                    <div class="m-icon"><i class="fas fa-satellite"></i></div>
-                    <h3>Dominio Espacial</h3>
-                    <p>Vigilancia del espacio exterior, gestión de satélites militares y monitoreo de objetos en órbita para proteger infraestructuras críticas nacionales y aliadas.</p>
-                    <span class="m-badge m-badge--new">Nuevo dominio</span>
-                </article>
-                <article class="m-card reveal" style="--d:.18s">
-                    <div class="m-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>Ayuda Humanitaria</h3>
-                    <p>Transporte de ayuda, evacuación de ciudadanos en zonas de conflicto y apoyo ante catástrofes naturales con aeronaves de largo alcance especializadas.</p>
-                    <span class="m-badge">Apoyo civil</span>
-                </article>
-                <article class="m-card reveal" style="--d:.24s">
-                    <div class="m-icon"><i class="fas fa-life-ring"></i></div>
-                    <h3>SAR Marítimo</h3>
-                    <p>Búsqueda y rescate en el Mediterráneo y el Atlántico, coordinado con Salvamento Marítimo y la Guardia Civil para salvar vidas en emergencias.</p>
-                    <span class="m-badge">SAR</span>
-                </article>
-                <article class="m-card reveal" style="--d:.30s">
-                    <div class="m-icon"><i class="fas fa-fire-flame-curved"></i></div>
-                    <h3>Extinción de Incendios</h3>
-                    <p>Apoyo aéreo contra incendios forestales con los bombarderos CL-415, operando junto a las brigadas de tierra de la BRIF del Ministerio de Transición Ecológica.</p>
-                    <span class="m-badge">Emergencias</span>
-                </article>
-            </div>
-        </div>
-    </section>
+.loader-inner { text-align: center; }
+.loader-emblem { font-size: 3rem; margin-bottom: 20px; animation: loaderPulse 1s ease-in-out infinite; }
+.loader-bar-track {
+    width: 200px; height: 2px;
+    background: var(--surface2);
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 0 auto 16px;
+}
+.loader-bar-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 99px;
+    animation: loaderBar 1.6s var(--ease-in-out) forwards;
+}
+.loader-label {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    letter-spacing: .2em;
+    color: var(--muted);
+    text-transform: uppercase;
+}
 
-    <section id="flota" class="s-flota">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag">02 · Flota</span>
-                    <h2>Flota 2026</h2>
-                    <p id="results-count" class="results-count"></p>
-                </div>
-                <div class="flota-controls reveal" style="--d:.1s">
-                    <div class="search-box">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input id="search-input" type="text" placeholder="Buscar aeronave…" onkeyup="filterFleet()" autocomplete="off" aria-label="Buscar aeronave">
-                        <button id="search-clear" onclick="clearSearch()" aria-label="Limpiar búsqueda">
-                            <i class="fas fa-xmark"></i>
-                        </button>
-                    </div>
-                    <div class="pills" id="filter-pills">
-                        <button class="pill active" onclick="filterByType('all',this)">Todos</button>
-                        <button class="pill" onclick="filterByType('caza',this)">Caza</button>
-                        <button class="pill" onclick="filterByType('transporte',this)">Transporte</button>
-                        <button class="pill" onclick="filterByType('helicóptero',this)">Helicóptero</button>
-                        <button class="pill" onclick="filterByType('patrulla',this)">Patrulla</button>
-                        <button class="pill" onclick="filterByType('entrenamiento',this)">Entrenamiento</button>
-                    </div>
-                </div>
-            </header>
+@keyframes loaderBar { from { width: 0 } to { width: 100% } }
+@keyframes loaderPulse { 0%,100% { transform: scale(1) } 50% { transform: scale(1.08) } }
 
-            <div id="fleet-grid" class="fleet-grid"></div>
-        </div>
-    </section>
+/* ═══════════════════════════════════════════════════════
+   SCROLL PROGRESS
+   ═══════════════════════════════════════════════════════ */
+#scroll-progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), #ff6b6b);
+    z-index: 10000; width: 0;
+    transition: width .05s linear;
+    box-shadow: 0 0 10px var(--red-glow);
+}
 
-    <section id="flota-historica" class="s-flota s-flota--hist">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag">02.1 · Flota Histórica</span>
-                    <h2>Aeronaves Retiradas</h2>
-                    <p id="hist-results-count" class="results-count"></p>
-                </div>
-                <div class="flota-controls reveal" style="--d:.1s">
-                    <div class="search-box">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input id="hist-search-input" type="text" placeholder="Buscar aeronave…" onkeyup="filterHistFleet()" autocomplete="off" aria-label="Buscar aeronave histórica">
-                        <button id="hist-search-clear" onclick="clearHistSearch()" aria-label="Limpiar búsqueda">
-                            <i class="fas fa-xmark"></i>
-                        </button>
-                    </div>
-                    <div class="pills" id="hist-filter-pills">
-                        <button class="hist-pill pill active" onclick="filterHistByType('all',this)">Todos</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('caza',this)">Caza</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('transporte',this)">Transporte</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('reconocimiento',this)">Reconocimiento</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('entrenamiento',this)">Entrenamiento</button>
-                    </div>
-                </div>
-            </header>
+/* ═══════════════════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════════════════ */
+#navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: box-shadow .4s, backdrop-filter .4s;
+    background: transparent;
+}
+#navbar.scrolled {
+    background: rgba(9,9,11,.9);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 1px 0 var(--border), 0 8px 32px rgba(0,0,0,.4);
+}
 
-            <div id="hist-fleet-grid" class="fleet-grid"></div>
-        </div>
-    </section>
+.nav-container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 40px);
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
 
-    <div id="hist-aircraft-modal" class="modal-backdrop" onclick="handleHistBackdropClick(event)" role="dialog" aria-modal="true">
-        <div class="modal-panel" id="hist-modal-panel">
-            <div class="modal-header">
-                <div>
-                    <h2 id="hist-modal-title"></h2>
-                    <p id="hist-modal-subtitle"></p>
-                </div>
-                <button class="modal-close hist-modal-close" onclick="closeHistModal()" aria-label="Cerrar modal">
-                    <i class="fas fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-tab-bar" id="hist-modal-tabs">
-                <button class="mtab hist-mtab active" onclick="switchHistTab(0)">General</button>
-                <button class="mtab hist-mtab" onclick="switchHistTab(1)">Especificaciones</button>
-                <button class="mtab hist-mtab" onclick="switchHistTab(2)">En España</button>
-                <button class="mtab hist-mtab" onclick="switchHistTab(3)">Galería</button>
-            </div>
-            <div class="modal-body" id="hist-modal-body"></div>
-        </div>
-    </div>
+/* Brand */
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.brand-emblem {
+    width: 38px; height: 38px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform var(--transition);
+}
+.nav-brand:hover .brand-emblem { transform: scale(1.08) rotate(-4deg); }
+.brand-text { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+.brand-text b { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; letter-spacing: -.02em; }
+.brand-text small { font-family: var(--font-mono); font-size: .6rem; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; }
 
-    <section id="unidades" class="s-unidades">
-        <div class="container">
-            <header class="s-head reveal">
-                <span class="s-tag">02.5 · Fuerzas Especiales</span>
-                <h2>Unidades de Élite</h2>
-                <p>Nuestra fuerza no solo reside en el aire, sino en el personal altamente cualificado que opera en los entornos más hostiles.</p>
-            </header>
+/* Nav links */
+.nav-links {
+    display: flex; align-items: center; gap: 2px;
+}
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: .78rem; font-weight: 500; letter-spacing: .02em;
+    color: rgba(255,255,255,.65);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; background: var(--surface2); }
+.nav-links a.nav-cta {
+    background: var(--red); color: #fff; padding: 7px 18px; font-weight: 600;
+}
+.nav-links a.nav-cta:hover { background: var(--red-dark); }
 
-            <div class="unidades-grid">
-                <a href="#" class="unidad-card reveal" style="--d:0s">
-                    <img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cb?w=800&q=80" alt="EZAPAC" loading="lazy">
-                    <div class="unidad-overlay">
-                        <span class="u-tag">Operaciones Especiales</span>
-                        <h3>EZAPAC</h3>
-                        <p>Escuadrón de Zapadores Paracaidistas. Especialistas en control aerotáctico, operaciones de rescate en combate (CSAR) y reconocimiento especial.</p>
-                        <span class="u-link">Conocer más <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <a href="#" class="unidad-card reveal" style="--d:.1s">
-                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" alt="EADA" loading="lazy">
-                    <div class="unidad-overlay">
-                        <span class="u-tag">Defensa y Apoyo</span>
-                        <h3>EADA y SEADA</h3>
-                        <p>Escuadrones de Apoyo al Despliegue Aéreo. Garantizan la defensa, seguridad y operatividad de las bases aéreas desplegadas en el exterior.</p>
-                        <span class="u-link">Conocer más <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+/* Hamburger */
+.hamburger {
+    display: none; width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    align-items: center; justify-content: center;
+    font-size: 1rem; color: rgba(255,255,255,.7);
+    border: 1px solid var(--border);
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.hamburger:hover { color: #fff; border-color: var(--border-h); background: var(--surface2); }
 
-    <section id="actualidad" class="s-noticias">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag">02.6 · Sala de prensa</span>
-                    <h2>Actualidad Operativa</h2>
-                </div>
-                <button class="btn btn-outline reveal" style="--d:.1s">
-                    Ver todas las noticias
-                </button>
-            </header>
+/* Drawer */
+.nav-drawer {
+    display: none; flex-direction: column; gap: 2px;
+    padding: 12px clamp(16px,4vw,40px) 16px;
+    background: rgba(9,9,11,.97);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s var(--ease-out), padding .35s var(--ease-out);
+}
+.nav-drawer.open { max-height: 450px; }
+.nav-drawer a {
+    padding: 10px 12px; border-radius: var(--radius-sm);
+    font-size: .9rem; font-weight: 500;
+    color: rgba(255,255,255,.65);
+    transition: color var(--transition), background var(--transition);
+}
+.nav-drawer a:hover { color: #fff; background: var(--surface2); }
 
-            <div class="noticias-grid">
-                <article class="news-card reveal" style="--d:0s">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80" alt="Noticia 1"></div>
-                    <div class="news-body">
-                        <time>12 de Marzo, 2026</time>
-                        <h3>Despliegue del Ala 14 en el Báltico</h3>
-                        <p>Seis Eurofighter Typhoon españoles asumen el mando de la Policía Aérea de la OTAN en Lituania para asegurar el flanco este.</p>
-                    </div>
-                </article>
-                <article class="news-card reveal" style="--d:.1s">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="Noticia 2"></div>
-                    <div class="news-body">
-                        <time>08 de Marzo, 2026</time>
-                        <h3>Evacuación aeromédica completada con éxito</h3>
-                        <p>Un A400M medicalizado repatria a civiles desde zona de conflicto en una operación coordinada con el Ministerio de Asuntos Exteriores.</p>
-                    </div>
-                </article>
-                <article class="news-card reveal" style="--d:.2s">
-                    <div class="news-img"><img src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=600&q=80" alt="Noticia 3"></div>
-                    <div class="news-body">
-                        <time>01 de Marzo, 2026</time>
-                        <h3>Nuevo satélite militar operativo</h3>
-                        <p>El Ejército del Aire y del Espacio asume el control del nuevo satélite de observación SPAINSAT-NG I, mejorando la inteligencia estratégica.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-drawer { display: flex; }
+}
 
-    <section id="historia" class="s-historia">
-        <div class="container">
-            <header class="s-head reveal">
-                <span class="s-tag">03 · Historia</span>
-                <h2>85 años de historia</h2>
-                <p>De la fundación en 1939 al dominio del espacio en 2026.</p>
-            </header>
+/* ═══════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════ */
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+}
+.hero-image {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=1920&h=1080&fit=crop&q=80') center / cover no-repeat;
+    transform: scale(1.04);
+    animation: heroZoom 18s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { to { transform: scale(1) } }
+.hero-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        to top,
+        #09090b 0%,
+        rgba(9,9,11,.75) 45%,
+        rgba(9,9,11,.2) 100%
+    );
+}
 
-            <div class="timeline">
-                <div class="tl-line"></div>
+.hero-body {
+    position: relative; z-index: 2;
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 0 clamp(16px,4vw,40px) clamp(64px,10vh,120px);
+    width: 100%;
+}
 
-                <div class="tl-row tl-left reveal-fade">
-                    <div class="tl-node"></div>
-                    <div class="tl-card">
-                        <time class="tl-year">1939</time>
-                        <h3>Fundación del Ejército del Aire</h3>
-                        <p>Constituido como cuerpo independiente por decreto del 7 de octubre de 1939. España pasa a contar con una fuerza aérea autónoma con sus propias estructuras de mando, formación y doctrina operativa.</p>
-                    </div>
-                </div>
+.hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: .7rem; letter-spacing: .18em; color: var(--gold);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+.hero-eyebrow span {
+    display: inline-block; width: 32px; height: 1px; background: var(--gold);
+}
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.08s">
-                    <div class="tl-node"></div>
-                    <div class="tl-card">
-                        <time class="tl-year">1982</time>
-                        <h3>Ingreso en la OTAN</h3>
-                        <p>España entra en la Alianza Atlántica integrando su fuerza aérea en la defensa colectiva occidental. Comienza la modernización acelerada con aeronaves de fabricación norteamericana y europea de última generación.</p>
-                    </div>
-                </div>
+.hero-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 9rem);
+    font-weight: 800;
+    line-height: .9;
+    letter-spacing: -.04em;
+    margin-bottom: 24px;
+}
+.heading-stroke {
+    -webkit-text-stroke: 2px rgba(255,255,255,.5);
+    color: transparent;
+}
 
-                <div class="tl-row tl-left reveal-fade" style="--d:.16s">
-                    <div class="tl-node"></div>
-                    <div class="tl-card">
-                        <time class="tl-year">1992</time>
-                        <h3>Llegada del F/A-18 Hornet</h3>
-                        <p>Adquisición de 72 cazas F/A-18 Hornet, revolucionando las capacidades de combate aéreo. Se convierte en la espina dorsal de la defensa durante tres décadas y aún opera en la actualidad.</p>
-                    </div>
-                </div>
+.hero-lead {
+    font-size: clamp(.95rem, 2vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255,255,255,.65);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 36px;
+}
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.24s">
-                    <div class="tl-node"></div>
-                    <div class="tl-card">
-                        <time class="tl-year">2003</time>
-                        <h3>Eurofighter Typhoon C.16</h3>
-                        <p>Inicio de la incorporación del Eurofighter Typhoon, el caza más avanzado jamás operado por España. Desarrollado en consorcio europeo, supone un salto tecnológico sin precedentes en maniobrabilidad, sensores y sistemas de armas.</p>
-                    </div>
-                </div>
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
-                <div class="tl-row tl-left reveal-fade" style="--d:.32s">
-                    <div class="tl-node tl-node--gold"></div>
-                    <div class="tl-card tl-card--gold">
-                        <time class="tl-year tl-year--gold">2022</time>
-                        <h3>Ejército del Aire y del Espacio</h3>
-                        <p>Por Real Decreto 176/2022, el dominio espacial se incorpora a la denominación oficial. España reconoce el espacio como ámbito operativo con capacidades de observación, vigilancia y comunicación satelital.</p>
-                    </div>
-                </div>
+/* Scroll cue */
+.hero-scroll-cue {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--muted); font-family: var(--font-mono); font-size: .6rem; letter-spacing: .15em;
+    text-transform: uppercase;
+    animation: scrollBounce 2.4s ease-in-out infinite;
+}
+.mouse-icon {
+    width: 22px; height: 34px; border: 1.5px solid var(--subtle); border-radius: 11px;
+    display: flex; justify-content: center; padding-top: 6px;
+}
+.mouse-wheel {
+    width: 2px; height: 6px; background: var(--muted); border-radius: 1px;
+    animation: wheelScroll 2.4s ease-in-out infinite;
+}
+@keyframes scrollBounce { 0%,100% { transform: translateX(-50%) translateY(0) } 50% { transform: translateX(-50%) translateY(8px) } }
+@keyframes wheelScroll { 0%,100% { opacity: 1; transform: translateY(0) } 50% { opacity: 0; transform: translateY(8px) } }
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.40s">
-                    <div class="tl-node tl-node--gold tl-node--pulse"></div>
-                    <div class="tl-card tl-card--gold">
-                        <time class="tl-year tl-year--gold">2026 · Hoy</time>
-                        <h3>FCAS — El futuro del combate aéreo</h3>
-                        <p>España participa en el programa FCAS (Future Combat Air System), el sistema de combate de sexta generación que definirá la aviación militar europea en 2040, con drones de combate autónomos y gestión de batalla en red.</p>
-                        <span class="tl-badge">En desarrollo</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ── Reveal animations ──────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(28px);
+    animation: fadeUp .8s var(--ease-out) forwards;
+    animation-delay: var(--d, 0s);
+}
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+    transition-delay: var(--d, 0s);
+}
+.reveal.visible, .reveal-fade.visible { opacity: 1; transform: none; }
+.reveal-fade {
+    opacity: 0;
+    transition: opacity .7s var(--ease-out);
+    transition-delay: var(--d, 0s);
+}
+@keyframes fadeUp { to { opacity:1; transform:none } }
 
-    <section id="contacto" class="s-contacto">
-        <div class="container">
-            <div class="contacto-layout">
+/* ═══════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════ */
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px; border-radius: var(--radius);
+    font-family: var(--font-body); font-weight: 600; font-size: .88rem;
+    letter-spacing: .01em; line-height: 1;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+.btn i { font-size: .8em; transition: transform .2s; }
+.btn:hover i { transform: translateX(3px); }
+.btn-red {
+    background: var(--red); color: #fff; border: 2px solid var(--red);
+    box-shadow: 0 4px 24px var(--red-glow);
+}
+.btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); box-shadow: 0 8px 32px rgba(200,16,46,.3); transform: translateY(-1px); }
+.btn-outline {
+    background: transparent; color: rgba(255,255,255,.8);
+    border: 2px solid rgba(255,255,255,.2);
+}
+.btn-outline:hover { border-color: rgba(255,255,255,.5); color: #fff; background: rgba(255,255,255,.05); }
+.btn-full { width: 100%; justify-content: center; }
 
-                <div class="contacto-left">
-                    <span class="s-tag reveal">04 · Contacto</span>
-                    <h2 class="reveal" style="--d:.06s">Únete a nosotros</h2>
-                    <p class="reveal" style="--d:.12s">Forma parte de una institución de élite con formación de vanguardia y misiones de alto impacto nacional e internacional.</p>
+/* ═══════════════════════════════════════════════════════
+   SECTION COMMONS
+   ═══════════════════════════════════════════════════════ */
+.s-tag {
+    display: inline-block;
+    font-family: var(--font-mono); font-size: .65rem;
+    letter-spacing: .18em; color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+.s-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+.s-head h2 {
+    font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 800; line-height: 1; letter-spacing: -.04em;
+    margin-bottom: 16px;
+}
+.s-head p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
 
-                    <div class="ci-list reveal" style="--d:.18s">
-                        <a href="tel:+34900101060" class="ci-row">
-                            <div class="ci-ico"><i class="fas fa-phone"></i></div>
-                            <div>
-                                <small>Teléfono gratuito</small>
-                                <strong>900 101 060</strong>
-                            </div>
-                        </a>
-                        <a href="/cdn-cgi/l/email-protection#b8ddd2ddcadbd1ccd796d9d1caddf8dcdddeddd6cbd996dfd7da96ddcb" class="ci-row">
-                            <div class="ci-ico"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <small>Correo electrónico</small>
-                                <strong><span class="__cf_email__" data-cfemail="55303f3027363c213a7b343c273015313033303b26347b323a377b3026">[email&#160;protected]</span></strong>
-                            </div>
-                        </a>
-                        <div class="ci-row">
-                            <div class="ci-ico"><i class="fas fa-location-dot"></i></div>
-                            <div>
-                                <small>Sede central</small>
-                                <strong>C/ Romero Robledo, 14 · Madrid</strong>
-                            </div>
-                        </div>
-                    </div>
+/* ═══════════════════════════════════════════════════════
+   CIFRAS
+   ═══════════════════════════════════════════════════════ */
+.s-cifras {
+    padding: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.cifras-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 
-                    <div class="socials reveal" style="--d:.24s">
-                        <a href="#" aria-label="X/Twitter"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
+}
+@media (max-width: 900px) { .cifras-row { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 520px) { .cifras-row { grid-template-columns: repeat(2,1fr); } }
 
-                <div class="contacto-right reveal" style="--d:.1s">
-                    <h3>Envíanos un mensaje</h3>
-                    <div id="form-error"   class="form-alert err hidden"><i class="fas fa-circle-exclamation"></i> Completa todos los campos obligatorios.</div>
-                    <div id="form-success" class="form-alert ok  hidden"><i class="fas fa-circle-check"></i> Mensaje enviado. Nos pondremos en contacto pronto.</div>
+.cifra {
+    padding: clamp(28px,4vw,48px) clamp(16px,2vw,32px);
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+}
+.cifra:last-child { border-right: none; }
+.cifra::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 2px; background: var(--red);
+    transition: width .4s var(--ease-out);
+}
+.cifra:hover::after { width: 60%; }
+.cifra-n {
+    display: block;
+    font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800; color: #fff; letter-spacing: -.04em;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.cifra span { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
 
-                    <div class="form-duo">
-                        <div class="fg">
-                            <label for="f-nombre">Nombre <span>*</span></label>
-                            <input id="f-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name">
-                        </div>
-                        <div class="fg">
-                            <label for="f-apellidos">Apellidos <span>*</span></label>
-                            <input id="f-apellidos" type="text" placeholder="Tus apellidos" autocomplete="family-name">
-                        </div>
-                    </div>
-                    <div class="fg">
-                        <label for="f-email">Email <span>*</span></label>
-                        <input id="f-email" type="email" placeholder="tu@email.com" autocomplete="email">
-                    </div>
-                    <div class="fg">
-                        <label for="f-asunto">Asunto</label>
-                        <select id="f-asunto">
-                            <option value="">Seleccionar…</option>
-                            <option>Información sobre acceso</option>
-                            <option>Proceso de selección</option>
-                            <option>Información general</option>
-                            <option>Visitas y actos públicos</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div class="fg">
-                        <label for="f-mensaje">Mensaje <span>*</span></label>
-                        <textarea id="f-mensaje" rows="4" placeholder="Escribe tu consulta aquí…"></textarea>
-                    </div>
-                    <button class="btn btn-red btn-full" onclick="handleFormSubmit()">
-                        Enviar mensaje <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
+/* ═══════════════════════════════════════════════════════
+   MISIONES
+   ═══════════════════════════════════════════════════════ */
+.s-misiones { padding: clamp(80px,12vh,140px) 0; background: var(--bg); }
+.misiones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+@media (max-width: 900px) { .misiones-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px) { .misiones-grid { grid-template-columns: 1fr; } }
 
-            </div>
-        </div>
-    </section>
+.m-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px,3vw,36px);
+    display: flex; flex-direction: column; gap: 12px;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    position: relative; overflow: hidden;
+}
+.m-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0, var(--red-glow), transparent 60%);
+    opacity: 0; transition: opacity .4s;
+}
+.m-card:hover { border-color: rgba(200,16,46,.4); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.3); }
+.m-card:hover::before { opacity: 1; }
 
-    <footer class="site-footer">
-        <div class="container footer-wrap">
-            <div class="footer-brand">
-                <span>🇪🇸</span>
-                <div>
-                    <strong>EAE</strong>
-                    <small>Ejército del Aire y del Espacio</small>
-                </div>
-            </div>
-            <nav class="footer-nav">
-                <a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a>
-                <a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a>
-                <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
-                <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
-                <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
-                <a href="#bases"    onclick="smoothScrollTo('bases',event)">Bases</a>
-                <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
-                <a href="#contacto" onclick="smoothScrollTo('contacto',event)">Contacto</a>
-            </nav>
-            <p class="footer-copy">© 2026 Ministerio de Defensa · España · Sitio demostrativo no oficial</p>
-        </div>
-    </footer>
+.m-icon {
+    width: 48px; height: 48px;
+    background: rgba(200,16,46,.1); border: 1px solid rgba(200,16,46,.25);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem; color: var(--red);
+    transition: background .3s, color .3s;
+}
+.m-card:hover .m-icon { background: var(--red); color: #fff; }
 
-    <button id="back-to-top" aria-label="Volver arriba">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+.m-card h3 {
+    font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+    letter-spacing: -.02em;
+}
+.m-card p { font-size: .85rem; color: var(--muted); line-height: 1.65; flex: 1; }
+.m-badge {
+    display: inline-block; align-self: flex-start;
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .1em;
+    padding: 3px 10px; border-radius: 99px;
+    background: rgba(200,16,46,.12); color: var(--red); border: 1px solid rgba(200,16,46,.25);
+    text-transform: uppercase; margin-top: 4px;
+}
+.m-badge--new { background: rgba(245,158,11,.12); color: var(--gold); border-color: rgba(245,158,11,.25); }
 
-    <div id="aircraft-modal" class="modal-backdrop" onclick="handleBackdropClick(event)" role="dialog" aria-modal="true">
-        <div class="modal-panel" id="modal-panel">
-            <div class="modal-header">
-                <div>
-                    <h2 id="modal-title"></h2>
-                    <p id="modal-subtitle"></p>
-                </div>
-                <button class="modal-close" onclick="closeModal()" aria-label="Cerrar modal">
-                    <i class="fas fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-tab-bar" id="modal-tabs">
-                <button class="mtab active" onclick="switchTab(0)">General</button>
-                <button class="mtab" onclick="switchTab(1)">Especificaciones</button>
-                <button class="mtab" onclick="switchTab(2)">En España</button>
-                <button class="mtab" onclick="switchTab(3)">Galería</button>
-            </div>
-            <div class="modal-body" id="modal-body"></div>
-        </div>
-    </div>
+/* ═══════════════════════════════════════════════════════
+   FLOTA
+   ═══════════════════════════════════════════════════════ */
+.s-flota { padding: clamp(80px,12vh,140px) 0; background: #000; }
 
-    <!-- ══════════════════════════════════════════════
-         SECCIÓN: MAPA DE BASES AÉREAS
-    ══════════════════════════════════════════════ -->
-    <section id="bases" class="s-bases">
-        <div class="container">
-            <header class="s-head reveal">
-                <span class="s-tag">05 · Despliegue</span>
-                <h2>Bases Aéreas</h2>
-                <p>Red de instalaciones estratégicas distribuidas por todo el territorio nacional y en el exterior.</p>
-            </header>
-            <div class="bases-layout">
-                <div class="bases-map-wrap reveal">
-                    <div class="bases-map" id="bases-map">
-                        <!-- Mapa real España — fuente: Simplemaps.com (CC Free) -->
-                        <svg viewBox="0 0 1000 890" class="spain-svg" id="spain-svg"
-                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+.flota-header {
+    display: flex; flex-direction: column; gap: 24px;
+    margin-bottom: 48px;
+}
+@media (min-width: 768px) {
+    .flota-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+.flota-header h2 {
+    font-family: var(--font-display); font-size: clamp(2.2rem,5vw,4rem);
+    font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 8px;
+}
+.results-count {
+    font-family: var(--font-mono); font-size: .7rem;
+    color: var(--muted); letter-spacing: .08em;
+}
 
-                            <!-- España: península + Baleares + Canarias (path real) -->
-                            <path class="spain-land" id="ES" d="M563.6 459.2l-0.9-0.8-0.6-0.9-0.5-1-0.4-1.2 0.6 0 0.8 0 0.9 0.5 0.6 0.6 0.8 0.1 1-0.5-0.3 1-1.8 1.4-0.2 0.8z m96.7 25.7l1 2.1 0.4 0.5-1.2 0.5-0.9-0.9-0.1-1.4 0.8-0.8z m46.6-421.7l-0.1 0.6-0.1 1.2 0.1 0.7 1.1 0.5 0.5 0.7 0.2 1.1 0.1 0.2 0.1 0.3 0.4-0.1 0.5-0.3 0.8-0.1 0.9-0.3 0.3 0 0.8 0.4 0.4 0.3 0 0.2-0.1 0.4 0 0.5 0.3 0.9 0.2 0.3 0.5 0.2 0.5 0.1 0.5-0.1 0.4-0.3 0.2-0.4 0.4-1 0.6-0.4 0.8 0.1 1.2 0.3 1.7 0.9 0.5 0 0.4-0.2 0.5 0 1.1 1.2 0.2 2-0.4 2.2-0.7 1.8-0.5 0.7-1.6 1.8-0.4 0.4 0.5 1.2 0.8 0.9 0.9 0.5 1 0.3 1.1 0.1 0.7-0.3 0.3-0.7 0.1-1.5 0.3-1.1 0.7-0.8 0.9-0.3 0.9 0.2-0.9 0.8-0.3 0.7 0.2 0.7 0.7 0.8 0.7 0.5 2.4 0.4 1.4 0.8 1.3 1.1 1.5-0.2 0.4 0.1 0.6 0.5 0.3 0.2 1.4 0.2 0.7 0.2 0.5 0.6 1.4 1 1.5 0.5 3.3 0.3 3.1-0.6 1.1 0.4 0.5 1.6 0.2 0.4 0 0.4-0.1 0.2-0.1 0.3 0.2 0.5 0.4 0.4 0.4 0.1 0.4-0.1 0.4 0.1 1.4 0.9 0.8 0.6 1.5 2.1 0.1 0.2-0.1 0.2 0 0.2 0.3 0.2 0.6 0 0.2 0 0.2 0.4 0 0.3 0 0.3 0.4 0.3 0.3 0 0.7-0.5 0.3-0.1 0.1-1.3 1 0 2.2 1 1.2-0.1 1-0.6 1.9-1.5 0.4 0.3 0.3-0.1 0.3-0.4 0.2-0.5 0.6 0.5 0.1 0.1 2.4 1.4 0.4 1.1 1.1 0.1 1.2-0.3 0.7-0.3-0.1 0.9 0.3 1 0.5 0.8 0.6 0.5 0.3 0.3 0 0.4 0.1 0.4 0.5 0.2 0.5 0.1 0.3 0.3 0.1 0.2 0.3 0.3 1.6 0.6 1.4-0.1 3.1-1.2 2.5-0.3 0.7-0.6 0.7-0.1 2.1 0.6 0.7 0.3 0.8 1.6 0.7 0.7 0.6-0.1 1.1-1.6 0.7-0.7 0.8-0.3 1.1 1 0.1 0.2-0.1 0.2 0.1 0.2 0.2 0.2 0.8 0.2 0.8-0.1 1.5-0.4 0.7 0.3 5-0.1 1.4 0.2 0.6-0.2 0.2-0.5 0.1-0.1 0.1-0.9-0.3-0.8-0.5-0.7-0.6-0.2 0.3-0.5 0.1-0.3 0.3-0.2-0.4-0.6 0.6-1.6-0.1-1.1 0.2-0.8 0.9-0.4 1.1-0.1 0.7 0.1 1.4 0.6 0.7 0.1 0.8-0.1 0.7 0.2 1.7 1 1.2 0.5 0.4 0.2 0.6 0.7 0.5 0.2 0.3-0.2 0.4-0.4 0.4-0.1 0.4 0.1 0.6 0.6 0.3 0.2 3.5 0.2 0.8 0.3 0.8 0.6 0.3 0.8 0.4 0.9 0.4 0.7 0.7 0.5 0.4 0.1 1.4-0.5 4.9 0.1 1 0.2-0.2 0.8 0.2 0.2 0.4 0 0.3 0.2 0.7 1.3 0.8 1.1 0.7 1.9 0.6 0.7-0.2 0.4-0.2 0.5-0.1 0.5 0.4 0.3 0 0.2-0.7 1.1-0.1 0.7 0.9-0.2 0.7 0.7 0.1 0.8-0.8 0.6-0.2 0.1-0.7 0.3 1.2 1.8 0 0.7 0.4 0.4 2.5 0.3 0.3-0.1 0.5-0.2 0.2-0.3 0.2-0.4 0.2-0.2 2.6-0.3 1.3-0.6 0.4-1.5 0.2-0.1 0.1-0.1 0.1 0 0.1 0.2 0.5 0.2 0.5 0 0.4-0.2 0.4-0.5 0.1 0.1 0.1 0.1 0 0.1 0 0.2 0.8 0.3 2.5 0.4 0.8 0.3 2.3 1.6 0.9 0.2 0.8 0.1 0.6 0.2 0.6 0.9 0.5 2.1 0.4 0.8 0.8 0.7 0.5 0.4 0.5 0 1.1-0.1 0.6-0.1 0.5-0.4 0.7-0.7 0.9-0.7 0.2-0.3 0.3-0.8 0.2-0.3 0.7-0.3 1.9 0.2 2.5-0.8 1.2-0.1 1.2 0.6 0.5 0.4 2.3 1.1 1.3 0.3 0.6 0 0.3 0.9 0.6 0.9 0.8 0.6 0.8 0.2 0.8 0.5 0.4 0.1 0.5 0 0.2-0.3 0.4-0.9 0.3-0.2 0.8-0.1 1.8 0.7 0.9 0.1 1.1 0 0-0.3-0.5-0.5-0.4-1.1 0.3-0.4 1.7-1.4 0.7-0.4 0.9 0 1.5 0.2 0.9-0.1 0.6-0.4 1.3-1.2 0.6-0.4 0.7-0.1 0.6 0.1 0.7-0.2 1.4-1 1.3 0.5 0.6-0.4 0.5 0 1.2 0.1 0.2 0.1 0.3 0.6 0.3 0.5 0.4 0.4 0.5 0.3 0.8 0.3 1 0.1 1.1-0.1 1.7-0.3 0 0.8-0.4 1.1 0.2 0.9 0 0.9 0.5 0.8 0.7 0.6 0.9-0.2 0.9 0 0.6 0.7 0.2 0 0.5-0.4 0.5 0.1 1 0.7-1 1.9-0.1 0.5-0.2 0.8-0.3 0.4-0.3 0.3-0.3 0.6-0.7-0.3-1.5 0.3-1.2-0.5-0.4-0.6-0.7 0.2-0.9 0.9-0.5 1.2 0 1.9-0.1 1.3 0.3 1 0.6 0.7 1.4 0.9 0.8 1 0.9 1.3-0.1 0.7-0.5 0.5-0.2 0.8 0.3 0.8 0.2 1.1 0 0.4 0.2 0.3 0.7 0.6 0.3 0.4-0.2 1.1-1 1.7-0.5 1.4-0.7 0.7-1.1 1.7-1.3-0.2-1.6 1.2-0.4 1.5-1.1 0.6-3.6 2.9-0.8 1.2-1.3 0.3-0.9 0.2-1.1 0.3-0.4 0.1-0.2 0.1-0.6 0.6-0.2 0.2-0.1 0.4-0.4 0.1-0.5 0-0.5 1.3-5.1 2.1-8.2 3.8-0.8 0.9-2.4 1.6-3 1.3-1.2 0.9-1.1 1.5-1.9 3.5-1.2 1.6-1.3 1.2-2.8 1.6-1.7 0.4-2.7 0.3-2.7 0.7-0.9 0.5-0.4 0.1-1.3 0-7.9 2.4-3.5 0.3-10.1 3.8-2.9 0.6-0.3 0.2-0.7 1.3-0.1 0.4-0.2 0.3-0.5 0.3-0.9-0.6-0.3-0.1-1.8 0-1.7 0.3-1.6 0.7-1 0.7-4.6 4.5-2.2 3-4.4 4.5-0.8 1.5 1.1 0.7 1.1 0.4 0.5 0 0.2-0.3-0.1-0.4-0.6-0.4 0.7 0.1 0.6 0.3 0.4 0.4 1 1.2 1 0.9 0.5 0 0.8 0.2 0 1.1-0.6 1.2-0.4 0.5-2.6 0.8-1.1 1-2 3.1-1.2 1-1.2 0.4-1.3 0.2-0.9-1.5 1.9-0.3 0.9 0.7 1.4-0.8 1.4-2.4-0.8-0.1-1.2 0.1-3.3 1.1-0.8 0.5-0.7 0.8-0.6 0.9-1.3 3.1-0.6 1.6-0.7 1-0.7 0.8-0.6 0.9-0.2 1.3-1.1 1.1-2.8 5.5-0.5 0.5-1 0.9-0.6 0.6-1.4 1.9-2.4 2.1-2.4 4.9-1.1 1.2-2.1 1.2-1 1.6-1.8 3.7-1 1.6-2.5 2.8-4.2 7-0.2 0.6-0.1 1.2-0.3 0.9-0.4 0.7-1 1-0.6 0.8-0.4 0.9-0.3 0.9-0.2 0.7-1.3 1.8-0.4 0.9-0.3 1.9 0.1 2.6 0.3 2.2 0.8 3.5 2.5 5.6 0.4 0.8 0.5 0.9-0.5 0.4-0.5 0.4 0.2 1 0.4 1.9 0.7 1.7 1 1.9 1.1 2.1 1.5 2.6 0.6 0.8 1.5 1.2 1.5 1.6 0.8 0.6 1.1 0.3 1.9 0.2 1.9 0.6 1.8 1 1.2 1.4-0.1 0.1-0.5 0.3 0.5 0.2 0.3 0.3 1.1 0.9 0.4-0.1 0.3 0.6 0 0.9-0.3 0.4-0.7 0-0.7 0.2-0.6 0.3-0.6 0.5-0.5 1.1 0 0.2-0.2 0.1-0.8 0.1-0.3 0.1-0.5 0.6-0.5 0.2-0.4 0.4-0.4 0.8 0.3 0.7-0.8-0.2-0.6 0.1-0.5 0.3-0.7 0.1-1.3 0.1-0.5 0.1-0.6 0.5-0.5 0.9 0 0.7 0.1 0.7-0.3 0.8-0.6 0.6-0.6 0.3-1.7 0-1.8 0.4-1 0.4-1.3 0.9-3.9 1.6-0.6 0.5-0.2 0.6-0.3 0.2-1.5 1.6-0.5 0.8-0.1 1 0 0.5-0.2 0.2-1.3 0.1-0.5 0.2-0.5 0.4-0.1 0.8-1.5-0.1-0.3 2.1 0.6 4.7-0.5 0.6-0.7 0.1-1.4-0.1-0.9 0.3-0.8 0.6-0.6 0.8-0.4 0.8-0.2 0.7-0.2 0.8-0.1 2.2-0.2 3.4-0.1 0.9-0.4 0.5-1 0.4-0.8 0.8-0.4 0.7-1.6 4.1-0.1 0.8 0 0.1 0.2 2-0.2 0.5-1.1-1.3-1 2.7-0.5 0.4-0.9 0.3-0.3 0.7 0.1 0.9 1.3 2.4 0.4 0.5 1.3 0.9 1 0.4 0.8 0.1 0.3-0.6 0.7 0.5 0.3 0.5-0.1 0.7-0.6 0.4-0.4 0.4-0.3 0.2-0.4 0-0.3-0.3-0.4 0.3-1.1 0.4-0.7 0.1-1.1 0.7-1.6 0-0.5 0.1-0.5 0.2-1 0.7-0.4-0.3-1.6-0.7-1.3-0.3-2.6-0.1-0.7 0.1-0.6 0.3-0.5 0.3-0.2 0.5 0.1 0.5 0.5 0.9-1.3-0.3-1.2-0.3-0.3-0.6-0.2-0.4-0.8-0.1-1.2-0.5-0.6-0.2-0.6 0.6-0.1 0.5-1.2 0-1.3-0.2-1.2 0.6-0.7 0.4-1.8 1.8-0.6 0.4-0.8 0.2-0.3 0.1-0.3 0.3-0.3 0.2-0.1 0.3-0.1 0.2-0.4 1.7-0.1 0.3-0.3 0.3-0.3-0.1-0.2-0.1-0.3-0.1-0.3 0.3-0.8 0.7-0.4 0.1-0.6 0.1-2 0.9-1 0.6-0.1 0.6-0.3 0.4-0.8-0.1-0.3 0.4-0.3 0.9-0.5 1.1-1.2 1.7-2.4 2.4-1 1.4-0.7 2.1-0.3 1.8-0.5 1.3-0.2 1.4-1.2 3.1-0.9 1.4 0 0.7 0.1 0.4 0.2 0.4 0 0.4 0 0.5-0.2 0.3-0.3 0.1-0.9 0-0.3 0.2-0.5 0.5-1.4 0.9-0.6 0.7-0.4 2.1-0.5 0.6-0.6 0.5-0.6 0.7-0.2 0.4-0.2 1-0.2 0.4-0.4 0.2-0.4 0.1-0.4 0.2-0.4 0.9-0.7 0.5-0.8 0.4-0.8 0.1-1.5-0.5-1.1-1.2-1-1.3-1.1-1.2-1.4-0.9-0.8-0.3-1-0.1-0.7 0.1-1.3 0.7-0.8 0.2-0.4-0.1-1.1-0.5-0.5-0.1-3.2 0.6-0.7 0.4-0.8 1.9-0.8 2.2-1 1.1-0.2 0.2-0.5 0.4-1 0.5-1.4 0.2-0.7-0.3-0.8 0.4-1.1-0.8-0.8-0.6-0.7-0.3-0.4 0.1-0.3 0.4-0.4 0.2-0.4-0.3-1.1-1.5-1.2-0.8-0.7 0-2.2 0.7-3.6-0.6-3.3 0.2-2.9-0.5-4.1 0.5-0.6 0.4-0.5 0.6-0.8 0.6-1.5 0.9-2.5 0-1.6-1.3-0.8 0.1-0.6 0.3-1.4-0.7-0.6-0.8-1.3 0.1-1.3 0.1-0.6 0.5-2.1 0.2-2.9-0.9-1.4-0.5-2.1 0.5-2.9 0.8-3.8-1.1-1 0.3-1.2 0.9-3.5 0.5-1.1 0.1-7.2-0.5-0.7 0.2-0.5 0.4-1.2 2-0.2 0.4-0.6 0.6-0.4 0.8-0.2 0.8-1.1 2-2.6 0.3-1.1 2.2-1.4 0.9-0.4 0.2-0.8 0.4-1.7 0.4-1.7-0.1-4.7-0.6-0.9 0-0.4 0.1-0.4 0.4-2.9 2-2.8 0.2-1.8 1.2-0.5 0.2-1.5 0.1-0.7 0.3-0.5 0.3-0.5 0.7-1.1 2 0 0.4-0.7 1.9-0.4 0.7-0.2 0.2-0.3 0.3-0.3 0.2-0.7 0.3 0.1 0.4 0.1 0.4-0.4 0.7-1.3 2.5-0.2 0.5-0.2 2.3-0.8 0-0.3-1.1-0.7-0.4-0.9-0.4-0.8 0-0.2 0.5-0.3 0.4-0.2 0.6 0 0.7 0.3 0.7-0.2 0.4 0.1 0.7 0.2 0.5 0.1 0.4-0.1 0.6-0.3 0.3-0.2 0.3-0.9 0.3-4 1.5-0.6 0.4-1.3 0.3-0.7-1.5-1.7-0.9-0.7-0.6-0.9 0.4-0.9-0.3-0.8-0.5-1.7-0.5-0.6-0.6-0.9-1.2-2.6-2.6-0.8-0.5-0.9 0-1.8 0.3-2.1-0.6-1.1-1.4-0.8-1.7-0.9-1.5-2.2-1.2-0.2-0.7-0.1-0.8-0.3-0.9-0.4-0.9-1.4-1.6-0.9-2.2-0.6-1.5-0.9-1.7-0.9-0.8-0.4-0.4 0.5-0.2 0.4 0.1 1.3 1.1 0.3 0.5-0.2 0.4 0.3 0.5 0.6 0.7 0.5-0.1 0.3-0.3 0.5-0.7 0.8-1-0.3 0-0.8 0.3-0.7-0.1-0.3-0.8 0.2-1.5-0.3-1-2-1.8-0.4-0.3-2.7-0.1-0.8-0.2-0.6-0.7-0.5-2-0.4-0.9-0.6-1-0.2-0.9 0.2-0.9 0.7-0.8 0.8-0.4 1.5-0.6 0.5-0.4 0.4-1.2-0.3-2.1 0.2-1.2 1.4-1.2 3.2 0.3 1.2-1.6-0.8 0.6-1 0.4-1 0-0.8-0.6-1.7 0.6-0.8 0.6-0.3 1.1 0.3 3-0.3 0.6-1.4 0-1.1-1.5-1.4-3.3-0.9-1.6-1.1-1.2-9.9-7.2-1.1-0.6-0.9-0.2-0.7-0.3-1.7-1.4-0.8-0.4-0.8-0.4-0.7-1.2-0.3-1.3 0.3-0.6 0.5-0.4 1.4-2.1 0.4-0.9-2 2.3-1.1 0.8-1.3 0 0 0.3 0.9 1.4 0.4 0.8 0.1 0.6-0.6 0.1-3.5-1.8-1.3-0.4-1.6-0.5-1.1 0.4 1.2 0.2 0.5 0.3-9.8 0.2-0.6 0.3-0.8 0.7-0.7 0.1-0.7-0.3-0.7-0.3-0.6-2.3-0.2-1.1 0.3-0.8-0.4-1.7-0.3-4-0.7-1.6 0.1-0.6-0.1-1.1-0.3-1.2-0.3-1-0.2-0.3-0.7-0.6-0.3-0.3-0.3-0.5-0.1-0.1 0-0.2-0.1-0.4-0.2-0.7-0.1 0-0.1 0 0-0.6 0.1-0.2 0.4-0.5 0.1-0.2 0.1-0.3 0-0.2-0.1-0.3 0.4-0.3 1-1.1 0.3-0.4 0.2-0.8 0.4-2.5 0.5-1.5 0.7-1 3.8-3.2 1.1-2 0.4-1.7 0.9-2.4 0.2-0.9 0-0.5-0.1-0.5 0-0.4 0.2-0.3 1.3-0.3 0.4-0.3 0.6 0.1 0.5 0.1 0.5 0.1 0.5-0.3 0.5-0.1 0.3-0.2 0.4-0.6 0.4-1.1 0.4-0.4 0.7 0.1 2.3 1 1-0.2 0.3-1.2 0.4-0.6 0.4-1.6 0.7-1.6 0.6-1.7 0.3-0.7 0.4-1.5-0.1-0.1-0.6-0.4-1.1 0.1-1.1 0.3-0.1 0-0.2-0.1-0.5 0.7-1 0.5-1 0.2-0.6 0-0.6-0.5-0.4-0.4-1.6-4.2-0.2-0.2-0.7-0.5-0.3-0.3-0.1-0.3-0.3-0.7-0.2-0.3-4.2-5.5-1.2-0.9-0.5-0.3 0.5-0.6 0.4-0.5 0.1-0.6-0.5-0.7 0.4-0.6 0.7-2.6 1.7-2.5 0.2-0.7-0.1-0.4-0.2-0.2-0.3-0.1-0.2-0.4 0-0.4-0.1-0.5 0.1-1.2 0.3-1.7 0.1-0.4 0.4-0.7 0-0.2 1.8-1.5 0.6-0.5 0.6-0.2 0.7-0.6 0.6-0.6 0.2-0.5 0.4-0.3 1.8-0.4 0.7-0.4 0.5-0.5 0.5-0.4 0.3-0.2 0-0.7 0.2-0.8-0.6-1.1 0.9-0.7 0.9-1.3 1.3-2.6 0.4-0.5 0.2-0.5 0-0.5-0.5-0.4 0.3-0.9-0.3-1-0.5-0.9-0.7-0.7-0.9-0.6-1.1-0.3-1 0.1-1 0.6-0.5 0.2-0.6-0.1-0.6-0.3-0.4-0.4-0.1-0.5 0.5-1 0.1-0.5-0.5-1-1-0.4-1.1-0.3-1-0.6-0.6-0.8-0.3-1.1 0.1-1.1 0.5-0.9-2-2.5-0.7-0.6-0.3-0.6-0.2-1.1 0-1.2 0.2-0.7 0.3-0.8 0.2-1.2 0-1.1-0.3-0.5-1.7-0.5-0.8-0.4-0.7-0.5-0.3-1.1-0.4-0.5-1.4-0.7-0.6-0.6-1.2-1.6-0.8-0.7-1.3-3.7-0.3-0.7 0-0.1 8.7 0.4 0.5-0.2 0.7-0.3 0.7-0.1 1.7 0 0.6-0.2 0.9 0.6 1.3 0 5.9-0.7 0.6-0.3 0.5-1.1-0.1-0.4-0.1-0.3 0-0.5 0.2-0.5 0.5-0.9 0.2-0.5-0.1-0.4-0.2-0.5 0-0.6 0.3-0.7 0.3-0.3 0.9-0.3 0.4-0.3 1-1.5 0.1-0.5 0.1-0.9 0-0.5 0-0.2-0.1-0.6 0-0.2 0.1-0.3 0.4-0.3 0.1-0.2 0.3-1.3 0.1-0.5-0.1-0.5 0.2-0.6 0.7-1.2-1.6-2.9-0.9-1.1-0.5-0.9-0.5-0.4-0.4-0.2-1.1-0.1-0.5-0.2-0.4-0.7-0.3-1.8-0.4-0.8 0.4-0.6 0.4-1.2 0.3-0.5 0.8-0.3 1.7-1.2 0.5 0 0.3-0.1 0.8 0.1 0.8-0.1 0.7-0.5 0.1-0.3 0-0.4 0.1-0.5 0.1-0.4 0.3-0.3 1.7-1.3 0.4-0.3 0.7-1.3-1.4-1.3-0.9-1.5-0.3-1.8 0.8-1.8 0.9-1.4 0.1-0.6-0.2-0.9-0.4-0.8-0.5-0.4-0.3-0.6-0.1-0.9 0.3-0.8 0.9-1.8 0.3-0.9 0-0.6-0.1-1-0.3-1.7-0.5-1.8-0.1-0.7 0-1.1 0-0.5 0.2-0.3 0-0.3-0.1-0.6-0.1-0.3 0.1-1.4 0.6-0.2 0.2-0.6-0.2-0.8-0.4-0.3-0.7-0.1-0.3-0.5-0.3-1.1-0.9-2.2-0.6-0.9-1.2-1.4-0.4-0.6-0.1-0.7 0.4-0.7 0.2-1 0.8-0.4 2.5 0.2 1.1-0.1 0.6-0.6 1.6-2.3 0.3-1-0.1-1.3 0.2-0.4 0.5-0.7 1.4-1.2 0.2-0.5 0.3-0.8 1.5-2.1 0.4-0.6 0.8-0.1 2.6 0 0.4-0.3 2.3-1 1.4-1.1 1.3-1.3 1.2-2.1 0.2 0 0.5 0.1 0.1-0.1 0.1-0.3 0.1-0.4 0-0.3-0.2 0 0.6-0.5 0.5-0.2 1.3-0.1 0-0.4 1.5-2.5 0.1-0.4-0.2-0.3 0-0.5 0.3-0.5 1-1.1 1.9-2.9-0.4-0.5-0.5-0.8-1.7-1.8-1.8-1.2-2-0.7-3.3-0.7-0.5 0-0.3 0.2-0.3 0.4-0.5 0.4-0.7 0.3-0.4 0.1-1.1-0.4-0.6-0.9-0.2-1.1-0.1-1-0.2-0.5-0.2-0.5-0.2-0.4 0.3-0.5 0.3-0.5 0.1-0.5 1-4.4 0.5-1-1.1-0.4-0.7-0.1-0.3-0.4 0.3-2.3-0.1-0.9-0.6-0.7-1-0.4-0.5 1.2-1.4 0.4-2.8 0.1-1.3-0.3-1.4-2.3-1.3-0.3-0.2 1.7-1 0.6-2.5 0.2-1.1-0.3-1-0.7-0.6-0.3-0.3-0.2-1 0.7-1.4 0.6-1.3-0.6-1.2-1-1.3-0.9-0.6 0.1-0.7 0.4-0.6 0.5-0.3 0.3-0.1 0.8 0.3 1.7-0.1 0.9-0.5 0.7-0.4 0.5-1.3 0.9-2.9 1-0.7 0.1-1.5-0.1-0.6 0.1-0.5 0.4-1 1.1-0.5 0.5-0.2-0.9-0.4-0.9-0.5-0.7-0.6-0.2-0.3-0.1-0.7-0.4-0.3 0-0.3 0.3 0 0.3-0.1 0.3-0.2 0.4-0.6 0.5-0.8 0.3-0.9 0.1-0.7-0.1-0.7-0.3 0-0.5 0.6-1.8-2.1 0-0.7-0.4-1.2-0.8-0.6-0.2-1.1 0.6-2.5 0.6-1.1 0-0.5 0.1-0.1 0.3-0.2 0.4-0.3 0.3-1.2 0-0.3-1.6-0.1-1.5-0.8 0.3-0.2 0.7-0.2 0.9-0.4 0.7-0.7 0-0.7-0.1-0.6 0.3-0.5 0.5-0.4 0.6-1.3 1.4-0.1 0-1.7 0.6-3.5-0.3 0-0.1 0.2-1.3-0.1-0.7-0.3-0.4-1.4-0.6-0.5-1 0.1-1 0.4-0.9 1.5-2.4 1.2-1.1 1.2-0.8 0.6-0.5 0.4-0.7 0.1-1-0.3-0.8-0.6-0.6-0.8-0.3-0.8 0.1-0.7 0.3-0.7 0.2-0.5-0.4-0.1-0.9 0.1-2.3-0.3-0.9-0.4-0.5-1.2 0.9-0.8 0.3-0.7 0-0.3 0.1-0.3 0.2-1.1 1-0.6 0.3-6.3 1-0.7 0.3-1.4 1-0.8 0.3-1.4 0-0.8 0.2-0.6 0.5-0.4 0.6-0.4 1.1-0.3 0.6-0.9 0.5-1 0.3-0.9 0.5-0.5 0.3-0.4 0.9-0.6 0.9-0.8 0.6-0.8 0.2-0.7 0.4-0.6 0.8-0.7 0.6-0.6-0.2 0.1-0.8-0.8-10.6 0.1-0.9 0.4-0.4 1.6 0 0.8-0.2 0.3-0.5-0.2-0.5-0.8-0.3-0.1-0.4 0.2-0.2 1-0.5 0.1-0.3 0.1-0.5 0.2-0.5 0.4-0.2 0.2-0.2 0.8-0.9 2.1-1.7 0.5-0.2 0.2-0.1 1.3-1.2 0.7-0.3 0.9-0.6 0.2-0.3 0.2-0.4 0-1.7-0.1-0.4-0.1 0-0.4 0.1-0.6 0.6-0.4 1-0.6 1-1 0.4-0.8 0.2-2.2 1-0.4 0.5-0.5 0.1-2.1-0.2-0.8 0.3 0.2-0.7 0.4-1.2 0-0.8 0.3 0 0.5 0.9 0.3-0.4 0-1.8-0.1-0.4-0.1-0.3 0.2-0.1 0.5-0.1 1.5 0.3 0.2-0.1 0.3-0.7 1.5-1.8 0.7-0.7 1.3-0.9 0.6-0.5 0.3-0.8-0.4 0.2-0.3-0.1-0.4-0.1-0.4 0-0.1 0.1-0.1 0.1-0.9 0.5-1 0.8-0.5 0.4-0.9 0.2-1.3 0.1-1.3-0.2-1-0.6-0.3-0.6-0.2-1-0.3-0.6-0.5-0.3-1.4-0.2-0.3-0.2 0.3-0.6 0.7-0.4 0.9-0.4 0.6-0.1 0.5 0.1 0.3 0.5 0 0.5-0.5 0.4 0.3 0.2 0.6 0.2 0.6 0.1 0.4-0.1 0.1-0.6-0.1-0.7 0-0.5 0.5-0.5-0.5-1.9 0-0.9 0.1-0.8 0.4-0.7 0.5-0.4 0.5-0.2 0.5-0.7 1.5-3.3 0.3-1.3-0.2 0-0.3 0.9-0.4 0.9-0.5 0.6-0.7 0.3-0.8-0.3-0.5-0.7-0.4-0.9-0.5-0.4-0.7 1.1 0 0.7 0.4 0.5-0.9 1.2-0.5 0.3-0.6-0.4 0.2-0.6-0.5 0.3-1.4 1 0.6 0.7-0.5 0.4-1.4 0.4-0.1 0.3-0.3 1.3-0.4 0.1-0.3 0.3-0.6 0.7-0.6-0.7-0.1-1-0.2-0.9-0.9-0.4-0.6-0.6 0.2-1.3 0.6-1.4 0.5-0.9 0-0.6 0.1-0.8 0.3-1.1 0.4-0.7 0.2-0.4 0.3-0.4 0.5-0.1 0.1-0.2 1.2-0.6 1-1.5 0.6-0.5 1-0.3 0.3-0.4 0.2-0.8-0.1-0.9-0.8-0.5-0.2 1.3-0.6 0.8-0.9 0.4-1.1 0.1-2.1-0.3-0.8 0.2 0.1 0.9-0.9 1-0.5 0.3-0.8-0.2-0.5-0.4-0.3-0.7-0.2-0.9-0.4-1 0.5 0 0.4-0.2 0.3-0.4 0.2-0.5-0.3-0.7-0.6-0.4-0.7-0.3-0.1-0.4-0.2-0.7 0-0.4 0.1-0.2 0.3-0.4 0.1-0.3 0.1-0.5-0.1-0.4-0.2-0.2-0.7-0.1-0.4-0.2-0.6-1-0.5-0.2 0 0.3 0.2 0.6-0.2 0.3-0.4 0.1-0.2 0-0.2-0.8-0.4 0-0.4 0.3-0.4 0.3-0.3 0.5-0.4 1.1-0.3 0.5-0.2-0.1-0.4-1.3-0.3-0.4 0-0.3 0.2-0.5 0.9-2.3 0-0.4 0.1-0.4 0.1-0.5 0.2-0.3 0.1-0.5-0.2-0.3-0.6-0.5-0.3-1.3 0.3-0.3 0.6 0 0.2-0.5 0.3-1 0.4-0.5 0.5-0.3 0.2-0.7 0.6 0.6 0.5 0.1 0.5-0.2 0.6-0.5 0.2-0.3 0.1-0.2 0.2-0.3 0.4-0.3 0.3-0.2 0.3-0.1 0.7 0 0-0.4-0.7 0.3-0.9 0.2-0.6-0.1 0-0.4-1.3 0.6-0.5-0.1-0.4-0.9 1.9-1.9 1.3-0.7 1.5 0.7 0.7 0 0.7-0.2 0.6-0.2 0.5-0.4 0.5-0.4 0.4-0.7 0.2-0.8 0.3 0 0.8 0.6 1 0 1.1-0.5 0.7-0.5-0.9 0.1-0.4-0.4-0.6-1.2-0.2 0-0.5-0.3-0.3-0.3 0.3-0.2 0.4 0 1.6-0.7 1.7-1.2 1.3-0.3 0.3-0.4 0.3-0.3 0.4-0.1 0.6 0.3 1.2 1.3 0.7 0.3 0.8 0.1 1.5 0.5 0.8 0.1 1.1-0.4 1.4-0.8 1.5-0.5 1.4 0.6 2.1-1 0.4-0.3 0.1-0.5 0.3-0.5 0.4-0.3 0.9-0.2 0.1-0.2 0.1-0.2 0.3-0.2 2.2-0.6 0.1 0.7 0.4 0.6 0.9 0.8 0.5-0.7 0.1-0.5-0.1-1.3 0.4-0.7 0.8 0.1 1.2 0.8 0.6 0.2 0.2 0.5 0.2 0.6 0.3 0.6 0.9 0.9 0.4 0.6 0.3 0.8 0.3-0.9 0-0.8-0.3-1.7 0-0.9 0.2-0.5 0.4-0.4 0.8-0.5-0.8-0.4-0.7-0.1-1.4 0.1-0.7-0.2-1-1.1-0.7-0.2 0.8-0.6 4.1-0.6 0.3-0.1 0.2-0.2 0.2-0.4 0-0.4-0.2-0.1-1 0.5-2.4 0.4 0.1-0.2 0.1-0.1 0.3-0.1-0.1-0.2-0.4-0.2-0.5 0.7-0.8 0.3-1.8 0.1 0.3-0.8 0.2-1.2 0.2-0.8 0.4 0.2 0.6-0.8-0.4-0.3-0.3-0.4-0.2-0.6 0-0.6 0.2 0 0.7 0.1 0.3-0.1 0.9 0.1 1.2-0.6 5.9-4.5 0.1 0.6 0.4 0.4 0.4 0 0.5-0.2-0.4 0-0.2 0 0-0.4 0.2-0.1 0.2-0.2 0.2-0.1-0.8-0.6-0.1-0.6 0.2-0.6 0.1-0.7 0.3-0.4 0.6-0.2 1.3 0 1.2-0.3 1.2-0.7 1-0.9 0.8-1.1 1.1 0.1 0.5 0.8 0.3 1 0.6 0.8 0 0.3-0.3-0.1-0.4-0.1-0.2-0.1-0.3 0.5-0.1 0.5-0.1 0.4 0.3 0.4-0.4 0.4-0.2-0.1-0.3-0.3-0.2 0.3-0.1 0.1-0.2 0.1 0 0.3 2 0.2 0.4-0.5-0.8-1.2 0.5-0.3 0.5 0 1 0.3-0.1-0.2-0.1-0.4-0.1-0.2 0.6-0.6 0.7-0.6 0.8-0.5 1.6-0.4 0.9-0.6 0.7-0.8 0.2-0.9 0.2-0.1 0.3 0.1 0.3 0.4 0.1 0.6-0.2 0.4-0.9 1.1-0.1 0.8 0.2 0.3 0.3-0.1 0.4-0.2 0.1-0.1-0.1-0.3 0.1-0.3 0.3-0.1 0.3 0 0.7-0.4 0.1 0.8 1 1.9-0.1 0.9 0.3-0.1 0.5-0.7 0.4-0.8 0.5 0.2 0.3-0.3 0.4-0.5 0.6-0.2 1.6 0.2 0.5 0.2 3.3 1.9 1.6 0.6 2.6 4.5 1.9 1-0.1 0.2-0.1 0.2-0.1 0.2-0.3 0.1 0 0.4 0.6 0.3 0.3-0.2 0.3-0.3 0.5-0.2 0.6 0 0.8 0.3 1.5 0.2 2.5-0.1 0.7-0.4 0.7 0.4 0.7 0.1 0.5 0.4 0 1.1-0.3 0.6-0.4 0.7-0.2 0.7 0.4 1 0.2 0 0.2-0.9 0.2-0.9 0.2-0.8 0.6-0.4 0.3-1.3 2.3-0.5 4-0.2 0.6 0.2 2.4-0.2 1.7 0.5 1 0.1 2.3-1.2 2 0.2 2.1 0.8 1.5 0.8 0.4-0.3 0.4-0.1 1.1 0-0.1-0.3-0.1-0.6-0.1-0.3 0.6 0.1 0.9 0.6 0.6 0.1 2.1-0.4 2.1 0 0.5-0.1 1.1-0.5 1-0.2 0.2-0.3 0.3-0.3 0.6-0.1 1.3 1 0.5 0.1 3.1 0.4 0.6-0.4 0.7 0.4 0.6-0.3 0.6-0.5 0.6-0.3 4.7 0 0.2-0.5-0.3-0.4-0.1-0.5 0.5-0.5-0.1-0.2-0.1-0.4-0.1-0.2 1.3 0 0.5-0.2 0.2-0.7 0.2-0.6 0.7 0.1 1.3 0.6 0.9 0.8 2.2 2.6 0.7 1.2 0.3 0 0.2-0.8 0.3 0.3 0.5 0.9 2.1 0.4 8.1-0.4 1.3 0.4 0.1 0.7-0.5 0.9-0.7 0.7 0.2 0.4 0.5-0.3 0.8-0.3 0.4-0.2 0.3-0.4 0.1-0.3 0.2-0.3 0.6-0.1 1.7 0.1 0.7 0.3 2.9 1.9 1.4 0.5 3.5 0.2 0.9 0.3 0.5 0.7 0.4-0.3 2.9 0.8 0.3-0.1 0.6-0.5 0.4-0.1 0.5 0.1 0.9 0.5 2.9 0.6 3.3 1.6 0.8 0.2 9 0.8 0.1 0.1 1.1 1 0.8-0.8 1.2-0.2 1.1 0.3 0.8 0.7 0.2 0 0.5-0.7 0.3-0.2 1.9 0.2 5-0.5 1.2-0.9 2.5-0.8 1-0.1 1.8 0 0.2-0.2 0-0.2 0.1-0.3 0.3-0.1 0.3 0.1 1 0.7 0.2-0.3 0.2-0.1 0.2 0 0.2 0-0.1-0.1-0.4-0.3 0-0.4 1.4-1 0.7-0.3 0.6 0.2 0.5-0.3 0.2 0 0.2 0.3 1.1-0.7 1.3-0.3 1.2 0.2 1.1 0.8-1.8 0.8-0.7 0.5-0.6 0.6 0.5 0.5 0.2 0.2 0.2 0.1-0.2 0-0.1 0 0 0.1 0 0.2 0.4 0.1 0.4-0.1 0.6-0.3 0.3-0.3 0.5-0.8 0.2-0.1 0.3 0.1 0.4 0.5 0.4 0.2 0.1-0.3-0.1-0.5-0.2-0.5-0.3-0.2 0-0.4 0.6 0.1 0.2 0.1 0.3 0.2 0.1-0.3 0.2-0.1-0.3-0.4 0.5-0.2 1.1-0.1 0.5-0.3 0.4-0.4 0.5-0.2 3-1 1.1 0.1-0.1 1 0.7 0 0.5 0.4 0.5 0.5 0.3 0.2 2.8 0.5 0.2 0.2 0.2 0.3 0 0.3-0.1 0.5-0.1 0.1-0.3-0.1-0.3 0.1-0.2-0.2-0.4-0.2-0.3-0.1-0.2 0.3-0.1 0.3-0.4 0.3-0.6 0.4 0.8 0.1 0.4 0.7 0.4 0.2 0.6-1 0.4 0.6 0.6 0.1 1.2-0.4 0.6 0.1 1.9 0.7 2.5 0.4 1.8 0.7 0.6 0.1 0.4 0.2 0.9 1.1 1.1 0.3 0.7 0.3 0.8 0.1 0.9-0.8 1.3 0.8 2 1.8 0-0.4-0.5-1.4-0.1-0.7-0.2-0.4 0-0.2 0.2-0.2 0.5-0.2 0.5-0.6 1.7-1.1 0.7-0.2 0-0.4-0.3 0 0-0.3 0.7-0.4 1-0.1 2 0.1 2-0.2 0.8-0.4 0.7-0.2 0.5 0.1 0.9 0.6 0.8 0.8 0.3 0.6 0.5 1.4 0.1 1.2 0.2-0.2 0.3-1 0-0.3 0-0.3 0.1-0.3 0.2-0.3 0.4-0.1 0.5 0.2 0.5 0.2 1.2 0.2 2.4 1 1.7 0.4 0.9 0.3 0.8 1.2 3.9 1.9 1.6 0.5 1.8 0.2 1.7-0.2 1.4-0.4 0.4-0.1 0.3 0.2 0.2 0.4 0.4 0.4 0.5 0.2 0.1-0.1 0.1-0.1 0.2-0.1 0.3-0.1 0.2 0.1 0.1 0.3 0.1 0.2 0.3 0.2 1.2-1 0.5-0.1 0.8-0.2 2.9-1 0.9-0.6 0.5-0.2 0.5 0 0.5 0.4 0.3 0.5 0.3 0.3 0.6-0.4-0.2-0.2-0.4-0.4-0.2-0.2 1.6-0.8 1.5-1.3 1.5-0.8 0.7 0.5z m152.6 52.1l-1-0.1-0.5-0.5-0.1-0.6 0.5-1 0.4-0.2 0.5 0.5 0.4 1 0.4 0.7-0.1 0.1-0.4 0.1-0.1 0z m-804.6 724.7l0.8 0.1 0.7 0.4 0.5 0.6 0.2 0.6-0.2 0.7-1.7 2.6-0.1 0.2 0.1 0.3 0 0.3-0.2 0.3-0.2 0.1-0.2 0.1-0.2 0.1 0 0.3-0.2 0.2-0.3 0.3-0.3 0.3-0.1 0.4-0.1 1.1-0.4 0.5-0.6 0-0.8-0.5-0.6-0.6-0.4-0.6-0.5-0.5-3-0.4-0.8-0.4-0.6-0.6-0.2-1.6 1-0.5 1.8 0.1 1.6 0.4 0.6-0.4 1.6-1.5 0.3-0.4 0-0.5 0.2-0.2 0.9-0.4 1.4-0.9z m102.7-8.2l0.3 0.3 0.6 0.4 0.2 0.3-0.1 0.7-0.3 0.8-0.1 0.8 0.5 0.8 0 0.3-0.4 0.2-0.3 0.4-0.4 1 0.3 0.6 0.3 0.9-0.1 0.7-0.6 0.2-0.5 0.4-1.3 1.6-0.6 0.5-2.8 0.9-0.5 0.3-0.2 0-1.1 1.2-0.4 0.2-0.5-0.2-0.3-0.3-0.4-0.2-1.8-0.1-0.7-0.2-0.7-0.3-2.2-1.9-0.3-0.4-0.2-0.3-0.8-0.5-0.4-0.3-0.2-0.3-1.1-2.6-0.3-0.9 0.2-0.9-0.1-0.5-0.1-0.8 0-0.7 0.2-0.5 0.4-0.4 1.6-0.9 0.7-0.5 1-1 0.7-1.1-0.2-1.1 0.4-0.5 0.2-0.8-0.1-0.9-0.2-0.7 0.4 0 0.5 0 0.4 0.1 0.3 0.2 0.6-0.1 2.2 0.7 3 0 2.6 0.7 0.9-0.4-0.1-1.5 1.2-0.2 0.1 0.1 0.2 0.5 0 0.4-0.3 0.2-0.3 0.5 0 1.3 0.3 1.8 0.1 0.3 0.1 0.5 0.2 0.6 0.3 0.6z m-77.5-8.1l2-0.5 1.9 0.6 1.7 1.1 2.2 1.6 0.5 1.1 0.2 1-0.6 0.9-0.8 0.5-1.2 1.1-0.9 0.7-0.9 0.2-1 0.3-1-0.2-2.1-1.3-1.4-2.1 0-1.6 0.2-1.7 1.2-1.7z m35.6 2.6l-0.5 0.8-0.6 0.8-2.7 2.7-0.6 0.9-0.3 0.6-1.4-0.3-2.2 0.9-1 0.3-0.7 0.3-0.7-0.1-0.4-0.6-0.1-0.5 0.1-0.5-0.4-0.2-0.3-0.2-0.1-0.4-0.1-0.9-0.1-0.3-0.6-0.7-1.5-1.6-0.4-0.7-0.2-1-0.6-0.7-0.7-0.7-0.4-0.6-0.3-2-0.1-0.4-0.6-0.9-0.5-1.1-1.3-1.4-0.4-0.9 1-0.6 2.2-1 0.8 0.3 0.9 0.7 0.5 0.1 0.5 0 1.1-0.3 0.9-0.5 1.3-0.4 1-0.4 0.8 0.2 1.6-0.1 0.8-0.1 0.8-0.6 1-0.2 0.5-0.1 0.8-0.1 0.8-0.7 1.9-1.7 0.8-0.7 0.3-0.4 0.1-0.7 0.1-0.2 0.8-0.5 0.3-0.2 0.7-0.4 0.9-0.2 0.8-0.3 0.2-0.8 0.7 0.2 3.9 0.1 2.5-0.9 0.9 0.6-0.3 1.3-1.3 0.8-2.9 1.7-0.7 1.3-0.9 0.8-1.1 1.1-1.1 1-0.7 0.3-0.6 0.4-0.4 0.9 0 1 0.2 0.7 0.1 0.5-0.1 0.5-0.4 0.3-0.3 0.4-0.3 1.1-1.3 2.4-0.4 2 0 0.8z m99.2-26.9l1.5-0.6 1.5-0.2 1.4 0.4 1.1 1.4 0.5 1.5 0.1 2.1-0.3 3.9-0.2 1-0.8 1.7-0.1 0.6-0.1 1.6 0.1 0.5 0.1 0.3 0.4 0.6 0 0.3-0.2 0.5-0.7 0.7-0.1 0.2-0.1 0.4 0 0.5-0.2 0.4-0.6 1-0.4 0.7-0.4 1.6-0.9 1.5-1.4 0.8-4.2 0.7-1.9 0.5-1.3 1-1.6 0.4-0.9 0.4-1.3 1.5-1.1 1.5-1.2 1.3-1.7 0.8-1 0-1.6-0.8-0.8-0.2-2.7 0.2-0.5-0.2 0.2-0.1 0.1-0.6 0.1-0.5 0-0.2 0.3-0.1 1.4 0.3 0.8-0.1 1.5-0.5 2.3-1.1 2.9-1.9 1.2-1.1 0.6-0.8 0.5-0.8 0.2-0.9 0.2-2.2 0.4-0.8 0.9-1.4 1-3.3 0.2-0.5 0.5-0.4 1.2-2 0.9-2.3 1.6-2.3 0.5-2.3 0.6-1.4 0.2-1.7 0.2-0.6 0.4-0.5 0.7-0.4z m-152.8-3.8l-0.1 0.9 0.3 1.1 0.4 0.8 0.7 0.4 0.1 0.9-1.2 1.4-0.6 1 0.3 0.9 0.5 1.7-0.3 0.8-0.3 1.2-0.9 1.3-0.8 1.8-0.8 1.6-0.4 0.9-0.2 0-0.2-0.4-0.9-0.5-0.3-0.9-0.3-2.2-0.5-0.6-0.3-0.7-0.8-1.2-0.3-1-1.5-2.4-0.2-1.2-0.1-0.7-0.2-0.7-0.7-0.5-0.4-0.5 0.2-1.4 1.1-1.5 1.4-1.3 1-0.7 0.8 0.5 1 0.2 1 0.2 1.6-0.6 0.8 0.3 0.7 0.6 0.4 0.5z m172.6-19.5l0.7-0.1 0.8 0.5 1.1 1.1-0.4 0.9-0.1 0.8-0.3 0.6-0.8 0.5-0.2 0.7 0.1 0.7 0.3 0.6 0 0.9 0 0.3-0.4 0.6-0.1 0.4 0 0.3 0 0.8 0 0.4-0.7 1.2-1.1 1-1.3 0.7-1.9 0.5-0.4 0.4-0.4 0.4-0.4 0.2-0.7 0.1-0.9 0.2-0.7 0.1-1.4 0.3-1 0.8-0.9 1.2-0.7 1.4-0.3 0-0.4-0.6-0.8-0.3-1.9 0-0.3-0.2-0.3-0.6-0.1-0.5 0.1-0.3 0.5-0.1 0.3-0.4 0.4-0.7 0.2-0.8 0.2-2.3 0.1-0.6 1.3-2.2 0.7-0.8 0.6-0.4 0.7-0.3 0.7-0.2 1 0 0.7-0.3 1.4-1.1 0.8-0.5 0.7-0.3 0.7-0.1 2 0 0.6-0.2 0.4-0.5 0.5-1.1 0.5-1.6 0.3-0.8 0.5-0.7z m-0.2-2l0.4 0.8-0.6 1.1-1 0.8-1-0.2 0-0.3 0.7-0.7 0.3-1 0.4-0.8 0.8 0.3z m515.2-410.8l-0.3 1.1 0 1.2 0.6 1.9-0.8-0.9-0.2-1.5 0-1.7-0.1-1.5 0.2 0 0 0.1 0 0.1 0.1 0.2 0.1 0.2 0.2 0.5 0.2 0.3z m91.3-47.8l1.6-0.7 0.7 0.8-0.1 1.2-0.9 0.2-1.4 0-2-1.3-0.7-0.4-0.7 0.6-0.4 0.3-0.7 0.9-0.6 0.4-0.6-0.2 0.2-1-0.2-0.4 0-0.5 0.2-0.4 0.2-0.5 0-0.4-0.2-0.2-0.2-0.2 0.2-0.3 0.5-0.6 0.3 0.3 0.4-0.2 0.4-0.6 0.2-0.8 0.1 0 0.1 0 0 0.2 0 0.1 2 2.8 1.6 0.9z m3.2-21.5l-0.2 0.5 0.3 1 0.6 1.8-0.7 0-0.5 0.4-0.3 0.7-0.2 0.8-0.2 0.3-1.4 1-1.3 1.9-0.5 0.4-1.1 0.6-0.4 0.6-0.2-0.2-0.2-0.3-0.2-0.2-0.6 0.9-0.6 0.3-0.4 1.7-0.1 1.3-1.3 0-0.4-1-0.7-0.6-0.6 0.3-0.3 0-0.1-0.1-0.4 0.1-0.3-0.7-0.7-0.2-0.7 0.2-0.3 0.7-1.2-0.9-0.5-0.6-0.2-0.9 0.5-1.2 0.1-0.8-0.3-0.6 0.3-0.4 0.4-0.2 0.5-0.1 0.4 0.3 0.3-0.3 0.4-0.1 1 0.1-0.4-2.2 0.1-1.3 0.4-0.5 0.6-0.2 0.6-0.5 1-1.1 0.2 0 0.4 0.4 0.8-0.7 0.4 0.3 0.8-0.6 1.1-0.6 1.2-0.3 0.8 0.1 0.4-0.5 0.6-0.2 0.5 0 0.7 0.6 0.3 0.1 0.7 0 0.5 0.1 0.3 0.3 0.3 0.3z m70.7-36.2l1.1 0.3 2.3 1.4 1.4 0.1-0.2 0.5 0 0.5 0.1 0.4 0.1 0.4-0.2 0.3-0.2 0.2-0.1 0.3 0.2 0.7-0.5 1.4-0.5 0.8-0.5 0.3-0.7 0.2-0.4 0.6-0.2 0.9 0.3 0.8-1.6 1.5-1.7 2-1.3 2.6-0.4 2.9-0.4-0.3-0.1-0.1-0.7 2.2-1.2 1.3-3.7 2.3-1.6 1.4-0.3 0.5-0.2 0.2-0.3 0.2-0.4 0.2-0.2-0.2-1.1-1.7-0.2-0.2-0.7-0.3-0.2-0.2-0.2-0.5-0.1-0.5-0.1-0.5-0.3-0.2-0.4-0.1-0.6-0.6-0.4-0.1-0.5 0.1-0.6 0.2-0.4 0.1-3.5-0.3-1.6-0.6-1-1.3-0.4-2.8-0.6-0.4 0.1-0.9 0.6-1.2-0.4-1.1-1.2-1.1-1.3-0.8-1.1-0.3-0.9 0.3-2.6 1.4-0.5 0.6-0.5 1.5-1 1-1.1 0.2-0.7-1.4-0.1-0.1-0.1-0.4 0.1-0.3 0.4-0.3-1.1-1.1-0.4 0.5-0.3 0.2-0.2-0.2-0.3-0.5-1.1 0.7-0.2 0.1-0.4-0.3-0.4-1-0.7-0.6-0.2-0.9 0-1.1 0.3-0.8 2.9-1.8 0.8-0.2 0.8-0.5 1.9-2.1 0.6-0.3 0.9-0.1 0.6-0.3 0.7-0.5 1.3-1.4 0.2-0.3 0.2-0.6 0.1-0.2 0.2 0 0.5 0.1 0.2-0.1 0.9-1 0.2-0.2 0.2-0.1 0.8-1 0.2-0.2 0.3-0.1 1.2-0.6 0.6-0.5 0.5-0.5 0.4-0.3 0.6-0.2 0.2-0.1 0.2-0.5 0.2-0.1 0.8 0.1 0.4-0.1 1.2-0.5 2.4-1.7 1.3-0.3 2.3-0.2 2.2-0.6 4.2-1.7 0.5 0.7 0.2-0.2 0.2-0.1 0.5 0.3-0.4 0.3-1.5 0.7-0.5 0.1-0.6 0.3-0.5 0.6-0.5 0.4-0.5-0.2-0.3 0 0 1.7 1.4 0.2 3.1-0.8 0 0.3-0.4 0.3-0.1 0.3 0.1 0.4-0.2 0.4-0.2 0.3-0.2 0.2-0.7 0.2-1.3 0.4-0.3 0.4 0 1.1 0.4 1.1 1.1 1.1 1.3 0.7 1.2 0.3 2.7 0 0.8-0.3 1.2-1.2 0.6-0.3z m38.3-7.4l0.1 0.7 0.9 1.5 0.3 0.8-0.2 0-0.2-0.3-0.3-0.3-0.3-0.3-0.3-0.2-0.2 3.5-2 0.3-2.9-1.4-6.6-4.4-1.3-0.5-1.6 0-3 0.6-1.5-0.6 0.2-0.6 0-0.8 0.1-0.7 0.5-0.4-0.3-0.3-0.9-0.3-0.3-0.3-0.4-0.7 0-0.2 0.1-0.3 0.1-0.6 0.5-0.7 2.8-0.6 1 0.4 3.9-0.4 1.6 0.1 0.5-0.1 0.6-0.3 0.6-0.5 0.5-0.3 0.1 0.7 0.3 0.4 0.9 0.7 0 0.2-0.1 0.3 0 0.4 0.3 0.2 0.2-0.1 0.3-0.4 0.4-0.6-0.1-0.8 0.3-0.2 0.3 0.3-0.2 0.7 0.2 0.4 1.2 0.7 0.2 0.4 0.2 0.3 0.4 0.4 0.2 0.1 0.6 0.1 0.3 0.2 0.4 0.5 0.4 0.9-0.1 0.8-0.7 0.3 0.6 0.3 0.7-0.1 0.5 0.2 0.2 0.9z m-53.3 39.7l-0.1 1.4-0.8 1.2-1.3-0.1-0.7-1.7 1.1-1.1 1.6-0.7 0.2 1z m-278.1 200.3l0 0.1-0.1 0 0-0.1 0.1 0z m59.2 1.6l0.2 0 0.1 0.2-0.2 0.2-0.2-0.2 0.1-0.2z m-120.6-36.2l0.2 0.1-0.1 0.1-0.1 0 0-0.1 0-0.1z"/>
+/* Controls */
+.flota-controls { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 600px) { .flota-controls { flex-direction: row; align-items: center; } }
 
-                            <!-- ── Bases aéreas (posiciones calculadas con proyección real) ── -->
+/* Search */
+.search-box {
+    position: relative; display: flex; align-items: center;
+}
+.search-box > i {
+    position: absolute; left: 14px; color: var(--muted); font-size: .85rem; pointer-events: none;
+}
+.search-box input {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 10px 40px 10px 40px;
+    font-size: .85rem; color: var(--text); outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    width: 230px;
+}
+.search-box input:focus { border-color: rgba(200,16,46,.5); box-shadow: 0 0 0 3px rgba(200,16,46,.1); }
+.search-box input::placeholder { color: var(--subtle); }
+#search-clear {
+    position: absolute; right: 10px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--surface2); color: var(--muted);
+    display: none; align-items: center; justify-content: center;
+    font-size: .75rem;
+    transition: background var(--transition), color var(--transition);
+}
+#search-clear:hover { background: var(--red); color: #fff; }
+#search-clear.visible { display: flex; }
 
-                            <!-- Zaragoza: lon=-0.87, lat=41.66 -->
-                            <g class="map-base-group" onclick="selectBase(0)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="744" cy="157" r="6"/>
-                                <circle class="map-base-ring" cx="744" cy="157" r="12"/>
-                                <text x="752" y="153" class="map-base-label-svg">Zaragoza</text>
-                            </g>
+/* Pills */
+.pills {
+    display: flex; flex-wrap: wrap; gap: 6px;
+}
+.pill {
+    padding: 7px 14px; border-radius: var(--radius);
+    font-size: .78rem; font-weight: 500; letter-spacing: .01em;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all var(--transition);
+}
+.pill:hover:not(.active) { border-color: var(--border-h); color: var(--text); }
+.pill.active { background: var(--red); border-color: var(--red); color: #fff; }
 
-                            <!-- Morón de la Frontera: lon=-5.61, lat=37.17 -->
-                            <g class="map-base-group" onclick="selectBase(1)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="553" cy="382" r="6"/>
-                                <circle class="map-base-ring" cx="553" cy="382" r="12"/>
-                                <text x="561" y="378" class="map-base-label-svg">Morón</text>
-                            </g>
+/* Fleet grid */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
 
-                            <!-- Albacete: lon=-1.86, lat=38.95 -->
-                            <g class="map-base-group" onclick="selectBase(2)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="704" cy="292" r="6"/>
-                                <circle class="map-base-ring" cx="704" cy="292" r="12"/>
-                                <text x="712" y="288" class="map-base-label-svg">Albacete</text>
-                            </g>
+/* Aircraft card */
+.ac-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    opacity: 0; transform: translateY(20px);
+    animation: cardIn .5s var(--ease-out) forwards;
+    animation-delay: var(--card-delay, 0s);
+}
+@keyframes cardIn { to { opacity:1; transform:none } }
+.ac-card:hover {
+    border-color: rgba(200,16,46,.45);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,.45), 0 0 0 1px rgba(200,16,46,.15);
+}
 
-                            <!-- Torrejón de Ardoz: lon=-3.44, lat=40.50 -->
-                            <g class="map-base-group" onclick="selectBase(3)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="640" cy="215" r="6"/>
-                                <circle class="map-base-ring" cx="640" cy="215" r="12"/>
-                                <text x="648" y="211" class="map-base-label-svg">Torrejón</text>
-                            </g>
+.ac-img {
+    height: 180px; overflow: hidden; position: relative;
+    background: var(--surface2);
+    flex-shrink: 0;
+}
+.ac-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .7s var(--ease-out);
+}
+.ac-card:hover .ac-img img { transform: scale(1.06); }
+.ac-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 60%);
+}
+.ac-desig {
+    position: absolute; top: 10px; right: 10px;
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em;
+    background: rgba(0,0,0,.65); color: rgba(255,255,255,.75);
+    padding: 3px 9px; border-radius: 6px;
+    backdrop-filter: blur(6px);
+}
+.ac-type-badge {
+    position: absolute; bottom: 10px; left: 10px;
+    font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em;
+    padding: 3px 9px; border-radius: 6px; text-transform: uppercase;
+}
+.type-caza         { background: rgba(200,16,46,.8);  color: #fff; }
+.type-transporte   { background: rgba(37,99,235,.8);  color: #fff; }
+.type-helicóptero  { background: rgba(22,163,74,.8);  color: #fff; }
+.type-patrulla     { background: rgba(124,58,237,.8); color: #fff; }
+.type-entrenamiento{ background: rgba(217,119,6,.8);  color: #fff; }
 
-                            <!-- Getafe: lon=-3.72, lat=40.30 (ligeramente al SW de Torrejón) -->
-                            <g class="map-base-group" onclick="selectBase(4)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="629" cy="225" r="5"/>
-                                <text x="610" y="240" class="map-base-label-svg">Getafe</text>
-                            </g>
+.ac-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.ac-body h3 {
+    font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+    letter-spacing: -.02em; line-height: 1.2;
+}
+.ac-role { font-size: .78rem; color: var(--muted); line-height: 1.4; flex: 1; }
+.ac-footer {
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+}
+.ac-units {
+    font-family: var(--font-mono); font-size: .7rem; color: var(--subtle);
+    display: flex; align-items: center; gap: 6px;
+}
+.ac-units i { color: var(--red); }
+.ac-arrow {
+    width: 30px; height: 30px; border-radius: var(--radius-sm);
+    background: var(--surface2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; color: var(--muted);
+    transition: background var(--transition), color var(--transition), border-color var(--transition), transform .2s;
+}
+.ac-card:hover .ac-arrow { background: var(--red); color: #fff; border-color: var(--red); transform: translateX(2px); }
 
-                            <!-- Reus: lon=1.12, lat=41.15 -->
-                            <g class="map-base-group" onclick="selectBase(6)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="825" cy="182" r="6"/>
-                                <circle class="map-base-ring" cx="825" cy="182" r="12"/>
-                                <text x="833" y="178" class="map-base-label-svg">Reus</text>
-                            </g>
+/* Empty state */
+.empty-state {
+    grid-column: 1/-1; text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+}
+.empty-state i { font-size: 2.5rem; margin-bottom: 16px; display: block; opacity: .4; }
+.empty-state p { font-size: .9rem; }
 
-                            <!-- Palma Son San Juan: lon=2.74, lat=39.55 -->
-                            <g class="map-base-group" onclick="selectBase(7)" style="cursor:pointer">
-                                <circle class="map-base-dot" cx="890" cy="262" r="6"/>
-                                <circle class="map-base-ring" cx="890" cy="262" r="12"/>
-                                <text x="898" y="258" class="map-base-label-svg">Palma</text>
-                            </g>
+/* ═══════════════════════════════════════════════════════
+   HISTORIA / TIMELINE
+   ═══════════════════════════════════════════════════════ */
+.s-historia { padding: clamp(80px,12vh,140px) 0; background: var(--surface); }
 
-                            <!-- Gando, Gran Canaria: lon=-15.39, lat=28.16 (Canarias, abajo izquierda) -->
-                            <g class="map-base-group" onclick="selectBase(5)" style="cursor:pointer">
-                                <circle class="map-base-dot map-base-gold" cx="158" cy="833" r="6"/>
-                                <circle class="map-base-ring map-base-gold-ring" cx="158" cy="833" r="12"/>
-                                <text x="166" y="829" class="map-base-label-svg">Gando</text>
-                            </g>
+.timeline {
+    position: relative; max-width: 900px; margin: 0 auto;
+}
+.tl-line {
+    position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+    transform: translateX(-50%);
+}
+@media (max-width: 720px) { .tl-line { left: 16px; } }
 
-                            <!-- Exterior OTAN (decorativo, fuera del mapa) -->
-                            <g class="map-base-group" onclick="selectBase(8)" style="cursor:pointer">
-                                <circle class="map-base-dot map-base-ext" cx="970" cy="30" r="6"/>
-                                <circle class="map-base-ring" cx="970" cy="30" r="12" style="stroke:#ff6b6b"/>
-                                <text x="900" y="27" class="map-base-label-svg">Ext. OTAN ↗</text>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
+.tl-row {
+    display: flex; gap: 0; margin-bottom: 48px; position: relative;
+}
+.tl-left  { flex-direction: row; }
+.tl-right { flex-direction: row-reverse; }
 
-                <div class="bases-panel reveal" style="--d:.1s">
-                    <div id="bases-list" class="bases-list">
-                        <!-- filled by JS -->
-                    </div>
-                    <div class="base-detail" id="base-detail">
-                        <div class="base-detail-placeholder">
-                            <i class="fas fa-location-crosshairs"></i>
-                            <p>Selecciona una base en el mapa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.tl-node {
+    position: absolute; left: 50%; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--red); border: 3px solid var(--surface);
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 3px rgba(200,16,46,.2);
+    flex-shrink: 0;
+}
+.tl-node--gold { background: var(--gold); box-shadow: 0 0 0 3px rgba(245,158,11,.2); }
+.tl-node--pulse { animation: nodePulse 2s ease-in-out infinite; }
+@keyframes nodePulse { 0%,100% { box-shadow: 0 0 0 3px rgba(245,158,11,.2) } 50% { box-shadow: 0 0 0 8px rgba(245,158,11,.08) } }
 
-    <!-- ══════════════════════════════════════════════
-         SECCIÓN: RECLUTAMIENTO / QUIZ
-    ══════════════════════════════════════════════ -->
-    <section id="reclutamiento" class="s-reclutamiento">
-        <div class="container">
-            <header class="s-head reveal">
-                <span class="s-tag">06 · Reclutamiento</span>
-                <h2>¿Cuál es tu destino?</h2>
-                <p>Descubre qué cuerpo y especialidad del Ejército del Aire encaja con tu perfil en menos de 60 segundos.</p>
-            </header>
+.tl-card {
+    width: calc(50% - 36px);
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 28px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.tl-card:hover { border-color: var(--border-h); box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+.tl-card--gold { border-color: rgba(245,158,11,.2); }
+.tl-card--gold:hover { border-color: rgba(245,158,11,.4); }
 
-            <div class="quiz-wrap reveal" style="--d:.1s">
-                <div class="quiz-card" id="quiz-card">
-                    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress"></div></div>
-                    <div class="quiz-step" id="quiz-step">
-                        <div class="quiz-q-num" id="quiz-q-num">Pregunta 1 de 5</div>
-                        <h3 class="quiz-question" id="quiz-question">¿Cuál de estas actividades te apasiona más?</h3>
-                        <div class="quiz-options" id="quiz-options">
-                            <!-- filled by JS -->
-                        </div>
-                    </div>
-                    <div class="quiz-result hidden" id="quiz-result">
-                        <!-- filled by JS -->
-                    </div>
-                </div>
+.tl-left .tl-card  { margin-right: 36px; }
+.tl-right .tl-card { margin-left: 36px; }
 
-                <div class="quiz-sidebar">
-                    <div class="quiz-info-card">
-                        <div class="qi-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h4>Academia General del Aire</h4>
-                        <p>San Javier, Murcia. Formación de oficiales durante 5 años con nivel universitario integrado.</p>
-                    </div>
-                    <div class="quiz-info-card">
-                        <div class="qi-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h4>Tropa Profesional</h4>
-                        <p>Acceso desde los 18 años con titulación mínima de ESO. Formación específica por especialidad.</p>
-                    </div>
-                    <div class="quiz-info-card">
-                        <div class="qi-icon qi-icon--gold"></div>
-                        <h4>Suboficiales</h4>
-                        <p>Centro Universitario de la Defensa. Liderazgo técnico en especialidades aeronáuticas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.tl-year {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .15em;
+    color: var(--red); text-transform: uppercase; display: block; margin-bottom: 8px;
+}
+.tl-year--gold { color: var(--gold); }
+.tl-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.tl-card p { font-size: .83rem; color: var(--muted); line-height: 1.7; }
+.tl-badge {
+    display: inline-block; margin-top: 12px;
+    font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em;
+    padding: 3px 10px; border-radius: 99px;
+    background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(245,158,11,.3);
+    text-transform: uppercase;
+}
 
-    <!-- ══════════════════════════════════════════════
-         SECCIÓN: RADAR / ESTADO OPERATIVO EN VIVO
-    ══════════════════════════════════════════════ -->
-    <section class="s-radar">
-        <div class="container">
-            <div class="radar-layout">
-                <div class="radar-left reveal">
-                    <span class="s-tag">SISTEMA · EN LÍNEA</span>
-                    <h2>Estado Operativo</h2>
-                    <p>Red de vigilancia activa sobre el espacio aéreo nacional e internacional en tiempo real.</p>
-                    <div class="radar-stats">
-                        <div class="rs-item">
-                            <span class="rs-num" id="rs-sorties">0</span>
-                            <span class="rs-label">Salidas hoy</span>
-                        </div>
-                        <div class="rs-item">
-                            <span class="rs-num" id="rs-hours">0</span>
-                            <span class="rs-label">Horas de vuelo</span>
-                        </div>
-                        <div class="rs-item">
-                            <span class="rs-num" id="rs-countries">0</span>
-                            <span class="rs-label">Países desplegados</span>
-                        </div>
-                    </div>
-                    <div class="radar-alerts">
-                        <div class="ra-item ra-green">
-                            <span class="ra-dot"></span>
-                            <span>Espacio aéreo nacional · NORMAL</span>
-                        </div>
-                        <div class="ra-item ra-yellow">
-                            <span class="ra-dot"></span>
-                            <span>Flanco Este OTAN · ELEVADO</span>
-                        </div>
-                        <div class="ra-item ra-green">
-                            <span class="ra-dot"></span>
-                            <span>Estrecho de Gibraltar · NORMAL</span>
-                        </div>
-                        <div class="ra-item ra-green">
-                            <span class="ra-dot"></span>
-                            <span>Canarias · NORMAL</span>
-                        </div>
-                    </div>
-                </div>
+@media (max-width: 720px) {
+    .tl-left, .tl-right { flex-direction: column; padding-left: 40px; }
+    .tl-node { left: 16px; }
+    .tl-card { width: 100%; margin: 8px 0 0 !important; }
+}
 
-                <div class="radar-right reveal" style="--d:.15s">
-                    <div class="radar-scope" id="radar-scope">
-                        <canvas id="radar-canvas" width="360" height="360"></canvas>
-                        <div class="radar-label-center">RADAR</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ═══════════════════════════════════════════════════════
+   CONTACTO
+   ═══════════════════════════════════════════════════════ */
+.s-contacto { padding: clamp(80px,12vh,140px) 0; background: var(--bg); }
 
-    <script src="js/script.js?nocache=20251231v30"></script>
-</body>
-</html>
+.contacto-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px); align-items: start;
+}
+@media (max-width: 900px) { .contacto-layout { grid-template-columns: 1fr; } }
+
+.contacto-left h2 {
+    font-family: var(--font-display); font-size: clamp(2.2rem,5vw,4rem);
+    font-weight: 800; letter-spacing: -.04em; line-height: 1; margin: 14px 0 20px;
+}
+.contacto-left > p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+
+/* Contact items */
+.ci-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.ci-row {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 18px; border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color var(--transition), background var(--transition);
+}
+a.ci-row:hover { border-color: rgba(200,16,46,.4); background: rgba(200,16,46,.04); }
+.ci-ico {
+    width: 40px; height: 40px; border-radius: var(--radius-sm);
+    background: rgba(200,16,46,.1); border: 1px solid rgba(200,16,46,.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red); font-size: .9rem; flex-shrink: 0;
+    transition: background var(--transition), color var(--transition);
+}
+a.ci-row:hover .ci-ico { background: var(--red); color: #fff; border-color: var(--red); }
+.ci-row > div { display: flex; flex-direction: column; gap: 2px; overflow: hidden; }
+.ci-row small { font-family: var(--font-mono); font-size: .62rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.ci-row strong { font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Socials */
+.socials { display: flex; gap: 10px; }
+.socials a {
+    width: 40px; height: 40px; border-radius: var(--radius-sm);
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; color: var(--muted);
+    transition: all var(--transition);
+}
+.socials a:hover { background: var(--red); border-color: var(--red); color: #fff; transform: translateY(-2px); }
+
+/* Form */
+.contacto-right {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); padding: clamp(24px,3vw,40px);
+}
+.contacto-right h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; }
+
+.form-alert {
+    padding: 12px 16px; border-radius: var(--radius-sm);
+    font-size: .83rem; display: flex; align-items: center; gap: 8px;
+    margin-bottom: 20px;
+}
+.form-alert.err { background: rgba(200,16,46,.1); border: 1px solid rgba(200,16,46,.3); color: #f87171; }
+.form-alert.ok  { background: rgba(22,163,74,.1);  border: 1px solid rgba(22,163,74,.3);  color: #4ade80; }
+.form-alert.hidden { display: none; }
+
+.form-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .form-duo { grid-template-columns: 1fr; } }
+
+.fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.fg:last-of-type { margin-bottom: 20px; }
+.fg label { font-size: .75rem; font-weight: 500; color: rgba(255,255,255,.55); letter-spacing: .02em; }
+.fg label span { color: var(--red); }
+.fg input, .fg select, .fg textarea {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 11px 14px;
+    font-size: .875rem; color: var(--text); outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--subtle); }
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+    border-color: rgba(200,16,46,.5);
+    box-shadow: 0 0 0 3px rgba(200,16,46,.1);
+}
+.fg select option { background: #18181b; }
+.fg textarea { resize: none; }
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.site-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+}
+.footer-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+}
+@media (min-width: 768px) {
+    .footer-wrap { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand span { font-size: 1.5rem; }
+.footer-brand > div { display: flex; flex-direction: column; gap: 2px; }
+.footer-brand strong { font-family: var(--font-display); font-size: 1rem; font-weight: 800; }
+.footer-brand small { font-family: var(--font-mono); font-size: .58rem; color: var(--gold); letter-spacing: .1em; }
+
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+.footer-nav a { font-size: .82rem; color: var(--muted); transition: color var(--transition); }
+.footer-nav a:hover { color: var(--text); }
+
+.footer-copy { font-size: .72rem; color: var(--subtle); font-family: var(--font-mono); }
+
+/* ═══════════════════════════════════════════════════════
+   MODAL
+   ═══════════════════════════════════════════════════════ */
+.modal-backdrop {
+    position: fixed; inset: 0; z-index: 9998;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(8px);
+    display: none; align-items: center; justify-content: center;
+    padding: 16px;
+    animation: backdropIn .2s ease;
+}
+.modal-backdrop.open { display: flex; }
+@keyframes backdropIn { from { opacity:0 } to { opacity:1 } }
+
+.modal-panel {
+    width: 100%; max-width: 820px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 32px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(200,16,46,.1);
+    animation: panelIn .35s var(--ease-out);
+}
+@keyframes panelIn { from { opacity:0; transform:translateY(24px) scale(.97) } to { opacity:1; transform:none } }
+
+.modal-header {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    padding: 22px 28px 18px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+.modal-header h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; }
+.modal-header p { font-family: var(--font-mono); font-size: .65rem; color: var(--red); letter-spacing: .12em; margin-top: 4px; text-transform: uppercase; }
+.modal-close {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    background: var(--surface2); border: 1px solid var(--border);
+    font-size: 1.1rem; color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+.modal-close:hover { background: var(--red); border-color: var(--red); color: #fff; transform: scale(1.05); }
+
+.modal-tab-bar {
+    display: flex; border-bottom: 1px solid var(--border);
+    padding: 0 28px; overflow-x: auto;
+    flex-shrink: 0;
+}
+.modal-tab-bar::-webkit-scrollbar { display: none; }
+.mtab {
+    padding: 12px 18px; font-size: .8rem; font-weight: 600;
+    color: var(--muted); white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+.mtab:hover:not(.active) { color: var(--text); }
+.mtab.active { color: var(--text); border-bottom-color: var(--red); }
+
+.modal-body { flex: 1; overflow-y: auto; padding: 28px; }
+.modal-body::-webkit-scrollbar { width: 4px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--subtle); border-radius: 2px; }
+
+/* Modal tab content */
+.mb-hero-img { width: 100%; height: 240px; object-fit: cover; border-radius: var(--radius); margin-bottom: 20px; }
+.mb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.mb-tag {
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em;
+    padding: 4px 10px; border-radius: 99px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--muted); text-transform: uppercase;
+}
+.mb-tag--red { background: rgba(200,16,46,.12); border-color: rgba(200,16,46,.25); color: var(--red); }
+.mb-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+.mb-role { font-family: var(--font-mono); font-size: .7rem; color: var(--red); letter-spacing: .1em; margin-bottom: 14px; }
+.mb-text { font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.75; }
+
+/* Specs tab */
+.spec-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+.spec-table tr { border-bottom: 1px solid var(--border); }
+.spec-table tr:last-child { border-bottom: none; }
+.spec-table td { padding: 13px 0; font-size: .85rem; }
+.spec-table td:first-child { color: var(--muted); width: 55%; }
+.spec-table td:last-child { font-weight: 600; text-align: right; }
+.spec-section-title {
+    font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 12px;
+}
+.armament-box {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px 18px; font-family: var(--font-mono); font-size: .78rem;
+    color: rgba(255,255,255,.65); line-height: 1.7;
+}
+
+/* Spain tab */
+.spain-hero {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 40px 20px; text-align: center; margin-bottom: 20px;
+}
+.spain-num { font-family: var(--font-display); font-size: 6rem; font-weight: 800; line-height: 1; color: #fff; }
+.spain-label { font-family: var(--font-mono); font-size: .68rem; color: var(--red); letter-spacing: .2em; text-transform: uppercase; margin-top: 6px; }
+.spain-bases {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px 18px; font-size: .85rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 12px;
+}
+.spain-bases strong { display: block; font-family: var(--font-mono); font-size: .62rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+
+/* Gallery tab */
+.gallery-main { position: relative; border-radius: var(--radius); overflow: hidden; margin-bottom: 12px; height: 300px; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-prev, .gallery-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: var(--radius-sm);
+    background: rgba(0,0,0,.65); border: 1px solid rgba(255,255,255,.15);
+    color: #fff; font-size: .85rem;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+    transition: background var(--transition);
+}
+.gallery-prev:hover, .gallery-next:hover { background: var(--red); border-color: var(--red); }
+.gallery-prev { left: 12px; }
+.gallery-next { right: 12px; }
+.gallery-counter {
+    position: absolute; bottom: 12px; right: 12px;
+    font-family: var(--font-mono); font-size: .65rem;
+    background: rgba(0,0,0,.65); padding: 3px 10px; border-radius: 99px;
+    backdrop-filter: blur(6px);
+}
+.gallery-thumbs { display: flex; gap: 10px; }
+.gallery-thumb {
+    flex: 1; height: 72px; border-radius: var(--radius-sm); overflow: hidden;
+    cursor: pointer; border: 2px solid transparent;
+    transition: border-color var(--transition), opacity var(--transition);
+    opacity: .55;
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb:hover { opacity: .85; }
+.gallery-thumb.active { border-color: var(--red); opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════
+   ACCESIBILIDAD — Focus rings
+   ═══════════════════════════════════════════════════════ */
+:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+button:focus-visible,
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* ═══════════════════════════════════════════════════════
+   NAVBAR — active link (sección visible en scroll)
+   ═══════════════════════════════════════════════════════ */
+.nav-links a.is-active {
+    color: #fff;
+    background: var(--surface2);
+}
+.nav-links a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: var(--red);
+    border-radius: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO — responsive móvil
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .hero-heading { font-size: clamp(2.6rem, 13vw, 5rem); }
+    .heading-stroke { -webkit-text-stroke-width: 1.5px; }
+    .hero-lead { font-size: .9rem; }
+    .hero-buttons { flex-direction: column; align-items: flex-start; }
+    .hero-buttons .btn { width: 100%; justify-content: center; }
+    .hero-scroll-cue { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CIFRAS — padding vertical + separadores correctos
+   ═══════════════════════════════════════════════════════ */
+.s-cifras { padding: clamp(32px, 5vh, 56px) 0; }
+
+@media (max-width: 900px) {
+    .cifra { border-bottom: 1px solid var(--border); }
+    .cifra:nth-child(3) { border-right: none; }
+    .cifra:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 520px) {
+    .cifra:nth-child(odd) { border-right: 1px solid var(--border); }
+    .cifra:nth-child(even) { border-right: none; }
+    .cifra:nth-last-child(-n+2) { border-bottom: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   FLOTA — responsive controles
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .flota-header { gap: 20px; }
+    .flota-controls { align-items: flex-start; }
+    .search-box input { width: 100%; }
+    .pills { gap: 6px; }
+    .pill { font-size: .73rem; padding: 6px 11px; }
+}
+@media (max-width: 480px) {
+    .fleet-grid { grid-template-columns: 1fr; }
+    .ac-img { height: 200px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HISTORIA — responsive timeline móvil
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 720px) {
+    .tl-line { left: 20px; top: 8px; }
+    .tl-row  { padding-left: 52px; flex-direction: column; margin-bottom: 36px; }
+    .tl-node { left: 20px; top: 6px; transform: none; }
+    .tl-card { width: 100%; margin: 12px 0 0 !important; }
+    .tl-left .tl-card,
+    .tl-right .tl-card { margin-left: 0 !important; margin-right: 0 !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CONTACTO — responsive
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .form-duo { grid-template-columns: 1fr; }
+    .contacto-right { padding: 24px 20px; }
+    .socials a { width: 36px; height: 36px; font-size: .8rem; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MODAL — responsive
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+    .modal-panel { border-radius: var(--radius-lg); max-height: 95vh; }
+    .modal-header { padding: 16px 18px 14px; }
+    .modal-header h2 { font-size: 1.2rem; }
+    .modal-tab-bar { padding: 0 18px; }
+    .mtab { padding: 10px 12px; font-size: .75rem; }
+    .modal-body { padding: 18px; }
+    .spain-num { font-size: 4.5rem; }
+    .gallery-main { height: 220px; }
+    .gallery-thumbs { gap: 6px; }
+    .gallery-thumb { height: 56px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CARDS FLOTA — animación hover detallada
+   ═══════════════════════════════════════════════════════ */
+.ac-card:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MISIONES — responsive mejorado
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+    .m-card { padding: 20px; }
+    .m-icon { width: 40px; height: 40px; font-size: 1rem; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER — responsive refinado
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .footer-wrap { gap: 28px; }
+    .footer-nav { gap: 6px 16px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL SUAVE — evita salto por navbar fijo
+   ═══════════════════════════════════════════════════════ */
+[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
+
+/* ═══════════════════════════════════════════════════════
+   SELECCIÓN DE TEXTO
+   ═══════════════════════════════════════════════════════ */
+::selection { background: rgba(200,16,46,.35); color: #fff; }
+
+/* ═══════════════════════════════════════════════════════
+   UTILIDADES
+   ═══════════════════════════════════════════════════════ */
+.sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+}
+.hidden { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════════════════ */
+@media print {
+    #navbar, #page-loader, #scroll-progress-bar,
+    .hero-scroll-cue, .aircraft-modal { display: none !important; }
+    body { background: #fff; color: #000; }
+    .hero { min-height: auto; page-break-after: always; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   UNIDADES DE ÉLITE
+   ═══════════════════════════════════════════════════════ */
+.s-unidades { padding: clamp(80px,12vh,140px) 0; background: var(--bg); border-top: 1px solid var(--border); }
+.unidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+@media (max-width: 768px) { .unidades-grid { grid-template-columns: 1fr; } }
+
+.unidad-card {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    height: 400px; display: block; group: hover;
+    border: 1px solid var(--border);
+}
+.unidad-card img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+}
+.unidad-card:hover img { transform: scale(1.05); }
+
+.unidad-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(9,9,11,0.95) 0%, rgba(9,9,11,0.6) 40%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 32px; transition: background 0.4s;
+}
+.unidad-card:hover .unidad-overlay { background: linear-gradient(to top, rgba(9,9,11,1) 0%, rgba(9,9,11,0.7) 50%, transparent 100%); }
+
+.u-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.unidad-overlay h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+.unidad-overlay p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 20px; max-width: 90%; }
+.u-link { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; color: var(--text); }
+.u-link i { color: var(--red); transition: transform 0.2s; }
+.unidad-card:hover .u-link i { transform: translateX(5px); }
+
+/* ═══════════════════════════════════════════════════════
+   NOTICIAS
+   ═══════════════════════════════════════════════════════ */
+.s-noticias { padding: clamp(80px,12vh,140px) 0; background: var(--surface); }
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+@media (max-width: 900px) { .noticias-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .noticias-grid { grid-template-columns: 1fr; } }
+
+.news-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.news-card:hover {
+    transform: translateY(-5px); border-color: rgba(200,16,46,0.3);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.news-img { height: 200px; overflow: hidden; }
+.news-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
+.news-card:hover .news-img img { transform: scale(1.05); }
+
+.news-body { padding: 24px; }
+.news-body time { font-family: var(--font-mono); font-size: 0.7rem; color: var(--red); display: block; margin-bottom: 10px; }
+.news-body h3 { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.3; margin-bottom: 12px; }
+.news-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════════
+   BOTÓN VOLVER ARRIBA
+   ═══════════════════════════════════════════════════════ */
+#back-to-top {
+    position: fixed; bottom: 30px; right: 30px; z-index: 99;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--red); color: white; border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; cursor: pointer;
+    opacity: 0; visibility: hidden; transform: translateY(20px);
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 4px 16px var(--red-glow);
+}
+#back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+#back-to-top:hover { background: var(--bg); color: var(--red); transform: translateY(-3px); }
+@media (max-width: 768px) { #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1rem; } }
+
+/* ═══════════════════════════════════════════════════════
+   HERO PARTICLES
+   ═══════════════════════════════════════════════════════ */
+.hero-particles {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 1; pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASES AÉREAS — MAPA INTERACTIVO
+   ═══════════════════════════════════════════════════════ */
+.s-bases {
+    padding: clamp(80px,12vh,140px) 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+.bases-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: start;
+    margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+    .bases-layout { grid-template-columns: 1fr; }
+}
+
+.bases-map-wrap {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bases-map {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.spain-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.spain-land {
+    fill: var(--surface2);
+    stroke: var(--border-h);
+    stroke-width: 1.5;
+    transition: fill 0.3s;
+}
+
+.portugal {
+    fill: rgba(255,255,255,.04);
+}
+
+.canarias-bg {
+    fill: var(--surface2);
+    stroke: var(--border-h);
+    stroke-width: 1.5;
+}
+
+.map-island-label {
+    fill: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-anchor: middle;
+}
+
+.base-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.pin-dot {
+    width: 10px; height: 10px;
+    background: var(--red);
+    border: 2px solid rgba(200,16,46,.4);
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.2s;
+    position: relative; z-index: 2;
+    box-shadow: 0 0 8px var(--red-glow);
+}
+
+.pin-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px; height: 24px;
+    border: 1.5px solid var(--red);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pingPulse 2.5s ease-out infinite;
+    z-index: 1;
+}
+
+.base-pin--gold .pin-dot { background: var(--gold); border-color: rgba(245,158,11,.4); box-shadow: 0 0 8px rgba(245,158,11,.3); }
+.base-pin--gold .pin-ring { border-color: var(--gold); }
+.base-pin--red .pin-dot { background: #ff4444; }
+
+.base-pin:hover .pin-dot { transform: scale(1.5); }
+
+.pin-label {
+    position: absolute;
+    left: 14px; top: -4px;
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    color: rgba(255,255,255,.6);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: .05em;
+    text-shadow: 0 1px 4px rgba(0,0,0,.8);
+}
+
+@keyframes pingPulse {
+    0% { opacity: .7; transform: translate(-50%,-50%) scale(.5); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(2.2); }
+}
+
+.base-pin:nth-child(odd) .pin-ring { animation-delay: 0.6s; }
+.base-pin:nth-child(3n) .pin-ring { animation-delay: 1.2s; }
+
+/* Panel lateral de bases */
+.bases-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.base-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.base-item:hover, .base-item.active {
+    border-color: var(--red);
+    background: var(--surface2);
+}
+
+.base-item.active { border-color: var(--red); }
+
+.bi-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+}
+
+.bi-dot--gold { background: var(--gold); }
+
+.bi-name {
+    font-weight: 600;
+    font-size: .85rem;
+    flex: 1;
+}
+
+.bi-type {
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.base-detail {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-height: 220px;
+    transition: all 0.3s var(--ease-out);
+}
+
+.base-detail-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    gap: 12px;
+    color: var(--subtle);
+    font-size: .9rem;
+}
+
+.base-detail-placeholder i { font-size: 2rem; }
+
+.base-detail-content {
+    padding: 24px;
+}
+
+.bdc-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.bdc-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.bdc-loc {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--muted);
+    letter-spacing: .05em;
+}
+
+.bdc-badge {
+    padding: 4px 10px;
+    background: var(--red-glow);
+    color: var(--red);
+    border: 1px solid rgba(200,16,46,.25);
+    border-radius: 99px;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.bdc-badge--gold {
+    background: var(--gold-dim);
+    color: var(--gold);
+    border-color: rgba(245,158,11,.25);
+}
+
+.bdc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.bdc-row {
+    display: flex;
+    gap: 10px;
+    font-size: .82rem;
+}
+
+.bdc-row strong {
+    color: var(--muted);
+    min-width: 80px;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-top: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RECLUTAMIENTO — QUIZ
+   ═══════════════════════════════════════════════════════ */
+.s-reclutamiento {
+    padding: clamp(80px,12vh,140px) 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+}
+
+.quiz-wrap {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    margin-top: 48px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .quiz-wrap { grid-template-columns: 1fr; }
+}
+
+.quiz-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-progress-bar {
+    height: 3px;
+    background: var(--surface2);
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), #ff6b6b);
+    transition: width 0.4s var(--ease-out);
+    width: 0%;
+}
+
+.quiz-step {
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-q-num {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    color: var(--muted);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.quiz-question {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 560px) {
+    .quiz-options { grid-template-columns: 1fr; }
+    .quiz-step { padding: 24px; }
+}
+
+.quiz-opt {
+    padding: 16px 20px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    font-size: .9rem;
+    font-weight: 500;
+    line-height: 1.3;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-opt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--red-glow);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.quiz-opt:hover {
+    border-color: var(--red);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+
+.quiz-opt:hover::before { opacity: 1; }
+
+.quiz-opt .opt-icon {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.quiz-result {
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.qr-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    animation: popIn 0.5s var(--ease-out);
+}
+
+.qr-label {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    color: var(--red);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.qr-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.qr-desc {
+    font-size: .9rem;
+    color: rgba(255,255,255,.65);
+    line-height: 1.6;
+    max-width: 420px;
+    margin-bottom: 28px;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* sidebar info cards */
+.quiz-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quiz-info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: border-color var(--transition);
+}
+
+.quiz-info-card:hover { border-color: var(--border-h); }
+
+.qi-icon {
+    width: 40px; height: 40px;
+    background: var(--red-glow);
+    border: 1px solid rgba(200,16,46,.2);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+.qi-icon--gold {
+    background: var(--gold-dim);
+    border-color: rgba(245,158,11,.2);
+    color: var(--gold);
+}
+
+.quiz-info-card h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.quiz-info-card p {
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RADAR / ESTADO OPERATIVO
+   ═══════════════════════════════════════════════════════ */
+.s-radar {
+    padding: clamp(80px,12vh,140px) 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+.s-radar::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(ellipse at center, rgba(200,16,46,.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.radar-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 64px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .radar-layout { grid-template-columns: 1fr; gap: 40px; }
+    .radar-right { order: -1; display: flex; justify-content: center; }
+}
+
+.radar-left .s-tag { margin-bottom: 12px; display: block; }
+
+.radar-left h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.radar-left > p {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.radar-stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 36px;
+}
+
+.rs-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rs-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+}
+
+.rs-label {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.radar-alerts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ra-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    letter-spacing: .03em;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.ra-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: blink 2s ease-in-out infinite;
+}
+
+.ra-green .ra-dot { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+.ra-yellow .ra-dot { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+.ra-red .ra-dot { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Radar canvas */
+.radar-scope {
+    position: relative;
+    width: 360px; height: 360px;
+}
+
+.radar-label-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: rgba(200,16,46,.5);
+    letter-spacing: .2em;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#radar-canvas {
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(200,16,46,.15), inset 0 0 60px rgba(0,0,0,.6);
+}
+
+/* ═══════════════════════════════════════════════════════
+   MAPA SVG REAL — estilos específicos
+   ═══════════════════════════════════════════════════════ */
+.spain-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.spain-land {
+    fill: rgba(255,255,255,0.06);
+    stroke: rgba(255,255,255,0.15);
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+
+.spain-land.portugal {
+    fill: rgba(255,255,255,0.03);
+    stroke: rgba(255,255,255,0.08);
+}
+
+.spain-land.island {
+    fill: rgba(255,255,255,0.07);
+    stroke: rgba(255,255,255,0.12);
+    stroke-width: 0.8;
+}
+
+.canarias-box {
+    fill: rgba(9,9,11,0.8);
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 1;
+}
+
+.canarias-title {
+    fill: rgba(255,255,255,0.3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    text-anchor: middle;
+    letter-spacing: 0.05em;
+}
+
+/* Puntos de bases en SVG */
+.map-base-dot {
+    fill: var(--red);
+    filter: drop-shadow(0 0 4px rgba(200,16,46,0.8));
+    animation: basePulse 2s ease-in-out infinite;
+}
+
+.map-base-gold {
+    fill: var(--gold) !important;
+    filter: drop-shadow(0 0 4px rgba(245,158,11,0.8)) !important;
+}
+
+.map-base-ring {
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 1;
+    opacity: 0;
+    animation: mapRingPulse 2.5s ease-out infinite;
+}
+
+.map-base-gold-ring {
+    stroke: var(--gold) !important;
+}
+
+.map-base-label-svg {
+    fill: rgba(255,255,255,0.65);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.03em;
+    pointer-events: none;
+}
+
+@keyframes basePulse {
+    0%,100% { opacity:1; r: 5; }
+    50% { opacity: 0.7; r: 6; }
+}
+
+@keyframes mapRingPulse {
+    0% { opacity: 0.7; r: 7; }
+    100% { opacity: 0; r: 18; }
+}
+
+/* Hacer los círculos SVG aniambles via CSS */
+.spain-svg circle.map-base-dot {
+    transition: r 0.2s;
+}
+
+.spain-svg circle.map-base-dot:hover {
+    r: 8;
+    cursor: pointer;
+}
+
+/* Los divs .base-pin son ahora transparentes — solo para click events */
+.base-pin .pin-dot,
+.base-pin .pin-ring {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* pero los que tienen label sí lo muestran */
+.base-pin .pin-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Ajuste del wrapper con el SVG real */
+.bases-map-wrap {
+    min-height: 360px;
+    padding: 16px;
+}
+
+.bases-map {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MAPA REAL SIMPLEMAPS — override estilos anteriores
+   ═══════════════════════════════════════════════════════ */
+.bases-map-wrap {
+    min-height: 420px;
+    padding: 8px;
+    background: var(--bg);
+}
+
+.bases-map {
+    padding: 0;
+    width: 100%;
+}
+
+.spain-svg {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    display: block;
+    overflow: visible;
+}
+
+/* El path real de España */
+#ES {
+    fill: rgba(200,16,46,0.08);
+    stroke: rgba(200,16,46,0.35);
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+    transition: fill 0.3s;
+}
+
+/* Grupos de base clicables */
+.map-base-group {
+    cursor: pointer;
+}
+.map-base-group:hover circle.map-base-dot {
+    filter: drop-shadow(0 0 8px rgba(200,16,46,1));
+}
+
+/* Punto exterior OTAN en naranja-rojizo */
+.map-base-ext {
+    fill: #ff6b6b !important;
+    filter: drop-shadow(0 0 4px rgba(255,107,107,0.8)) !important;
+}
+
+/* Aseguramos que los pins div overlay no interfieran (ya no se usan) */
+.base-pin {
+    display: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FLOTA HISTÓRICA
+   ═══════════════════════════════════════════════════════ */
+.s-flota--hist {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(245,158,11,.03) 50%, var(--bg) 100%);
+    border-top: 1px solid rgba(245,158,11,.12);
+}
+
+.s-flota--hist .s-tag {
+    color: var(--gold);
+    border-color: rgba(245,158,11,.25);
+    background: rgba(245,158,11,.08);
+}
+
+/* Badge de era en las tarjetas históricas */
+.ac-era-badge {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    background: rgba(245,158,11,.85);
+    color: #000;
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Tarjeta histórica: tinte dorado sutil */
+.ac-card--hist {
+    border-color: rgba(245,158,11,.12);
+}
+.ac-card--hist:hover {
+    border-color: rgba(245,158,11,.35);
+    box-shadow: 0 8px 32px rgba(245,158,11,.08);
+}
+.ac-card--hist .ac-arrow {
+    color: var(--gold);
+}
+
+/* Tag dorado en modal histórico */
+.mb-tag--gold {
+    background: rgba(245,158,11,.15);
+    color: var(--gold);
+    border: 1px solid rgba(245,158,11,.25);
+}
