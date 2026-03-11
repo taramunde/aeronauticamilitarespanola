@@ -316,104 +316,170 @@ const aircraftData = [
     }
 ];
 
-/* ── Historical Aircraft Data ───────────────────────── */
+/* ══════════════════════════════════════════════════════
+   FLOTA HISTÓRICA AIRE
+   ══════════════════════════════════════════════════════ */
 const historicalAircraftData = [
-    {
-        id: 100, name: 'Republic F-84 Thunderjet', designation: 'C.1',
-        type: 'caza', role: 'Caza-Bombardero a Reacción', era: '1954 – 1972',
-        image: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80',
-        general: 'El F-84 Thunderjet fue el primer avión a reacción operado por el Ejército del Aire español. Llegó a España en 1954 gracias a los acuerdos de cooperación con Estados Unidos firmados en 1953. Su llegada supuso una revolución tecnológica, pasando de la aviación de pistón a la era del reactor. Fue la primera aeronave española capaz de superar los 900 km/h, transformando por completo la doctrina de combate aéreo nacional.',
-        specs: [['Velocidad máxima','975 km/h'],['Techo de servicio','12.344 m'],['Alcance','1.600 km'],['Envergadura','11,05 m'],['Longitud','11,61 m'],['Motor','1× Allison J35-A-29'],['Empuje','26,69 kN'],['Tripulación','1 piloto']],
-        unidades: '~75', servicioEspana: '1954 – 1972',
-        bases: 'Ala 1 (Manises) · Ala 3 (Zaragoza) · Ala 7 (Morón de la Frontera)',
-        retiro: 'Sustituido por el F-86 Sabre y posteriormente por el F-104 Starfighter.',
-        armament: 'Cañones M3 12,7 mm × 4 · Cohetes HVAR · Bombas convencionales hasta 900 kg',
-        gallery: ['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 101, name: 'North American F-86 Sabre', designation: 'C.5',
-        type: 'caza', role: 'Caza de Superioridad Aérea', era: '1955 – 1972',
-        image: 'https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=800&h=450&fit=crop&q=80',
-        general: 'El F-86 Sabre llegó a España como parte del paquete de ayuda militar norteamericana tras los Pactos de Madrid de 1953. Primer caza con ala en flecha operado en España, el Sabre se convirtió en el símbolo de la modernización del Ejército del Aire durante la Guerra Fría. Combatió en Corea antes de llegar a manos españolas, llegando con horas de combate real.',
-        specs: [['Velocidad máxima','1.106 km/h (Mach 0.9)'],['Techo de servicio','14.630 m'],['Alcance de combate','764 km'],['Envergadura','11,30 m'],['Longitud','11,43 m'],['Motor','1× General Electric J47-GE-27'],['Empuje','26,31 kN'],['Tripulación','1 piloto']],
-        unidades: '~270', servicioEspana: '1955 – 1972',
-        bases: 'Ala 1 (Manises) · Ala 4 (Torrejón) · Ala 5 (Zaragoza) · Ala 7 (Morón)',
-        retiro: 'Reemplazado progresivamente por el F-104G Starfighter y posteriormente por el Mirage III.',
-        armament: 'Cañones M3 12,7 mm × 6 · Misiles AIM-9 Sidewinder (variantes tardías) · Cohetes FFAR',
-        gallery: ['https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 102, name: 'Lockheed F-104G Starfighter', designation: 'C.8',
-        type: 'caza', role: 'Interceptor Supersónico', era: '1965 – 1972',
-        image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&h=450&fit=crop&q=80',
-        general: 'Apodado "el féretro volante" por su alta tasa de accidentalidad, el F-104G Starfighter fue el primer avión capaz de superar el Mach 2 en servicio con el Ejército del Aire. Su diseño de ala delta extremadamente delgada le otorgaba un rendimiento excepcional a alta velocidad, pero lo hacía muy difícil de manejar. España operó una pequeña flota cedida por Alemania y Estados Unidos.',
-        specs: [['Velocidad máxima','Mach 2.2 (2.333 km/h)'],['Techo de servicio','17.680 m'],['Alcance de combate','740 km'],['Envergadura','6,68 m'],['Longitud','16,69 m'],['Motor','1× General Electric J79-GE-11A'],['Empuje (post.)','70,3 kN'],['Tripulación','1 piloto']],
-        unidades: '~21', servicioEspana: '1965 – 1972',
-        bases: 'Ala 16 (Torrejón de Ardoz)',
-        retiro: 'Elevada accidentalidad y costes de mantenimiento. Sustituido por el Mirage III.',
-        armament: 'Cañón M61 Vulcan 20 mm · Misiles AIM-9B Sidewinder · Bombas convencionales',
-        gallery: ['https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 103, name: 'Dassault Mirage III', designation: 'C.11',
-        type: 'caza', role: 'Interceptor / Caza Todo Tiempo', era: '1970 – 1992',
-        image: 'https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=800&h=450&fit=crop&q=80',
-        general: 'El Mirage III representó la apuesta de España por la tecnología francesa durante la Guerra Fría. Con su característica ala delta y capacidad supersónica, fue el caza más avanzado operado por España antes del F-18. Participó en numerosos ejercicios de la OTAN tras el ingreso de España en 1982 y fue el verdadero pilar de la defensa aérea española durante dos décadas.',
-        specs: [['Velocidad máxima','Mach 2.2 (2.350 km/h)'],['Techo de servicio','17.000 m'],['Alcance de combate','1.200 km'],['Envergadura','8,22 m'],['Longitud','15,03 m'],['Motor','1× SNECMA Atar 9C'],['Empuje (post.)','60,8 kN'],['Tripulación','1 piloto']],
-        unidades: '~30', servicioEspana: '1970 – 1992',
-        bases: 'Ala 11 (Manises) · Ala 14 (Los Llanos, Albacete)',
-        retiro: 'Retirado al llegar el F/A-18 Hornet, que lo superaba en todas las capacidades.',
-        armament: 'Cañón DEFA 552 30 mm × 2 · Misiles Matra R.530 · AIM-9 Sidewinder · Bombas convencionales',
-        gallery: ['https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 104, name: 'CASA C-212 Aviocar', designation: 'T.12',
-        type: 'transporte', role: 'Transporte Ligero / Paracaidismo', era: '1974 – 2018',
-        image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&q=80',
-        general: 'El CASA C-212 Aviocar es uno de los aviones más queridos de la historia del Ejército del Aire. Diseñado íntegramente en España por CASA en Getafe, fue exportado a más de 90 países y se convirtió en el mayor éxito de la industria aeronáutica española. Operó en transporte de tropas, paracaidismo, vigilancia marítima y evacuación sanitaria durante más de cuatro décadas.',
-        specs: [['Velocidad de crucero','300 km/h'],['Alcance','1.433 km'],['Techo de servicio','7.925 m'],['Carga útil','2.000 kg / 26 soldados'],['Envergadura','19,00 m'],['Longitud','16,15 m'],['Motores','2× Garrett TPE331-10R-513C'],['Tripulación','2 pilotos + operadores de carga']],
-        unidades: '~70', servicioEspana: '1974 – 2018',
-        bases: 'Ala 35 (Getafe) como base principal · múltiples destacamentos',
-        retiro: 'Sustituido progresivamente por el C-295. Algunos ejemplares pasaron a operadores civiles.',
-        armament: 'Sin armamento en la mayoría de versiones · Variante patrulla marítima con radar FLIR',
-        gallery: ['https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 105, name: 'McDonnell Douglas RF-4C Phantom II', designation: 'CR.12',
-        type: 'reconocimiento', role: 'Reconocimiento Fotográfico Estratégico', era: '1978 – 2002',
-        image: 'https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=800&h=450&fit=crop&q=80',
-        general: 'El RF-4C Phantom II fue la variante de reconocimiento fotográfico del legendario F-4 Phantom. España lo recibió de Estados Unidos para cubrir su necesidad de inteligencia estratégica durante la Guerra Fría. En lugar de armamento, llevaba cámaras de alta resolución, sensores infrarrojos y sistemas de reconocimiento electrónico, sobrevolando miles de kilómetros recopilando información vital.',
-        specs: [['Velocidad máxima','Mach 2.23 (2.370 km/h)'],['Techo de servicio','18.975 m'],['Alcance de combate','680 km'],['Envergadura','11,77 m'],['Longitud','19,17 m'],['Motores','2× GE J79-GE-17A'],['Empuje total (post.)','2× 79,4 kN'],['Tripulación','2 (piloto + oficial de sistemas)']],
-        unidades: '12', servicioEspana: '1978 – 2002',
-        bases: 'Ala 12 (Torrejón de Ardoz)',
-        retiro: 'Retirado por obsolescencia y costes. Las capacidades de reconocimiento pasaron a sistemas modernos.',
-        armament: 'Sin armamento ofensivo · Cámaras KS-72 / KS-87 × 3 · Sensores IR AAD-5',
-        gallery: ['https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 106, name: 'Northrop F-5 Freedom Fighter', designation: 'AE.9',
-        type: 'entrenamiento', role: 'Entrenamiento Avanzado / Caza Ligero', era: '1969 – 2017',
-        image: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80',
-        general: 'El F-5 Freedom Fighter llegó a España en 1969 y se convirtió en la piedra angular de la formación de pilotos de caza durante casi 50 años. Ágil, económico y robusto, formó a generaciones enteras de aviadores que pasaron después al Mirage, F-18 y Eurofighter. Su longevidad es testimonio de una excelente relación coste-eficacia y de una doctrina de entrenamiento que produjo algunos de los mejores pilotos de la OTAN.',
-        specs: [['Velocidad máxima','Mach 1.6 (1.700 km/h)'],['Techo de servicio','15.790 m'],['Alcance de combate','222 km'],['Envergadura','7,70 m'],['Longitud','14,68 m'],['Motores','2× GE J85-GE-21B'],['Empuje total (post.)','2× 22,2 kN'],['Tripulación','1 (F-5A) / 2 (F-5B biplaza)']],
-        unidades: '~70', servicioEspana: '1969 – 2017',
-        bases: 'Academia General del Aire (San Javier) · Ala 23 (Talavera la Real)',
-        retiro: 'Sustituido en el rol de entrenamiento avanzado por el C-101 Aviojet.',
-        armament: 'Cañón Pontiac M39 20 mm × 2 · Misiles AIM-9 Sidewinder · Bombas convencionales (modo caza ligero)',
-        gallery: ['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80']
-    },
-    {
-        id: 107, name: 'Lockheed C-130 Hercules', designation: 'T.10',
-        type: 'transporte', role: 'Transporte Táctico y Estratégico', era: '1973 – 2016',
-        image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=450&fit=crop&q=80',
-        general: 'El legendario C-130 Hercules es uno de los aviones militares más exitosos de la historia. El Ejército del Aire lo operó durante más de cuatro décadas en transporte de tropas, reabastecimiento, paracaidismo, evacuación sanitaria y extinción de incendios. Participó en misiones en Bosnia, Kosovo, Afganistán e Iraq, siendo testigo de la historia militar española contemporánea.',
-        specs: [['Carga útil máxima','19.356 kg'],['Velocidad de crucero','592 km/h'],['Alcance con carga máx.','3.800 km'],['Techo de servicio','10.060 m'],['Envergadura','40,41 m'],['Longitud','29,79 m'],['Motores','4× Allison T56-A-15'],['Tripulación','5 + operadores de carga']],
-        unidades: '12', servicioEspana: '1973 – 2016',
-        bases: 'Ala 31 (Zaragoza) · Ala 35 (Getafe)',
-        retiro: 'Sustituido por el Airbus A400M Atlas, tecnológicamente muy superior.',
-        armament: 'Sin armamento ofensivo · Contramedidas AN/ALQ-157 · Dispensadores de bengalas/chaff',
-        gallery: ['https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80']
-    }
+    { id:100, name:'Republic F-84 Thunderjet', designation:'C.1', type:'caza', role:'Caza-Bombardero a Reacción', era:'1954–1972', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80',
+      general:'El F-84 Thunderjet fue el primer avión a reacción operado por el Ejército del Aire español. Llegó en 1954 gracias a los Pactos de Madrid de 1953 con EEUU. Supuso una revolución tecnológica, pasando de la aviación de pistón a la era del reactor. Primera aeronave española capaz de superar los 900 km/h, transformó por completo la doctrina de combate aéreo nacional.',
+      specs:[['Velocidad máxima','975 km/h'],['Techo de servicio','12.344 m'],['Alcance','1.600 km'],['Envergadura','11,05 m'],['Longitud','11,61 m'],['Motor','1× Allison J35-A-29'],['Empuje','26,69 kN'],['Tripulación','1 piloto']],
+      unidades:'~75', retiro:'Sustituido por el F-86 Sabre y el F-104 Starfighter.',
+      bases:'Ala 1 (Manises) · Ala 3 (Zaragoza) · Ala 7 (Morón)',
+      armament:'Cañones M3 12,7 mm × 4 · Cohetes HVAR · Bombas hasta 900 kg',
+      gallery:['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80'] },
+    { id:101, name:'North American F-86 Sabre', designation:'C.5', type:'caza', role:'Caza de Superioridad Aérea', era:'1955–1972', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=800&h=450&fit=crop&q=80',
+      general:'El F-86 Sabre, primer caza con ala en flecha en España, llegó con las ayudas militares norteamericanas de 1953. Combatió en Corea antes de llegar a manos españolas. Se convirtió en el símbolo de la modernización del Ejército del Aire durante la Guerra Fría, con más de 270 unidades operadas.',
+      specs:[['Velocidad máxima','1.106 km/h (Mach 0.9)'],['Techo de servicio','14.630 m'],['Alcance de combate','764 km'],['Envergadura','11,30 m'],['Longitud','11,43 m'],['Motor','1× General Electric J47-GE-27'],['Empuje','26,31 kN'],['Tripulación','1 piloto']],
+      unidades:'~270', retiro:'Reemplazado por el F-104G Starfighter y el Mirage III.',
+      bases:'Ala 1 (Manises) · Ala 4 (Torrejón) · Ala 5 (Zaragoza) · Ala 7 (Morón)',
+      armament:'Cañones M3 12,7 mm × 6 · Misiles AIM-9 Sidewinder (tardíos) · Cohetes FFAR',
+      gallery:['https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80'] },
+    { id:102, name:'Lockheed F-104G Starfighter', designation:'C.8', type:'caza', role:'Interceptor Supersónico', era:'1965–1972', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&h=450&fit=crop&q=80',
+      general:'Apodado "el féretro volante" por su alta tasa de accidentalidad, el F-104G fue el primer avión capaz de superar el Mach 2 con el Ejército del Aire. Su ala delta extremadamente pequeña le daba un rendimiento excepcional a alta velocidad, pero lo hacía muy difícil de manejar. España operó ~21 unidades cedidas por Alemania y EEUU.',
+      specs:[['Velocidad máxima','Mach 2.2 (2.333 km/h)'],['Techo de servicio','17.680 m'],['Alcance de combate','740 km'],['Envergadura','6,68 m'],['Longitud','16,69 m'],['Motor','1× General Electric J79-GE-11A'],['Empuje (post.)','70,3 kN'],['Tripulación','1 piloto']],
+      unidades:'~21', retiro:'Elevada accidentalidad y costes. Sustituido por el Mirage III.',
+      bases:'Ala 16 (Torrejón de Ardoz)',
+      armament:'Cañón M61 Vulcan 20 mm · Misiles AIM-9B Sidewinder',
+      gallery:['https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80'] },
+    { id:103, name:'Dassault Mirage III', designation:'C.11', type:'caza', role:'Interceptor / Caza Todo Tiempo', era:'1970–1992', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=800&h=450&fit=crop&q=80',
+      general:'El Mirage III fue la apuesta española por la tecnología francesa durante la Guerra Fría. Pilar de la defensa aérea durante dos décadas, participó en los primeros ejercicios de la OTAN tras el ingreso de España en 1982. Su ala delta y capacidad Mach 2.2 lo hicieron el caza más avanzado operado por España antes del F/A-18.',
+      specs:[['Velocidad máxima','Mach 2.2 (2.350 km/h)'],['Techo de servicio','17.000 m'],['Alcance de combate','1.200 km'],['Envergadura','8,22 m'],['Longitud','15,03 m'],['Motor','1× SNECMA Atar 9C'],['Empuje (post.)','60,8 kN'],['Tripulación','1 piloto']],
+      unidades:'~30', retiro:'Retirado al llegar el F/A-18 Hornet, que lo superaba en todas las capacidades.',
+      bases:'Ala 11 (Manises) · Ala 14 (Los Llanos, Albacete)',
+      armament:'Cañón DEFA 552 30 mm × 2 · Matra R.530 · AIM-9 Sidewinder',
+      gallery:['https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80'] },
+    { id:104, name:'CASA C-212 Aviocar', designation:'T.12', type:'transporte', role:'Transporte Ligero / Paracaidismo', era:'1974–2018', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&q=80',
+      general:'El CASA C-212 Aviocar, diseñado y fabricado íntegramente en Getafe, fue exportado a más de 90 países y es el mayor éxito de la industria aeronáutica española. Operó durante cuatro décadas en transporte de tropas, paracaidismo, vigilancia marítima y evacuación sanitaria.',
+      specs:[['Velocidad de crucero','300 km/h'],['Alcance','1.433 km'],['Techo de servicio','7.925 m'],['Carga útil','2.000 kg / 26 soldados'],['Envergadura','19,00 m'],['Longitud','16,15 m'],['Motores','2× Garrett TPE331-10R'],['Tripulación','2 pilotos + carga']],
+      unidades:'~70', retiro:'Sustituido progresivamente por el C-295.',
+      bases:'Ala 35 (Getafe) · múltiples destacamentos',
+      armament:'Sin armamento · Variante patrulla con radar y FLIR',
+      gallery:['https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80'] },
+    { id:105, name:'McDonnell Douglas RF-4C Phantom II', designation:'CR.12', type:'reconocimiento', role:'Reconocimiento Fotográfico Estratégico', era:'1978–2002', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=800&h=450&fit=crop&q=80',
+      general:'La variante de reconocimiento del legendario F-4 Phantom. En lugar de armamento llevaba cámaras de alta resolución, sensores infrarrojos y sistemas de reconocimiento electrónico. Sus 12 unidades en Torrejón constituyeron durante dos décadas el único activo de inteligencia aérea estratégica de España.',
+      specs:[['Velocidad máxima','Mach 2.23 (2.370 km/h)'],['Techo de servicio','18.975 m'],['Alcance de combate','680 km'],['Envergadura','11,77 m'],['Longitud','19,17 m'],['Motores','2× GE J79-GE-17A'],['Empuje (post.)','2× 79,4 kN'],['Tripulación','2']],
+      unidades:'12', retiro:'Retirado por obsolescencia. Las capacidades pasaron a sistemas modernos.',
+      bases:'Ala 12 (Torrejón de Ardoz)',
+      armament:'Sin armamento ofensivo · Cámaras KS-72/KS-87 × 3 · Sensores IR AAD-5',
+      gallery:['https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80'] },
+    { id:106, name:'Northrop F-5 Freedom Fighter', designation:'AE.9', type:'entrenamiento', role:'Entrenamiento Avanzado / Caza Ligero', era:'1969–2017', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80',
+      general:'Durante casi 50 años el F-5 fue la piedra angular de la formación de pilotos de caza en España. Ágil, económico y robusto, formó generaciones enteras de aviadores que luego pasaron al Mirage, F-18 y Eurofighter. Su longevidad es testimonio de una excelente relación coste-eficacia.',
+      specs:[['Velocidad máxima','Mach 1.6 (1.700 km/h)'],['Techo de servicio','15.790 m'],['Alcance de combate','222 km'],['Envergadura','7,70 m'],['Longitud','14,68 m'],['Motores','2× GE J85-GE-21B'],['Empuje (post.)','2× 22,2 kN'],['Tripulación','1-2']],
+      unidades:'~70', retiro:'Sustituido en entrenamiento avanzado por el C-101 Aviojet.',
+      bases:'Academia General del Aire (San Javier) · Ala 23 (Talavera la Real)',
+      armament:'Cañón Pontiac M39 20 mm × 2 · AIM-9 Sidewinder · Bombas convencionales',
+      gallery:['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80'] },
+    { id:107, name:'Lockheed C-130 Hercules', designation:'T.10', type:'transporte', role:'Transporte Táctico y Estratégico', era:'1973–2016', branch:'aire-hist',
+      image:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=450&fit=crop&q=80',
+      general:'El C-130 Hercules, uno de los aviones militares más exitosos de la historia, sirvió durante más de cuatro décadas en el Ejército del Aire. Participó en misiones en Bosnia, Kosovo, Afganistán e Iraq en transporte de tropas, paracaidismo, evacuación sanitaria y extinción de incendios.',
+      specs:[['Carga útil máxima','19.356 kg'],['Velocidad de crucero','592 km/h'],['Alcance con carga','3.800 km'],['Techo de servicio','10.060 m'],['Envergadura','40,41 m'],['Longitud','29,79 m'],['Motores','4× Allison T56-A-15'],['Tripulación','5 + carga']],
+      unidades:'12', retiro:'Sustituido por el Airbus A400M Atlas.',
+      bases:'Ala 31 (Zaragoza) · Ala 35 (Getafe)',
+      armament:'Sin armamento ofensivo · Contramedidas AN/ALQ-157',
+      gallery:['https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80'] }
+];
+
+/* ══════════════════════════════════════════════════════
+   FLOTA EJÉRCITO DE TIERRA (FAMET)
+   ══════════════════════════════════════════════════════ */
+const tierraAircraftData = [
+    { id:200, name:'Eurocopter AS332 Super Puma', designation:'HT.21', type:'helicóptero', role:'Transporte de Tropas / VVIP',
+      image:'https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'El Super Puma es el helicóptero de transporte medio pesado de la FAMET (Fuerzas Aeromóviles del Ejército de Tierra). Con capacidad para 24 soldados o 4.500 kg de carga, es la columna vertebral del transporte de tropas en misiones nacionales e internacionales. Ha operado en Bosnia, Kosovo, Afganistán, Líbano y Mali.',
+      specs:[['Velocidad máxima','275 km/h'],['Alcance','800 km'],['Techo de servicio','6.000 m'],['Carga útil interna','4.500 kg'],['Carga en eslinga','4.500 kg'],['Capacidad','24 soldados'],['Motores','2× Turbomeca Makila 1A2'],['Tripulación','2 pilotos + operadores']],
+      unidades:'18', bases:'BHELMA II (Agoncillo, La Rioja) · BHELMA IV (Colmenar Viejo) · BHELMA V (Bétera, Valencia)',
+      armament:'Sin armamento ofensivo · Contramedidas · Grúa de rescate',
+      gallery:['https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80'] },
+    { id:201, name:'Airbus H135 / EC135', designation:'HE.26', type:'helicóptero', role:'Instrucción / Enlace Ligero',
+      image:'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'El H135 es el helicóptero de instrucción básica y enlace ligero del Ejército de Tierra. Compacto, seguro y de bajo coste operativo, se utiliza para la formación inicial de pilotos de helicóptero antes de pasar a aparatos más complejos. También se emplea en misiones de enlace, observación y apoyo a unidades terrestres.',
+      specs:[['Velocidad máxima','259 km/h'],['Alcance','635 km'],['Techo de servicio','6.096 m'],['Carga útil','1.455 kg'],['Capacidad','7 pasajeros'],['Motores','2× Turbomeca Arrius 2B2'],['Longitud','10,2 m'],['Tripulación','1-2 pilotos']],
+      unidades:'~20', bases:'BHELMA IV (Colmenar Viejo) · Academia de Aviación del Ejército (Colmenar)',
+      armament:'Sin armamento',
+      gallery:['https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80'] },
+    { id:202, name:'Airbus Tiger HAD', designation:'HA.28', type:'helicóptero', role:'Helicóptero de Ataque',
+      image:'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'El Tiger HAD (Hélicoptère d\'Appui Destruction) es el helicóptero de ataque más avanzado de Europa. España opera la variante HAD, diseñada específicamente para destrucción de blindados y apoyo aéreo cercano. Su cabina en tándem con sistemas de visión nocturna, cañón bajo el morro y misiles Hellfire lo convierten en un activo letal contra objetivos terrestres.',
+      specs:[['Velocidad máxima','280 km/h'],['Alcance','800 km'],['Techo de servicio','6.400 m'],['Armamento externo','1.306 kg'],['Longitud','15,80 m'],['Motores','2× MTR390-E'],['Empuje total','2× 958 kW'],['Tripulación','2 (piloto + operador armas)']],
+      unidades:'24', bases:'BHELMA I (Almagro, Ciudad Real) · BHELMA III (Logroño)',
+      armament:'Cañón Nexter 30 mm · Misiles Hellfire II · Cohetes Hydra 70 · Misiles Mistral AA',
+      gallery:['https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80'] },
+    { id:203, name:'NHIndustries NH90 FAMET', designation:'HT.29', type:'helicóptero', role:'Transporte Táctico Medio',
+      image:'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'La versión TTH (Tactical Transport Helicopter) del NH90 opera en la FAMET como sustituto del modernizado Cougar. Con sistema fly-by-wire, cabina full glass-cockpit y capacidad para operar en condiciones de campo austero, transporta hasta 20 soldados completamente equipados o 2.500 kg de carga interna en misiones de asalto y logística avanzada.',
+      specs:[['Velocidad máxima','300 km/h'],['Alcance','800 km'],['Carga útil interna','2.500 kg'],['Carga en eslinga','4.000 kg'],['Capacidad','20 soldados equipados'],['Motores','2× GE CT7-8F'],['Longitud total','19,56 m'],['Tripulación','2 + 2 operadores']],
+      unidades:'20', bases:'BHELMA II (Agoncillo) · BHELMA IV (Colmenar Viejo)',
+      armament:'Ametralladora de puerta M240 · Pods de cohetes (opcionales)',
+      gallery:['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80'] },
+    { id:204, name:'Schiebel Camcopter S-100', designation:'RPT.1', type:'uav', role:'UAV de Reconocimiento / ISR',
+      image:'https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'El Camcopter S-100 es un UAV de despegue y aterrizaje vertical (VTOL) empleado por el Ejército de Tierra para misiones de inteligencia, vigilancia y reconocimiento (ISR). Puede operar desde plataformas navales y desde zonas improvisadas en tierra, transmitiendo imágenes en tiempo real a los mandos en un radio de 180 km.',
+      specs:[['Velocidad máxima','220 km/h'],['Autonomía','6 horas'],['Techo operativo','5.500 m'],['Carga de pago','50 kg'],['Longitud','3,11 m'],['Rotor','3,40 m'],['Motor','1× Rotax 914 (75 kW)'],['Control','Autónomo / teleoperado']],
+      unidades:'~8', bases:'Unidades de Inteligencia del ET · Misiones en Mali y Líbano',
+      armament:'Sin armamento · Cámara EO/IR · Sensor SAR opcional',
+      gallery:['https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80'] },
+    { id:205, name:'CASA C-212 Aviocar (ET)', designation:'T.12B', type:'avión', role:'Transporte Ligero / Paracaidismo',
+      image:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&q=80', branch:'tierra',
+      general:'El Ejército de Tierra también operó versiones del CASA C-212 para transporte de tropas ligero, paracaidismo y enlace. Su capacidad de operar en pistas de tierra cortas y no preparadas lo hizo ideal para el apoyo a unidades de operaciones especiales y fuerzas paracaidistas de la Brigada Paracaidista (BRIPAC).',
+      specs:[['Velocidad de crucero','300 km/h'],['Alcance','1.433 km'],['Techo de servicio','7.925 m'],['Carga útil','2.000 kg'],['Capacidad','26 soldados / 16 paracaidistas'],['Motores','2× Garrett TPE331'],['Longitud','16,15 m'],['Tripulación','2 pilotos + carga']],
+      unidades:'~12', bases:'BHELMA IV (Colmenar Viejo) · BRIPAC (Paracuellos del Jarama)',
+      armament:'Sin armamento',
+      gallery:['https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80'] }
+];
+
+/* ══════════════════════════════════════════════════════
+   FLOTA AVIACIÓN NAVAL (FLOLAN / FLOTPAT)
+   ══════════════════════════════════════════════════════ */
+const armadaAircraftData = [
+    { id:300, name:'AV-8B Harrier II Plus', designation:'VA.1B', type:'caza', role:'Caza Embarcado STOVL',
+      image:'https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'El AV-8B Harrier II Plus es el caza embarcado de la Armada española, operado desde el portaaviones Juan Carlos I. Con capacidad STOVL (despegue corto y aterrizaje vertical), no requiere catapultas ni cables de frenado. Su radar APG-65 y capacidad para misiles AIM-120 AMRAAM lo convierten en una plataforma de defensa aérea y ataque a tierra formidable para la proyección de poder naval.',
+      specs:[['Velocidad máxima','Mach 0.92 (1.065 km/h)'],['Techo de servicio','15.240 m'],['Alcance de combate','1.167 km'],['Envergadura','9,25 m'],['Longitud','14,12 m'],['Motor','1× Rolls-Royce F402-RR-408'],['Empuje','105,9 kN'],['Tripulación','1 piloto']],
+      unidades:'12', bases:'BN de Rota · Portaaviones Juan Carlos I (L-61)',
+      armament:'Cañón GAU-12 25 mm · AIM-120C AMRAAM · AIM-9L Sidewinder · AGM-65 Maverick · Bombas GBU-12 Paveway II',
+      gallery:['https://images.unsplash.com/photo-1559311648-d1bc1a05c386?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80'] },
+    { id:301, name:'Sikorsky SH-60B/F Seahawk', designation:'HS.23', type:'helicóptero', role:'Helicóptero Antisubmarino / SAR Naval',
+      image:'https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'El Seahawk es el helicóptero de guerra antisubmarina y rescate de la Armada española. Opera desde las fragatas F-100 Álvaro de Bazán y buques de la clase Santa María. Equipado con sonar de inmersión, sonoboyas, radar de búsqueda y torpedos, constituye la primera línea de defensa antisubmarina de los grupos de combate navales españoles.',
+      specs:[['Velocidad máxima','270 km/h'],['Alcance','834 km'],['Techo de servicio','5.790 m'],['Autonomía','3,5 horas'],['Capacidad de carga','2.720 kg'],['Motores','2× GE T700-GE-401C'],['Longitud total','19,76 m'],['Tripulación','3-4']],
+      unidades:'12', bases:'BN de Rota · Embarcado en fragatas F-100 y F-80',
+      armament:'Torpedos Mk.46/Mk.50 · Misiles AGM-119 Penguin · Sonoboyas · Sonar AN/AQS-13F',
+      gallery:['https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80'] },
+    { id:302, name:'Airbus MH-60R Romeo', designation:'HS.30', type:'helicóptero', role:'Helicóptero Multimisión Naval',
+      image:'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'El MH-60R Romeo es la evolución del Seahawk y el helicóptero naval más avanzado del mundo. La Armada española ha adquirido unidades para sustituir gradualmente a los SH-60B/F. Con radar de apertura sintética, sonar de inmersión AQS-22 ALFS y datos en red, puede coordinar ataques antisubmarinos con fragatas, submarinos y aeronaves de patrulla de forma completamente integrada.',
+      specs:[['Velocidad máxima','278 km/h'],['Alcance','900 km'],['Techo de servicio','5.790 m'],['Autonomía','4+ horas'],['Motores','2× GE T700-GE-401C'],['Radar','AN/APS-153 Multi-Mode'],['Sonar','AN/AQS-22 ALFS'],['Tripulación','4']],
+      unidades:'8', bases:'BN de Rota · Embarcado en fragatas F-100',
+      armament:'Torpedos MU90 · Misiles AGM-114 Hellfire · Sonoboyas · Radar multimodal',
+      gallery:['https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80'] },
+    { id:303, name:'Boeing P-8A Poseidon', designation:'P.8', type:'patrulla', role:'Patrulla Marítima / Guerra Antisubmarina',
+      image:'https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'El P-8A Poseidon es el sucesor del P-3 Orion y la aeronave de patrulla marítima más avanzada del mundo. Basado en el Boeing 737-800, integra radar multimodal APY-10, sonoboyas inteligentes, cámaras EO/IR de alta definición y sistema de gestión de combate Minotaur. España lo opera conjuntamente con el Ejército del Aire desde la base de Morón.',
+      specs:[['Velocidad máxima','907 km/h'],['Techo de servicio','12.496 m'],['Alcance en ferry','8.300 km'],['Autonomía de patrulla','+4 horas en zona'],['Envergadura','35,79 m'],['Longitud','39,47 m'],['Motores','2× CFM56-7B27A'],['Tripulación','9']],
+      unidades:'5', bases:'BN de Rota · Base Aérea de Morón (operación conjunta)',
+      armament:'Torpedos MK-54 · Misiles AGM-84 Harpoon · Minas · Sonoboyas avanzadas · Radar APY-10',
+      gallery:['https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&h=540&fit=crop&q=80'] },
+    { id:304, name:'Airbus Helicopters NH90 Naval', designation:'HE.24', type:'helicóptero', role:'Transporte Naval / SAR',
+      image:'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'La variante naval del NH90 (NFH — Naval Frigate Helicopter) opera desde el Juan Carlos I y los buques de asalto anfibio. Diseñado específicamente para operar en entornos marítimos con alta salinidad y vientos fuertes, incorpora sistema de plegado automático de palas y sistema de amarre al buque. Se emplea en operaciones anfibias, SAR naval y transporte de fuerzas de asalto.',
+      specs:[['Velocidad máxima','300 km/h'],['Alcance','800 km'],['Techo de servicio','6.000 m'],['Carga útil interna','2.500 kg'],['Capacidad','20 soldados equipados'],['Motores','2× RTM322-01/9'],['Longitud total','19,56 m'],['Tripulación','2 + 2 operadores']],
+      unidades:'6', bases:'BN de Rota · Juan Carlos I (L-61) · BAA Galicia (L-51)',
+      armament:'Torpedos MU90 · Misiles Sea Skua · Sonoboyas · Radar de búsqueda marítima',
+      gallery:['https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1534073737927-85f1ebff1f5d?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=900&h=540&fit=crop&q=80'] },
+    { id:305, name:'Cessna Citation CJ3+', designation:'E.27', type:'patrulla', role:'Vigilancia Marítima / Enlace',
+      image:'https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=800&h=450&fit=crop&q=80', branch:'armada',
+      general:'La Armada opera una pequeña flota de Citation CJ3+ para misiones de vigilancia marítima costera de largo alcance, enlace entre bases navales y transporte de personal de alta jerarquía. Equipado con sensores de observación y cámara FLIR, complementa al P-8A en la cobertura del Mediterráneo occidental y el Estrecho de Gibraltar.',
+      specs:[['Velocidad máxima','787 km/h'],['Alcance','3.333 km'],['Techo de servicio','13.716 m'],['Capacidad','8 pasajeros'],['Envergadura','15,90 m'],['Longitud','14,53 m'],['Motores','2× Williams FJ44-3A'],['Tripulación','2 pilotos + operadores']],
+      unidades:'3', bases:'BN de Rota · BN de Cartagena',
+      armament:'Sin armamento · Cámara FLIR · Sistema AIS',
+      gallery:['https://images.unsplash.com/photo-1513628253939-010e64ac66cd?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=900&h=540&fit=crop&q=80','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=540&fit=crop&q=80'] }
 ];
 
 /* ── State ──────────────────────────────────────────── */
@@ -747,16 +813,18 @@ function setGalleryImg(idx) {
 }
 
 /* ══════════════════════════════════════════════════════
-   HISTORICAL FLEET
+   GENERIC AUX FLEET RENDERER
    ══════════════════════════════════════════════════════ */
-let currentHistFilter = 'all';
-let currentHistPlane  = null;
+let currentHistFilter  = 'all';
+let currentTierraFilter = 'all';
+let currentArmadaFilter = 'all';
+let currentAuxPlane    = null;
 
-function renderHistoricalFleet(data) {
-    const grid = document.getElementById('hist-fleet-grid');
+function renderAuxFleet(data, gridId, countId, cardClass) {
+    const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = '';
-    document.getElementById('hist-results-count').textContent =
+    document.getElementById(countId).textContent =
         `Mostrando ${data.length} aeronave${data.length !== 1 ? 's' : ''}`;
     if (!data.length) {
         grid.innerHTML = `<div class="empty-state"><i class="fas fa-magnifying-glass"></i><p>No se encontraron aeronaves con esos criterios.</p></div>`;
@@ -764,11 +832,10 @@ function renderHistoricalFleet(data) {
     }
     data.forEach((plane, i) => {
         const card = document.createElement('article');
-        card.className = 'ac-card ac-card--hist';
+        card.className = `ac-card ${cardClass}`;
         card.style.setProperty('--card-delay', `${i * 50}ms`);
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-label', `Ver detalles de ${plane.name}`);
         card.innerHTML = `
             <div class="ac-img">
                 <img src="${plane.image}" alt="${plane.name}" loading="lazy"
@@ -776,124 +843,143 @@ function renderHistoricalFleet(data) {
                 <div class="ac-img-overlay"></div>
                 <span class="ac-desig">${plane.designation}</span>
                 <span class="ac-type-badge type-${plane.type}">${plane.type}</span>
-                <span class="ac-era-badge"><i class="fas fa-clock-rotate-left"></i> ${plane.era}</span>
+                ${plane.era ? `<span class="ac-era-badge"><i class="fas fa-clock-rotate-left"></i> ${plane.era}</span>` : ''}
             </div>
             <div class="ac-body">
                 <h3>${plane.name}</h3>
                 <p class="ac-role">${plane.role}</p>
                 <div class="ac-footer">
-                    <span class="ac-units"><i class="fas fa-hourglass-end"></i>${plane.era}</span>
+                    <span class="ac-units"><i class="fas fa-circle-dot"></i>${plane.unidades} unidades</span>
                     <span class="ac-arrow"><i class="fas fa-arrow-right"></i></span>
                 </div>
             </div>`;
-        card.addEventListener('click', () => openHistModal(plane.id));
-        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openHistModal(plane.id); });
+        card.addEventListener('click', () => openAuxModal(plane));
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openAuxModal(plane); });
         grid.appendChild(card);
     });
 }
 
+/* ── Historial Aire ─────────────────────────────────── */
 function filterHistFleet() {
     const q = document.getElementById('hist-search-input').value.toLowerCase().trim();
     document.getElementById('hist-search-clear').classList.toggle('visible', q.length > 0);
     let data = historicalAircraftData;
     if (currentHistFilter !== 'all') data = data.filter(p => p.type === currentHistFilter);
-    if (q) data = data.filter(p =>
-        p.name.toLowerCase().includes(q) || p.designation.toLowerCase().includes(q) ||
-        p.role.toLowerCase().includes(q) || p.era.toLowerCase().includes(q)
-    );
-    renderHistoricalFleet(data);
+    if (q) data = data.filter(p => p.name.toLowerCase().includes(q) || p.designation.toLowerCase().includes(q) || p.role.toLowerCase().includes(q));
+    renderAuxFleet(data, 'hist-fleet-grid', 'hist-results-count', 'ac-card--hist');
 }
+function filterHistByType(type, btn) { currentHistFilter = type; document.querySelectorAll('.hist-pill').forEach(p => p.classList.remove('active')); btn.classList.add('active'); filterHistFleet(); }
+function clearHistSearch() { document.getElementById('hist-search-input').value = ''; document.getElementById('hist-search-clear').classList.remove('visible'); filterHistFleet(); }
 
-function filterHistByType(type, btn) {
-    currentHistFilter = type;
-    document.querySelectorAll('.hist-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    filterHistFleet();
+/* ── Ejército de Tierra ─────────────────────────────── */
+function filterTierraFleet() {
+    const q = document.getElementById('tierra-search-input').value.toLowerCase().trim();
+    document.getElementById('tierra-search-clear').classList.toggle('visible', q.length > 0);
+    let data = tierraAircraftData;
+    if (currentTierraFilter !== 'all') data = data.filter(p => p.type === currentTierraFilter);
+    if (q) data = data.filter(p => p.name.toLowerCase().includes(q) || p.designation.toLowerCase().includes(q) || p.role.toLowerCase().includes(q));
+    renderAuxFleet(data, 'tierra-fleet-grid', 'tierra-results-count', 'ac-card--tierra');
 }
+function filterTierraByType(type, btn) { currentTierraFilter = type; document.querySelectorAll('.tierra-pill').forEach(p => p.classList.remove('active')); btn.classList.add('active'); filterTierraFleet(); }
+function clearTierraSearch() { document.getElementById('tierra-search-input').value = ''; document.getElementById('tierra-search-clear').classList.remove('visible'); filterTierraFleet(); }
 
-function clearHistSearch() {
-    document.getElementById('hist-search-input').value = '';
-    document.getElementById('hist-search-clear').classList.remove('visible');
-    filterHistFleet();
+/* ── Armada ─────────────────────────────────────────── */
+function filterArmadaFleet() {
+    const q = document.getElementById('armada-search-input').value.toLowerCase().trim();
+    document.getElementById('armada-search-clear').classList.toggle('visible', q.length > 0);
+    let data = armadaAircraftData;
+    if (currentArmadaFilter !== 'all') data = data.filter(p => p.type === currentArmadaFilter);
+    if (q) data = data.filter(p => p.name.toLowerCase().includes(q) || p.designation.toLowerCase().includes(q) || p.role.toLowerCase().includes(q));
+    renderAuxFleet(data, 'armada-fleet-grid', 'armada-results-count', 'ac-card--armada');
 }
+function filterArmadaByType(type, btn) { currentArmadaFilter = type; document.querySelectorAll('.armada-pill').forEach(p => p.classList.remove('active')); btn.classList.add('active'); filterArmadaFleet(); }
+function clearArmadaSearch() { document.getElementById('armada-search-input').value = ''; document.getElementById('armada-search-clear').classList.remove('visible'); filterArmadaFleet(); }
 
-function openHistModal(id) {
-    currentHistPlane = historicalAircraftData.find(p => p.id === id);
-    if (!currentHistPlane) return;
-    document.getElementById('hist-modal-title').textContent    = currentHistPlane.name;
-    document.getElementById('hist-modal-subtitle').textContent = `${currentHistPlane.designation} · ${currentHistPlane.role}`;
-    document.getElementById('hist-aircraft-modal').classList.add('open');
+/* ══════════════════════════════════════════════════════
+   MODAL UNIFICADO AUXILIAR
+   ══════════════════════════════════════════════════════ */
+function openAuxModal(plane) {
+    currentAuxPlane   = plane;
+    currentGalleryIdx = 0;
+    document.getElementById('aux-modal-title').textContent    = plane.name;
+    document.getElementById('aux-modal-subtitle').textContent = `${plane.designation} · ${plane.role}`;
+    document.getElementById('aux-aircraft-modal').classList.add('open');
     document.body.style.overflow = 'hidden';
-    switchHistTab(0);
-    setTimeout(() => document.querySelector('.hist-modal-close').focus(), 50);
+    switchAuxTab(0);
+    setTimeout(() => document.querySelector('.aux-modal-close').focus(), 50);
 }
-
-function closeHistModal() {
-    document.getElementById('hist-aircraft-modal').classList.remove('open');
+function closeAuxModal() {
+    document.getElementById('aux-aircraft-modal').classList.remove('open');
     document.body.style.overflow = '';
-    currentHistPlane  = null;
+    currentAuxPlane   = null;
     currentGalleryIdx = 0;
 }
-
-function handleHistBackdropClick(e) {
-    if (e.target === document.getElementById('hist-aircraft-modal')) closeHistModal();
+function handleAuxBackdropClick(e) {
+    if (e.target === document.getElementById('aux-aircraft-modal')) closeAuxModal();
 }
-
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && document.getElementById('hist-aircraft-modal')?.classList.contains('open')) closeHistModal();
+    if (e.key === 'Escape' && document.getElementById('aux-aircraft-modal')?.classList.contains('open')) closeAuxModal();
 });
 
-function switchHistTab(idx) {
-    document.querySelectorAll('.hist-mtab').forEach((btn, i) => btn.classList.toggle('active', i === idx));
-    const body = document.getElementById('hist-modal-body');
-    if (!currentHistPlane) return;
+function switchAuxTab(idx) {
+    document.querySelectorAll('.aux-mtab').forEach((btn, i) => btn.classList.toggle('active', i === idx));
+    const body = document.getElementById('aux-modal-body');
+    const p    = currentAuxPlane;
+    if (!p) return;
+
+    const branchTag = {
+        'aire-hist': { label:'Flota Histórica · EAE', cls:'mb-tag--gold' },
+        'tierra':    { label:'Ejército de Tierra',     cls:'mb-tag--tierra' },
+        'armada':    { label:'Armada Española',        cls:'mb-tag--armada' }
+    }[p.branch] || { label:'', cls:'' };
+
     switch (idx) {
-        case 0: body.innerHTML = `
-            <img class="mb-hero-img" src="${currentHistPlane.image}" alt="${currentHistPlane.name}" onerror="this.style.display='none'">
-            <div class="mb-tags">
-                <span class="mb-tag">${currentHistPlane.designation}</span>
-                <span class="mb-tag mb-tag--red">${currentHistPlane.type}</span>
-                <span class="mb-tag mb-tag--gold"><i class="fas fa-clock-rotate-left"></i> ${currentHistPlane.era}</span>
-            </div>
-            <h3 class="mb-title">${currentHistPlane.name}</h3>
-            <p class="mb-role">${currentHistPlane.role}</p>
-            <p class="mb-text">${currentHistPlane.general}</p>`; break;
-        case 1: body.innerHTML = `
-            <p class="spec-section-title">Datos técnicos</p>
-            <table class="spec-table"><tbody>${currentHistPlane.specs.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</tbody></table>
-            <p class="spec-section-title">Armamento y sistemas</p>
-            <div class="armament-box">${currentHistPlane.armament}</div>`; break;
-        case 2: body.innerHTML = `
-            <div class="spain-hero">
-                <div class="spain-num" style="font-size:1.6rem;letter-spacing:-.02em">${currentHistPlane.era}</div>
-                <div class="spain-label">Período de servicio en España</div>
-            </div>
-            <div class="spain-bases"><strong>Unidades operadas</strong>${currentHistPlane.unidades} aeronaves</div>
-            <div class="spain-bases"><strong>Bases y despliegue</strong>${currentHistPlane.bases}</div>
-            <div class="spain-bases"><strong>Motivo de retirada</strong>${currentHistPlane.retiro}</div>`; break;
+        case 0:
+            body.innerHTML = `
+                <img class="mb-hero-img" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'">
+                <div class="mb-tags">
+                    <span class="mb-tag">${p.designation}</span>
+                    <span class="mb-tag mb-tag--red">${p.type}</span>
+                    <span class="mb-tag ${branchTag.cls}">${branchTag.label}</span>
+                    ${p.era ? `<span class="mb-tag mb-tag--gold"><i class="fas fa-clock-rotate-left"></i> ${p.era}</span>` : ''}
+                </div>
+                <h3 class="mb-title">${p.name}</h3>
+                <p class="mb-role">${p.role}</p>
+                <p class="mb-text">${p.general}</p>`; break;
+        case 1:
+            body.innerHTML = `
+                <p class="spec-section-title">Datos técnicos</p>
+                <table class="spec-table"><tbody>${p.specs.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</tbody></table>
+                <p class="spec-section-title">Armamento y sistemas</p>
+                <div class="armament-box">${p.armament}</div>`; break;
+        case 2:
+            body.innerHTML = `
+                <div class="spain-hero">
+                    <div class="spain-num">${p.era || p.unidades}</div>
+                    <div class="spain-label">${p.era ? 'Período de servicio en España' : 'Unidades operativas'}</div>
+                </div>
+                <div class="spain-bases"><strong>Unidades operadas</strong>${p.unidades}</div>
+                <div class="spain-bases"><strong>Bases y despliegue</strong>${p.bases}</div>
+                ${p.retiro ? `<div class="spain-bases"><strong>Motivo de retirada</strong>${p.retiro}</div>` : ''}
+                <div class="spain-bases"><strong>Rol operativo</strong>${p.role}</div>`; break;
         case 3:
-            currentGalleryIdx = currentGalleryIdx || 0;
-            const imgs = currentHistPlane.gallery;
+            const imgs   = p.gallery;
             const thumbs = imgs.map((src, i) => `
-                <div class="gallery-thumb ${i === currentGalleryIdx ? 'active' : ''}" onclick="setHistGalleryImg(${i})">
+                <div class="gallery-thumb ${i === currentGalleryIdx ? 'active' : ''}" onclick="setAuxGalleryImg(${i})">
                     <img src="${src}" alt="Foto ${i+1}" loading="lazy">
                 </div>`).join('');
             body.innerHTML = `
                 <div class="gallery-main">
-                    <img id="hist-gal-main" src="${imgs[currentGalleryIdx]}" alt="Galería">
-                    <button class="gallery-prev" onclick="changeHistGalleryImg(-1)"><i class="fas fa-chevron-left"></i></button>
-                    <button class="gallery-next" onclick="changeHistGalleryImg(1)"><i class="fas fa-chevron-right"></i></button>
+                    <img src="${imgs[currentGalleryIdx]}" alt="Galería">
+                    <button class="gallery-prev" onclick="changeAuxGalleryImg(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-next" onclick="changeAuxGalleryImg(1)"><i class="fas fa-chevron-right"></i></button>
                     <span class="gallery-counter">${currentGalleryIdx + 1} / ${imgs.length}</span>
                 </div>
                 <div class="gallery-thumbs">${thumbs}</div>`; break;
     }
 }
-
-function changeHistGalleryImg(dir) {
-    currentGalleryIdx = (currentGalleryIdx + dir + currentHistPlane.gallery.length) % currentHistPlane.gallery.length;
-    switchHistTab(3);
-}
-function setHistGalleryImg(idx) { currentGalleryIdx = idx; switchHistTab(3); }
+function changeAuxGalleryImg(dir) { currentGalleryIdx = (currentGalleryIdx + dir + currentAuxPlane.gallery.length) % currentAuxPlane.gallery.length; switchAuxTab(3); }
+function setAuxGalleryImg(idx)    { currentGalleryIdx = idx; switchAuxTab(3); }
 
 /* ══════════════════════════════════════════════════════
    CONTACT FORM
@@ -934,7 +1020,9 @@ function handleFormSubmit() {
    ══════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
     renderFleet(aircraftData);
-    renderHistoricalFleet(historicalAircraftData);
+    filterHistFleet();
+    filterTierraFleet();
+    filterArmadaFleet();
 
     // Re-observe any dynamically needed reveals
     document.querySelectorAll('.reveal, .reveal-fade').forEach(el => io.observe(el));
@@ -957,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ══════════════════════════════════════════════════════ */
 (function () {
     // Añadidas las nuevas secciones al array para que el scroll spy funcione
-    const sections = ['inicio','cifras','misiones','flota','flota-historica','unidades','actualidad','historia','contacto'];
+    const sections = ['inicio','cifras','misiones','flota','flota-historica','flota-tierra','flota-armada','unidades','actualidad','historia','contacto'];
     const navLinks = document.querySelectorAll('.nav-links a');
 
     function setActive() {
