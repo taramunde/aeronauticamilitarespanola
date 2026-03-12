@@ -2014,3 +2014,122 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 .base-pin {
     display: none;
 }
+
+/* ═══════════════════════════════════════════════════════
+   NAV DROPDOWN
+   ═══════════════════════════════════════════════════════ */
+.nav-dropdown { position: relative; list-style: none; }
+
+.nav-dropdown-toggle {
+    padding: 6px 10px;
+    font-size: .78rem; font-weight: 500; letter-spacing: .02em;
+    color: rgba(255,255,255,.65);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap; cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+    user-select: none;
+}
+.nav-dropdown-toggle:hover { color: #fff; background: var(--surface2); }
+
+.nav-chevron { font-size: .55rem; transition: transform .25s var(--ease-out); opacity: .5; }
+.nav-dropdown:hover .nav-chevron { transform: rotate(180deg); }
+
+.nav-submenu {
+    position: absolute; top: calc(100% + 8px); left: 50%;
+    background: rgba(9,9,11,.97);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 6px; min-width: 210px; list-style: none;
+    display: flex; flex-direction: column; gap: 2px;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity .2s var(--ease-out), transform .2s var(--ease-out), visibility .2s;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.45);
+    z-index: 200;
+}
+.nav-submenu::before {
+    content: ''; position: absolute; top: -5px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 9px; height: 9px; background: rgba(9,9,11,.97);
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+}
+.nav-dropdown:hover .nav-submenu,
+.nav-dropdown:focus-within .nav-submenu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+.nav-submenu li a {
+    display: flex; align-items: center; gap: 9px; padding: 9px 12px;
+    font-size: .78rem; font-weight: 500; color: rgba(255,255,255,.65);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
+}
+.nav-submenu li a:hover { color: #fff; background: var(--surface2); }
+.nav-submenu li a i { width: 14px; text-align: center; font-size: .7rem; opacity: .7; }
+
+.submenu-group-label {
+    padding: 6px 12px 3px;
+    font-family: var(--font-mono); font-size: .58rem;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); pointer-events: none;
+}
+.submenu-divider {
+    height: 1px; background: var(--border);
+    margin: 4px 0; pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   S-TAG VARIANTES
+   ═══════════════════════════════════════════════════════ */
+.s-tag--gold    { color: var(--gold); border-color: rgba(245,158,11,.25); background: rgba(245,158,11,.08); }
+.s-tag--tierra  { color: #4ade80;    border-color: rgba(74,222,128,.25);  background: rgba(74,222,128,.08); }
+.s-tag--armada  { color: #38bdf8;    border-color: rgba(56,189,248,.25);  background: rgba(56,189,248,.08); }
+
+/* ═══════════════════════════════════════════════════════
+   FLOTA HISTÓRICA AIRE
+   ═══════════════════════════════════════════════════════ */
+.s-flota--hist {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(245,158,11,.03) 50%, var(--bg) 100%);
+    border-top: 1px solid rgba(245,158,11,.1);
+}
+.ac-card--hist { border-color: rgba(245,158,11,.1); }
+.ac-card--hist:hover { border-color: rgba(245,158,11,.35); box-shadow: 0 8px 32px rgba(245,158,11,.07); }
+.ac-card--hist .ac-arrow { color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════
+   FLOTA EJÉRCITO DE TIERRA
+   ═══════════════════════════════════════════════════════ */
+.s-flota--tierra {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(74,222,128,.03) 50%, var(--bg) 100%);
+    border-top: 1px solid rgba(74,222,128,.1);
+}
+.ac-card--tierra { border-color: rgba(74,222,128,.1); }
+.ac-card--tierra:hover { border-color: rgba(74,222,128,.35); box-shadow: 0 8px 32px rgba(74,222,128,.07); }
+.ac-card--tierra .ac-arrow { color: #4ade80; }
+
+/* ═══════════════════════════════════════════════════════
+   FLOTA ARMADA
+   ═══════════════════════════════════════════════════════ */
+.s-flota--armada {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(56,189,248,.03) 50%, var(--bg) 100%);
+    border-top: 1px solid rgba(56,189,248,.1);
+}
+.ac-card--armada { border-color: rgba(56,189,248,.1); }
+.ac-card--armada:hover { border-color: rgba(56,189,248,.35); box-shadow: 0 8px 32px rgba(56,189,248,.07); }
+.ac-card--armada .ac-arrow { color: #38bdf8; }
+
+/* ── Tags de modal para cada rama ──────────────────── */
+.mb-tag--gold   { background: rgba(245,158,11,.15); color: var(--gold); border: 1px solid rgba(245,158,11,.25); }
+.mb-tag--tierra { background: rgba(74,222,128,.12);  color: #4ade80;    border: 1px solid rgba(74,222,128,.25); }
+.mb-tag--armada { background: rgba(56,189,248,.12);  color: #38bdf8;    border: 1px solid rgba(56,189,248,.25); }
+
+/* ── Era badge ──────────────────────────────────────── */
+.ac-era-badge {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(245,158,11,.88); color: #000;
+    font-family: var(--font-mono); font-size: .6rem; font-weight: 700;
+    letter-spacing: .06em; padding: 3px 8px; border-radius: 4px;
+    display: flex; align-items: center; gap: 5px;
+}
