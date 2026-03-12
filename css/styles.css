@@ -1820,31 +1820,31 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 }
 
 .spain-land {
-    fill: rgba(100, 130, 180, 0.28);
-    stroke: rgba(140, 170, 220, 0.70);
+    fill: rgba(255, 255, 255, 0.18);
+    stroke: rgba(255, 255, 255, 0.65);
     stroke-width: 1;
     stroke-linejoin: round;
 }
 
 .spain-land.portugal {
-    fill: rgba(100, 130, 180, 0.12);
-    stroke: rgba(140, 170, 220, 0.35);
+    fill: rgba(255, 255, 255, 0.07);
+    stroke: rgba(255, 255, 255, 0.30);
 }
 
 .spain-land.island {
-    fill: rgba(100, 130, 180, 0.28);
-    stroke: rgba(140, 170, 220, 0.60);
+    fill: rgba(255, 255, 255, 0.18);
+    stroke: rgba(255, 255, 255, 0.55);
     stroke-width: 0.8;
 }
 
 .canarias-box {
-    fill: rgba(9,9,11,0.90);
-    stroke: rgba(140, 170, 220, 0.40);
+    fill: rgba(9, 9, 11, 0.90);
+    stroke: rgba(255, 255, 255, 0.35);
     stroke-width: 1;
 }
 
 .canarias-title {
-    fill: rgba(180, 200, 240, 0.85);
+    fill: rgba(255, 255, 255, 0.90);
     font-family: 'JetBrains Mono', monospace;
     font-size: 7px;
     text-anchor: middle;
@@ -1989,8 +1989,8 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 /* El path real de España */
 #ES {
-    fill: rgba(200, 16, 46, 0.22);
-    stroke: rgba(220, 50, 80, 0.85);
+    fill: rgba(200, 16, 46, 0.20);
+    stroke: rgba(220, 50, 80, 0.90);
     stroke-width: 0.8;
     stroke-linejoin: round;
     transition: fill 0.3s;
@@ -2132,4 +2132,57 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
     font-family: var(--font-mono); font-size: .6rem; font-weight: 700;
     letter-spacing: .06em; padding: 3px 8px; border-radius: 4px;
     display: flex; align-items: center; gap: 5px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ZOOM CONTROLS — mapa de bases (desktop)
+   ═══════════════════════════════════════════════════════ */
+.map-zoom-controls {
+    position: absolute;
+    top: 12px; right: 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    z-index: 10;
+}
+
+.map-zoom-btn {
+    width: 32px; height: 32px;
+    background: rgba(9,9,11,0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.75);
+    font-size: .75rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s, color .2s;
+    backdrop-filter: blur(8px);
+}
+.map-zoom-btn:hover {
+    background: rgba(200,16,46,0.25);
+    border-color: rgba(200,16,46,0.60);
+    color: #fff;
+}
+.map-zoom-btn:active { transform: scale(0.93); }
+
+.map-zoom-reset { margin-top: 4px; }
+
+.map-zoom-level {
+    font-family: var(--font-mono);
+    font-size: .58rem;
+    letter-spacing: .06em;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    width: 32px;
+}
+
+/* El SVG recibe el transform de zoom */
+#bases-map {
+    transform-origin: center center;
+    transition: transform .25s ease;
+    cursor: grab;
+}
+#bases-map:active { cursor: grabbing; }
+
+/* Ocultar controles en móvil (ya tienen pinch-zoom) */
+@media (max-width: 900px) {
+    .map-zoom-controls { display: none; }
 }
