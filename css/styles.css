@@ -1820,31 +1820,31 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 }
 
 .spain-land {
-    fill: rgba(255,255,255,0.10);
-    stroke: rgba(255,255,255,0.35);
+    fill: rgba(100, 130, 180, 0.28);
+    stroke: rgba(140, 170, 220, 0.70);
     stroke-width: 1;
     stroke-linejoin: round;
 }
 
 .spain-land.portugal {
-    fill: rgba(255,255,255,0.06);
-    stroke: rgba(255,255,255,0.20);
+    fill: rgba(100, 130, 180, 0.12);
+    stroke: rgba(140, 170, 220, 0.35);
 }
 
 .spain-land.island {
-    fill: rgba(255,255,255,0.10);
-    stroke: rgba(255,255,255,0.30);
+    fill: rgba(100, 130, 180, 0.28);
+    stroke: rgba(140, 170, 220, 0.60);
     stroke-width: 0.8;
 }
 
 .canarias-box {
-    fill: rgba(9,9,11,0.85);
-    stroke: rgba(255,255,255,0.25);
+    fill: rgba(9,9,11,0.90);
+    stroke: rgba(140, 170, 220, 0.40);
     stroke-width: 1;
 }
 
 .canarias-title {
-    fill: rgba(255,255,255,0.65);
+    fill: rgba(180, 200, 240, 0.85);
     font-family: 'JetBrains Mono', monospace;
     font-size: 7px;
     text-anchor: middle;
@@ -1989,8 +1989,8 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 /* El path real de España */
 #ES {
-    fill: rgba(200,16,46,0.18);
-    stroke: rgba(200,16,46,0.70);
+    fill: rgba(200, 16, 46, 0.22);
+    stroke: rgba(220, 50, 80, 0.85);
     stroke-width: 0.8;
     stroke-linejoin: round;
     transition: fill 0.3s;
