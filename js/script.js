@@ -982,6 +982,30 @@ function changeAuxGalleryImg(dir) { currentGalleryIdx = (currentGalleryIdx + dir
 function setAuxGalleryImg(idx)    { currentGalleryIdx = idx; switchAuxTab(3); }
 
 /* ══════════════════════════════════════════════════════
+   ZOOM MAPA DE BASES
+   ══════════════════════════════════════════════════════ */
+(function() {
+    let mapScale = 1;
+    const MIN = 1, MAX = 3, STEP = 0.3;
+
+    window.mapZoom = function(dir) {
+        mapScale = Math.min(MAX, Math.max(MIN, mapScale + dir * STEP));
+        applyMapZoom();
+    };
+    window.mapZoomReset = function() {
+        mapScale = 1;
+        applyMapZoom();
+    };
+    function applyMapZoom() {
+        const el = document.getElementById('bases-map');
+        if (!el) return;
+        el.style.transform = mapScale === 1 ? '' : `scale(${mapScale})`;
+        const label = document.getElementById('map-zoom-level');
+        if (label) label.textContent = Math.round(mapScale * 100) + '%';
+    }
+})();
+
+/* ══════════════════════════════════════════════════════
    CONTACT FORM
    ══════════════════════════════════════════════════════ */
 function handleFormSubmit() {
