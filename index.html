@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?nocache=20251231v35">
+    <link rel="stylesheet" href="css/styles.css?nocache=20251231v28">
 </head>
 <body>
 
@@ -37,18 +37,7 @@
                 <li><a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a></li>
                 <li><a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a></li>
                 <li><a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a></li>
-                <li class="nav-dropdown">
-                    <span class="nav-dropdown-toggle">Flotas <i class="fas fa-chevron-down nav-chevron"></i></span>
-                    <ul class="nav-submenu">
-                        <li class="submenu-group-label">Ejército del Aire</li>
-                        <li><a href="#flota" onclick="smoothScrollTo('flota',event)"><i class="fas fa-jet-fighter"></i> Flota 2026</a></li>
-                        <li><a href="#flota-historica" onclick="smoothScrollTo('flota-historica',event)"><i class="fas fa-clock-rotate-left"></i> Flota Histórica</a></li>
-                        <li class="submenu-divider"></li>
-                        <li class="submenu-group-label">Otros ejércitos</li>
-                        <li><a href="#flota-tierra" onclick="smoothScrollTo('flota-tierra',event)"><i class="fas fa-helicopter"></i> Ejército de Tierra</a></li>
-                        <li><a href="#flota-armada" onclick="smoothScrollTo('flota-armada',event)"><i class="fas fa-anchor"></i> Armada</a></li>
-                    </ul>
-                </li>
+                <li><a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a></li>
                 <li><a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a></li>
                 <li><a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a></li>
                 <li><a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a></li>
@@ -65,10 +54,7 @@
             <a href="#inicio"   onclick="smoothScrollTo('inicio',event)">Inicio</a>
             <a href="#cifras"   onclick="smoothScrollTo('cifras',event)">Cifras</a>
             <a href="#misiones" onclick="smoothScrollTo('misiones',event)">Misiones</a>
-            <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota Aire 2026</a>
-            <a href="#flota-historica" onclick="smoothScrollTo('flota-historica',event)">Flota Histórica Aire</a>
-            <a href="#flota-tierra" onclick="smoothScrollTo('flota-tierra',event)">Ejército de Tierra</a>
-            <a href="#flota-armada" onclick="smoothScrollTo('flota-armada',event)">Armada</a>
+            <a href="#flota"    onclick="smoothScrollTo('flota',event)">Flota</a>
             <a href="#unidades" onclick="smoothScrollTo('unidades',event)">Unidades</a>
             <a href="#actualidad" onclick="smoothScrollTo('actualidad',event)">Actualidad</a>
             <a href="#historia" onclick="smoothScrollTo('historia',event)">Historia</a>
@@ -126,7 +112,7 @@
                     <span>Bases aéreas</span>
                 </div>
                 <div class="cifra reveal" style="--d:.21s">
-                    <strong class="cifra-n" data-target="85">0</strong>
+                    <strong class="cifra-n" data-target="115">0</strong>
                     <span>Años de historia</span>
                 </div>
                 <div class="cifra reveal" style="--d:.28s">
@@ -217,110 +203,6 @@
         </div>
     </section>
 
-    <!-- ══ FLOTA HISTÓRICA AIRE ══ -->
-    <section id="flota-historica" class="s-flota s-flota--hist">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag s-tag--gold">Ejército del Aire · Histórico</span>
-                    <h2>Flota Histórica</h2>
-                    <p id="hist-results-count" class="results-count"></p>
-                </div>
-                <div class="flota-controls reveal" style="--d:.1s">
-                    <div class="search-box">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input id="hist-search-input" type="text" placeholder="Buscar aeronave…" onkeyup="filterHistFleet()" autocomplete="off">
-                        <button id="hist-search-clear" onclick="clearHistSearch()"><i class="fas fa-xmark"></i></button>
-                    </div>
-                    <div class="pills">
-                        <button class="hist-pill pill active" onclick="filterHistByType('all',this)">Todos</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('caza',this)">Caza</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('transporte',this)">Transporte</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('reconocimiento',this)">Reconocimiento</button>
-                        <button class="hist-pill pill" onclick="filterHistByType('entrenamiento',this)">Entrenamiento</button>
-                    </div>
-                </div>
-            </header>
-            <div id="hist-fleet-grid" class="fleet-grid"></div>
-        </div>
-    </section>
-
-    <!-- ══ FLOTA EJÉRCITO DE TIERRA ══ -->
-    <section id="flota-tierra" class="s-flota s-flota--tierra">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag s-tag--tierra">Ejército de Tierra</span>
-                    <h2>Aviación del Ejército de Tierra</h2>
-                    <p id="tierra-results-count" class="results-count"></p>
-                </div>
-                <div class="flota-controls reveal" style="--d:.1s">
-                    <div class="search-box">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input id="tierra-search-input" type="text" placeholder="Buscar aeronave…" onkeyup="filterTierraFleet()" autocomplete="off">
-                        <button id="tierra-search-clear" onclick="clearTierraSearch()"><i class="fas fa-xmark"></i></button>
-                    </div>
-                    <div class="pills">
-                        <button class="tierra-pill pill active" onclick="filterTierraByType('all',this)">Todos</button>
-                        <button class="tierra-pill pill" onclick="filterTierraByType('helicóptero',this)">Helicóptero</button>
-                        <button class="tierra-pill pill" onclick="filterTierraByType('avión',this)">Avión</button>
-                        <button class="tierra-pill pill" onclick="filterTierraByType('uav',this)">UAV</button>
-                    </div>
-                </div>
-            </header>
-            <div id="tierra-fleet-grid" class="fleet-grid"></div>
-        </div>
-    </section>
-
-    <!-- ══ FLOTA ARMADA ══ -->
-    <section id="flota-armada" class="s-flota s-flota--armada">
-        <div class="container">
-            <header class="flota-header">
-                <div class="reveal">
-                    <span class="s-tag s-tag--armada">Armada Española</span>
-                    <h2>Aviación Naval</h2>
-                    <p id="armada-results-count" class="results-count"></p>
-                </div>
-                <div class="flota-controls reveal" style="--d:.1s">
-                    <div class="search-box">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input id="armada-search-input" type="text" placeholder="Buscar aeronave…" onkeyup="filterArmadaFleet()" autocomplete="off">
-                        <button id="armada-search-clear" onclick="clearArmadaSearch()"><i class="fas fa-xmark"></i></button>
-                    </div>
-                    <div class="pills">
-                        <button class="armada-pill pill active" onclick="filterArmadaByType('all',this)">Todos</button>
-                        <button class="armada-pill pill" onclick="filterArmadaByType('caza',this)">Caza</button>
-                        <button class="armada-pill pill" onclick="filterArmadaByType('helicóptero',this)">Helicóptero</button>
-                        <button class="armada-pill pill" onclick="filterArmadaByType('patrulla',this)">Patrulla</button>
-                    </div>
-                </div>
-            </header>
-            <div id="armada-fleet-grid" class="fleet-grid"></div>
-        </div>
-    </section>
-
-    <!-- ══ MODALES HISTÓRICO / TIERRA / ARMADA ══ -->
-    <div id="aux-aircraft-modal" class="modal-backdrop" onclick="handleAuxBackdropClick(event)" role="dialog" aria-modal="true">
-        <div class="modal-panel">
-            <div class="modal-header">
-                <div>
-                    <h2 id="aux-modal-title"></h2>
-                    <p id="aux-modal-subtitle"></p>
-                </div>
-                <button class="modal-close aux-modal-close" onclick="closeAuxModal()" aria-label="Cerrar modal">
-                    <i class="fas fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-tab-bar" id="aux-modal-tabs">
-                <button class="mtab aux-mtab active" onclick="switchAuxTab(0)">General</button>
-                <button class="mtab aux-mtab" onclick="switchAuxTab(1)">Especificaciones</button>
-                <button class="mtab aux-mtab" onclick="switchAuxTab(2)">En España</button>
-                <button class="mtab aux-mtab" onclick="switchAuxTab(3)">Galería</button>
-            </div>
-            <div class="modal-body" id="aux-modal-body"></div>
-        </div>
-    </div>
-
     <section id="unidades" class="s-unidades">
         <div class="container">
             <header class="s-head reveal">
@@ -397,67 +279,140 @@
         <div class="container">
             <header class="s-head reveal">
                 <span class="s-tag">03 · Historia</span>
-                <h2>85 años de historia</h2>
-                <p>De la fundación en 1939 al dominio del espacio en 2026.</p>
+                <h2>115 años de aeronáutica militar</h2>
+                <p>Del primer vuelo militar en Cuatro Vientos en 1911 al dominio del espacio en 2026 — la historia completa de la aviación militar española.</p>
             </header>
 
             <div class="timeline">
                 <div class="tl-line"></div>
 
-                <div class="tl-row tl-left reveal-fade">
+                <div class="tl-row tl-left reveal-fade" style="--d:0s">
                     <div class="tl-node"></div>
                     <div class="tl-card">
-                        <time class="tl-year">1939</time>
-                        <h3>Fundación del Ejército del Aire</h3>
-                        <p>Constituido como cuerpo independiente por decreto del 7 de octubre de 1939. España pasa a contar con una fuerza aérea autónoma con sus propias estructuras de mando, formación y doctrina operativa.</p>
+                        <time class="tl-year">1911</time>
+                        <h3>Nacimiento de la Aeronáutica Militar</h3>
+                        <p>El 28 de febrero de 1911 se crea oficialmente la Aeronáutica Militar española. Ese mismo año se realizan los primeros vuelos militares desde el aeródromo de Cuatro Vientos (Madrid) con biplanos Farman y Nieuport. España se convierte en uno de los primeros países del mundo en contar con una fuerza aérea organizada.</p>
                     </div>
                 </div>
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.08s">
+                <div class="tl-row tl-right reveal-fade" style="--d:.06s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1913</time>
+                        <h3>Primera aviación naval</h3>
+                        <p>La Armada española adquiere sus primeros hidros y establece la Aeronáutica Naval. Los hidroaviones Curtiss y FBA comienzan a operar desde la Base Aeronaval de La Grafana (Cartagena), inaugurando una tradición de aviación naval que persiste hasta hoy con el Juan Carlos I y sus Harrier.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-left reveal-fade" style="--d:.12s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1921–1927</time>
+                        <h3>Bautismo de fuego: la Guerra del Rif</h3>
+                        <p>La aviación militar española recibe su primera gran prueba en Marruecos. El Tercio de Extranjeros y las escuadrillas aéreas trabajan codo a codo en las primeras operaciones de apoyo aéreo cercano de la historia. Se usan por primera vez bombas de fosforo y se desarrolla una doctrina combinada aire-tierra pionera en el mundo.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-right reveal-fade" style="--d:.18s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1926</time>
+                        <h3>El Plus Ultra: de Palos a Buenos Aires</h3>
+                        <p>El comandante Eduardo González Gallarza y su tripulación cruzan el Atlántico Sur en el hidroavión Dornier Do J <em>Plus Ultra</em>, de Palos de la Frontera a Buenos Aires en 59 horas y 39 minutos. Una proeza que sitúa a la aviación española en el mapa mundial y consagra a sus pilotos como héroes nacionales.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-left reveal-fade" style="--d:.24s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1939</time>
+                        <h3>El Ejército del Aire: un ejército propio</h3>
+                        <p>Por decreto del 7 de octubre de 1939, la aviación militar se constituye como ejército autónomo e independiente del Ejército de Tierra. La FAMET (Fuerzas Aeromóviles) y la aviación naval mantienen su integración en sus respectivos ejércitos, dando lugar a la estructura tricéfala que existe hoy.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-right reveal-fade" style="--d:.30s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1954</time>
+                        <h3>La era del reactor: Pactos de Madrid</h3>
+                        <p>Los acuerdos hispano-norteamericanos de 1953 abren las puertas a los primeros aviones a reacción: el F-84 Thunderjet y el F-86 Sabre llegan al Ejército del Aire. Simultáneamente, la Armada recibe los primeros helicópteros Sikorsky para sus destructores. España da el salto definitivo a la aviación moderna de la Guerra Fría.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-left reveal-fade" style="--d:.36s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1967</time>
+                        <h3>Nace la FAMET</h3>
+                        <p>Se crean las Fuerzas Aeromóviles del Ejército de Tierra (FAMET), dotando al Ejército de Tierra de su propio brazo aéreo. Los primeros helicópteros OH-13 Sioux y UH-1 Iroquois forman el núcleo inicial. Hoy la FAMET opera Tigers, NH90 y Super Puma en misiones de ataque, transporte y reconocimiento.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-right reveal-fade" style="--d:.42s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">1976</time>
+                        <h3>El Harrier llega a la Armada</h3>
+                        <p>La Armada española se convierte en la primera marina europea en operar aviones de despegue vertical, adquiriendo los AV-8A Harrier para el portaaviones <em>Dédalo</em>. Un hito que coloca a España a la vanguardia de la proyección de poder naval en el Mediterráneo occidental y el Atlántico.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-left reveal-fade" style="--d:.48s">
                     <div class="tl-node"></div>
                     <div class="tl-card">
                         <time class="tl-year">1982</time>
                         <h3>Ingreso en la OTAN</h3>
-                        <p>España entra en la Alianza Atlántica integrando su fuerza aérea en la defensa colectiva occidental. Comienza la modernización acelerada con aeronaves de fabricación norteamericana y europea de última generación.</p>
+                        <p>Los tres ejércitos integran sus flotas aéreas en la defensa colectiva de la Alianza Atlántica. Se inicia la mayor modernización de la historia de la aeronáutica militar española: F/A-18 para el Aire, AV-8B Harrier II Plus para la Armada, Tigers y NH90 para Tierra. Una transformación que dura hasta hoy.</p>
                     </div>
                 </div>
 
-                <div class="tl-row tl-left reveal-fade" style="--d:.16s">
+                <div class="tl-row tl-right reveal-fade" style="--d:.54s">
                     <div class="tl-node"></div>
                     <div class="tl-card">
-                        <time class="tl-year">1992</time>
-                        <h3>Llegada del F/A-18 Hornet</h3>
-                        <p>Adquisición de 72 cazas F/A-18 Hornet, revolucionando las capacidades de combate aéreo. Se convierte en la espina dorsal de la defensa durante tres décadas y aún opera en la actualidad.</p>
+                        <time class="tl-year">1988</time>
+                        <h3>Juan Carlos I: portaaviones de nueva generación</h3>
+                        <p>Entra en servicio el portaaviones <em>Príncipe de Asturias</em> (R-11), buque insignia de la aviación naval española durante dos décadas. Operó los Harrier AV-8B Plus con radar APG-65 y misiles AMRAAM, siendo uno de los portaaviones ligeros más capaces del mundo hasta su retiro en 2013.</p>
                     </div>
                 </div>
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.24s">
+                <div class="tl-row tl-left reveal-fade" style="--d:.60s">
                     <div class="tl-node"></div>
                     <div class="tl-card">
                         <time class="tl-year">2003</time>
-                        <h3>Eurofighter Typhoon C.16</h3>
-                        <p>Inicio de la incorporación del Eurofighter Typhoon, el caza más avanzado jamás operado por España. Desarrollado en consorcio europeo, supone un salto tecnológico sin precedentes en maniobrabilidad, sensores y sistemas de armas.</p>
+                        <h3>Eurofighter Typhoon</h3>
+                        <p>El Ejército del Aire incorpora el Eurofighter Typhoon C.16, el caza más avanzado jamás operado por España. Desarrollado en consorcio con Alemania, Reino Unido e Italia, supone un salto generacional en capacidades de combate aéreo que sitúa a España entre las potencias aéreas de primer nivel de la OTAN.</p>
                     </div>
                 </div>
 
-                <div class="tl-row tl-left reveal-fade" style="--d:.32s">
+                <div class="tl-row tl-right reveal-fade" style="--d:.66s">
+                    <div class="tl-node"></div>
+                    <div class="tl-card">
+                        <time class="tl-year">2010</time>
+                        <h3>Juan Carlos I — Buque de Proyección Estratégica</h3>
+                        <p>Entra en servicio el LHD <em>Juan Carlos I</em> (L-61), buque insignia de la Armada y plataforma de proyección de poder más grande jamás construida en España. Con cubierta de vuelo de 202 metros y rampa de ski-jump, opera los AV-8B Harrier II Plus y en el futuro albergará los F-35B Lightning II.</p>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-left reveal-fade" style="--d:.72s">
                     <div class="tl-node tl-node--gold"></div>
                     <div class="tl-card tl-card--gold">
                         <time class="tl-year tl-year--gold">2022</time>
                         <h3>Ejército del Aire y del Espacio</h3>
-                        <p>Por Real Decreto 176/2022, el dominio espacial se incorpora a la denominación oficial. España reconoce el espacio como ámbito operativo con capacidades de observación, vigilancia y comunicación satelital.</p>
+                        <p>Por Real Decreto 176/2022, el dominio espacial se incorpora oficialmente a la denominación y misión del Ejército del Aire. España reconoce el espacio como el quinto dominio de operaciones militares, con capacidades propias de observación, vigilancia y comunicaciones satelitales.</p>
                     </div>
                 </div>
 
-                <div class="tl-row tl-right reveal-fade" style="--d:.40s">
+                <div class="tl-row tl-right reveal-fade" style="--d:.78s">
                     <div class="tl-node tl-node--gold tl-node--pulse"></div>
                     <div class="tl-card tl-card--gold">
                         <time class="tl-year tl-year--gold">2026 · Hoy</time>
-                        <h3>FCAS — El futuro del combate aéreo</h3>
-                        <p>España participa en el programa FCAS (Future Combat Air System), el sistema de combate de sexta generación que definirá la aviación militar europea en 2040, con drones de combate autónomos y gestión de batalla en red.</p>
+                        <h3>FCAS y F-35B — El futuro es ahora</h3>
+                        <p>España participa en el programa FCAS de sexta generación junto a Francia y Alemania, mientras la Armada negocia la adquisición del F-35B para el Juan Carlos I. Los tres ejércitos mantienen flotas aéreas activas en misiones reales desde el Báltico hasta Mali, con más de 400 aeronaves operativas entre Aire, Tierra y Armada.</p>
                         <span class="tl-badge">En desarrollo</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -797,6 +752,6 @@
         </div>
     </section>
 
-    <script src="js/script.js?nocache=20251231v35"></script>
+    <script src="js/script.js?nocache=20251231v30"></script>
 </body>
 </html>
