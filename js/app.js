@@ -1,8 +1,7 @@
-// Navegación por pestañas - Variables globales
-let views, navBtns;
-
-// Función global para navegación (accesible desde HTML onclick)
+// Funciones globales - deben estar disponibles inmediatamente para onclick
 window.showView = function(target) {
+    const views = document.querySelectorAll('.view');
+    const navBtns = document.querySelectorAll('[data-target]');
     if(!views || !target) return;
     views.forEach(v => v.classList.toggle('hidden', v.id !== 'view-' + target));
     if(navBtns) {
@@ -13,7 +12,6 @@ window.showView = function(target) {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
-// Funciones globales para modales
 window.openModal = function(title, html) {
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal-title');
@@ -35,9 +33,6 @@ window.closeModal = function() {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    views = document.querySelectorAll('.view');
-    navBtns = document.querySelectorAll('[data-target]');
-
     // Timeline
     const tlData = {
         '1913a': {y:'1913', t:'Creación del Servicio de Aeronáutica Militar', d:'El 28 de febrero, por impulso del coronel Pedro Vives Vich, se crea oficialmente la Aeronáutica Militar española mediante Real Decreto. Se establece en Cuatro Vientos.'},
@@ -116,16 +111,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event listeners para navegación - botones del menú
-    navBtns.forEach(btn => {
-        btn.addEventListener('click', () => showView(btn.dataset.target));
-    });
-
-    // Botones del hero y cards de inicio
-    document.querySelectorAll('.nav-hero, #view-inicio [data-target]').forEach(el => {
-        el.addEventListener('click', () => showView(el.dataset.target));
+    // Event listeners para navegación - todos los botones con data-target
+    document.querySelectorAll('[data-target]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = el.dataset.target;
+            if(target) {
+                console.log('Navegando a:', target);
+                showView(target);
+            }
+        });
     });
 
     // Iniciar vista
+    console.log('Inicializando vista inicial...');
     showView('inicio');
 });
