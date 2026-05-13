@@ -3,70 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MilitaryFactory España | Aeronáutica Militar Española</title>
+    <title>Biblioteca Aeronáutica Española | Enciclopedia visual del Ejército del Aire</title>
     <!-- Google Fonts + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&family=Merriweather:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Estilos propios -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1><i class="fas fa-fighter-jet"></i> MilitaryFactory España</h1>
-        <p>Aeronáutica Militar Española | Flota del Ejército del Aire y del Espacio</p>
-        <div class="stats-badge" id="statsCounter">Cargando...</div>
-    </header>
-
-    <div class="filters-bar">
-        <div class="search-group">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Buscar por nombre, tipo o país...">
+<!-- Barra de navegación principal -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-landmark"></i> 
+            <span>Ala Ibérica</span>
         </div>
-        <select id="typeFilter">
-            <option value="todos">✈️ Todos los tipos</option>
-            <option value="Caza">🛩️ Caza</option>
-            <option value="Transporte">📦 Transporte</option>
-            <option value="Helicóptero">🚁 Helicóptero</option>
-            <option value="Entrenamiento">🎓 Entrenamiento</option>
-            <option value="Patrulla marítima">🌊 Patrulla marítima</option>
-            <option value="Reabastecimiento">⛽ Reabastecimiento</option>
-            <option value="Vigilancia">🛸 Vigilancia</option>
-        </select>
-        <button id="openAddModalBtn" class="btn-add"><i class="fas fa-plus-circle"></i> Añadir aeronave</button>
+        <ul class="nav-menu">
+            <li class="active"><a href="#"><i class="fas fa-fighter-jet"></i> Aeronaves</a></li>
+            <li><a href="#"><i class="fas fa-history"></i> Historia</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i> Unidades</a></li>
+            <li><a href="#" id="openAddModalBtnNav"><i class="fas fa-plus-circle"></i> Aportar</a></li>
+        </ul>
+        <div class="mobile-menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
+</nav>
 
-    <div id="cardsContainer" class="cards-grid">
-        <!-- Las tarjetas se generan dinámicamente -->
+<!-- Cabecera hero -->
+<header class="hero">
+    <div class="hero-content">
+        <h1>Aeronáutica Militar Española</h1>
+        <p>Una biblioteca visual y didáctica · 1911 - actualidad</p>
+        <div class="stats-badge" id="statsCounter">Cargando flota...</div>
     </div>
+</header>
 
-    <footer>
-        <i class="fas fa-database"></i> Datos reales + añade nuevas | Guardado automático
-    </footer>
-</div>
-
-<!-- Modal de detalles / eliminación -->
-<div id="detailModal" class="modal">
-    <div class="modal-card">
-        <span class="close-modal" id="closeDetailModalBtn">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <div id="modalContent"></div>
-        <button id="deleteFromModal" class="btn-delete">Eliminar aeronave</button>
-    </div>
-</div>
-
-<!-- Modal para añadir nueva aeronave -->
-<div id="addModal" class="modal">
-    <div class="modal-card">
-        <span class="close-modal" id="closeAddModalBtn">&times;</span>
-        <h3><i class="fas fa-plus-circle"></i> Nueva aeronave</h3>
-        <form id="addAircraftForm">
-            <label>Nombre / Modelo *</label>
-            <input type="text" id="newName" placeholder="Ej: Eurofighter Typhoon" required>
-
-            <label>Tipo *</label>
-            <select id="newType" required>
+<!-- Contenedor principal -->
+<div class="main-container">
+    <!-- Sidebar con filtros y menú temático -->
+    <aside class="sidebar">
+        <div class="filter-section">
+            <h3><i class="fas fa-search"></i> Búsqueda</h3>
+            <input type="text" id="searchInput" placeholder="Nombre, país, rol...">
+        </div>
+        <div class="filter-section">
+            <h3><i class="fas fa-tags"></i> Tipo</h3>
+            <select id="typeFilter">
+                <option value="todos">Todos los tipos</option>
                 <option value="Caza">Caza</option>
                 <option value="Transporte">Transporte</option>
                 <option value="Helicóptero">Helicóptero</option>
@@ -74,27 +58,101 @@
                 <option value="Patrulla marítima">Patrulla marítima</option>
                 <option value="Reabastecimiento">Reabastecimiento</option>
                 <option value="Vigilancia">Vigilancia</option>
+                <option value="Histórico">Histórico</option>
+            </select>
+        </div>
+        <div class="filter-section">
+            <h3><i class="fas fa-chart-line"></i> Estado</h3>
+            <select id="statusFilter">
+                <option value="todos">Todos</option>
+                <option value="Activo">Activo</option>
+                <option value="Retirado">Retirado</option>
+                <option value="En modernización">En modernización</option>
+                <option value="Semi-retirado">Semi-retirado</option>
+            </select>
+        </div>
+        <div class="filter-section">
+            <h3><i class="fas fa-globe"></i> Época destacada</h3>
+            <ul class="epoch-list">
+                <li data-era="moderna">🛩️ Era moderna (2000-act.)</li>
+                <li data-era="guerra fría">❄️ Guerra Fría</li>
+                <li data-era="postguerra">📜 Postguerra española</li>
+            </ul>
+        </div>
+        <button id="resetFiltersBtn" class="reset-btn"><i class="fas fa-undo-alt"></i> Restablecer filtros</button>
+    </aside>
+
+    <!-- Grid de aeronaves -->
+    <main class="content">
+        <div id="cardsContainer" class="aircraft-grid">
+            <!-- Se llena con JS -->
+        </div>
+    </main>
+</div>
+
+<!-- Modal de detalles (ficha completa) -->
+<div id="detailModal" class="modal">
+    <div class="modal-content large-modal">
+        <span class="close-modal">&times;</span>
+        <div id="modalDynamicContent">
+            <!-- Aquí se inyecta la ficha detallada -->
+        </div>
+        <div class="modal-footer">
+            <button id="deleteFromModal" class="btn-delete"><i class="fas fa-trash-alt"></i> Eliminar esta aeronave</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para añadir nueva aeronave -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeAddModalBtn">&times;</span>
+        <h2><i class="fas fa-plus-circle"></i> Añadir aeronave</h2>
+        <form id="addAircraftForm">
+            <label>Nombre *</label>
+            <input type="text" id="newName" required>
+
+            <label>Tipo *</label>
+            <select id="newType">
+                <option value="Caza">Caza</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Helicóptero">Helicóptero</option>
+                <option value="Entrenamiento">Entrenamiento</option>
+                <option value="Patrulla marítima">Patrulla marítima</option>
+                <option value="Reabastecimiento">Reabastecimiento</option>
+                <option value="Vigilancia">Vigilancia</option>
+                <option value="Histórico">Histórico</option>
             </select>
 
             <label>País de origen</label>
-            <input type="text" id="newCountry" placeholder="Ej: España / EE.UU" value="España">
+            <input type="text" id="newCountry" value="España">
 
             <label>Rol principal</label>
-            <input type="text" id="newRole" placeholder="Ej: Supremacía aérea, transporte táctico...">
+            <input type="text" id="newRole">
 
             <label>Año introducción</label>
-            <input type="number" id="newYear" placeholder="Ej: 2003">
+            <input type="number" id="newYear">
 
             <label>Estado actual</label>
-            <input type="text" id="newStatus" placeholder="Activo / En modernización / Retirado" value="Activo">
+            <input type="text" id="newStatus" value="Activo">
+
+            <label>URL de la imagen (fotografía real)</label>
+            <input type="url" id="newImage" placeholder="https://...">
+
+            <label>Descripción didáctica</label>
+            <textarea id="newDescription" rows="3" placeholder="Historia, características, datos curiosos..."></textarea>
 
             <div class="form-buttons">
-                <button type="button" id="cancelAddBtn" class="btn-secondary">Cancelar</button>
-                <button type="submit" class="btn-primary">Guardar aeronave</button>
+                <button type="button" id="cancelAddBtn">Cancelar</button>
+                <button type="submit">Guardar aeronave</button>
             </div>
         </form>
     </div>
 </div>
+
+<footer>
+    <p>Biblioteca didáctica de la Aeronáutica Militar Española | Datos actualizables y colaborativos</p>
+</footer>
 
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
