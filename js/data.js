@@ -1,21 +1,102 @@
-// data.js - Flota real del Ejército del Aire y del Espacio español
+// data.js - Base de datos didáctica con fotografías reales (Wikimedia)
 const initialAircrafts = [
-    { id: "a1", name: "Eurofighter Typhoon", type: "Caza", country: "España/Alemania/UK/Italia", role: "Supremacía aérea y polivalente", year: 2003, status: "Activo", icon: "fa-fighter-jet" },
-    { id: "a2", name: "McDonnell Douglas EF-18 Hornet", type: "Caza", country: "EE.UU", role: "Caza polivalente", year: 1986, status: "Activo (modernización)", icon: "fa-fighter-jet" },
-    { id: "a3", name: "CASA C-295", type: "Transporte", country: "España", role: "Transporte táctico y patrulla", year: 2001, status: "Activo", icon: "fa-plane" },
-    { id: "a4", name: "Airbus A400M Atlas", type: "Transporte", country: "España / Internacional", role: "Transporte estratégico", year: 2016, status: "Activo", icon: "fa-plane" },
-    { id: "a5", name: "NHIndustries NH90", type: "Helicóptero", country: "Internacional", role: "Transporte y ataque", year: 2008, status: "Activo", icon: "fa-helicopter" },
-    { id: "a6", name: "Eurocopter EC665 Tiger", type: "Helicóptero", country: "Francia/Alemania", role: "Ataque y apoyo", year: 2007, status: "Activo", icon: "fa-helicopter" },
-    { id: "a7", name: "CASA C-101 Aviojet", type: "Entrenamiento", country: "España", role: "Entrenamiento avanzado", year: 1980, status: "Activo (Patrulla Águila)", icon: "fa-graduation-cap" },
-    { id: "a8", name: "Northrop F-5M", type: "Entrenamiento", country: "EE.UU", role: "Adiestramiento táctico", year: 1970, status: "Semi-retirado", icon: "fa-graduation-cap" },
-    { id: "a9", name: "Boeing 707 (Retirado)", type: "Reabastecimiento", country: "EE.UU", role: "Reabastecimiento en vuelo", year: 1987, status: "Retirado (2016)", icon: "fa-oil-can" },
-    { id: "a10", name: "Airbus C295 MPA", type: "Patrulla marítima", country: "España", role: "Vigilancia marítima", year: 2010, status: "Activo", icon: "fa-water" },
-    { id: "a11", name: "Sikorsky SH-60 Seahawk", type: "Helicóptero", country: "EE.UU", role: "Antisubmarino / SAR", year: 1990, status: "Activo (Armada)", icon: "fa-helicopter" },
-    { id: "a12", name: "Gulfstream V (CASA)", type: "Transporte VIP", country: "EE.UU", role: "Transporte de autoridades", year: 2005, status: "Activo", icon: "fa-plane" },
-    { id: "a13", name: "EADS CASA C-212 Aviocar", type: "Transporte", country: "España", role: "Transporte ligero", year: 1974, status: "Retirado parcialmente", icon: "fa-plane" },
-    { id: "a14", name: "Boeing CH-47 Chinook", type: "Helicóptero", country: "EE.UU", role: "Transporte pesado", year: 1973, status: "Activo (modernizado)", icon: "fa-helicopter" },
-    { id: "a15", name: "Airbus A330 MRTT", type: "Reabastecimiento", country: "Internacional", role: "Reabastecimiento y transporte", year: 2021, status: "Activo", icon: "fa-oil-can" },
-    { id: "a16", name: "IAI Searcher", type: "Vigilancia", country: "Israel", role: "UAV de vigilancia", year: 2000, status: "Activo", icon: "fa-eye" },
-    { id: "a17", name: "Dassault Falcon 900", type: "Transporte VIP", country: "Francia", role: "Transporte de autoridades", year: 1990, status: "Activo", icon: "fa-plane" },
-    { id: "a18", name: "Pilatus PC-21", type: "Entrenamiento", country: "Suiza", role: "Entrenamiento básico", year: 2020, status: "Activo", icon: "fa-graduation-cap" }
+    {
+        id: "euro",
+        name: "Eurofighter Typhoon",
+        type: "Caza",
+        country: "España / Alemania / UK / Italia",
+        role: "Supremacía aérea, ataque a tierra",
+        year: 2003,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Eurofighter_Typhoon_Seville_2018_%28cropped%29.jpg/800px-Eurofighter_Typhoon_Seville_2018_%28cropped%29.jpg",
+        description: "El Eurofighter Typhoon es el caza de última generación del Ejército del Aire español. Diseñado por un consorcio europeo, destaca por su maniobrabilidad extrema, radar AESA y capacidad polivalente. España opera 73 ejemplares en las alas 11 y 14."
+    },
+    {
+        id: "c295",
+        name: "CASA C-295",
+        type: "Transporte",
+        country: "España",
+        role: "Transporte táctico, patrulla marítima",
+        year: 2001,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/CASA_C-295_%2849896949822%29.jpg/800px-CASA_C-295_%2849896949822%29.jpg",
+        description: "Avión de transporte táctico fabricado por Airbus Defence (antigua CASA). Utilizado en misiones logísticas, lanzamiento de paracaidistas y versiones de vigilancia marítima (C295 MPA)."
+    },
+    {
+        id: "nh90",
+        name: "NHIndustries NH90",
+        type: "Helicóptero",
+        country: "Internacional",
+        role: "Transporte, ataque, SAR",
+        year: 2008,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/NH90_%28cropped%29.jpg/800px-NH90_%28cropped%29.jpg",
+        description: "Helicóptero medio bimotor utilizado por el Ejército del Aire español para misiones de búsqueda y rescate (SAR) y transporte táctico."
+    },
+    {
+        id: "c101",
+        name: "CASA C-101 Aviojet",
+        type: "Entrenamiento",
+        country: "España",
+        role: "Entrenamiento avanzado",
+        year: 1980,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/CASA_C-101_Aviojet_%2821623691604%29.jpg/800px-CASA_C-101_Aviojet_%2821623691604%29.jpg",
+        description: "Avión de entrenamiento que también es la montura de la patrulla acrobática 'Patrulla Águila'. Ha formado a decenas de pilotos españoles."
+    },
+    {
+        id: "f18",
+        name: "EF-18 Hornet",
+        type: "Caza",
+        country: "EE.UU",
+        role: "Caza polivalente",
+        year: 1986,
+        status: "En modernización",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/EF-18_Hornet_-_Ej%C3%A9rcito_del_Aire.jpg/800px-EF-18_Hornet_-_Ej%C3%A9rcito_del_Aire.jpg",
+        description: "El caza Hornet ha sido la espina dorsal de la defensa aérea española durante décadas. Actualmente se modernizan 20 ejemplares al estándar MLU."
+    },
+    {
+        id: "a400m",
+        name: "Airbus A400M Atlas",
+        type: "Transporte",
+        country: "Internacional",
+        role: "Transporte estratégico",
+        year: 2016,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Spanish_Air_Force_A400M_%28cropped%29.jpg/800px-Spanish_Air_Force_A400M_%28cropped%29.jpg",
+        description: "Transporte pesado turbohélice capaz de despegar desde pistas cortas. España tiene 14 unidades y las utiliza en misiones internacionales."
+    },
+    {
+        id: "tiger",
+        name: "Eurocopter EC665 Tiger",
+        type: "Helicóptero",
+        country: "Francia/Alemania",
+        role: "Ataque y apoyo",
+        year: 2007,
+        status: "Activo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tiger_helicopter.jpg/800px-Tiger_helicopter.jpg",
+        description: "Helicóptero de ataque del Ejército de Tierra español, pero opera en estrecha colaboración con el Ejército del Aire en misiones de apoyo."
+    },
+    {
+        id: "sh60",
+        name: "Sikorsky SH-60 Seahawk",
+        type: "Helicóptero",
+        country: "EE.UU",
+        role: "Antisubmarino, SAR",
+        year: 1990,
+        status: "Activo (Armada)",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/SH-60B_Seahawk_%28cropped%29.jpg/800px-SH-60B_Seahawk_%28cropped%29.jpg",
+        description: "Utilizado por la Armada Española para misiones antisubmarinas y de búsqueda, aunque lo integramos por su importancia en la defensa nacional."
+    },
+    {
+        id: "c212",
+        name: "CASA C-212 Aviocar",
+        type: "Transporte",
+        country: "España",
+        role: "Transporte ligero",
+        year: 1974,
+        status: "Retirado parcialmente",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/CASA_C-212-200_Aviocar.jpg/800px-CASA_C-212-200_Aviocar.jpg",
+        description: "Histórico avión STOL diseñado en España. Aún vuela en algunas unidades de transporte y versiones de vigilancia."
+    }
 ];
