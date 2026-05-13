@@ -2,42 +2,101 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>MilitaryFactory España | Aeronáutica Militar Española</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Aeronáutica Militar Española</h1>
-            <p>Flota del Ejército del Aire y del Espacio</p>
-        </header>
 
-        <!-- Barra de filtros y búsqueda -->
-        <div class="filters">
-            <input type="text" id="search" placeholder="🔍 Buscar aeronave...">
-            <select id="typeFilter">
-                <option value="all">Todos los tipos</option>
+<div class="container">
+    <header>
+        <h1><i class="fas fa-fighter-jet"></i> MilitaryFactory España</h1>
+        <p>Aeronáutica Militar Española | Flota del Ejército del Aire y del Espacio</p>
+        <div class="stats-badge" id="statsCounter">Cargando...</div>
+    </header>
+
+    <div class="filters-bar">
+        <div class="search-group">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar por nombre, tipo o país...">
+        </div>
+        <select id="typeFilter">
+            <option value="todos">✈️ Todos los tipos</option>
+            <option value="Caza">🛩️ Caza</option>
+            <option value="Transporte">📦 Transporte</option>
+            <option value="Helicóptero">🚁 Helicóptero</option>
+            <option value="Entrenamiento">🎓 Entrenamiento</option>
+            <option value="Patrulla marítima">🌊 Patrulla marítima</option>
+            <option value="Reabastecimiento">⛽ Reabastecimiento</option>
+            <option value="Vigilancia">🛸 Vigilancia</option>
+        </select>
+        <button id="openAddModalBtn" class="btn-add"><i class="fas fa-plus-circle"></i> Añadir aeronave</button>
+    </div>
+
+    <div id="cardsContainer" class="cards-grid">
+        <!-- Las tarjetas se generan dinámicamente -->
+    </div>
+
+    <footer>
+        <i class="fas fa-database"></i> Datos reales + añade nuevas | Guardado automático
+    </footer>
+</div>
+
+<!-- Modal de detalles / eliminación -->
+<div id="detailModal" class="modal">
+    <div class="modal-card">
+        <span class="close-modal" id="closeDetailModalBtn">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <div id="modalContent"></div>
+        <button id="deleteFromModal" class="btn-delete">Eliminar aeronave</button>
+    </div>
+</div>
+
+<!-- Modal para añadir nueva aeronave -->
+<div id="addModal" class="modal">
+    <div class="modal-card">
+        <span class="close-modal" id="closeAddModalBtn">&times;</span>
+        <h3><i class="fas fa-plus-circle"></i> Nueva aeronave</h3>
+        <form id="addAircraftForm">
+            <label>Nombre / Modelo *</label>
+            <input type="text" id="newName" placeholder="Ej: Eurofighter Typhoon" required>
+
+            <label>Tipo *</label>
+            <select id="newType" required>
                 <option value="Caza">Caza</option>
                 <option value="Transporte">Transporte</option>
                 <option value="Helicóptero">Helicóptero</option>
                 <option value="Entrenamiento">Entrenamiento</option>
+                <option value="Patrulla marítima">Patrulla marítima</option>
+                <option value="Reabastecimiento">Reabastecimiento</option>
+                <option value="Vigilancia">Vigilancia</option>
             </select>
-            <button id="addBtn">+ Añadir aeronave</button>
-        </div>
 
-        <!-- Contenedor para las tarjetas de aeronaves -->
-        <div id="aircraftList" class="aircraft-grid"></div>
+            <label>País de origen</label>
+            <input type="text" id="newCountry" placeholder="Ej: España / EE.UU" value="España">
+
+            <label>Rol principal</label>
+            <input type="text" id="newRole" placeholder="Ej: Supremacía aérea, transporte táctico...">
+
+            <label>Año introducción</label>
+            <input type="number" id="newYear" placeholder="Ej: 2003">
+
+            <label>Estado actual</label>
+            <input type="text" id="newStatus" placeholder="Activo / En modernización / Retirado" value="Activo">
+
+            <div class="form-buttons">
+                <button type="button" id="cancelAddBtn" class="btn-secondary">Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar aeronave</button>
+            </div>
+        </form>
     </div>
+</div>
 
-    <!-- Modal para añadir/quitar datos -->
-    <div id="modal" class="modal">
-        <!-- ... contenido del modal ... -->
-    </div>
-
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
