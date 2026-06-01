@@ -332,4 +332,8 @@ const aircraftData = [
     variants: [
       { name: "HD.1", desc: "Standard single-seat landplane fighter with 110 hp Le Rhone 9J, single Vickers gun" },
       { name: "HD.1bis", desc: "Modified variant with enlarged tail surfaces and strengthened wing for dive attacks" },
-      { name: "HD.2", desc: "Floatplane fighter c
+      { name: "HD.2", desc: "Floatplane fighter conversion for naval use with pontoon undercarriage and reinforced fuselage" }
+    ],
+    history: "Spanish HD.1s served primarily in the Morocco theater where their maneuverability was valuable for low-altitude ground attack and strafing missions. The type continued in Spanish service well after 1919, eventually becoming one of the standard Spanish fighters of the early 1920s. Some HD.2 floatplane variants were evaluated by the Aeronautica Naval."
+  },
+  
