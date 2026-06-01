@@ -1,424 +1,242 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Aeronáutica Militar Española</title>
-
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/styles.css">
-<base target="_blank">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish Military Aviation 1911–1919</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Canvas de partículas animadas -->
-    <canvas id="particles-canvas"></canvas>
 
-    <!-- ============================================
-         HEADER / NAVEGACIÓN
-         ============================================ -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-plane-up logo-icon"></i>
-                <div class="logo-text">
-                    <h1>AERONÁUTICA</h1>
-                    <span>EJÉRCITO DEL AIRE Y DEL ESPACIO</span>
-                </div>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#inicio" onclick="closeMenu()"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="#flota" onclick="closeMenu()"><i class="fas fa-plane"></i> Flota</a></li>
-                    <li><a href="#historia" onclick="closeMenu()"><i class="fas fa-clock-rotate-left"></i> Historia</a></li>
-                    <li><a href="#estadisticas" onclick="closeMenu()"><i class="fas fa-chart-bar"></i> Estadísticas</a></li>
-                    <li><a href="#añadir" onclick="closeMenu()"><i class="fas fa-plus-circle"></i> Añadir</a></li>
-                </ul>
-            </nav>
+<!-- Navigation -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand"><i class="fas fa-fan"></i> AMA 1911-1919</a>
+    <div class="nav-links">
+      <a href="#timeline">Timeline</a>
+      <a href="#aircraft">Aircraft</a>
+      <a href="#figures">Figures</a>
+      <a href="#morocco">Morocco</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-prop"><i class="fas fa-fan"></i></div>
+    <h1 class="hero-title">Spanish Military<br><span>Aviation</span></h1>
+    <p class="hero-sub">From the first flight to the postwar fleet</p>
+    <div class="hero-date">1911 &mdash; 1919</div>
+  </div>
+  <div class="hero-scroll" id="hero-scroll" aria-label="Scroll down">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- Stats -->
+<section id="stats" class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num" data-target="14">0</div>
+      <div class="stat-label">Aircraft Types</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="9">0</div>
+      <div class="stat-label">Years of Operations</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="2">0</div>
+      <div class="stat-label">Armed Branches</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1913">0</div>
+      <div class="stat-label">First Combat Sortie</div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" class="diag-pattern section-bg-primary">
+  <div class="section-pad">
+    <h2 class="section-title reveal">Key <span>Milestones</span></h2>
+    <div class="section-divider"></div>
+    <div class="timeline-grid">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1911</div>
+          <div class="tl-text">Royal decree establishes the Servicio de Aeronautica Militar within the Army Corps of Engineers. First Farman MF.7 biplanes arrive at Cuatro Vientos airfield near Madrid. Captain Alfredo Kindelan makes the first official military flight.</div>
         </div>
-    </header>
-
-    <!-- ============================================
-         MAIN CONTENT
-         ============================================ -->
-    <main>
-
-        <!-- ---------- HERO SECTION ---------- -->
-        <section class="hero" id="inicio">
-            <div class="hero-content">
-                <h2>Biblioteca Aeronáutica Militar Española</h2>
-                <p>Explora la historia, tecnología y evolución de la aviación militar española desde 1911 hasta la actualidad. Base de datos completa y actualizable de aeronaves del Ejército del Aire y del Espacio.</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-plane"></i>
-                        <h3 id="stat-total">0</h3>
-                        <p>Aeronaves Registradas</p>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-jet-fighter"></i>
-                        <h3 id="stat-fighters">0</h3>
-                        <p>Cazas y Combate</p>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-helicopter"></i>
-                        <h3 id="stat-helicopters">0</h3>
-                        <p>Helicópteros</p>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-calendar"></i>
-                        <h3>1911</h3>
-                        <p>Año de Fundación</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ---------- FLOTA / CATÁLOGO ---------- -->
-        <section id="flota">
-            <div class="section-header fade-in">
-                <h2>Flota Aeronáutica</h2>
-                <p>Catálogo completo de aeronaves históricas y en servicio del Ejército del Aire y del Espacio español</p>
-            </div>
-
-            <div class="search-filter-container fade-in">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar aeronave por nombre, designación o año..." oninput="filterAircraft()">
-                </div>
-                <div class="filter-tags">
-                    <button class="filter-tag active" onclick="filterByCategory('all')">Todas</button>
-                    <button class="filter-tag" onclick="filterByCategory('fighter')">Cazas</button>
-                    <button class="filter-tag" onclick="filterByCategory('transport')">Transporte</button>
-                    <button class="filter-tag" onclick="filterByCategory('trainer')">Entrenamiento</button>
-                    <button class="filter-tag" onclick="filterByCategory('helicopter')">Helicópteros</button>
-                    <button class="filter-tag" onclick="filterByCategory('special')">Misión Especial</button>
-                    <button class="filter-tag" onclick="filterByCategory('historic')">Históricas</button>
-                </div>
-            </div>
-
-            <div class="aircraft-grid" id="aircraftGrid">
-                <!-- Las tarjetas se generan dinámicamente con JavaScript -->
-            </div>
-        </section>
-
-        <!-- ---------- ESTADÍSTICAS ---------- -->
-        <section id="estadisticas">
-            <div class="section-header fade-in">
-                <h2>Estadísticas y Datos</h2>
-                <p>Análisis detallado de la flota y su evolución histórica</p>
-            </div>
-
-            <div class="stats-dashboard fade-in">
-                <div class="stat-card">
-                    <i class="fas fa-plane-departure"></i>
-                    <h3 id="dash-active">0</h3>
-                    <p>Aeronaves en Servicio Activo</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-plane-arrival"></i>
-                    <h3 id="dash-retired">0</h3>
-                    <p>Aeronaves Retiradas</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-industry"></i>
-                    <h3 id="dash-manufacturers">0</h3>
-                    <p>Fabricantes Representados</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-clock"></i>
-                    <h3 id="dash-avg-age">0</h3>
-                    <p>Años de Historia Cubiertos</p>
-                </div>
-            </div>
-
-            <div class="export-buttons fade-in">
-                <button class="btn-export" onclick="exportToJSON()">
-                    <i class="fas fa-file-code"></i> Exportar JSON
-                </button>
-                <button class="btn-export" onclick="exportToCSV()">
-                    <i class="fas fa-file-csv"></i> Exportar CSV
-                </button>
-                <button class="btn-export" onclick="window.print()">
-                    <i class="fas fa-print"></i> Imprimir
-                </button>
-            </div>
-        </section>
-
-        <!-- ---------- LÍNEA DEL TIEMPO ---------- -->
-        <section id="historia">
-            <div class="section-header fade-in">
-                <h2>Línea del Tiempo</h2>
-                <p>Hitos históricos de la aviación militar española</p>
-            </div>
-
-            <div class="timeline fade-in">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1911</div>
-                        <div class="timeline-title">Nacimiento de la Aviación Militar</div>
-                        <div class="timeline-desc">Llegada de los primeros Henri Farman al aeródromo de Cuatro Vientos. Creación de la primera escuela militar de aviación.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1913</div>
-                        <div class="timeline-title">Primera Campaña en Marruecos</div>
-                        <div class="timeline-desc">Primera sangre derramada por aviadores españoles. Primer bombardeo aéreo oficial de la historia sobre Ben-Karrix.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1923</div>
-                        <div class="timeline-title">Creación de CASA</div>
-                        <div class="timeline-desc">Fundación de Construcciones Aeronáuticas Sociedad Anónima en Getafe por José Ortiz Echagüe.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1926</div>
-                        <div class="timeline-title">Vuelo del Plus Ultra</div>
-                        <div class="timeline-desc">Primera travesía aérea del Océano Atlántico por una escuadrilla española hasta Buenos Aires.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1936-1939</div>
-                        <div class="timeline-title">Guerra Civil Española</div>
-                        <div class="timeline-desc">Intenso uso de la aviación en combate. Participación de aviones alemanes, italianos y soviéticos.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1942</div>
-                        <div class="timeline-title">HS.42 - Primer Proyecto Nacional</div>
-                        <div class="timeline-desc">Primer avión 100% nacional de la posguerra, fabricado por Hispano Aviación en Sevilla.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1974</div>
-                        <div class="timeline-title">Entrada del C-212 Aviocar</div>
-                        <div class="timeline-desc">El avión de transporte táctico español más exitoso de la historia entra en servicio.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">1986</div>
-                        <div class="timeline-title">Llegada del F/A-18 Hornet</div>
-                        <div class="timeline-desc">Modernización de la capacidad de combate con la adquisición de los McDonnell Douglas EF-18.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2003</div>
-                        <div class="timeline-title">Primer Eurofighter Typhoon</div>
-                        <div class="timeline-desc">España recibe su primer caza Eurofighter, marcando una nueva era en la defensa aérea.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2016</div>
-                        <div class="timeline-title">Primer A400M Atlas</div>
-                        <div class="timeline-desc">Entrega del primer avión de transporte estratégico A400M al Ala 31 en Zaragoza.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2022</div>
-                        <div class="timeline-title">Ejército del Aire y del Espacio</div>
-                        <div class="timeline-desc">Cambio oficial de denominación para reflejar las nuevas responsabilidades en el ámbito espacial.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023</div>
-                        <div class="timeline-title">Mando del Espacio (MESPA)</div>
-                        <div class="timeline-desc">Creación del Mando del Espacio para adaptar la estructura a las responsabilidades aeroespaciales.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ---------- FORMULARIO AÑADIR ---------- -->
-        <section id="añadir">
-            <div class="section-header fade-in">
-                <h2>Añadir Nueva Aeronave</h2>
-                <p>Amplía la base de datos con nuevas aeronaves de forma sencilla</p>
-            </div>
-
-            <div class="add-form-container fade-in">
-                <form id="addAircraftForm" onsubmit="addAircraft(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><i class="fas fa-plane"></i> Nombre del Modelo</label>
-                            <input type="text" id="newName" required placeholder="Ej: Eurofighter Typhoon">
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-tag"></i> Designación Española</label>
-                            <input type="text" id="newDesignation" required placeholder="Ej: C.16">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><i class="fas fa-industry"></i> Fabricante</label>
-                            <input type="text" id="newManufacturer" required placeholder="Ej: Eurofighter GmbH">
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-calendar"></i> Año de Entrada</label>
-                            <input type="number" id="newYear" required min="1900" max="2099" placeholder="Ej: 2003">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><i class="fas fa-layer-group"></i> Categoría</label>
-                            <select id="newCategory" required>
-                                <option value="">Seleccionar...</option>
-                                <option value="fighter">Caza / Combate</option>
-                                <option value="transport">Transporte</option>
-                                <option value="trainer">Entrenamiento</option>
-                                <option value="helicopter">Helicóptero</option>
-                                <option value="special">Misión Especial</option>
-                                <option value="historic">Histórica</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-check-circle"></i> Estado</label>
-                            <select id="newStatus" required>
-                                <option value="">Seleccionar...</option>
-                                <option value="active">En Servicio</option>
-                                <option value="retired">Retirado</option>
-                                <option value="prototype">Prototipo</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><i class="fas fa-gauge-high"></i> Velocidad Máx (km/h)</label>
-                            <input type="number" id="newSpeed" placeholder="Ej: 2495">
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-ruler-horizontal"></i> Envergadura (m)</label>
-                            <input type="number" step="0.1" id="newWingspan" placeholder="Ej: 10.9">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><i class="fas fa-weight-hanging"></i> Peso Máximo (kg)</label>
-                            <input type="number" id="newWeight" placeholder="Ej: 23500">
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-users"></i> Tripulación</label>
-                            <input type="text" id="newCrew" placeholder="Ej: 1 piloto">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-align-left"></i> Descripción</label>
-                        <textarea id="newDescription" rows="3" placeholder="Breve descripción de la aeronave..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-book"></i> Historia en España</label>
-                        <textarea id="newHistory" rows="4" placeholder="Historia de servicio en el Ejército del Aire..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-plus"></i> Añadir Aeronave a la Biblioteca
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- ============================================
-         MODAL DE DETALLES
-         ============================================ -->
-    <div class="modal-overlay" id="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-header">
-                <h2 id="modalTitle">Título</h2>
-                <span id="modalDesignation" style="color: var(--accent); font-weight: 700;"></span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-specs-grid" id="modalSpecs"></div>
-                <div class="modal-history">
-                    <h3><i class="fas fa-book-open"></i> Historia en el Ejército del Aire</h3>
-                    <p id="modalHistory"></p>
-                </div>
-            </div>
+        <div class="tl-item">
+          <div class="tl-year">1912</div>
+          <div class="tl-text">Formation of the 1st Escuadrilla under Captain Eduardo Barron. Nieuport IV monoplanes join the fleet. The Escuela de Vuelo (Flight School) is formally organized at Cuatro Vientos.</div>
         </div>
+        <div class="tl-item">
+          <div class="tl-year">1913</div>
+          <div class="tl-text">Official creation of the Servicio de Aeronautica Militar by royal decree (April). First combat missions flown in the Rif War, Morocco, using Farman MF.11 aircraft. The escuadrilla expedicionaria operates from Tetuan.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1914</div>
+          <div class="tl-text">Continued operations in Morocco. Acquisition of Morane-Saulnier and Caudron types. Spain remains neutral in World War I but closely observes European air developments.</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1915</div>
+          <div class="tl-text">First bombing raids against Rif positions. Farman F.40 pushers enter service. Reconnaissance missions intensify over the Moroccan front. Captain Barron conducts pioneering long-range flights.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1916-17</div>
+          <div class="tl-text">Major fleet expansion with Caudron G.4 twin-engine bombers and Avro 504 trainers. May 1917: creation of the Aeronautica Naval under the Spanish Navy. FBA flying boats become the first naval aircraft.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1918</div>
+          <div class="tl-text">SPAD VII and Hanriot HD.1 fighters enter service, bringing modern fighter capability. Breguet XIV bombers acquired for the Army squadrons. Intense combat operations continue in Morocco.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1919</div>
+          <div class="tl-text">Post-war reorganization and modernization. De Havilland DH.4 bombers and naval flying boats expand capabilities. Preparations begin for the first Spanish transatlantic flight attempt. Infrastructure expands with new airfields.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Aircraft Database -->
+<section id="aircraft" class="section-bg-secondary">
+  <div class="section-pad">
+    <h2 class="section-title reveal">Aircraft <span>Database</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="branch" data-value="all">All Branches</button>
+      <button class="filter-btn" data-filter="branch" data-value="ejercito"><i class="fas fa-shield-alt"></i> Army</button>
+      <button class="filter-btn" data-filter="branch" data-value="armada"><i class="fas fa-anchor"></i> Navy</button>
+      <span class="filter-sep">|</span>
+      <button class="filter-btn active" data-filter="type" data-value="all">All Types</button>
+      <button class="filter-btn" data-filter="type" data-value="fighter">Fighter</button>
+      <button class="filter-btn" data-filter="type" data-value="bomber">Bomber</button>
+      <button class="filter-btn" data-filter="type" data-value="recon">Recon</button>
+      <button class="filter-btn" data-filter="type" data-value="trainer">Trainer</button>
+      <button class="filter-btn" data-filter="type" data-value="flyingboat">Flying Boat</button>
     </div>
 
-    <!-- ============================================
-         TOAST NOTIFICATIONS
-         ============================================ -->
-    <div class="toast-container" id="toastContainer"></div>
+    <div class="search-row reveal">
+      <div class="search-wrap">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="Search aircraft..." aria-label="Search aircraft">
+      </div>
+    </div>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Biblioteca Aeronáutica</h3>
-                <p>Proyecto educativo y de referencia sobre la historia de la aviación militar española. Datos recopilados de fuentes oficiales y especializadas.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Categorías</h3>
-                <p><a href="#flota" onclick="filterByCategory('fighter')">Cazas y Combate</a></p>
-                <p><a href="#flota" onclick="filterByCategory('transport')">Transporte</a></p>
-                <p><a href="#flota" onclick="filterByCategory('trainer')">Entrenamiento</a></p>
-                <p><a href="#flota" onclick="filterByCategory('helicopter')">Helicópteros</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Recursos</h3>
-                <p><a href="#" onclick="exportToJSON()">Exportar Datos (JSON)</a></p>
-                <p><a href="#" onclick="exportToCSV()">Exportar Datos (CSV)</a></p>
-                <p><a href="#añadir">Añadir Nueva Aeronave</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Información</h3>
-                <p><i class="fas fa-database"></i> Datos actualizados a 2026</p>
-                <p><i class="fas fa-code"></i> Desarrollado con HTML5, CSS3 y JS</p>
-                <p><i class="fas fa-shield-halved"></i> Ejército del Aire y del Espacio</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Biblioteca Aeronáutica Militar Española | Todos los datos son de dominio público o uso educativo</p>
-        </div>
-    </footer>
+    <div id="ac-grid" class="ac-grid"></div>
+  </div>
+</section>
 
-    <!-- ============================================
-         SCRIPTS
-         ============================================ -->
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+<!-- Key Figures -->
+<section id="figures" class="diag-pattern section-bg-primary">
+  <div class="section-pad">
+    <h2 class="section-title reveal">Key <span>Figures</span></h2>
+    <div class="section-divider"></div>
+    <div class="figures-grid">
+      <div class="figure-card reveal">
+        <div class="figure-avatar">AK</div>
+        <div class="figure-name">Alfredo Kindelan</div>
+        <div class="figure-role">Pioneer Aviator</div>
+        <div class="figure-desc">Made the first official military flight in Spain in 1911. Later became a leading figure in the Spanish Air Force and Director of the EAA.</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="figure-avatar">EB</div>
+        <div class="figure-name">Eduardo Barron</div>
+        <div class="figure-role">Squadron Commander</div>
+        <div class="figure-desc">Commanded the first escuadrilla in Morocco. Conducted early combat missions and pioneering long-range reconnaissance flights over the Rif.</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="figure-avatar">PV</div>
+        <div class="figure-name">Pedro Vives Vich</div>
+        <div class="figure-role">Founding Commander</div>
+        <div class="figure-desc">First chief of the Servicio de Aeronautica Militar. Established the organizational foundations of Spanish military aviation at Cuatro Vientos.</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="figure-avatar">EH</div>
+        <div class="figure-name">Emilio Herrera</div>
+        <div class="figure-role">Aeronautical Engineer</div>
+        <div class="figure-desc">Brilliant engineer and scientist who advanced aeronautical research in Spain. Contributed to aircraft evaluation and technical development of the service.</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="figure-avatar">RC</div>
+        <div class="figure-name">Ricardo Crenge</div>
+        <div class="figure-role">Naval Aviation Pioneer</div>
+        <div class="figure-desc">Instrumental in establishing the Aeronautica Naval in 1917. Oversaw the acquisition of the first flying boats and the creation of naval air stations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Morocco Campaign -->
+<section id="morocco" class="section-bg-secondary">
+  <div class="section-pad">
+    <h2 class="section-title reveal">The Rif War <span>1913-1919</span></h2>
+    <div class="section-divider"></div>
+    <div class="morocco-grid reveal">
+      <div class="morocco-intro">
+        <p class="morocco-desc">
+          The Spanish Protectorate in Morocco became the crucible where Spanish military aviation was forged. From 1913 onward, aircraft conducted reconnaissance, artillery spotting, bombing, and close air support missions against Rif tribal forces. The harsh North African environment tested both men and machines to their limits.
+        </p>
+        <div class="morocco-map">
+          <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <div class="map-text">Northern Morocco, Spanish Protectorate<br>Tetuan, Larache, Alhucemas</div>
+          </div>
+        </div>
+      </div>
+      <div class="morocco-ops">
+        <h3 class="morocco-ops-title">Operations Timeline</h3>
+        <ul class="ops-list">
+          <li><span class="ops-year">1913</span><span class="ops-text">First combat sorties from Tetuan airfield. Farman MF.11 aircraft conduct reconnaissance over rebel positions in the western Rif.</span></li>
+          <li><span class="ops-year">1914</span><span class="ops-text">Expanded operations including aerial photography for cartography. First instances of dropping grenades and flechettes from aircraft.</span></li>
+          <li><span class="ops-year">1915</span><span class="ops-text">Systematic bombing raids begin against Rif encampments. Farman F.40 aircraft provide improved bomb-carrying capability.</span></li>
+          <li><span class="ops-year">1916</span><span class="ops-text">Caudron G.4 twin-engine bombers deliver heavier payloads. Aircraft losses mount due to ground fire and mechanical failures in harsh conditions.</span></li>
+          <li><span class="ops-year">1917</span><span class="ops-text">Naval aviation joins operations with FBA flying boats conducting coastal patrols from Larache and Ceuta.</span></li>
+          <li><span class="ops-year">1918</span><span class="ops-text">Modern fighters arrive: SPAD VII and Hanriot HD.1 provide air superiority. Breguet XIV bombers significantly increase strike capability.</span></li>
+          <li><span class="ops-year">1919</span><span class="ops-text">Post-war consolidation. Operations continue with modernized fleet. Spanish aviation gains invaluable combat experience for future conflicts.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <i class="fas fa-fan footer-icon"></i>
+      <h3 class="footer-title">Spanish Military Aviation 1911-1919</h3>
+      <p class="footer-subtitle">An historical reference covering the pioneering era of Spanish air power</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#hero">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#aircraft">Aircraft</a>
+      <a href="#figures">Figures</a>
+      <a href="#morocco">Morocco</a>
+    </nav>
+    <p class="footer-disclaimer">Historical data compiled from public sources. All specifications are approximate and may vary by source and variant.</p>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
-</html>
+          </html>
