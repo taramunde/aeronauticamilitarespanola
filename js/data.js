@@ -337,3 +337,32 @@ const aircraftData = [
     history: "Spanish HD.1s served primarily in the Morocco theater where their maneuverability was valuable for low-altitude ground attack and strafing missions. The type continued in Spanish service well after 1919, eventually becoming one of the standard Spanish fighters of the early 1920s. Some HD.2 floatplane variants were evaluated by the Aeronautica Naval."
   },
   
+  {
+    id: 13,
+    name: "Breguet XIV",
+    designation: "Breguet XIV A2 / B2",
+    year: 1918,
+    yearEnd: 1919,
+    branch: "ejercito",
+    type: "bomber",
+    typeLabel: "Bomber / Reconnaissance",
+    crew: 2,
+    description: "The Breguet XIV was one of the finest two-seat military aircraft of the First World War era, and its acquisition by Spain represented a quantum leap in capability. With its powerful Renault V12 engine, robust airframe, and substantial payload, the Breguet could outrun many fighters of the period while carrying a meaningful bomb load. Spain acquired Breguet XIVs in 1918, making them the most capable aircraft in the Spanish inventory.",
+    engine: "Renault 12Fcx V12, 300 hp or 12Fe, 320 hp",
+    wingspan: "14.36 m",
+    length: "8.87 m",
+    height: "3.30 m",
+    emptyWeight: "1,010 kg",
+    maxWeight: "1,770 kg",
+    maxSpeed: "175 km/h",
+    range: "700 km",
+    ceiling: "5,800 m",
+    armament: "1 x 7.7mm Vickers fixed forward; 2 x 7.7mm Lewis on flexible mount (observer); up to 460 kg bombs (B2)",
+    variants: [
+      { name: "XIV A2", desc: "Two-seat reconnaissance/artillery observation variant with camera installation, wireless, and reduced bomb load" },
+      { name: "XIV B2", desc: "Two-seat day bomber with internal and external bomb racks, bomb-aiming position, and full defensive armament" },
+      { name: "XIV B1", desc: "Single-seat bomber variant with increased bomb load and no observer position (limited use)" },
+      { name: "XIV T", desc: "Post-war transport conversion with enclosed cabin for 4 passengers or cargo" }
+    ],
+    history: "The Breguet XIV became the most important combat aircraft in Spanish service at the end of the decade. Its combination of speed, range, and payload made it vastly superior to the older Farmans and Caudrons it replaced. In Morocco, it could strike targets deep in Rif territory and return safely. The Breguet remained the backbone of Spanish bomber squadrons well into the 1920s."
+  },
