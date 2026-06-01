@@ -366,3 +366,33 @@ const aircraftData = [
     ],
     history: "The Breguet XIV became the most important combat aircraft in Spanish service at the end of the decade. Its combination of speed, range, and payload made it vastly superior to the older Farmans and Caudrons it replaced. In Morocco, it could strike targets deep in Rif territory and return safely. The Breguet remained the backbone of Spanish bomber squadrons well into the 1920s."
   },
+
+  {
+    id: 14,
+    name: "De Havilland DH.4",
+    designation: "Airco DH.4 / DH.4A",
+    year: 1918,
+    yearEnd: 1919,
+    branch: "ejercito",
+    type: "bomber",
+    typeLabel: "Day Bomber / Reconnaissance",
+    crew: 2,
+    description: "The De Havilland DH.4 was a highly capable day bomber that entered Spanish service in late 1918. Designed by Geoffrey de Havilland for Aircraft Manufacturing Company (Airco), it was considered one of the best single-engine bombers of the war. Its Rolls-Royce Eagle engine gave it excellent performance, and its bomb load and defensive armament made it a formidable strike aircraft.",
+    engine: "Rolls-Royce Eagle III V12, 250 hp or Eagle VIII, 375 hp",
+    wingspan: "12.92 m",
+    length: "9.35 m",
+    height: "3.05 m",
+    emptyWeight: "1,080 kg",
+    maxWeight: "1,660 kg",
+    maxSpeed: "170 km/h",
+    range: "680 km",
+    ceiling: "6,700 m",
+    armament: "1-2 x 7.7mm Vickers fixed forward; 1-2 x 7.7mm Lewis on Scarff ring (observer); up to 210 kg bombs",
+    variants: [
+      { name: "DH.4 (Eagle III)", desc: "Standard bomber version with 250 hp Rolls-Royce Eagle III, primary variant in Spanish service" },
+      { name: "DH.4 (Eagle VIII)", desc: "Upgraded variant with 375 hp Eagle VIII engine, improved high-altitude performance and climb rate" },
+      { name: "DH.4A", desc: "Post-war civil transport conversion with enclosed cabin for 2 passengers, some used as liaison aircraft" }
+    ],
+    history: "Spanish DH.4s arrived too late in the war to see extensive combat but were quickly integrated into the bomber squadrons replacing older Farman types. Their range and speed made them valuable for long-range reconnaissance over Morocco. The DH.4 continued to serve into the early 1920s as Spain modernized its air arm."
+  }
+];
