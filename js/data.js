@@ -628,4 +628,159 @@ var aircraftData = [
     ],
     history: "Los SM.81 fueron de los primeros aviones italianos en llegar a España tras el golpe de julio de 1936. Participaron en el puente aéreo del Estrecho y en bombardeos sobre objetivos republicanos durante toda la guerra."
   },
-  
+  {
+    id: 29,
+    name: "Tupolev SB",
+    image: "",
+    designation: "Tupolev ANT-40 SB / SB-2 «Katiuska»",
+    year: 1936, yearEnd: 1939,
+    branch: "republicana",
+    type: "bombardeo",
+    typeLabel: "Bombardero medio rápido",
+    crew: 3,
+    description: "El Tupolev SB, apodado «Katiuska» por los españoles, fue un bombardero medio bimotor de ala baja que sirvió con la aviación republicana. En su momento era uno de los bombarderos más rápidos del mundo, capaz de escapar de muchos cazas enemigos en vuelo nivelado.",
+    engine: "2 × Klimov M-100A V12, 860 cv cada uno",
+    wingspan: "20,33 m", length: "12,57 m", height: "3,25 m",
+    emptyWeight: "3.260 kg", maxWeight: "5.600 kg",
+    maxSpeed: "423 km/h", range: "1.200 km", ceiling: "9.300 m",
+    armament: "4 × ShKAS de 7,62 mm en posiciones defensivas; hasta 600 kg de bombas en bahía interna",
+    variants: [
+      { name: "SB-2M-100A", desc: "Versión estándar con Klimov M-100A de 860 cv, principal variante en España" },
+      { name: "SB-2M-103", desc: "Versión con Klimov M-103 de 960 cv, mejor velocidad, llegada en 1938" }
+    ],
+    history: "Los «Katiuska» fueron los bombarderos más efectivos de la República. Su velocidad les permitía realizar incursiones sin escolta de caza. Bombardearon objetivos nacionales en el frente, puertos y aeródromos, sufriendo pérdidas crecientes a medida que los cazas nacionales mejoraban."
+  },
+  {
+    id: 30,
+    name: "Polikarpov R-5",
+    image: "",
+    designation: "Polikarpov R-5 / R-Z «Natacha» / R-5SSS",
+    year: 1936, yearEnd: 1939,
+    branch: "republicana",
+    type: "ataque",
+    typeLabel: "Reconocimiento / Ataque",
+    crew: 2,
+    description: "El Polikarpov R-5 fue un biplaza de reconocimiento y ataque ligero suministrado por la Unión Soviética a la República. Versión mejorada, el R-Z «Natacha», fue utilizado intensivamente en misiones de observación artillera, bombardeo ligero y apoyo cercano en el frente.",
+    engine: "M-17F V12, 680 cv (R-5) o M-34 radial, 830 cv (R-Z)",
+    wingspan: "15,50 m", length: "10,56 m", height: "3,25 m",
+    emptyWeight: "1.970 kg", maxWeight: "3.050 kg",
+    maxSpeed: "280 km/h (R-Z)", range: "800 km", ceiling: "6.400 m",
+    armament: "1 × PV-1 de 7,62 mm fija; 1 × ShKAS de 7,62 mm (observador); hasta 500 kg de bombas (R-Z)",
+    variants: [
+      { name: "R-5SSS", desc: "Versión de reconocimiento y bombardeo con M-17F de 680 cv, mejor aerodinámica" },
+      { name: "R-Z «Natacha»", desc: "Versión de ataque mejorada con motor M-34 de 830 cv, mayor carga bélica y armamento reforzado" }
+    ],
+    history: "Los R-5 y R-Z «Natacha» realizaron miles de misiones de reconocimiento y ataque a lo largo de la Guerra Civil. Su baja velocidad los hacía vulnerables a los cazas enemigos, pero su capacidad para operar desde aeródromos improvisados los hacía muy valiosos para el apoyo táctico."
+  },
+  {
+    id: 31,
+    name: "Dornier Do 17",
+    image: "",
+    designation: "Dornier Do 17 E-1 / F-1 / P-1",
+    year: 1937, yearEnd: 1939,
+    branch: "nacional",
+    type: "bombardeo",
+    typeLabel: "Bombardero medio rápido",
+    crew: 4,
+    description: "El Dornier Do 17, apodado «lápiz volador» por su fuselaje esbelto, fue un bombardero bimotor alemán suministrado a la Legión Cóndor. Rápido y difícil de interceptar por los cazas republicanos de primera generación, realizó misiones de bombardeo y reconocimiento fotográfico.",
+    engine: "2 × BMW VI 7,3 V12, 750 cv cada uno",
+    wingspan: "18,00 m", length: "15,80 m", height: "3,40 m",
+    emptyWeight: "3.300 kg", maxWeight: "5.500 kg",
+    maxSpeed: "350 km/h", range: "1.100 km", ceiling: "5.900 m",
+    armament: "4-6 × MG 15 de 7,92 mm en posiciones defensivas; hasta 500 kg de bombas",
+    variants: [
+      { name: "Do 17 E-1", desc: "Versión de bombardeo estándar con BMW VI, utilizada por la Legión Cóndor" },
+      { name: "Do 17 F-1", desc: "Versión de reconocimiento de largo alcance con cámaras y combustible adicional" },
+      { name: "Do 17 P-1", desc: "Versión de reconocimiento táctico con motores BMW 132 radiales" }
+    ],
+    history: "Los Do 17 de la Legión Cóndor operaron desde bases en España en misiones de bombardeo y reconocimiento. Su velocidad les permitía frecuentemente evadir a los cazas republicanos, aunque sufrieron pérdidas ante los I-16."
+  },
+  {
+    id: 32,
+    name: "Heinkel He 111",
+    image: "",
+    designation: "Heinkel He 111 B-1 / B-2 / E-1",
+    year: 1937, yearEnd: 1939,
+    branch: "nacional",
+    type: "bombardeo",
+    typeLabel: "Bombardero medio",
+    crew: 5,
+    description: "El Heinkel He 111 fue el bombardero alemán más moderno empleado en la Guerra Civil. Bimotor con la característica cabina acristalada, representó un salto tecnológico respecto a los Ju 52 y Do 17 anteriores. Fue utilizado tanto en bombardeo táctico como estratégico.",
+    engine: "2 × Junkers Jumo 211 Da V12, 1.000 cv cada uno (B-2) o 2 × Daimler-Benz DB 600Ga V12, 950 cv (E-1)",
+    wingspan: "22,60 m", length: "16,40 m", height: "3,40 m",
+    emptyWeight: "5.500 kg", maxWeight: "8.600 kg",
+    maxSpeed: "370 km/h", range: "1.500 km", ceiling: "6.500 m",
+    armament: "3 × MG 15 de 7,92 mm en posiciones defensivas (nariz, dorsal, ventral); hasta 2.000 kg de bombas",
+    variants: [
+      { name: "He 111 B-1", desc: "Versión inicial con Jumo 210 Da de 680 cv, primeras entregas a la Legión Cóndor" },
+      { name: "He 111 B-2", desc: "Versión con Jumo 211 Da de 1.000 cv, mejor velocidad y capacidad de carga" },
+      { name: "He 111 E-1", desc: "Versión con DB 600Ga de 950 cv y mayor capacidad de bombas, llegada en 1938" }
+    ],
+    history: "Los He 111 de la Legión Cóndor participaron en bombardeos estratégicos sobre ciudades republicanas, incluyendo la infraestructura industrial y los puertos. Su velocidad y armamento defensivo los hacían más resistentes que los anteriores bombarderos."
+  },
+  {
+    id: 33,
+    name: "Messerschmitt Bf 109",
+    image: "",
+    designation: "Messerschmitt Bf 109 B-1 / B-2 / C-1 / D-1",
+    year: 1937, yearEnd: 1939,
+    branch: "nacional",
+    type: "caza",
+    typeLabel: "Caza monoplano",
+    crew: 1,
+    description: "El Messerschmitt Bf 109 fue el caza más avanzado empleado en la Guerra Civil Española. Monoplano de ala baja con tren retráctil, representaba la nueva generación de cazas y superaba a todos los aviones republicanos en velocidad y trepada, incluido el Polikarpov I-16.",
+    engine: "Junkers Jumo 210 Da V12, 680 cv (B-1/B-2) o Jumo 210 Ga, 730 cv (C-1) o Daimler-Benz DB 600Aa, 960 cv (D-1)",
+    wingspan: "9,87 m", length: "8,80 m", height: "2,45 m",
+    emptyWeight: "1.580 kg", maxWeight: "1.980 kg",
+    maxSpeed: "470 km/h (D-1)", range: "440 km", ceiling: "8.200 m",
+    armament: "2-3 × MG 17 de 7,92 mm (versión B); 4 × MG 17 (versión C); 2 × MG 17 + 1 × MG FF de 20 mm (versión D temprana)",
+    variants: [
+      { name: "Bf 109 B-1/B-2", desc: "Versión inicial con Jumo 210 Da/Ga de 680/730 cv y 2-3 MG 17, primera en combatir en España" },
+      { name: "Bf 109 C-1", desc: "Versión con 4 × MG 17 y Jumo 210 Ga de 730 cv, mayor potencia de fuego" },
+      { name: "Bf 109 D-1", desc: "Versión con DB 600Aa de 960 cv, la más potente en España, superior a todos los cazas republicanos" }
+    ],
+    history: "El Bf 109 llegó a España con la Legión Cóndor a finales de 1937 y cambió decisivamente la guerra aérea. En manos de pilotos experimentados como Werner Mölders, demostró una superioridad clara sobre el I-16 en velocidad y trepada, contribuyendo a la superioridad aérea nacional en 1938-39."
+  },
+  {
+    id: 34,
+    name: "Henschel Hs 123",
+    image: "",
+    designation: "Henschel Hs 123 A-1",
+    year: 1937, yearEnd: 1939,
+    branch: "nacional",
+    type: "ataque",
+    typeLabel: "Ataque a tierra / Buzo",
+    crew: 1,
+    description: "El Henschel Hs 123 fue un biplano de ataque a tierra alemán que demostró ser extraordinariamente efectivo en la Guerra Civil. Aunque de diseño aparentemente anticuado, su resistencia al daño, precisión en el bombardeo en picado y capacidad para operar desde aeródromos improvisados lo convirtieron en un arma temible.",
+    engine: "BMW 132Dc radial, 880 cv",
+    wingspan: "10,50 m", length: "8,33 m", height: "3,20 m",
+    emptyWeight: "1.500 kg", maxWeight: "2.220 kg",
+    maxSpeed: "341 km/h", range: "855 km", ceiling: "9.000 m",
+    armament: "2 × MG 17 de 7,92 mm en el capó; hasta 450 kg de bombas (1 × 250 kg bajo el fuselaje + 4 × 50 kg bajo las alas)",
+    variants: [
+      { name: "Hs 123 A-1", desc: "Versión única de producción con BMW 132Dc de 880 cv, armamento fijo y soportes de bombas" }
+    ],
+    history: "Los Hs 123 de la Legión Cóndor fueron devastadores en misiones de apoyo cercano y bombardeo en picado sobre posiciones republicanas. Su precisión y resistencia al daño los hicieron muy apreciados, y demostraron que un biplano podía seguir siendo útil en combate moderno."
+  },
+  {
+    id: 35,
+    name: "Douglas DC-2",
+    image: "",
+    designation: "Douglas DC-2 / DC-2-142",
+    year: 1934, yearEnd: 1939,
+    branch: "republicana",
+    type: "transporte",
+    typeLabel: "Transporte",
+    crew: 2,
+    description: "El Douglas DC-2 fue un bimotor de transporte comercial adaptado al servicio militar durante la Guerra Civil. La República adquirió varios ejemplares de la línea comercial de LAPE (Líneas Aéreas Postales Españolas), utilizándolos para transporte de personal, evacuación sanitaria y misiones de enlace.",
+    engine: "2 × Wright SGR-1820-F52 Cyclone radial, 750 cv cada uno",
+    wingspan: "25,91 m", length: "18,89 m", height: "4,97 m",
+    emptyWeight: "5.650 kg", maxWeight: "8.440 kg",
+    maxSpeed: "325 km/h", range: "1.750 km", ceiling: "6.860 m",
+    armament: "Ninguno estándar",
+    variants: [
+      { name: "DC-2-142", desc: "Versión estándar de transporte con Wright Cyclone de 750 cv, la principal en servicio español" }
+    ],
+    history: "Los DC-2 de LAPE fueron requisados por la República al estallar la guerra. Realizaron misiones de transporte de autoridades, evacuación de heridos y enlace entre frentes. Algunos lograron escapar a territorio francés al final del conflicto."
+  }
+];
