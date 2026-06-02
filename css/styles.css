@@ -1,8 +1,8 @@
 /* ================================================
-   styles.css — Spanish Military Aviation 1911-1919
+   styles.css — Aviación Militar Española 1911-1939
    ================================================ */
 
-/* ---------- Design tokens ---------- */
+/* ---------- Tokens de diseño ---------- */
 :root {
   --bg: #12120e;
   --bg2: #1a1a14;
@@ -16,6 +16,8 @@
   --border: #3a3a2c;
   --ejercito: #5a7a3a;
   --armada: #2a5a7a;
+  --republicana: #9b2c2c;
+  --nacional: #4a4a6a;
 }
 
 /* ---------- Reset ---------- */
@@ -38,7 +40,7 @@ h1, h2, h3, h4, h5 { font-family: 'Cinzel', serif; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* ---------- Utility ---------- */
+/* ---------- Utilidades ---------- */
 .section-pad { padding: 5rem 1.5rem; max-width: 1400px; margin: 0 auto; }
 .section-bg-primary { background: var(--bg); }
 .section-bg-secondary { background: var(--bg2); }
@@ -50,7 +52,7 @@ h1, h2, h3, h4, h5 { font-family: 'Cinzel', serif; }
   );
 }
 
-/* ---------- Navigation ---------- */
+/* ---------- Navegación ---------- */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -80,15 +82,12 @@ nav.visible { transform: translateY(0); }
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-brand i { margin-right: 0.4rem; }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-}
+.nav-links { display: flex; flex-wrap: wrap; gap: 0; }
 
 .nav-links a {
   color: var(--fg-dim);
@@ -96,7 +95,7 @@ nav.visible { transform: translateY(0); }
   font-family: 'Cinzel', serif;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
-  padding: 1rem 1.2rem;
+  padding: 1rem 1rem;
   display: inline-block;
   transition: color 0.3s;
 }
@@ -190,7 +189,7 @@ nav.visible { transform: translateY(0); }
   50% { transform: translateX(-50%) translateY(10px); }
 }
 
-/* ---------- Stats ---------- */
+/* ---------- Estadísticas ---------- */
 .stats-bar {
   background: var(--bg2);
   border-top: 1px solid var(--border);
@@ -222,7 +221,7 @@ nav.visible { transform: translateY(0); }
   margin-top: 0.3rem;
 }
 
-/* ---------- Section titles ---------- */
+/* ---------- Títulos de sección ---------- */
 .section-title {
   font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
@@ -240,7 +239,7 @@ nav.visible { transform: translateY(0); }
   margin: 1rem auto 2.5rem;
 }
 
-/* ---------- Timeline ---------- */
+/* ---------- Cronología ---------- */
 .timeline-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -290,7 +289,7 @@ nav.visible { transform: translateY(0); }
 
 .tl-text { color: var(--fg-dim); font-size: 0.95rem; max-width: 600px; }
 
-/* ---------- Filters ---------- */
+/* ---------- Filtros ---------- */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -307,7 +306,7 @@ nav.visible { transform: translateY(0); }
   background: transparent;
   color: var(--muted);
   font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
@@ -347,10 +346,10 @@ nav.visible { transform: translateY(0); }
 
 .search-input:focus { border-color: var(--accent); }
 
-/* ---------- Aircraft cards ---------- */
+/* ---------- Tarjetas de aeronave ---------- */
 .ac-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
@@ -371,6 +370,57 @@ nav.visible { transform: translateY(0); }
   box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent);
 }
 
+/* Marcador de rama/bando */
+.branch-marker {
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  z-index: 2;
+}
+
+.branch-marker.ejercito { background: var(--ejercito); }
+.branch-marker.armada { background: var(--armada); }
+.branch-marker.republicana { background: var(--republicana); }
+.branch-marker.nacional { background: var(--nacional); }
+
+/* Imagen / marcador de posición */
+.ac-img-wrap {
+  width: 100%;
+  height: 180px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ac-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ac-img-placeholder {
+  text-align: center;
+  color: var(--border);
+}
+
+.ac-img-placeholder i {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.4rem;
+  opacity: 0.35;
+}
+
+.ac-img-placeholder span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Cabecera de tarjeta */
 .ac-card-header {
   padding: 1.2rem 1.4rem 0.8rem;
   border-bottom: 1px solid var(--border);
@@ -407,6 +457,7 @@ nav.visible { transform: translateY(0); }
 
 .ac-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
 
+/* Insignias */
 .badge {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
@@ -418,6 +469,8 @@ nav.visible { transform: translateY(0); }
 
 .badge-ejercito { background: var(--ejercito); color: #d4e8c4; }
 .badge-armada { background: var(--armada); color: #c4dae8; }
+.badge-republicana { background: var(--republicana); color: #f0c4c4; }
+.badge-nacional { background: var(--nacional); color: #c4c8e0; }
 .badge-type { background: rgba(201,168,76,0.15); color: var(--accent); border: 1px solid rgba(201,168,76,0.3); }
 .badge-year { background: rgba(139,32,32,0.3); color: #e8a0a0; border: 1px solid rgba(139,32,32,0.5); }
 
@@ -468,15 +521,6 @@ nav.visible { transform: translateY(0); }
 }
 
 .ac-more i { font-size: 0.6rem; }
-
-.branch-marker {
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-}
-
-.branch-marker.ejercito { background: var(--ejercito); }
-.branch-marker.armada { background: var(--armada); }
 
 .no-results {
   grid-column: 1 / -1;
@@ -538,8 +582,53 @@ nav.visible { transform: translateY(0); }
 
 .modal-close:hover { border-color: var(--accent); color: var(--accent); }
 
+/* Imagen en modal */
+.modal-img-wrap {
+  width: 100%;
+  height: 280px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+}
+
+.modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-img-placeholder {
+  text-align: center;
+  color: var(--border);
+}
+
+.modal-img-placeholder i {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  opacity: 0.25;
+}
+
+.modal-img-placeholder span {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.modal-img-placeholder small {
+  font-size: 0.7rem;
+  color: var(--muted);
+  display: block;
+  margin-top: 0.3rem;
+}
+
 .modal-hero {
-  padding: 2.5rem 2.5rem 1.5rem;
+  padding: 2rem 2.5rem 1.5rem;
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -656,7 +745,7 @@ nav.visible { transform: translateY(0); }
 
 .history-section p { font-size: 0.95rem; color: var(--fg-dim); line-height: 1.7; }
 
-/* ---------- Figures ---------- */
+/* ---------- Protagonistas ---------- */
 .figures-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -706,7 +795,7 @@ nav.visible { transform: translateY(0); }
 
 .figure-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 
-/* ---------- Morocco ---------- */
+/* ---------- Marruecos / Guerra Civil ---------- */
 .morocco-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -767,7 +856,7 @@ nav.visible { transform: translateY(0); }
 
 .ops-text { font-size: 0.9rem; color: var(--fg-dim); }
 
-/* ---------- Footer ---------- */
+/* ---------- Pie de página ---------- */
 footer {
   border-top: 1px solid var(--border);
   background: var(--bg2);
@@ -817,7 +906,7 @@ footer {
 
 .footer-disclaimer { color: var(--border); font-size: 0.75rem; }
 
-/* ---------- Toast ---------- */
+/* ---------- Aviso ---------- */
 .toast {
   position: fixed;
   bottom: 2rem; right: 2rem;
@@ -835,7 +924,7 @@ footer {
 
 .toast.show { transform: translateY(0); opacity: 1; }
 
-/* ---------- Reveal animation ---------- */
+/* ---------- Animación de revelado ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -853,6 +942,7 @@ footer {
   .section-pad { padding: 3rem 1rem; }
   .timeline-grid { grid-template-columns: 1fr; }
   .morocco-grid { grid-template-columns: 1fr; }
+  .nav-links a { padding: 0.8rem 0.6rem; font-size: 0.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
