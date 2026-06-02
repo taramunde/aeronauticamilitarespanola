@@ -327,4 +327,17 @@ var aircraftData = [
     type: "bombardeo",
     typeLabel: "Bombardeo / Reconocimiento",
     crew: 2,
-    description: "El Breguet XIX fue el avión estándar de la aviación militar española durante más de una década.
+    description: "El Breguet XIX fue el avión estándar de la aviación militar española durante más de una década. Versátil, robusto y fiable, sirvió como bombardero, avión de reconocimiento y plataforma para récords de distancia. Construido bajo licencia por CASA en España.",
+    engine: "Lorraine-Dietrich 12Db V12, 400 cv o Hispano-Suiza 12Hb V12, 500 cv",
+    wingspan: "14,83 m", length: "9,51 m", height: "3,69 m",
+    emptyWeight: "1.370 kg", maxWeight: "2.450 kg",
+    maxSpeed: "230 km/h", range: "800 km", ceiling: "7.000 m",
+    armament: "1 × Vickers de 7,7 mm fija; 2 × Lewis de 7,7 mm en torreta; hasta 500 kg de bombas",
+    variants: [
+      { name: "XIX A2", desc: "Variante de reconocimiento con equipo fotográfico y motores Lorraine de 400 cv" },
+      { name: "XIX B2", desc: "Variante de bombardeo con soportes de bombas internos y externos, armamento completo" },
+      { name: "XIX G.R. (Grand Raid)", desc: "Versión de largo alcance para récords de distancia con depósitos ampliados" },
+      { name: "XIX hidroavión", desc: "Conversión con flotadores para la Aeronáutica Naval" }
+    ],
+    history: "El Breguet XIX fue la espina dorsal de la aviación militar española desde 1922 hasta la Guerra Civil. Participó en todas las operaciones del Rif, incluyendo Alhucemas, y en los vuelos de larga distancia que dieron fama a la aviación española. Durante la Guerra Civil fue utilizado por ambos bandos, aunque ya obsoleto."
+  },
