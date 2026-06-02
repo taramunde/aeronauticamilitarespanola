@@ -341,3 +341,70 @@ var aircraftData = [
     ],
     history: "El Breguet XIX fue la espina dorsal de la aviación militar española desde 1922 hasta la Guerra Civil. Participó en todas las operaciones del Rif, incluyendo Alhucemas, y en los vuelos de larga distancia que dieron fama a la aviación española. Durante la Guerra Civil fue utilizado por ambos bandos, aunque ya obsoleto."
   },
+  {
+    id: 16,
+    name: "Fokker C.IV",
+    image: "",
+    designation: "Fokker C.IV",
+    year: 1923, yearEnd: 1932,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Reconocimiento / Bombardeo ligero",
+    crew: 2,
+    description: "El Fokker C.IV fue un biplaza de reconocimiento holandés que entró en servicio español en 1923. Sus prestaciones eran adecuadas para las misiones de reconocimiento y bombardeo ligero en Marruecos.",
+    engine: "Napier Lion W12, 450 cv",
+    wingspan: "14,00 m", length: "9,40 m", height: "3,30 m",
+    emptyWeight: "1.250 kg", maxWeight: "2.050 kg",
+    maxSpeed: "205 km/h", range: "750 km", ceiling: "5.500 m",
+    armament: "2 × Vickers de 7,7 mm fijas; 1 × Lewis de 7,7 mm en montaje móvil; hasta 200 kg de bombas",
+    variants: [
+      { name: "C.IV", desc: "Variante estándar de reconocimiento con Napier Lion de 450 cv" }
+    ],
+    history: "Los Fokker C.IV participaron en la fase final de la guerra del Rif, incluyendo el desembarco de Alhucemas. Su autonomía y velocidad los hacían útiles para misiones de exploración profunda."
+  },
+  {
+    id: 17,
+    name: "Macchi M.18",
+    image: "",
+    designation: "Macchi M.18",
+    year: 1923, yearEnd: 1934,
+    branch: "armada",
+    type: "hidroavion",
+    typeLabel: "Hidroavión Naval",
+    crew: 2,
+    description: "El Macchi M.18 fue un hidroavión italiano de reconocimiento y bombardeo que sirvió con la Aeronáutica Naval española. Versátil y fiable, operó desde bases costeras y desde buques portahidroaviones.",
+    engine: "Isotta-Fraschini V6, 250 cv",
+    wingspan: "14,90 m", length: "10,80 m", height: "3,70 m",
+    emptyWeight: "1.450 kg", maxWeight: "2.200 kg",
+    maxSpeed: "165 km/h", range: "600 km", ceiling: "4.500 m",
+    armament: "1-2 × ametralladoras de 7,7 mm en montaje flexible; hasta 400 kg de bombas",
+    variants: [
+      { name: "M.18", desc: "Versión estándar de reconocimiento y bombardeo con Isotta-Fraschini V6 de 250 cv" },
+      { name: "M.18AR", desc: "Variante con flotadores desmontables para operar desde tierra o agua" }
+    ],
+    history: "Los Macchi M.18 operaron desde las bases navales de Cartagena, Cádiz y la base de Atalayón en Marruecos. Participaron en las operaciones navales del desembarco de Alhucemas y en misiones de patrulla costera."
+  },
+  {
+    id: 18,
+    name: "Dornier Wal",
+    image: "",
+    designation: "Dornier Do J Wal / Super Wal",
+    year: 1929, yearEnd: 1939,
+    branch: "armada",
+    type: "hidroavion",
+    typeLabel: "Hidroavión de Patrulla / Reconocimiento",
+    crew: 4,
+    description: "El Dornier Wal fue un gran hidrocanoa bimotor de construcción metálica que prestó servicio con la Aeronáutica Naval española. Famoso por el vuelo del Plus Ultra, fue el hidroavión más importante de la aviación naval española durante la década de 1930.",
+    engine: "2 × Napier Lion W12, 450 cv cada uno o 2 × Rolls-Royce Eagle IX V12, 375 cv cada uno",
+    wingspan: "22,00 m", length: "17,25 m", height: "5,00 m",
+    emptyWeight: "3.500 kg", maxWeight: "5.600 kg",
+    maxSpeed: "190 km/h", range: "1.200 km", ceiling: "3.500 m",
+    armament: "2-3 × ametralladoras de 7,7 mm en posiciones defensivas; hasta 500 kg de bombas",
+    variants: [
+      { name: "Wal (Napier Lion)", desc: "Versión estándar con dos Napier Lion de 450 cv, utilizada en el vuelo del Plus Ultra" },
+      { name: "Wal (Rolls-Royce Eagle)", desc: "Versión con motores Rolls-Royce Eagle, mayor fiabilidad y autonomía" },
+      { name: "Super Wal", desc: "Versión ampliada con mayor capacidad y motores más potentes" }
+    ],
+    history: "El Dornier Wal se hizo célebre por el vuelo del Plus Ultra (1926), que cruzó el Atlántico Sur desde Palos de la Frontera a Buenos Aires. Durante la Guerra Civil, los Wal supervivientes prestaron servicio en misiones de patrulla marítima."
+  },
+  
