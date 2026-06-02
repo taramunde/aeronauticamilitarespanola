@@ -1,29 +1,55 @@
 // ================================================
-// script.js — Application logic
+// script.js — Lógica de la aplicación
 // ================================================
 
-// ---------- State ----------
-let activeBranch = 'all';
-let activeType = 'all';
-let searchQuery = '';
+// ---------- Estado ----------
+var activeBranch = 'all';
+var activeType = 'all';
+var searchQuery = '';
 
-// ---------- Helpers ----------
+// ---------- Utilidades ----------
 function getTypeIcon(type) {
   var icons = {
-    fighter: 'fa-crosshairs',
-    bomber: 'fa-bomb',
-    recon: 'fa-binoculars',
-    trainer: 'fa-graduation-cap',
-    flyingboat: 'fa-water'
+    caza: 'fa-crosshairs',
+    bombardeo: 'fa-bomb',
+    reconocimiento: 'fa-binoculars',
+    entrenamiento: 'fa-graduation-cap',
+    hidroavion: 'fa-water',
+    transporte: 'fa-truck',
+    ataque: 'fa-bullseye'
   };
   return icons[type] || 'fa-plane';
 }
 
 function getBranchLabel(branch) {
-  return branch === 'ejercito' ? 'Ejercito' : 'Armada';
+  var labels = {
+    ejercito: 'Ejército',
+    armada: 'Armada',
+    republicana: 'República',
+    nacional: 'Nacional'
+  };
+  return labels[branch] || branch;
 }
 
-// ---------- Render aircraft cards ----------
+// ---------- Generar HTML de imagen / marcador de posición ----------
+function buildImageHTML(imageUrl, name, context) {
+  if (imageUrl) {
+    return '<div class="' + context + '-img-wrap">' +
+      '<img src="' + imageUrl + '" alt="' + name + '" loading="lazy">' +
+    '</div>';
+  }
+  var cls = context === 'card' ? 'ac-img-wrap' : 'modal-img-wrap';
+  var phrCls = context === 'card' ? 'ac-img-placeholder' : 'modal-img-placeholder';
+  return '<div class="' + cls + '">' +
+    '<div class="' + phrCls + '">' +
+      '<i class="fas fa-image"></i>' +
+      '<span>Imagen no disponible</span>' +
+      (context === 'card' ? '' : '<small>Añada la URL en el campo "image" de data.js</small>') +
+    '</div>' +
+  '</div>';
+}
+
+// ---------- Renderizar tarjetas de aeronave ----------
 function renderCards() {
   var grid = document.getElementById('ac-grid');
 
@@ -35,15 +61,18 @@ function renderCards() {
   });
 
   if (filtered.length === 0) {
-    grid.innerHTML = '<div class="no-results"><i class="fas fa-search"></i>No aircraft match your filters.</div>';
+    grid.innerHTML = '<div class="no-results"><i class="fas fa-search"></i>Ninguna aeronave coincide con los filtros.</div>';
     return;
   }
 
   grid.innerHTML = filtered.map(function(a) {
     var yearRange = a.year !== a.yearEnd ? a.year + '–' + a.yearEnd : String(a.year);
     var engineShort = a.engine.split(',')[0];
-    return '<article class="ac-card reveal" onclick="openModal(' + a.id + ')" tabindex="0" role="button" aria-label="View details for ' + a.name + '" onkeydown="if(event.key===\'Enter\')openModal(' + a.id + ')">' +
+    var imgHTML = buildImageHTML(a.image, a.name, 'card');
+
+    return '<article class="ac-card reveal" onclick="openModal(' + a.id + ')" tabindex="0" role="button" aria-label="Ver detalles de ' + a.name + '" onkeydown="if(event.key===\'Enter\')openModal(' + a.id + ')">' +
       '<div class="branch-marker ' + a.branch + '"></div>' +
+      imgHTML +
       '<div class="ac-card-header">' +
         '<i class="fas ' + getTypeIcon(a.type) + ' ac-card-icon"></i>' +
         '<div class="ac-name">' + a.name + '</div>' +
@@ -56,20 +85,20 @@ function renderCards() {
         '</div>' +
         '<div class="ac-desc">' + a.description + '</div>' +
         '<div class="ac-specs-mini">' +
-          '<div class="ac-spec-mini"><span class="label">Speed</span><span class="value">' + a.maxSpeed + '</span></div>' +
-          '<div class="ac-spec-mini"><span class="label">Range</span><span class="value">' + a.range + '</span></div>' +
-          '<div class="ac-spec-mini"><span class="label">Engine</span><span class="value">' + engineShort + '</span></div>' +
-          '<div class="ac-spec-mini"><span class="label">Crew</span><span class="value">' + a.crew + '</span></div>' +
+          '<div class="ac-spec-mini"><span class="label">Velocidad</span><span class="value">' + a.maxSpeed + '</span></div>' +
+          '<div class="ac-spec-mini"><span class="label">Alcance</span><span class="value">' + a.range + '</span></div>' +
+          '<div class="ac-spec-mini"><span class="label">Motor</span><span class="value">' + engineShort + '</span></div>' +
+          '<div class="ac-spec-mini"><span class="label">Tripulación</span><span class="value">' + a.crew + '</span></div>' +
         '</div>' +
       '</div>' +
       '<div class="ac-card-footer">' +
         '<span class="ac-year-badge">' + yearRange + '</span>' +
-        '<span class="ac-more">View Details <i class="fas fa-arrow-right"></i></span>' +
+        '<span class="ac-more">Ver detalles <i class="fas fa-arrow-right"></i></span>' +
       '</div>' +
     '</article>';
   }).join('');
 
-  // Re-observe new cards for reveal animation
+  // Observar las tarjetas nuevas para la animación de revelado
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) entry.target.classList.add('revealed');
@@ -93,8 +122,11 @@ function openModal(id) {
     '</div>';
   }).join('');
 
+  var imgHTML = buildImageHTML(a.image, a.name, 'modal');
+
   document.getElementById('modal-content').innerHTML =
-    '<button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="fas fa-times"></i></button>' +
+    '<button class="modal-close" onclick="closeModal()" aria-label="Cerrar"><i class="fas fa-times"></i></button>' +
+    imgHTML +
     '<div class="modal-hero">' +
       '<div class="ac-meta" style="margin-bottom:0.8rem;">' +
         '<span class="badge badge-' + a.branch + '">' + getBranchLabel(a.branch) + '</span>' +
@@ -107,28 +139,28 @@ function openModal(id) {
     '<div class="modal-body">' +
       '<p class="modal-desc">' + a.description + '</p>' +
 
-      '<h3 class="modal-spec-heading">Technical Specifications</h3>' +
+      '<h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:0.1em; margin-bottom:1rem; text-transform:uppercase;">Especificaciones Técnicas</h3>' +
       '<div class="spec-grid">' +
-        '<div class="spec-item"><div class="label">Powerplant</div><div class="value">' + a.engine + '</div></div>' +
-        '<div class="spec-item"><div class="label">Wingspan</div><div class="value">' + a.wingspan + '</div></div>' +
-        '<div class="spec-item"><div class="label">Length</div><div class="value">' + a.length + '</div></div>' +
-        '<div class="spec-item"><div class="label">Height</div><div class="value">' + a.height + '</div></div>' +
-        '<div class="spec-item"><div class="label">Empty Weight</div><div class="value">' + a.emptyWeight + '</div></div>' +
-        '<div class="spec-item"><div class="label">Max Takeoff Weight</div><div class="value">' + a.maxWeight + '</div></div>' +
-        '<div class="spec-item"><div class="label">Max Speed</div><div class="value accent">' + a.maxSpeed + '</div></div>' +
-        '<div class="spec-item"><div class="label">Range</div><div class="value">' + a.range + '</div></div>' +
-        '<div class="spec-item"><div class="label">Service Ceiling</div><div class="value">' + a.ceiling + '</div></div>' +
-        '<div class="spec-item"><div class="label">Crew</div><div class="value">' + a.crew + '</div></div>' +
-        '<div class="spec-item span-full"><div class="label">Armament</div><div class="value">' + a.armament + '</div></div>' +
+        '<div class="spec-item"><div class="label">Planta motriz</div><div class="value">' + a.engine + '</div></div>' +
+        '<div class="spec-item"><div class="label">Envergadura</div><div class="value">' + a.wingspan + '</div></div>' +
+        '<div class="spec-item"><div class="label">Longitud</div><div class="value">' + a.length + '</div></div>' +
+        '<div class="spec-item"><div class="label">Altura</div><div class="value">' + a.height + '</div></div>' +
+        '<div class="spec-item"><div class="label">Peso vacío</div><div class="value">' + a.emptyWeight + '</div></div>' +
+        '<div class="spec-item"><div class="label">Peso máximo</div><div class="value">' + a.maxWeight + '</div></div>' +
+        '<div class="spec-item"><div class="label">Velocidad máxima</div><div class="value accent">' + a.maxSpeed + '</div></div>' +
+        '<div class="spec-item"><div class="label">Alcance</div><div class="value">' + a.range + '</div></div>' +
+        '<div class="spec-item"><div class="label">Techo de servicio</div><div class="value">' + a.ceiling + '</div></div>' +
+        '<div class="spec-item"><div class="label">Tripulación</div><div class="value">' + a.crew + '</div></div>' +
+        '<div class="spec-item span-full"><div class="label">Armamento</div><div class="value">' + a.armament + '</div></div>' +
       '</div>' +
 
       '<div class="variant-section">' +
-        '<h4><i class="fas fa-code-branch"></i> Variants &amp; Sub-Variants</h4>' +
+        '<h4><i class="fas fa-code-branch"></i> Variantes y Subvariantes</h4>' +
         variantsHTML +
       '</div>' +
 
       '<div class="history-section">' +
-        '<h4><i class="fas fa-scroll"></i> Operational History</h4>' +
+        '<h4><i class="fas fa-scroll"></i> Historial Operativo</h4>' +
         '<p>' + a.history + '</p>' +
       '</div>' +
     '</div>';
@@ -152,7 +184,7 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
 
-// ---------- Filter buttons ----------
+// ---------- Botones de filtro ----------
 document.querySelectorAll('.filter-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     var filter = btn.dataset.filter;
@@ -171,18 +203,18 @@ document.querySelectorAll('.filter-btn').forEach(function(btn) {
   });
 });
 
-// ---------- Search ----------
+// ---------- Búsqueda ----------
 document.getElementById('search-input').addEventListener('input', function(e) {
   searchQuery = e.target.value.toLowerCase().trim();
   renderCards();
 });
 
-// ---------- Hero scroll button ----------
+// ---------- Botón de desplazamiento del hero ----------
 document.getElementById('hero-scroll').addEventListener('click', function() {
   document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
 });
 
-// ---------- Hero canvas ----------
+// ---------- Canvas del hero ----------
 (function initHeroCanvas() {
   var canvas = document.getElementById('hero-canvas');
   var ctx = canvas.getContext('2d');
@@ -218,27 +250,22 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
     ctx.strokeStyle = '#c9a84c';
     ctx.lineWidth = 1;
 
-    // Fuselage
     ctx.beginPath();
     ctx.ellipse(0, 0, 30, 5, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Wings
     ctx.fillRect(-20, -18, 40, 3);
     ctx.fillRect(-20, 10, 40, 3);
 
-    // Struts
     ctx.beginPath();
     ctx.moveTo(-15, -15); ctx.lineTo(-15, 10);
     ctx.moveTo(15, -15); ctx.lineTo(15, 10);
     ctx.moveTo(0, -15); ctx.lineTo(0, 10);
     ctx.stroke();
 
-    // Tail
     ctx.fillRect(25, -10, 2, 20);
     ctx.fillRect(28, -8, 4, 16);
 
-    // Propeller
     ctx.beginPath();
     ctx.moveTo(-30, -6); ctx.lineTo(-30, 6);
     ctx.lineWidth = 2;
@@ -252,7 +279,6 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
   function animate() {
     ctx.clearRect(0, 0, w, h);
 
-    // Background gradient
     var grad = ctx.createRadialGradient(w * 0.3, h * 0.4, 0, w * 0.5, h * 0.5, w * 0.7);
     grad.addColorStop(0, '#2a2418');
     grad.addColorStop(0.5, '#1a1a14');
@@ -260,7 +286,6 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Searchlight beams
     ctx.save();
     ctx.globalAlpha = 0.03;
     ctx.fillStyle = '#c9a84c';
@@ -281,7 +306,6 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
     ctx.fill();
     ctx.restore();
 
-    // Particles
     for (var i = 0; i < particles.length; i++) {
       var p = particles[i];
       p.x += p.vx;
@@ -300,7 +324,6 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
       ctx.fill();
     }
 
-    // Biplane silhouettes
     drawBiplane(w * 0.15 + Math.sin(time * 0.0005) * 50, h * 0.25 + Math.cos(time * 0.0003) * 20, 0.8, 0.06 + 0.02 * Math.sin(time * 0.001));
     drawBiplane(w * 0.7 + Math.cos(time * 0.0004) * 60, h * 0.35 + Math.sin(time * 0.0006) * 15, 0.6, 0.04 + 0.015 * Math.cos(time * 0.0008));
     drawBiplane(w * 0.45 + Math.sin(time * 0.00035) * 40, h * 0.15 + Math.cos(time * 0.00045) * 25, 0.5, 0.03 + 0.01 * Math.sin(time * 0.0012));
@@ -312,7 +335,7 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
   animate();
 })();
 
-// ---------- Navigation show/hide ----------
+// ---------- Navegación mostrar/ocultar ----------
 (function initNav() {
   var nav = document.getElementById('main-nav');
   var hero = document.getElementById('hero');
@@ -324,7 +347,7 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
   observer.observe(hero);
 })();
 
-// ---------- Stats counter ----------
+// ---------- Contador de estadísticas ----------
 (function initStats() {
   var statsBar = document.getElementById('stats');
   var counted = false;
@@ -352,7 +375,7 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
   observer.observe(statsBar);
 })();
 
-// ---------- Scroll reveal ----------
+// ---------- Animación de revelado al desplazar ----------
 (function initReveal() {
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -363,5 +386,5 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
   document.querySelectorAll('.reveal, .tl-item').forEach(function(el) { observer.observe(el); });
 })();
 
-// ---------- Initial render ----------
+// ---------- Renderizado inicial ----------
 renderCards();
