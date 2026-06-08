@@ -386,7 +386,7 @@ nav.visible { transform: translateY(0); }
 /* Imagen / marcador de posición */
 .ac-img-wrap {
   width: 100%;
-  height: 200px;
+  height: 140px;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex;
