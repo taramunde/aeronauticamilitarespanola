@@ -75,7 +75,7 @@ var aircraftData = [
   {
     id: 4,
     name: "Caudron G.3",
-    image: "",
+    image: "img/CaudronG3.webp",
     designation: "Caudron G.3 A2 / D2 / E2",
     year: 1914, yearEnd: 1919,
     branch: "ejercito",
