@@ -386,8 +386,8 @@ nav.visible { transform: translateY(0); }
 /* Imagen / marcador de posición */
 .ac-img-wrap {
   width: 100%;
-  aspect-ratio: 16 / 7;   /* proporción panorámica */
-  height: auto;            /* quita el height: 180px */
+  aspect-ratio: 16 / 9;
+  height: auto;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -401,6 +401,7 @@ nav.visible { transform: translateY(0); }
   height: 100%;
   object-fit: contain;
   display: block;
+  image-orientation: from-image; /* respeta EXIF */
 }
 
 .ac-img-placeholder {
