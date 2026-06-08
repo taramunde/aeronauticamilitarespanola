@@ -33,13 +33,14 @@ function getBranchLabel(branch) {
 
 // ---------- Generar HTML de imagen / marcador de posición ----------
 function buildImageHTML(imageUrl, name, context) {
+  var cls = context === 'card' ? 'ac-img-wrap' : 'modal-img-wrap';
+  var phrCls = context === 'card' ? 'ac-img-placeholder' : 'modal-img-placeholder';
+
   if (imageUrl) {
-    return '<div class="' + context + '-img-wrap">' +
+    return '<div class="' + cls + '">' +
       '<img src="' + imageUrl + '" alt="' + name + '" loading="lazy">' +
     '</div>';
   }
-  var cls = context === 'card' ? 'ac-img-wrap' : 'modal-img-wrap';
-  var phrCls = context === 'card' ? 'ac-img-placeholder' : 'modal-img-placeholder';
   return '<div class="' + cls + '">' +
     '<div class="' + phrCls + '">' +
       '<i class="fas fa-image"></i>' +
