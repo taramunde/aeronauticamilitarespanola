@@ -1,10 +1,12 @@
 // ================================================
 // script.js — Lógica de la aplicación
+// Se carga después de data-clasica.js y data-moderna.js
 // ================================================
 
 // ---------- Estado ----------
 var activeBranch = 'all';
 var activeType = 'all';
+var activeEra = 'all';
 var searchQuery = '';
 
 // ---------- Utilidades ----------
@@ -16,17 +18,20 @@ function getTypeIcon(type) {
     entrenamiento: 'fa-graduation-cap',
     hidroavion: 'fa-water',
     transporte: 'fa-truck',
-    ataque: 'fa-bullseye'
+    ataque: 'fa-bullseye',
+    cisterna: 'fa-gas-pump',
+    helicoptero: 'fa-helicopter'
   };
   return icons[type] || 'fa-plane';
 }
 
 function getBranchLabel(branch) {
   var labels = {
-    ejercito: 'Ejército',
+    ejercito: 'Ejército del Aire',
     armada: 'Armada',
     republicana: 'República',
-    nacional: 'Nacional'
+    nacional: 'Nacional',
+    tierra: 'Ejército de Tierra'
   };
   return labels[branch] || branch;
 }
@@ -55,6 +60,7 @@ function renderCards() {
   var grid = document.getElementById('ac-grid');
 
   var filtered = aircraftData.filter(function(a) {
+    if (activeEra !== 'all' && a.era !== activeEra) return false;
     if (activeBranch !== 'all' && a.branch !== activeBranch) return false;
     if (activeType !== 'all' && a.type !== activeType) return false;
     if (searchQuery && !a.name.toLowerCase().includes(searchQuery) && !a.designation.toLowerCase().includes(searchQuery)) return false;
@@ -191,7 +197,10 @@ document.querySelectorAll('.filter-btn').forEach(function(btn) {
     var filter = btn.dataset.filter;
     var value = btn.dataset.value;
 
-    if (filter === 'branch') {
+    if (filter === 'era') {
+      activeEra = value;
+      document.querySelectorAll('.filter-btn[data-filter="era"]').forEach(function(b) { b.classList.remove('active'); });
+    } else if (filter === 'branch') {
       activeBranch = value;
       document.querySelectorAll('.filter-btn[data-filter="branch"]').forEach(function(b) { b.classList.remove('active'); });
     } else if (filter === 'type') {
@@ -389,3 +398,4 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
 
 // ---------- Renderizado inicial ----------
 renderCards();
+    
