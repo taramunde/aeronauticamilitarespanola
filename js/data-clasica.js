@@ -27,8 +27,8 @@ var aircraftData = [
     maxSpeed: "95 km/h", range: "250 km", ceiling: "3.800 m",
     armament: "Ninguno fijo; el observador podía portar armas ligeras",
     variants: [
-      { name: "MF.7", desc: "Versión estándar con motor Renault 8B de 70 cv y patines curvados característicos" },
-      { name: "MF.7bis", desc: "Variante mejorada con alerones modificados, tren de aterrizaje reforzado y refinamientos aerodinámicos menores" }
+      { name: "MF.7", engine: "Renault 8B V8, 70 cv", maxSpeed: "95 km/h", emptyWeight: "480 kg", maxWeight: "700 kg", armament: "Ninguno fijo; el observador podía portar armas ligeras", desc: "Versión estándar con motor Renault 8B de 70 cv y patines curvados característicos" },
+      { name: "MF.7bis", engine: "Renault 8B V8, 70 cv (misma planta motriz)", maxSpeed: "92 km/h", emptyWeight: "515 kg", maxWeight: "725 kg", armament: "Ninguno fijo; el observador podía portar armas ligeras", desc: "Variante mejorada con alerones modificados, tren de aterrizaje reforzado y refinamientos aerodinámicos menores" }
     ],
     history: "Los MF.7 de Cuatro Vientos fueron los caballos de batalla de la instrucción inicial. Aunque obsoletos al inicio de las operaciones en Marruecos, sirvieron como plataforma esencial para la primera generación de pilotos militares españoles."
   },
@@ -50,8 +50,8 @@ var aircraftData = [
     maxSpeed: "110 km/h", range: "200 km", ceiling: "3.500 m",
     armament: "Ninguno estándar",
     variants: [
-      { name: "IV-G", desc: "Versión biplaza de reconocimiento y entrenamiento con Gnome de 70 cv y ala de cuerda ancha" },
-      { name: "IV-M", desc: "Versión monoplaza con envergadura reducida para misiones de enlace y comunicaciones" }
+      { name: "IV-G", engine: "Gnome Omega rotativo, 70 cv", maxSpeed: "105 km/h", emptyWeight: "360 kg", maxWeight: "580 kg", armament: "Ninguno estándar", desc: "Versión biplaza de reconocimiento y entrenamiento con Gnome de 70 cv y ala de cuerda ancha Biplaza; empleado en la Escuadrilla Expedicionaria a Marruecos de 1913 (3 ejemplares)." },
+      { name: "IV-M", engine: "Gnome Omega rotativo, 80-100 cv", maxSpeed: "118 km/h", emptyWeight: "320 kg", maxWeight: "510 kg", armament: "Ninguno estándar", desc: "Versión monoplaza con envergadura reducida para misiones de enlace y comunicaciones España adquirió 4 ejemplares en febrero de 1914 para sustituir a los Nieuport 2G en Marruecos; instrucción en la Escuela de Pau antes de pasar a Tetuán/Zeluán." }
     ],
     history: "Los Nieuport IV sirvieron junto a los biplanos Farman en las primeras escuadrillas. Su configuración de monoplano ofrecía mayor velocidad pero era más exigente de pilotar. Hacia 1915 fueron reemplazados por tipos más modernos."
   },
@@ -73,9 +73,9 @@ var aircraftData = [
     maxSpeed: "105 km/h", range: "300 km", ceiling: "4.000 m",
     armament: "1 × Hotchkiss M1914 de 7 mm en montaje flexible (observador); hasta 100 kg de bombas",
     variants: [
-      { name: "MF.11 A2", desc: "Variante biplaza de reconocimiento con Renault de 80 cv, modelo estándar utilizado en Marruecos" },
-      { name: "MF.11bis", desc: "Versión mejorada con Renault 8Bd de 100 cv, superficies de cola ampliadas y estructura reforzada" },
-      { name: "MF.11 Bn2", desc: "Variante de bombardeo nocturno con soportes de bombas y depósitos auxiliares de combustible" }
+      { name: "MF.11 A2", engine: "Renault 8Bb V8, 80 cv", maxSpeed: "100 km/h", emptyWeight: "530 kg", maxWeight: "830 kg", armament: "1 × Hotchkiss M1914 de 7 mm en montaje flexible (observador)", desc: "Variante biplaza de reconocimiento con Renault de 80 cv, modelo estándar utilizado en Marruecos" },
+      { name: "MF.11bis", engine: "Renault 8Bd V8, 100 cv", maxSpeed: "112 km/h", emptyWeight: "565 kg", maxWeight: "865 kg", armament: "1 × Hotchkiss M1914 de 7 mm en montaje flexible (observador)", desc: "Versión mejorada con Renault 8Bd de 100 cv, superficies de cola ampliadas y estructura reforzada" },
+      { name: "MF.11 Bn2", engine: "Renault 8Bd V8, 100 cv", maxSpeed: "105 km/h", emptyWeight: "600 kg", maxWeight: "900 kg", armament: "1 × Hotchkiss de 7 mm; hasta 100 kg de bombas en soportes nocturnos y depósito auxiliar", desc: "Variante de bombardeo nocturno con soportes de bombas y depósitos auxiliares de combustible" }
     ],
     history: "El MF.11 fue la espina dorsal de la escuadrilla expedicionaria en Marruecos desde 1913. Realizó reconocimiento sobre el Rif, dirigió el tiro artillero y llevó a cabo los primeros bombardeos españoles con granadas improvisadas."
   },
@@ -97,9 +97,9 @@ var aircraftData = [
     maxSpeed: "106 km/h", range: "320 km", ceiling: "4.300 m",
     armament: "Ninguno estándar; el observador podía portar fusil o ametralladora ligera",
     variants: [
-      { name: "G.3 A2", desc: "Variante biplaza de observación artillera y reconocimiento con puntos de montaje de cámara" },
-      { name: "G.3 D2", desc: "Versión de entrenamiento con doble mando y controles duplicados" },
-      { name: "G.3 E2", desc: "Variante de instrucción elemental con equipo simplificado y motor Le Rhône o Anzani" }
+      { name: "G.3 A2", engine: "Le Rhône 9C rotativo, 80 cv", maxSpeed: "106 km/h", emptyWeight: "420 kg", maxWeight: "710 kg", armament: "Ninguno estándar; el observador podía portar fusil o ametralladora ligera", desc: "Variante biplaza de observación artillera y reconocimiento con puntos de montaje de cámara" },
+      { name: "G.3 D2", engine: "Le Rhône 9C rotativo, 80 cv", maxSpeed: "100 km/h", emptyWeight: "440 kg", maxWeight: "720 kg", armament: "Ninguno; doble mando para instrucción", desc: "Versión de entrenamiento con doble mando y controles duplicados" },
+      { name: "G.3 E2", engine: "Le Rhône 80 cv o Anzani 10 cilindros, 60-80 cv", maxSpeed: "95 km/h", emptyWeight: "410 kg", maxWeight: "700 kg", armament: "Ninguno; equipo simplificado para instrucción elemental", desc: "Variante de instrucción elemental con equipo simplificado y motor Le Rhône o Anzani" }
     ],
     history: "El G.3 se ganó una reputación de avión fiable y dócil, bien adaptado a las duras condiciones de los aeródromos marroquíes. Sirvió durante todo el período 1914-1919, pasando gradualmente de primera línea a entrenamiento."
   },
@@ -121,9 +121,9 @@ var aircraftData = [
     maxSpeed: "128 km/h", range: "400 km", ceiling: "4.500 m",
     armament: "1 × Hotchkiss de 7 mm en montaje flexible; hasta 200 kg de bombas",
     variants: [
-      { name: "F.40", desc: "Versión estándar biplaza de reconocimiento/bombardeo con Renault 8Fb de 130 cv" },
-      { name: "F.41", desc: "Variante con barquilla revisada, mejor aerodinámica y mecanismo de liberación de bombas mejorado" },
-      { name: "F.46", desc: "Conversión a entrenador con doble mando y equipo de bombardeo retirado" }
+      { name: "F.40", engine: "Renault 8Fb V8, 130 cv", maxSpeed: "128 km/h", emptyWeight: "700 kg", maxWeight: "1.100 kg", armament: "1 × Hotchkiss de 7 mm en montaje flexible; hasta 200 kg de bombas", desc: "Versión estándar biplaza de reconocimiento/bombardeo con Renault 8Fb de 130 cv" },
+      { name: "F.41", engine: "Renault 8Fb V8, 130 cv", maxSpeed: "132 km/h", emptyWeight: "715 kg", maxWeight: "1.120 kg", armament: "1 × Hotchkiss de 7 mm; mecanismo de liberación de bombas mejorado, hasta 200 kg", desc: "Variante con barquilla revisada, mejor aerodinámica y mecanismo de liberación de bombas mejorado" },
+      { name: "F.46", engine: "Renault 8Fb V8, 130 cv", maxSpeed: "125 km/h", emptyWeight: "680 kg", maxWeight: "1.050 kg", armament: "Ninguno; equipo de bombardeo retirado, doble mando para instrucción", desc: "Conversión a entrenador con doble mando y equipo de bombardeo retirado" }
     ],
     history: "El F.40 proporcionó por primera vez a las tripulaciones españolas una capacidad ofensiva real. Desde los aeródromos marroquíes, realizó bombardeos sistemáticos sobre campamentos y posiciones rifeñas."
   },
@@ -145,9 +145,9 @@ var aircraftData = [
     maxSpeed: "121 km/h", range: "360 km", ceiling: "4.300 m",
     armament: "1-2 × Hotchkiss de 7 mm en montajes flexibles; hasta 300 kg de bombas",
     variants: [
-      { name: "G.4 A2", desc: "Variante triplaza de reconocimiento de largo alcance con equipo fotográfico y combustible extra" },
-      { name: "G.4 B2", desc: "Variante triplaza de bombardeo con soportes subalares y posición de bombardero en barquilla delantera" },
-      { name: "G.4 E2", desc: "Entrenador bimotor con doble mando para conversión operativa" }
+      { name: "G.4 A2", engine: "2 × Le Rhône 9C, 80 cv cada uno", maxSpeed: "121 km/h", emptyWeight: "780 kg", maxWeight: "1.250 kg", armament: "1 × Hotchkiss de 7 mm; equipo fotográfico y combustible extra", desc: "Variante triplaza de reconocimiento de largo alcance con equipo fotográfico y combustible extra" },
+      { name: "G.4 B2", engine: "2 × Anzani 10 cilindros radial, 100 cv cada uno", maxSpeed: "130 km/h", emptyWeight: "830 kg", maxWeight: "1.320 kg", armament: "1-2 × Hotchkiss de 7 mm; hasta 300 kg de bombas en soportes subalares", desc: "Variante triplaza de bombardeo con soportes subalares y posición de bombardero en barquilla delantera" },
+      { name: "G.4 E2", engine: "2 × Le Rhône 9C, 80 cv cada uno", maxSpeed: "115 km/h", emptyWeight: "760 kg", maxWeight: "1.200 kg", armament: "Ninguno; doble mando para conversión operativa", desc: "Entrenador bimotor con doble mando para conversión operativa" }
     ],
     history: "La llegada del G.4 dotó a la aviación española de una fuerza de bombardeo genuina. Sus motores dobles proporcionaban redundancia sobre el terreno hostil marroquí, aunque los motores rotativos requerían mantenimiento frecuente."
   },
@@ -169,8 +169,8 @@ var aircraftData = [
     maxSpeed: "130 km/h", range: "400 km", ceiling: "4.875 m",
     armament: "Ninguno en configuración de entrenamiento; algunas variantes podían portar bombas ligeras o Lewis",
     variants: [
-      { name: "504A", desc: "Variante inicial con Gnome de 80 cv, usada en entrenamiento y tareas operativas limitadas" },
-      { name: "504K", desc: "Entrenador universal con soporte de motor adaptable a diversos rotativos; variante más común" }
+      { name: "504A", engine: "Gnome Lambda rotativo, 80 cv", maxSpeed: "130 km/h", emptyWeight: "560 kg", maxWeight: "830 kg", armament: "Ninguno en configuración de entrenamiento", desc: "Variante inicial con Gnome de 80 cv, usada en entrenamiento y tareas operativas limitadas" },
+      { name: "504K", engine: "Le Rhône, Gnome Monosoupape o Clerget 9Z intercambiables, 100-110 cv", maxSpeed: "145 km/h", emptyWeight: "558 kg", maxWeight: "843 kg", armament: "Algunos ejemplares con soportes para bombas ligeras o Lewis de instrucción", desc: "Entrenador universal con soporte de motor adaptable a diversos rotativos; variante más común" }
     ],
     history: "El Avro 504 fue la piedra angular de la instrucción de vuelo militar española. Sus características de manejo dóciles y construcción robusta lo hacían ideal para pilotos alumnos."
   },
@@ -192,8 +192,8 @@ var aircraftData = [
     maxSpeed: "140 km/h", range: "450 km", ceiling: "4.200 m",
     armament: "1 × Vickers o Lewis de 7 mm en montaje flexible; hasta 100 kg de bombas o cargas de profundidad",
     variants: [
-      { name: "Type A", desc: "Modelo de producción inicial con Hispano-Suiza 8Aa de 150 cv para patrulla costera" },
-      { name: "Type H", desc: "Variante definitiva en servicio español con depósitos ampliados y equipamiento tropical para Marruecos" }
+      { name: "Type A", engine: "Hispano-Suiza 8Aa V8, 150 cv", maxSpeed: "135 km/h", emptyWeight: "780 kg", maxWeight: "1.150 kg", armament: "1 × Lewis de 7 mm en montaje flexible", desc: "Modelo de producción inicial con Hispano-Suiza 8Aa de 150 cv para patrulla costera" },
+      { name: "Type H", engine: "Hispano-Suiza 8Ab V8, 180 cv", maxSpeed: "140 km/h", emptyWeight: "810 kg", maxWeight: "1.190 kg", armament: "1 × Vickers o Lewis de 7 mm; hasta 100 kg de bombas o cargas de profundidad, depósitos ampliados", desc: "Variante definitiva en servicio español con depósitos ampliados y equipamiento tropical para Marruecos" }
     ],
     history: "Los hidroaviones FBA fueron las aeronaves fundacionales de la aviación naval española. Operaron desde bases costeras realizando patrullas antisubmarinas, escolta de convoyes y reconocimiento marítimo."
   },
@@ -215,8 +215,8 @@ var aircraftData = [
     maxSpeed: "192 km/h", range: "360 km", ceiling: "5.800 m",
     armament: "1 × Vickers de 7,7 mm sincronizada a través del arco de la hélice",
     variants: [
-      { name: "SPAD VII (150 cv)", desc: "Versión inicial con Hispano-Suiza 8Aa de 150 cv, estándar en las primeras entregas españolas" },
-      { name: "SPAD VII (180 cv)", desc: "Versión mejorada con Hispano-Suiza 8Ac de 180 cv, mejor régimen de trepada y techo" }
+      { name: "SPAD VII (150 cv)", engine: "Hispano-Suiza 8Aa V8, 150 cv", maxSpeed: "180 km/h", emptyWeight: "500 kg", maxWeight: "720 kg", armament: "1 × Vickers de 7,7 mm sincronizada", desc: "Versión inicial con Hispano-Suiza 8Aa de 150 cv, estándar en las primeras entregas españolas" },
+      { name: "SPAD VII (180 cv)", engine: "Hispano-Suiza 8Ac V8, 180 cv", maxSpeed: "192 km/h", emptyWeight: "510 kg", maxWeight: "735 kg", armament: "1 × Vickers de 7,7 mm sincronizada; mejor régimen de trepada y techo", desc: "Versión mejorada con Hispano-Suiza 8Ac de 180 cv, mejor régimen de trepada y techo" }
     ],
     history: "El SPAD VII transformó la capacidad de caza española. En Marruecos demostró su valor en misiones de ametrallamiento y reconocimiento armado. Sus motores Hispano-Suiza facilitaban el mantenimiento al ser de origen español."
   },
@@ -238,8 +238,8 @@ var aircraftData = [
     maxSpeed: "183 km/h", range: "300 km", ceiling: "6.000 m",
     armament: "1 × Vickers de 7,7 mm sincronizada (algunos ejemplares españoles con 2 × Vickers)",
     variants: [
-      { name: "HD.1", desc: "Caza terrestre estándar con Le Rhône 9J de 110 cv y una Vickers" },
-      { name: "HD.2", desc: "Conversión a caza con flotadores para uso naval con pontones y fuselaje reforzado" }
+      { name: "HD.1", engine: "Le Rhône 9J rotativo, 110 cv", maxSpeed: "183 km/h", emptyWeight: "415 kg", maxWeight: "620 kg", armament: "1 × Vickers de 7,7 mm sincronizada (algunos ejemplares con 2)", desc: "Caza terrestre estándar con Le Rhône 9J de 110 cv y una Vickers" },
+      { name: "HD.2", engine: "Le Rhône 9J rotativo, 110 cv", maxSpeed: "165 km/h", emptyWeight: "480 kg", maxWeight: "700 kg", armament: "1 × Vickers de 7,7 mm; fuselaje reforzado y flotadores para uso naval", desc: "Conversión a caza con flotadores para uso naval con pontones y fuselaje reforzado" }
     ],
     history: "Los HD.1 españoles sirvieron principalmente en el teatro marroquí, donde su maniobrabilidad era valiosa para misiones de ataque a baja cota. El tipo continuó en servicio hasta bien entrada la década de 1920."
   },
@@ -261,9 +261,9 @@ var aircraftData = [
     maxSpeed: "175 km/h", range: "700 km", ceiling: "5.800 m",
     armament: "1 × Vickers de 7,7 mm fija frontal; 2 × Lewis de 7,7 mm en montaje flexible; hasta 460 kg de bombas (B2)",
     variants: [
-      { name: "XIV A2", desc: "Variante biplaza de reconocimiento/observación con instalación fotográfica y radiotelegrafía" },
-      { name: "XIV B2", desc: "Bombardeo diurno con soportes internos y externos, posición de bombardero y armamento defensivo completo" },
-      { name: "XIV T", desc: "Conversión de transporte de posguerra con cabina cerrada para 4 pasajeros o carga" }
+      { name: "XIV A2", engine: "Renault 12Fcx V12, 300 cv", maxSpeed: "170 km/h", emptyWeight: "1.010 kg", maxWeight: "1.700 kg", armament: "1 × Vickers fija; 2 × Lewis flexibles; instalación fotográfica y radiotelegrafía", desc: "Variante biplaza de reconocimiento/observación con instalación fotográfica y radiotelegrafía" },
+      { name: "XIV B2", engine: "Renault 12Fe V12, 320 cv", maxSpeed: "175 km/h", emptyWeight: "1.030 kg", maxWeight: "1.770 kg", armament: "1 × Vickers fija; 2 × Lewis flexibles; hasta 460 kg de bombas internas y externas", desc: "Bombardeo diurno con soportes internos y externos, posición de bombardero y armamento defensivo completo" },
+      { name: "XIV T", engine: "Renault 12Fe V12, 320 cv", maxSpeed: "160 km/h", emptyWeight: "1.080 kg", maxWeight: "1.750 kg", armament: "Desarmado; cabina cerrada para 4 pasajeros o carga postal", desc: "Conversión de transporte de posguerra con cabina cerrada para 4 pasajeros o carga" }
     ],
     history: "El Breguet XIV se convirtió en el avión de combate más importante en servicio español al final de la década de 1910. En Marruecos podía atacar objetivos en el interior del Rif y regresar con seguridad. Fue la espina dorsal de los escuadrones de bombardeo hasta la llegada del Breguet XIX."
   },
@@ -285,8 +285,8 @@ var aircraftData = [
     maxSpeed: "170 km/h", range: "680 km", ceiling: "5.100 m",
     armament: "1-2 × Vickers de 7,7 mm fija; 1-2 × Lewis en anillo Scarff; hasta 210 kg de bombas",
     variants: [
-      { name: "DH.9", desc: "Versión estándar con Siddeley Puma de 230 cv, utilizada en las operaciones del Rif" },
-      { name: "DH.9A", desc: "Versión mejorada con Liberty 12 de 400 cv, mayor autonomía y carga, algunas construidas por CASA" }
+      { name: "DH.9", engine: "Siddeley Puma I6, 230 cv", maxSpeed: "170 km/h", emptyWeight: "1.010 kg", maxWeight: "1.725 kg", armament: "1-2 × Vickers fija; 1 × Lewis en anillo Scarff; hasta 210 kg de bombas", desc: "Versión estándar con Siddeley Puma de 230 cv, utilizada en las operaciones del Rif" },
+      { name: "DH.9A", engine: "Liberty 12 V12, 400 cv", maxSpeed: "198 km/h", emptyWeight: "1.270 kg", maxWeight: "2.107 kg", armament: "1-2 × Vickers fija; 1-2 × Lewis en anillo Scarff; hasta 300 kg de bombas, mayor autonomía", desc: "Versión mejorada con Liberty 12 de 400 cv, mayor autonomía y carga, algunas construidas por CASA" }
     ],
     history: "Los DH.9 españoles participaron intensamente en las campañas de Marruecos durante la década de 1920, realizando bombardeo táctico y reconocimiento de largo alcance. Su autonomía los hacía especialmente valiosos sobre el terreno marroquí."
   },
@@ -308,7 +308,7 @@ var aircraftData = [
     maxSpeed: "198 km/h", range: "460 km", ceiling: "5.945 m",
     armament: "1 × Vickers de 7,7 mm fija sincronizada; 1-2 × Lewis de 7,7 mm en montaje Scarff (observador)",
     variants: [
-      { name: "F.2B (Falcon III)", desc: "Variante estándar con Rolls-Royce Falcon III de 275 cv, principal versión en servicio español" }
+      { name: "F.2B (Falcon III)", engine: "Rolls-Royce Falcon III V12, 275 cv", maxSpeed: "198 km/h", emptyWeight: "975 kg", maxWeight: "1.475 kg", armament: "1 × Vickers fija sincronizada; 1-2 × Lewis en montaje Scarff (observador)", desc: "Variante estándar con Rolls-Royce Falcon III de 275 cv, principal versión en servicio español Variante única en servicio español; no se documentan otras plantas motrices en España." }
     ],
     history: "Los Bristol Fighter españoles operaron en Marruecos como escolta de bombardeo y reconocimiento armado. Su versatilidad los mantuvo en servicio hasta bien entrada la década de 1930."
   },
@@ -330,8 +330,8 @@ var aircraftData = [
     maxSpeed: "185 km/h", range: "300 km", ceiling: "5.500 m",
     armament: "1 × Vickers de 7,7 mm sincronizada o 2 × Lewis sobre el ala superior (algunos Ni.24)",
     variants: [
-      { name: "Nieuport 24", desc: "Caza con Le Rhône de 120 cv y cola rediseñada, algunos con armamento sobre el ala" },
-      { name: "Nieuport 27", desc: "Versión final de producción con Gnome Monosoupape de 150 cv y tren de aterrizaje revisado" }
+      { name: "Nieuport 24", engine: "Le Rhône 9Jb rotativo, 120 cv", maxSpeed: "180 km/h", emptyWeight: "385 kg", maxWeight: "580 kg", armament: "1 × Vickers de 7,7 mm sincronizada (algunos con 2 × Lewis sobre el ala superior)", desc: "Caza con Le Rhône de 120 cv y cola rediseñada, algunos con armamento sobre el ala" },
+      { name: "Nieuport 27", engine: "Gnome Monosoupape 9N rotativo, 150 cv", maxSpeed: "185 km/h", emptyWeight: "400 kg", maxWeight: "595 kg", armament: "1 × Vickers de 7,7 mm sincronizada; tren de aterrizaje revisado", desc: "Versión final de producción con Gnome Monosoupape de 150 cv y tren de aterrizaje revisado" }
     ],
     history: "Los Nieuport 24/27 sirvieron como cazas de primera línea en Marruecos, complementando y posteriormente reemplazando a los SPAD VII y Hanriot HD.1 más antiguos."
   },
@@ -353,10 +353,10 @@ var aircraftData = [
     maxSpeed: "230 km/h", range: "800 km", ceiling: "7.000 m",
     armament: "1 × Vickers de 7,7 mm fija; 2 × Lewis de 7,7 mm en torreta; hasta 500 kg de bombas",
     variants: [
-      { name: "XIX A2", desc: "Variante de reconocimiento con equipo fotográfico y motores Lorraine de 400 cv" },
-      { name: "XIX B2", desc: "Variante de bombardeo con soportes de bombas internos y externos, armamento completo" },
-      { name: "XIX G.R. (Grand Raid)", desc: "Versión de largo alcance para récords de distancia con depósitos ampliados" },
-      { name: "XIX hidroavión", desc: "Conversión con flotadores para la Aeronáutica Naval" }
+      { name: "XIX A2", engine: "Lorraine-Dietrich 12Db V12, 400 cv", maxSpeed: "215 km/h", emptyWeight: "1.370 kg", maxWeight: "2.380 kg", armament: "1 × Vickers fija; 2 × Lewis en torreta; equipo fotográfico", desc: "Variante de reconocimiento con equipo fotográfico y motores Lorraine de 400 cv" },
+      { name: "XIX B2", engine: "Hispano-Suiza 12Hb V12, 500 cv", maxSpeed: "230 km/h", emptyWeight: "1.420 kg", maxWeight: "2.450 kg", armament: "1 × Vickers fija; 2 × Lewis en torreta; hasta 500 kg de bombas internas y externas", desc: "Variante de bombardeo con soportes de bombas internos y externos, armamento completo" },
+      { name: "XIX G.R. (Grand Raid)", engine: "Hispano-Suiza 12Lbr V12, 650 cv", maxSpeed: "235 km/h", emptyWeight: "1.900 kg", maxWeight: "3.700 kg", armament: "Desarmado en configuración de récord; depósitos ampliados a más de 5.000 litros (versión «Cuatro Vientos»/Superbidón)", desc: "Versión de largo alcance para récords de distancia con depósitos ampliados" },
+      { name: "XIX hidroavión", engine: "Hispano-Suiza 12Hb V12, 500 cv", maxSpeed: "205 km/h", emptyWeight: "1.650 kg", maxWeight: "2.700 kg", armament: "1 × Vickers fija; 2 × Lewis en torreta; conversión con flotadores para la Aeronáutica Naval", desc: "Conversión con flotadores para la Aeronáutica Naval" }
     ],
     history: "El Breguet XIX fue la espina dorsal de la aviación militar española desde 1922 hasta la Guerra Civil. Participó en todas las operaciones del Rif, incluyendo Alhucemas, y en los vuelos de larga distancia que dieron fama a la aviación española. Durante la Guerra Civil fue utilizado por ambos bandos, aunque ya obsoleto."
   },
@@ -378,7 +378,7 @@ var aircraftData = [
     maxSpeed: "205 km/h", range: "750 km", ceiling: "5.500 m",
     armament: "2 × Vickers de 7,7 mm fijas; 1 × Lewis de 7,7 mm en montaje móvil; hasta 200 kg de bombas",
     variants: [
-      { name: "C.IV", desc: "Variante estándar de reconocimiento con Napier Lion de 450 cv" }
+      { name: "C.IV", engine: "Napier Lion W12, 450 cv", maxSpeed: "205 km/h", emptyWeight: "1.250 kg", maxWeight: "2.050 kg", armament: "2 × Vickers fijas; 1 × Lewis móvil; hasta 200 kg de bombas", desc: "Variante estándar de reconocimiento con Napier Lion de 450 cv Variante única adquirida por España; no se documentan subvariantes en servicio español." }
     ],
     history: "Los Fokker C.IV participaron en la fase final de la guerra del Rif, incluyendo el desembarco de Alhucemas. Su autonomía y velocidad los hacían útiles para misiones de exploración profunda."
   },
@@ -400,8 +400,8 @@ var aircraftData = [
     maxSpeed: "165 km/h", range: "600 km", ceiling: "4.500 m",
     armament: "1-2 × ametralladoras de 7,7 mm en montaje flexible; hasta 400 kg de bombas",
     variants: [
-      { name: "M.18", desc: "Versión estándar de reconocimiento y bombardeo con Isotta-Fraschini V6 de 250 cv" },
-      { name: "M.18AR", desc: "Variante con flotadores desmontables para operar desde tierra o agua" }
+      { name: "M.18", engine: "Isotta-Fraschini V6, 250 cv", maxSpeed: "165 km/h", emptyWeight: "1.450 kg", maxWeight: "2.200 kg", armament: "1-2 × ametralladoras de 7,7 mm; hasta 400 kg de bombas", desc: "Versión estándar de reconocimiento y bombardeo con Isotta-Fraschini V6 de 250 cv" },
+      { name: "M.18AR", engine: "Isotta-Fraschini V6, 250 cv", maxSpeed: "160 km/h", emptyWeight: "1.500 kg", maxWeight: "2.250 kg", armament: "1-2 × ametralladoras de 7,7 mm; flotadores desmontables para operar desde tierra o agua", desc: "Variante con flotadores desmontables para operar desde tierra o agua" }
     ],
     history: "Los Macchi M.18 operaron desde las bases navales de Cartagena, Cádiz y la base de Atalayón en Marruecos. Participaron en las operaciones navales del desembarco de Alhucemas y en misiones de patrulla costera."
   },
@@ -423,9 +423,9 @@ var aircraftData = [
     maxSpeed: "190 km/h", range: "1.200 km", ceiling: "3.500 m",
     armament: "2-3 × ametralladoras de 7,7 mm en posiciones defensivas; hasta 500 kg de bombas",
     variants: [
-      { name: "Wal (Napier Lion)", desc: "Versión estándar con dos Napier Lion de 450 cv, utilizada en el vuelo del Plus Ultra" },
-      { name: "Wal (Rolls-Royce Eagle)", desc: "Versión con motores Rolls-Royce Eagle, mayor fiabilidad y autonomía" },
-      { name: "Super Wal", desc: "Versión ampliada con mayor capacidad y motores más potentes" }
+      { name: "Wal (Napier Lion)", engine: "2 × Napier Lion W12, 450 cv cada uno", maxSpeed: "195 km/h", emptyWeight: "3.400 kg", maxWeight: "5.400 kg", armament: "2-3 × ametralladoras de 7,7 mm; hasta 500 kg de bombas", desc: "Versión estándar con dos Napier Lion de 450 cv, utilizada en el vuelo del Plus Ultra Motorización del ejemplar «Plus Ultra» (1926)." },
+      { name: "Wal (Rolls-Royce Eagle)", engine: "2 × Rolls-Royce Eagle IX V12, 375 cv cada uno", maxSpeed: "180 km/h", emptyWeight: "3.500 kg", maxWeight: "5.600 kg", armament: "2-3 × ametralladoras de 7,7 mm; hasta 500 kg de bombas; mayor fiabilidad y autonomía", desc: "Versión con motores Rolls-Royce Eagle, mayor fiabilidad y autonomía" },
+      { name: "Super Wal", engine: "2 × Rolls-Royce Eagle IX V12, 375 cv cada uno (célula ampliada)", maxSpeed: "175 km/h", emptyWeight: "4.100 kg", maxWeight: "6.500 kg", armament: "2-3 × ametralladoras de 7,7 mm; hasta 700 kg de bombas, mayor capacidad de carga", desc: "Versión ampliada con mayor capacidad y motores más potentes" }
     ],
     history: "El Dornier Wal se hizo célebre por el vuelo del Plus Ultra (1926), que cruzó el Atlántico Sur desde Palos de la Frontera a Buenos Aires. Durante la Guerra Civil, los Wal supervivientes prestaron servicio en misiones de patrulla marítima."
   },
@@ -447,8 +447,8 @@ var aircraftData = [
     maxSpeed: "260 km/h", range: "550 km", ceiling: "8.500 m",
     armament: "2 × Vickers de 7,7 mm sincronizadas",
     variants: [
-      { name: "NiD-52", desc: "Versión estándar de caza sesquiplano con Hispano-Suiza 12Mbr de 500 cv" },
-      { name: "NiD-62", desc: "Versión mejorada con motor Hispano-Suiza 12Xcrs de 690 cv y aerodinámica refinada" }
+      { name: "NiD-52", engine: "Hispano-Suiza 12Mbr V12, 500 cv", maxSpeed: "260 km/h", emptyWeight: "1.250 kg", maxWeight: "1.850 kg", armament: "2 × Vickers de 7,7 mm sincronizadas", desc: "Versión estándar de caza sesquiplano con Hispano-Suiza 12Mbr de 500 cv" },
+      { name: "NiD-62", engine: "Hispano-Suiza 12Xcrs V12, 690 cv", maxSpeed: "298 km/h", emptyWeight: "1.340 kg", maxWeight: "1.960 kg", armament: "2 × Vickers de 7,7 mm sincronizadas; aerodinámica refinada", desc: "Versión mejorada con motor Hispano-Suiza 12Xcrs de 690 cv y aerodinámica refinada" }
     ],
     history: "Al estallar la Guerra Civil, el NiD-52 era el caza más numeroso en ambas fuerzas. Obsoleto frente a los cazas modernos, sufrió graves pérdidas pero combatió en los primeros meses del conflicto hasta ser reemplazado por los Polikarpov y Fiat."
   },
@@ -470,7 +470,7 @@ var aircraftData = [
     maxSpeed: "157 km/h", range: "480 km", ceiling: "4.145 m",
     armament: "Ninguno (algunos equipados con soportes para bombas de entrenamiento)",
     variants: [
-      { name: "DH.82A", desc: "Versión estándar con Gipsy Major de 130 cv, la más utilizada en España" }
+      { name: "DH.82A", engine: "De Havilland Gipsy Major I4 invertido, 130 cv", maxSpeed: "157 km/h", emptyWeight: "506 kg", maxWeight: "816 kg", armament: "Ninguno (algunos con soportes para bombas de entrenamiento)", desc: "Versión estándar con Gipsy Major de 130 cv, la más utilizada en España Única variante documentada en servicio español." }
     ],
     history: "Los Tiger Moth formaron a cientos de pilotos españoles antes y durante la Guerra Civil. Ambos bandos utilizaron ejemplares capturados para la instrucción de nuevos pilotos."
   },
@@ -492,7 +492,7 @@ var aircraftData = [
     maxSpeed: "230 km/h", range: "1.250 km", ceiling: "5.545 m",
     armament: "1 × Vickers de 7,7 mm fija; 1-2 × Lewis en posiciones dorsales; 1 torpedo de 457 mm o 500 kg de bombas",
     variants: [
-      { name: "Vildebeest IV", desc: "Versión con Bristol Pegasus IIM3 de 825 cv, la principal en servicio español" }
+      { name: "Vildebeest IV", engine: "Bristol Pegasus IIM3 radial, 825 cv", maxSpeed: "230 km/h", emptyWeight: "2.195 kg", maxWeight: "3.540 kg", armament: "1 × Vickers fija; 1-2 × Lewis dorsales; 1 torpedo de 457 mm o 500 kg de bombas", desc: "Versión con Bristol Pegasus IIM3 de 825 cv, la principal en servicio español Única variante documentada en servicio de la Aeronáutica Naval española." }
     ],
     history: "Los Vildebeest de la Armada operaron desde bases costeras durante la Guerra Civil en misiones de patrulla marítima y ataque a buques. Su lentitud los hacía vulnerables a los cazas enemigos."
   },
@@ -514,8 +514,8 @@ var aircraftData = [
     maxSpeed: "265 km/h", range: "1.300 km", ceiling: "5.500 m",
     armament: "1-2 × MG 15 de 7,92 mm en posiciones defensivas; hasta 2.000 kg de bombas (versión de bombardeo)",
     variants: [
-      { name: "Ju 52/3m (transporte)", desc: "Versión de transporte estándar con capacidad para 17-18 soldados o carga equivalente" },
-      { name: "Ju 52/3m (bombardeo)", desc: "Versión modificada con soportes de bombas y armamento defensivo adicional" }
+      { name: "Ju 52/3m (transporte)", engine: "3 × BMW 132A radial, 660 cv cada uno", maxSpeed: "265 km/h", emptyWeight: "6.570 kg", maxWeight: "10.500 kg", armament: "1-2 × MG 15 de 7,92 mm defensivas; capacidad para 17-18 soldados", desc: "Versión de transporte estándar con capacidad para 17-18 soldados o carga equivalente" },
+      { name: "Ju 52/3m (bombardeo)", engine: "3 × BMW 132A radial, 660 cv cada uno", maxSpeed: "255 km/h", emptyWeight: "6.700 kg", maxWeight: "10.500 kg", armament: "1-2 × MG 15 de 7,92 mm; hasta 2.000 kg de bombas en soportes internos", desc: "Versión modificada con soportes de bombas y armamento defensivo adicional" }
     ],
     history: "El Ju 52 fue decisivo en los primeros días de la Guerra Civil al trasladar por aire a las tropas del Ejército de África desde Marruecos a la península. Este puente aéreo fue una operación pionera en la historia del transporte aéreo militar."
   },
@@ -537,8 +537,8 @@ var aircraftData = [
     maxSpeed: "370 km/h", range: "530 km", ceiling: "9.300 m",
     armament: "4 × ShKAS de 7,62 mm en el capó; hasta 150 kg de bombas",
     variants: [
-      { name: "I-15", desc: "Versión inicial con ala en gaviota y M-25 de 700 cv, apodada «Chato»" },
-      { name: "I-15bis", desc: "Versión con ala recta, motor M-25V de 750 cv y aerodinámica mejorada" }
+      { name: "I-15", engine: "M-25 radial, 700 cv", maxSpeed: "367 km/h", emptyWeight: "1.220 kg", maxWeight: "1.700 kg", armament: "4 × PV-1 de 7,62 mm en el capó; hasta 100 kg de bombas", desc: "Versión inicial con ala en gaviota y M-25 de 700 cv, apodada «Chato» Ala en gaviota característica; apodado «Chato»." },
+      { name: "I-15bis", engine: "M-25V radial, 750 cv", maxSpeed: "370 km/h", emptyWeight: "1.250 kg", maxWeight: "1.725 kg", armament: "4 × ShKAS de 7,62 mm en el capó; hasta 150 kg de bombas; ala superior recta", desc: "Versión con ala recta, motor M-25V de 750 cv y aerodinámica mejorada" }
     ],
     history: "El I-15 «Chato» fue el caza biplano más importante de la República. Su excepcional maniobrabilidad lo hacía letal en combate cerrado. Participó en la defensa de Madrid, Brunete, Teruel y el Ebro."
   },
@@ -560,9 +560,9 @@ var aircraftData = [
     maxSpeed: "460 km/h (Type 18)", range: "450 km", ceiling: "9.700 m",
     armament: "2-4 × ShKAS de 7,62 mm; 2 × ShVAK de 20 mm (Type 18); hasta 200 kg de bombas",
     variants: [
-      { name: "I-16 Type 5", desc: "Versión inicial con M-25A de 730 cv y 2 ShKAS, la primera en llegar a España" },
-      { name: "I-16 Type 10", desc: "Versión mejorada con 4 ShKAS y motor M-25V de 750 cv, la más numerosa" },
-      { name: "I-16 Type 18", desc: "Versión con motor M-62 de 800 cv, cañones ShVAK de 20 mm y mejores prestaciones" }
+      { name: "I-16 Type 5", engine: "M-25A radial, 730 cv", maxSpeed: "440 km/h", emptyWeight: "1.025 kg", maxWeight: "1.475 kg", armament: "2 × ShKAS de 7,62 mm en el capó", desc: "Versión inicial con M-25A de 730 cv y 2 ShKAS, la primera en llegar a España Primera versión en llegar a España (otoño de 1936)." },
+      { name: "I-16 Type 10", engine: "M-25V radial, 750 cv", maxSpeed: "448 km/h", emptyWeight: "1.070 kg", maxWeight: "1.540 kg", armament: "4 × ShKAS de 7,62 mm; hasta 200 kg de bombas; versión más numerosa en España", desc: "Versión mejorada con 4 ShKAS y motor M-25V de 750 cv, la más numerosa" },
+      { name: "I-16 Type 18", engine: "M-62 radial, 800 cv", maxSpeed: "460 km/h", emptyWeight: "1.120 kg", maxWeight: "1.590 kg", armament: "2 × ShVAK de 20 mm + 2 × ShKAS de 7,62 mm; hasta 200 kg de bombas", desc: "Versión con motor M-62 de 800 cv, cañones ShVAK de 20 mm y mejores prestaciones" }
     ],
     history: "El I-16 «Mosca» fue el caza de mayor prestaciones de la República. Su velocidad y trepada superaban al Fiat CR.32, pero su manejo era más exigente. Combatió desde la defensa de Madrid hasta la batalla del Ebro, siendo poco a poco superado por los Bf 109."
   },
@@ -584,9 +584,9 @@ var aircraftData = [
     maxSpeed: "330 km/h", range: "570 km", ceiling: "7.700 m",
     armament: "2 × MG 17 de 7,92 mm sincronizadas; hasta 6 bombas de 10 kg para apoyo cercano (versión C)",
     variants: [
-      { name: "He 51 A-1", desc: "Versión de caza estándar con BMW VI de 750 cv, primera en llegar a España" },
-      { name: "He 51 B-1", desc: "Variante con flotadores para operaciones marítimas, utilizada de forma limitada" },
-      { name: "He 51 C-1", desc: "Versión de ataque a tierra con soportes para bombas ligeras, la más útil en combate" }
+      { name: "He 51 A-1", engine: "BMW VI 7,3Z V12, 750 cv", maxSpeed: "330 km/h", emptyWeight: "1.460 kg", maxWeight: "1.900 kg", armament: "2 × MG 17 de 7,92 mm sincronizadas", desc: "Versión de caza estándar con BMW VI de 750 cv, primera en llegar a España" },
+      { name: "He 51 B-1", engine: "BMW VI 7,3Z V12, 750 cv", maxSpeed: "315 km/h", emptyWeight: "1.560 kg", maxWeight: "2.010 kg", armament: "2 × MG 17 de 7,92 mm; flotadores para operaciones marítimas", desc: "Variante con flotadores para operaciones marítimas, utilizada de forma limitada" },
+      { name: "He 51 C-1", engine: "BMW VI 7,3Z V12, 750 cv", maxSpeed: "320 km/h", emptyWeight: "1.520 kg", maxWeight: "1.970 kg", armament: "2 × MG 17 de 7,92 mm; hasta 6 bombas de 10 kg para apoyo cercano", desc: "Versión de ataque a tierra con soportes para bombas ligeras, la más útil en combate" }
     ],
     history: "El He 51 llegó a España con la Legión Cóndor como sustituto provisional del He 45. Rápidamente demostró ser inferior al I-16 republicano en velocidad y trepada, siendo relegado a misiones de ataque al suelo y entrenamiento avanzado."
   },
@@ -608,9 +608,9 @@ var aircraftData = [
     maxSpeed: "360 km/h", range: "680 km", ceiling: "8.800 m",
     armament: "2 × Breda-SAFAT de 12,7 mm sincronizadas; hasta 200 kg de bombas (CR.32bis y quater)",
     variants: [
-      { name: "CR.32", desc: "Versión estándar con 2 × Breda de 12,7 mm y Fiat A.30 RA bis de 600 cv" },
-      { name: "CR.32bis", desc: "Variante con 2 × Breda de 12,7 mm + 2 × Breda de 7,7 mm sobre el ala, soportes para bombas" },
-      { name: "CR.32quater", desc: "Versión aligerada sin armamento alar, solo las 2 Breda de 12,7 mm, mejor maniobrabilidad" }
+      { name: "CR.32", engine: "Fiat A.30 RA bis V12, 600 cv", maxSpeed: "360 km/h", emptyWeight: "1.260 kg", maxWeight: "1.690 kg", armament: "2 × Breda-SAFAT de 12,7 mm sincronizadas", desc: "Versión estándar con 2 × Breda de 12,7 mm y Fiat A.30 RA bis de 600 cv" },
+      { name: "CR.32bis", engine: "Fiat A.30 RA bis V12, 600 cv", maxSpeed: "356 km/h", emptyWeight: "1.320 kg", maxWeight: "1.760 kg", armament: "2 × Breda de 12,7 mm + 2 × Breda de 7,7 mm sobre el ala; soportes para bombas", desc: "Variante con 2 × Breda de 12,7 mm + 2 × Breda de 7,7 mm sobre el ala, soportes para bombas" },
+      { name: "CR.32quater", engine: "Fiat A.30 RA bis V12, 600 cv", maxSpeed: "365 km/h", emptyWeight: "1.230 kg", maxWeight: "1.650 kg", armament: "2 × Breda de 12,7 mm (sin armamento alar); mejor maniobrabilidad por menor peso", desc: "Versión aligerada sin armamento alar, solo las 2 Breda de 12,7 mm, mejor maniobrabilidad" }
     ],
     history: "El CR.32 «Chirri» fue el caza más exitoso del bando nacional. A sus mandos, Joaquín García Morato logró 40 victorias, convirtiéndose en el as de la Guerra Civil. En combate cerrado podía enfrentarse al I-15 con ventaja, aunque era más lento que el I-16 en velocidad punta."
   },
@@ -632,8 +632,8 @@ var aircraftData = [
     maxSpeed: "430 km/h", range: "2.000 km", ceiling: "6.500 m",
     armament: "1 × Breda de 12,7 mm en torreta dorsal; 2 × Breda de 7,7 mm (ventral y lateral); hasta 1.250 kg de bombas",
     variants: [
-      { name: "SM.79-I", desc: "Versión estándar de bombardeo con tres Alfa Romeo 126 RC.34, principal variante en España" },
-      { name: "SM.79-II", desc: "Variante con motores Piaggio P.XI RC.40 de 1.000 cv, algunas unidades en la fase final de la guerra" }
+      { name: "SM.79-I", engine: "3 × Alfa Romeo 126 RC.34 radial, 750 cv cada uno", maxSpeed: "430 km/h", emptyWeight: "6.800 kg", maxWeight: "10.500 kg", armament: "1 × Breda de 12,7 mm dorsal; 2 × Breda de 7,7 mm; hasta 1.250 kg de bombas", desc: "Versión estándar de bombardeo con tres Alfa Romeo 126 RC.34, principal variante en España" },
+      { name: "SM.79-II", engine: "3 × Piaggio P.XI RC.40 radial, 1.000 cv cada uno", maxSpeed: "445 km/h", emptyWeight: "7.200 kg", maxWeight: "11.300 kg", armament: "1 × Breda de 12,7 mm dorsal; 2 × Breda de 7,7 mm; hasta 1.250 kg de bombas, mayor potencia", desc: "Variante con motores Piaggio P.XI RC.40 de 1.000 cv, algunas unidades en la fase final de la guerra" }
     ],
     history: "Los SM.79 del bando nacional realizaron bombardeos sobre ciudades republicanas y misiones de ataque marítimo contra puertos y buques. Su velocidad les permitía a menudo escapar de los cazas enemigos sin escolta de caza."
   },
@@ -655,8 +655,8 @@ var aircraftData = [
     maxSpeed: "340 km/h", range: "1.500 km", ceiling: "6.500 m",
     armament: "1-2 × Breda de 12,7 mm en torretas; 3-4 × Breda de 7,7 mm; hasta 2.000 kg de bombas",
     variants: [
-      { name: "SM.81 (Alfa Romeo)", desc: "Versión estándar con motores Alfa Romeo 125 RC.35 de 680 cv" },
-      { name: "SM.81 (Piaggio)", desc: "Versión con motores Piaggio P.X RC.35 de 700 cv, ligeramente más potente" }
+      { name: "SM.81 (Alfa Romeo)", engine: "3 × Alfa Romeo 125 RC.35 radial, 680 cv cada uno", maxSpeed: "340 km/h", emptyWeight: "5.600 kg", maxWeight: "9.300 kg", armament: "1-2 × Breda de 12,7 mm en torretas; 3-4 × Breda de 7,7 mm; hasta 2.000 kg de bombas", desc: "Versión estándar con motores Alfa Romeo 125 RC.35 de 680 cv" },
+      { name: "SM.81 (Piaggio)", engine: "3 × Piaggio P.X RC.35 radial, 700 cv cada uno", maxSpeed: "345 km/h", emptyWeight: "5.650 kg", maxWeight: "9.350 kg", armament: "1-2 × Breda de 12,7 mm; 3-4 × Breda de 7,7 mm; hasta 2.000 kg de bombas, ligeramente más potente", desc: "Versión con motores Piaggio P.X RC.35 de 700 cv, ligeramente más potente" }
     ],
     history: "Los SM.81 fueron de los primeros aviones italianos en llegar a España tras el golpe de julio de 1936. Participaron en el puente aéreo del Estrecho y en bombardeos sobre objetivos republicanos durante toda la guerra."
   },
@@ -678,8 +678,8 @@ var aircraftData = [
     maxSpeed: "423 km/h", range: "1.200 km", ceiling: "9.300 m",
     armament: "4 × ShKAS de 7,62 mm en posiciones defensivas; hasta 600 kg de bombas en bahía interna",
     variants: [
-      { name: "SB-2M-100A", desc: "Versión estándar con Klimov M-100A de 860 cv, principal variante en España" },
-      { name: "SB-2M-103", desc: "Versión con Klimov M-103 de 960 cv, mejor velocidad, llegada en 1938" }
+      { name: "SB-2M-100A", engine: "2 × Klimov M-100A V12, 860 cv cada uno", maxSpeed: "410 km/h", emptyWeight: "3.260 kg", maxWeight: "5.600 kg", armament: "4 × ShKAS de 7,62 mm defensivas; hasta 600 kg de bombas", desc: "Versión estándar con Klimov M-100A de 860 cv, principal variante en España" },
+      { name: "SB-2M-103", engine: "2 × Klimov M-103 V12, 960 cv cada uno", maxSpeed: "423 km/h", emptyWeight: "3.400 kg", maxWeight: "5.750 kg", armament: "4 × ShKAS de 7,62 mm defensivas; hasta 600 kg de bombas; mejor velocidad, llegada en 1938", desc: "Versión con Klimov M-103 de 960 cv, mejor velocidad, llegada en 1938" }
     ],
     history: "Los «Katiuska» fueron los bombarderos más efectivos de la República. Su velocidad les permitía realizar incursiones sin escolta de caza. Bombardearon objetivos nacionales en el frente, puertos y aeródromos, sufriendo pérdidas crecientes a medida que los cazas nacionales mejoraban."
   },
@@ -701,8 +701,8 @@ var aircraftData = [
     maxSpeed: "280 km/h (R-Z)", range: "800 km", ceiling: "6.400 m",
     armament: "1 × PV-1 de 7,62 mm fija; 1 × ShKAS de 7,62 mm (observador); hasta 500 kg de bombas (R-Z)",
     variants: [
-      { name: "R-5SSS", desc: "Versión de reconocimiento y bombardeo con M-17F de 680 cv, mejor aerodinámica" },
-      { name: "R-Z «Natacha»", desc: "Versión de ataque mejorada con motor M-34 de 830 cv, mayor carga bélica y armamento reforzado" }
+      { name: "R-5SSS", engine: "M-17F V12, 680 cv", maxSpeed: "235 km/h", emptyWeight: "1.970 kg", maxWeight: "2.900 kg", armament: "1 × PV-1 fija; 1 × ShKAS observador; hasta 400 kg de bombas", desc: "Versión de reconocimiento y bombardeo con M-17F de 680 cv, mejor aerodinámica" },
+      { name: "R-Z «Natacha»", engine: "M-34 radial, 830 cv", maxSpeed: "280 km/h", emptyWeight: "2.100 kg", maxWeight: "3.050 kg", armament: "1 × PV-1 fija; 1 × ShKAS observador; hasta 500 kg de bombas, armamento reforzado", desc: "Versión de ataque mejorada con motor M-34 de 830 cv, mayor carga bélica y armamento reforzado" }
     ],
     history: "Los R-5 y R-Z «Natacha» realizaron miles de misiones de reconocimiento y ataque a lo largo de la Guerra Civil. Su baja velocidad los hacía vulnerables a los cazas enemigos, pero su capacidad para operar desde aeródromos improvisados los hacía muy valiosos para el apoyo táctico."
   },
@@ -724,9 +724,9 @@ var aircraftData = [
     maxSpeed: "350 km/h", range: "1.100 km", ceiling: "5.900 m",
     armament: "4-6 × MG 15 de 7,92 mm en posiciones defensivas; hasta 500 kg de bombas",
     variants: [
-      { name: "Do 17 E-1", desc: "Versión de bombardeo estándar con BMW VI, utilizada por la Legión Cóndor" },
-      { name: "Do 17 F-1", desc: "Versión de reconocimiento de largo alcance con cámaras y combustible adicional" },
-      { name: "Do 17 P-1", desc: "Versión de reconocimiento táctico con motores BMW 132 radiales" }
+      { name: "Do 17 E-1", engine: "2 × BMW VI 7,3 V12, 750 cv cada uno", maxSpeed: "350 km/h", emptyWeight: "3.300 kg", maxWeight: "5.500 kg", armament: "4-6 × MG 15 de 7,92 mm; hasta 500 kg de bombas", desc: "Versión de bombardeo estándar con BMW VI, utilizada por la Legión Cóndor" },
+      { name: "Do 17 F-1", engine: "2 × BMW VI 7,3 V12, 750 cv cada uno", maxSpeed: "355 km/h", emptyWeight: "3.400 kg", maxWeight: "5.600 kg", armament: "4-6 × MG 15 de 7,92 mm; cámaras y combustible adicional en lugar de bombas", desc: "Versión de reconocimiento de largo alcance con cámaras y combustible adicional" },
+      { name: "Do 17 P-1", engine: "2 × BMW 132N radial, 865 cv cada uno", maxSpeed: "365 km/h", emptyWeight: "3.420 kg", maxWeight: "5.650 kg", armament: "4-6 × MG 15 de 7,92 mm; equipo de reconocimiento táctico", desc: "Versión de reconocimiento táctico con motores BMW 132 radiales" }
     ],
     history: "Los Do 17 de la Legión Cóndor operaron desde bases en España en misiones de bombardeo y reconocimiento. Su velocidad les permitía frecuentemente evadir a los cazas republicanos, aunque sufrieron pérdidas ante los I-16."
   },
@@ -748,9 +748,9 @@ var aircraftData = [
     maxSpeed: "370 km/h", range: "1.500 km", ceiling: "6.500 m",
     armament: "3 × MG 15 de 7,92 mm en posiciones defensivas (nariz, dorsal, ventral); hasta 2.000 kg de bombas",
     variants: [
-      { name: "He 111 B-1", desc: "Versión inicial con Jumo 210 Da de 680 cv, primeras entregas a la Legión Cóndor" },
-      { name: "He 111 B-2", desc: "Versión con Jumo 211 Da de 1.000 cv, mejor velocidad y capacidad de carga" },
-      { name: "He 111 E-1", desc: "Versión con DB 600Ga de 950 cv y mayor capacidad de bombas, llegada en 1938" }
+      { name: "He 111 B-1", engine: "2 × Junkers Jumo 210 Da V12, 680 cv cada uno", maxSpeed: "345 km/h", emptyWeight: "5.300 kg", maxWeight: "8.200 kg", armament: "3 × MG 15 de 7,92 mm defensivas; hasta 1.500 kg de bombas", desc: "Versión inicial con Jumo 210 Da de 680 cv, primeras entregas a la Legión Cóndor" },
+      { name: "He 111 B-2", engine: "2 × Junkers Jumo 211 Da V12, 1.000 cv cada uno", maxSpeed: "370 km/h", emptyWeight: "5.500 kg", maxWeight: "8.600 kg", armament: "3 × MG 15 de 7,92 mm defensivas; hasta 2.000 kg de bombas", desc: "Versión con Jumo 211 Da de 1.000 cv, mejor velocidad y capacidad de carga" },
+      { name: "He 111 E-1", engine: "2 × Daimler-Benz DB 600Ga V12, 950 cv cada uno", maxSpeed: "375 km/h", emptyWeight: "5.600 kg", maxWeight: "8.700 kg", armament: "3 × MG 15 de 7,92 mm defensivas; hasta 2.000 kg de bombas, llegada en 1938", desc: "Versión con DB 600Ga de 950 cv y mayor capacidad de bombas, llegada en 1938" }
     ],
     history: "Los He 111 de la Legión Cóndor participaron en bombardeos estratégicos sobre ciudades republicanas, incluyendo la infraestructura industrial y los puertos. Su velocidad y armamento defensivo los hacían más resistentes que los anteriores bombarderos."
   },
@@ -772,9 +772,9 @@ var aircraftData = [
     maxSpeed: "470 km/h (D-1)", range: "440 km", ceiling: "8.200 m",
     armament: "2-3 × MG 17 de 7,92 mm (versión B); 4 × MG 17 (versión C); 2 × MG 17 + 1 × MG FF de 20 mm (versión D temprana)",
     variants: [
-      { name: "Bf 109 B-1/B-2", desc: "Versión inicial con Jumo 210 Da/Ga de 680/730 cv y 2-3 MG 17, primera en combatir en España" },
-      { name: "Bf 109 C-1", desc: "Versión con 4 × MG 17 y Jumo 210 Ga de 730 cv, mayor potencia de fuego" },
-      { name: "Bf 109 D-1", desc: "Versión con DB 600Aa de 960 cv, la más potente en España, superior a todos los cazas republicanos" }
+      { name: "Bf 109 B-1/B-2", engine: "Junkers Jumo 210 Da/Ga V12, 680-730 cv", maxSpeed: "440 km/h", emptyWeight: "1.505 kg", maxWeight: "1.900 kg", armament: "2-3 × MG 17 de 7,92 mm", desc: "Versión inicial con Jumo 210 Da/Ga de 680/730 cv y 2-3 MG 17, primera en combatir en España Primera versión en combatir en España (1937)." },
+      { name: "Bf 109 C-1", engine: "Junkers Jumo 210 Ga V12, 730 cv", maxSpeed: "450 km/h", emptyWeight: "1.550 kg", maxWeight: "1.950 kg", armament: "4 × MG 17 de 7,92 mm; mayor potencia de fuego", desc: "Versión con 4 × MG 17 y Jumo 210 Ga de 730 cv, mayor potencia de fuego" },
+      { name: "Bf 109 D-1", engine: "Daimler-Benz DB 600Aa V12, 960 cv", maxSpeed: "470 km/h", emptyWeight: "1.580 kg", maxWeight: "1.980 kg", armament: "2 × MG 17 de 7,92 mm + 1 × MG FF de 20 mm; la más potente en España", desc: "Versión con DB 600Aa de 960 cv, la más potente en España, superior a todos los cazas republicanos" }
     ],
     history: "El Bf 109 llegó a España con la Legión Cóndor a finales de 1937 y cambió decisivamente la guerra aérea. En manos de pilotos experimentados como Werner Mölders, demostró una superioridad clara sobre el I-16 en velocidad y trepada, contribuyendo a la superioridad aérea nacional en 1938-39."
   },
@@ -796,7 +796,7 @@ var aircraftData = [
     maxSpeed: "341 km/h", range: "855 km", ceiling: "9.000 m",
     armament: "2 × MG 17 de 7,92 mm en el capó; hasta 450 kg de bombas (1 × 250 kg bajo el fuselaje + 4 × 50 kg bajo las alas)",
     variants: [
-      { name: "Hs 123 A-1", desc: "Versión única de producción con BMW 132Dc de 880 cv, armamento fijo y soportes de bombas" }
+      { name: "Hs 123 A-1", engine: "BMW 132Dc radial, 880 cv", maxSpeed: "341 km/h", emptyWeight: "1.500 kg", maxWeight: "2.220 kg", armament: "2 × MG 17 de 7,92 mm en el capó; hasta 450 kg de bombas", desc: "Versión única de producción con BMW 132Dc de 880 cv, armamento fijo y soportes de bombas Única versión de producción operada en España." }
     ],
     history: "Los Hs 123 de la Legión Cóndor fueron devastadores en misiones de apoyo cercano y bombardeo en picado sobre posiciones republicanas. Su precisión y resistencia al daño los hicieron muy apreciados, y demostraron que un biplano podía seguir siendo útil en combate moderno."
   },
@@ -818,7 +818,7 @@ var aircraftData = [
     maxSpeed: "325 km/h", range: "1.750 km", ceiling: "6.860 m",
     armament: "Ninguno estándar",
     variants: [
-      { name: "DC-2-142", desc: "Versión estándar de transporte con Wright Cyclone de 750 cv, la principal en servicio español" }
+      { name: "DC-2-142", engine: "2 × Wright SGR-1820-F52 Cyclone radial, 750 cv cada uno", maxSpeed: "325 km/h", emptyWeight: "5.650 kg", maxWeight: "8.440 kg", armament: "Ninguno estándar", desc: "Versión estándar de transporte con Wright Cyclone de 750 cv, la principal en servicio español Única variante operada por la República, procedente de la flota comercial de LAPE." }
     ],
     history: "Los DC-2 de LAPE fueron requisados por la República al estallar la guerra. Realizaron misiones de transporte de autoridades, evacuación de heridos y enlace entre frentes. Algunos lograron escapar a territorio francés al final del conflicto."
   }
