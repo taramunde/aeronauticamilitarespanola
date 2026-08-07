@@ -27,8 +27,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "570-600 km/h", range: "660 km", ceiling: "11.000 m",
     armament: "2 × MG 17 de 7,92 mm + 1 × MG FF/MG 151 de 20 mm (según versión)",
     variants: [
-      { name: "Bf 109 E", desc: "Versión empleada por las primeras rotaciones de la Escuadrilla Azul, encuadrada en el JG 27" },
-      { name: "Bf 109 F", desc: "Versión aerodinámicamente refinada empleada por las rotaciones posteriores en el JG 51 «Mölders»" }
+      { name: "Bf 109 E", engine: "Daimler-Benz DB 601A V12, 1.100 cv", maxSpeed: "570 km/h", emptyWeight: "2.010 kg", maxWeight: "2.505 kg", armament: "2 × MG 17 de 7,92 mm + 2 × MG FF de 20 mm en el ala", desc: "Versión empleada por las primeras rotaciones de la Escuadrilla Azul, encuadrada en el JG 27 Empleado por las primeras rotaciones, encuadradas en el JG 27 (1941-42)." },
+      { name: "Bf 109 F", engine: "Daimler-Benz DB 601N/E V12, 1.175-1.200 cv", maxSpeed: "600 km/h", emptyWeight: "2.055 kg", maxWeight: "2.700 kg", armament: "2 × MG 17 de 7,92 mm + 1 × MG FF/151 de 20 mm en el motor", desc: "Versión aerodinámicamente refinada empleada por las rotaciones posteriores en el JG 51 «Mölders» Aerodinámicamente refinado; empleado por las rotaciones en el JG 51 «Mölders» (1942-44)." }
     ],
     history: "A lo largo de cinco rotaciones (1941-1944) los pilotos españoles realizaron 5.086 salidas y 611 combates, siéndoles acreditados 163 aviones soviéticos derribados por la pérdida de 22 pilotos muertos o desaparecidos —casi uno de cada tres—. El primer escuadrón fue mandado por Ángel Salas Larrazábal; trece pilotos españoles alcanzaron la condición de as. Las cifras exactas de victorias varían ligeramente entre fuentes españolas y alemanas."
   },
@@ -50,8 +50,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "435 km/h (con Merlin)", range: "2.300 km", ceiling: "8.000 m",
     armament: "Variable según rol; en configuración de bombardeo original hasta 2.000 kg de bombas (desarmado en las versiones de posguerra dedicadas a transporte y enlace)",
     variants: [
-      { name: "CASA 2.111 (Jumo)", desc: "Serie inicial con motores Junkers Jumo 211F, primer vuelo el 23 de mayo de 1945" },
-      { name: "CASA 2.111 B/D (Merlin)", desc: "Reequipada con motores Rolls-Royce Merlin 500-29 tras el pedido de 173 motores en 1953, versión definitiva y más numerosa" }
+      { name: "CASA 2.111 (Jumo)", engine: "2 × Junkers Jumo 211F V12, 1.340 cv cada uno", maxSpeed: "405 km/h", emptyWeight: "5.766 kg", maxWeight: "8.100 kg", armament: "Configuración de bombardeo desarmada progresivamente hacia transporte/enlace", desc: "Serie inicial con motores Junkers Jumo 211F, primer vuelo el 23 de mayo de 1945 Serie inicial con motores recuperados de un depósito francés; primer vuelo el 23 de mayo de 1945." },
+      { name: "CASA 2.111 B/D (Merlin)", engine: "2 × Rolls-Royce Merlin 500-29 V12, 1.600 cv cada uno", maxSpeed: "435 km/h", emptyWeight: "5.750 kg", maxWeight: "8.200 kg", armament: "Desarmado en la mayoría de ejemplares de posguerra; combatió armado en la Guerra de Ifni (1957-58)", desc: "Reequipada con motores Rolls-Royce Merlin 500-29 tras el pedido de 173 motores en 1953, versión definitiva y más numerosa Versión definitiva y más numerosa, reequipada tras el pedido de 173 motores Merlin en 1953." }
     ],
     history: "Se construyeron unos 236 ejemplares (producción hasta 1956). Cinco CASA 2.111 bombardearon posiciones enemigas durante la Guerra de Ifni (1957-58). Sirvió en bombardeo, reconocimiento, transporte y entrenamiento hasta bien entrados los años sesenta, y en labores de transporte hasta 1973; varios ejemplares supervivientes se emplearon después en el rodaje de la película «La Batalla de Inglaterra» (1969) caracterizados como He 111 originales."
   },
@@ -73,8 +73,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "265 km/h", range: "1.300 km", ceiling: "5.900 m",
     armament: "Ninguno estándar; capacidad para 17 paracaidistas o carga equivalente",
     variants: [
-      { name: "CASA 352", desc: "Unos 106 ejemplares con motores radiales BMW 132A" },
-      { name: "CASA 352L", desc: "Unos 64 ejemplares con motores españoles ENMASA Beta" }
+      { name: "CASA 352", engine: "3 × BMW 132A radial, 725 cv cada uno", maxSpeed: "270 km/h", emptyWeight: "5.720 kg", maxWeight: "10.500 kg", armament: "Ninguno estándar; capacidad para 17 paracaidistas", desc: "Unos 106 ejemplares con motores radiales BMW 132A Unos 106 ejemplares con motores alemanes originales." },
+      { name: "CASA 352L", engine: "3 × ENMASA Beta radial, 700 cv cada uno", maxSpeed: "260 km/h", emptyWeight: "5.780 kg", maxWeight: "10.500 kg", armament: "Ninguno estándar; capacidad para 17 paracaidistas", desc: "Unos 64 ejemplares con motores españoles ENMASA Beta Unos 64 ejemplares con motor español ENMASA Beta, ligeramente menos potente." }
     ],
     history: "Se construyeron en torno a 170 unidades (1945-1953). Cinco CASA 352 lanzaron 75 paracaidistas durante la Guerra de Ifni (1957-58). Fue la columna vertebral del transporte aéreo y la instrucción paracaidista españolas durante casi tres décadas, retirándose del servicio militar en 1975."
   },
@@ -96,8 +96,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "665-674 km/h", range: "850 km", ceiling: "11.500 m",
     armament: "2 × cañón Hispano-Suiza HS-404/HS-808 de 20 mm; hasta 16 cohetes Oerlikon de 80 mm",
     variants: [
-      { name: "HA-1109-J1L / HA-1112-K1L «Tripala»", desc: "Versiones iniciales con motor Hispano-Suiza y hélice tripala, primer vuelo en marzo de 1945, prestaciones insuficientes" },
-      { name: "HA-1112-M1L «Buchón»", desc: "Versión definitiva con motor Rolls-Royce Merlin 500-45, primer vuelo el 29 de marzo de 1954; unos 172 ejemplares construidos" }
+      { name: "HA-1109-J1L / HA-1112-K1L «Tripala»", engine: "Hispano-Suiza HS 12-Z-89/12Z-17 V12, 1.300 cv", maxSpeed: "600 km/h", emptyWeight: "2.475 kg", maxWeight: "3.200 kg", range: "690 km", ceiling: "9.180 m", armament: "2 × cañón Hispano-Suiza HS-404/408 de 20 mm; 8 cohetes Oerlikon de 80 mm", desc: "Versiones iniciales con motor Hispano-Suiza y hélice tripala, primer vuelo en marzo de 1945, prestaciones insuficientes Hélice tripala De Havilland Hydromatic; unos 65 ejemplares (40 nuevos + 25 conversiones del HA-1109-J1L)." },
+      { name: "HA-1112-M1L «Buchón»", engine: "Rolls-Royce Merlin 500-45 V12, 1.600 cv", maxSpeed: "665 km/h", emptyWeight: "2.666 kg", maxWeight: "3.330 kg", range: "765 km (depósito interno)", ceiling: "10.200 m", armament: "2 × cañón Hispano-Suiza HS-404/408 de 20 mm; 8 cohetes Oerlikon de 80 mm", desc: "Versión definitiva con motor Rolls-Royce Merlin 500-45, primer vuelo el 29 de marzo de 1954; unos 172 ejemplares construidos Hélice Rotol de cuatro palas; morro rediseñado («buche») para alojar el Merlin; 172 ejemplares, en servicio desde 1954 hasta octubre de 1965." }
     ],
     history: "Empleado en misiones de apoyo cercano y policía colonial sobre el Sáhara español. Retirado el 27 de diciembre de 1965, siendo el último caza derivado del Bf 109 en servicio militar activo en el mundo. Varios supervivientes protagonizaron, caracterizados de Messerschmitt, la película «La Batalla de Inglaterra» (1969) y siguen volando hoy en colecciones históricas."
   },
@@ -119,8 +119,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "700 km/h", range: "1.100 km", ceiling: "12.700 m",
     armament: "2 × ametralladora de 7,62 mm u opcional cañón de 12,7 mm; puntos subalares para bombas ligeras y cohetes (HA-220)",
     variants: [
-      { name: "HA-200", desc: "Versión de entrenamiento biplaza en tándem, primer vuelo el 12 de agosto de 1955, en servicio desde 1962" },
-      { name: "HA-220 «Super Saeta»", desc: "Versión monoplaza de ataque ligero derivada, con mayor capacidad de armamento subalar" }
+      { name: "HA-200", engine: "2 × Turboméca Marboré II turborreactor, 400 kg de empuje cada uno", maxSpeed: "700 km/h", emptyWeight: "2.235 kg", maxWeight: "3.400 kg", armament: "2 × ametralladora de 7,62 mm u opcional cañón de 12,7 mm", desc: "Versión de entrenamiento biplaza en tándem, primer vuelo el 12 de agosto de 1955, en servicio desde 1962" },
+      { name: "HA-220 «Super Saeta»", engine: "2 × Turboméca Marboré VI turborreactor, 480 kg de empuje cada uno", maxSpeed: "720 km/h", emptyWeight: "2.400 kg", maxWeight: "3.700 kg", armament: "2 × cañón de 7,62/12,7 mm; puntos subalares ampliados para bombas ligeras y cohetes", desc: "Versión monoplaza de ataque ligero derivada, con mayor capacidad de armamento subalar Versión monoplaza de ataque, empleada en combate contra el Polisario en el Sáhara Occidental." }
     ],
     history: "Se construyeron 212 ejemplares en total, incluidos 90 fabricados en Egipto como Helwan Al-Kahira. El HA-200/220 combatió activamente contra el Frente Polisario en el Sáhara Occidental a mediados de los años setenta, siendo el primer reactor de diseño español empleado en combate real."
   },
@@ -142,7 +142,7 @@ aircraftData = aircraftData.concat([
     maxSpeed: "1.100 km/h", range: "1.250 km", ceiling: "15.000 m",
     armament: "6 × ametralladora Browning M3 de 12,7 mm; puntos subalares para cohetes o bombas y, posteriormente, misiles AIM-9 Sidewinder",
     variants: [
-      { name: "F-86F-40", desc: "Estándar único operado por España, procedente de excedentes de la USAF y modernizado al estándar F-40 con ala «6-3» de borde de ataque extendido" }
+      { name: "F-86F-40", engine: "General Electric J47-GE-27, 2.720 kg de empuje", maxSpeed: "1.100 km/h", emptyWeight: "5.050 kg", maxWeight: "8.230 kg", armament: "6 × Browning M3 de 12,7 mm; cohetes o bombas y, posteriormente, AIM-9 Sidewinder", desc: "Estándar único operado por España, procedente de excedentes de la USAF y modernizado al estándar F-40 con ala «6-3» de borde de ataque extendido Único estándar operado por España (unos 270 ejemplares, ex excedentes USAF modernizados al estándar F-40 con ala «6-3»)." }
     ],
     history: "Llegaron a Getafe el 30 de junio de 1955; se recibieron unos 270 ejemplares, que equiparon las Alas 1 (Manises), 2 (Zaragoza), 4 (Palma) y 6 (Torrejón). Sobre el F-86 se formó en 1956 la primera patrulla acrobática española, la «Patrulla Ascua». Permaneció en servicio hasta 1973, acumulando cerca de 350.000 horas de vuelo."
   },
@@ -164,8 +164,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "2.130 km/h (Mach 2)", range: "1.740 km", ceiling: "15.240 m",
     armament: "1 × cañón M61 Vulcan de 20 mm; misiles AIM-9 Sidewinder",
     variants: [
-      { name: "F-104G / C.8", desc: "18 ejemplares monoplaza de interceptación" },
-      { name: "TF-104G / CE.8", desc: "3 ejemplares biplaza de entrenamiento" }
+      { name: "F-104G / C.8", engine: "General Electric J79-GE-11A, 15.600 lbf con postcombustión", maxSpeed: "2.130 km/h (Mach 2)", emptyWeight: "6.760 kg", maxWeight: "13.170 kg", armament: "1 × cañón M61 Vulcan de 20 mm; misiles AIM-9 Sidewinder", desc: "18 ejemplares monoplaza de interceptación 18 ejemplares monoplaza de interceptación." },
+      { name: "TF-104G / CE.8", engine: "General Electric J79-GE-11A, 15.600 lbf con postcombustión", crew: 2, maxSpeed: "2.050 km/h (Mach 1,9)", emptyWeight: "6.850 kg", maxWeight: "13.000 kg", armament: "1 × cañón M61 Vulcan de 20 mm (capacidad reducida por la cabina biplaza); AIM-9 Sidewinder", desc: "3 ejemplares biplaza de entrenamiento 3 ejemplares biplaza de entrenamiento operativo." }
     ],
     history: "Llegaron a Rota el 6 de junio de 1965 (21 ejemplares en total) para equipar el Ala 6/16 en Torrejón. Alemania Occidental, por comparación, perdió 292 de sus 916 Starfighters y 116 pilotos. Retirado en enero de 1973 (último vuelo), sustituido por el F-4C Phantom II."
   },
@@ -187,8 +187,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "2.350 km/h (Mach 2,2)", range: "1.200 km", ceiling: "20.000 m",
     armament: "2 × cañón DEFA de 30 mm; misiles Matra R530/Magic, bombas y cohetes",
     variants: [
-      { name: "Mirage IIIEE / C.11", desc: "24 ejemplares monoplaza, primeros ocho recibidos el 12 de junio de 1970" },
-      { name: "Mirage IIIDE / CE.11", desc: "6 ejemplares biplaza de entrenamiento" }
+      { name: "Mirage IIIEE", engine: "SNECMA Atar 9C, 6.200 kgf con postcombustión", maxSpeed: "2.350 km/h (Mach 2,2)", emptyWeight: "7.050 kg", maxWeight: "13.700 kg", armament: "2 × cañón DEFA de 30 mm; misiles Matra R530/Magic, bombas y cohetes", desc: "24 ejemplares monoplaza, primeros ocho recibidos el 12 de junio de 1970 24 ejemplares monoplaza, escuadrones 111 y 113." },
+      { name: "Mirage IIIDE", engine: "SNECMA Atar 9C, 6.200 kgf con postcombustión", crew: 2, maxSpeed: "2.300 km/h (Mach 2,15)", emptyWeight: "7.150 kg", maxWeight: "13.600 kg", armament: "1 × cañón DEFA de 30 mm (capacidad reducida); misiles Matra Magic", desc: "6 ejemplares biplaza de entrenamiento 6 ejemplares biplaza de entrenamiento." }
     ],
     history: "España operó 30 ejemplares desde 1970. Sirvió de puente entre la generación del Sabre y la del Mirage F1/F-4 Phantom, retirándose a comienzos de los años noventa."
   },
@@ -210,8 +210,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "2.350 km/h (Mach 2,2)", range: "1.390 km", ceiling: "20.000 m",
     armament: "2 × cañón DEFA de 30 mm; misiles Matra Magic/Super 530, bombas y cohetes",
     variants: [
-      { name: "Mirage F1CE / F1EE", desc: "Versiones monoplaza de caza e interceptación, grueso de la flota (48 modernizados en el SLEP de 1996-2001)" },
-      { name: "Mirage F1EDA", desc: "4 ejemplares biplaza de entrenamiento operativo" }
+      { name: "Mirage F1CE / F1EE", engine: "SNECMA Atar 9K-50, 7.200 kgf con postcombustión", maxSpeed: "2.350 km/h (Mach 2,2)", emptyWeight: "7.400 kg", maxWeight: "16.200 kg", armament: "2 × cañón DEFA de 30 mm; misiles Matra Magic/Super 530, bombas y cohetes", desc: "Versiones monoplaza de caza e interceptación, grueso de la flota (48 modernizados en el SLEP de 1996-2001) Grueso de la flota (48 modernizados en el SLEP de 1996-2001)." },
+      { name: "Mirage F1EDA", engine: "SNECMA Atar 9K-50, 7.200 kgf con postcombustión", crew: 2, maxSpeed: "2.300 km/h (Mach 2,15)", emptyWeight: "7.550 kg", maxWeight: "16.000 kg", armament: "1 × cañón DEFA de 30 mm; misiles Matra Magic", desc: "4 ejemplares biplaza de entrenamiento operativo 4 ejemplares biplaza de entrenamiento operativo." }
     ],
     history: "España operó 91 ejemplares desde 1975; el último aparato modernizado se entregó el 15 de marzo de 2001. La primera misión española de Policía Aérea del Báltico de la OTAN (2006) se realizó con cuatro Mirage F1M del Ala 14 desde Šiauliai (Lituania), con España como nación líder. Retirado el 23 de junio de 2013 y sustituido por el Eurofighter (Alas 11/14) y el F/A-18 (Ala 46); muchos ejemplares retirados pasaron después a operar como agresores en Estados Unidos."
   },
@@ -233,8 +233,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "2.370 km/h (Mach 2,2)", range: "2.815 km", ceiling: "16.600 m",
     armament: "Hasta 7 toneladas de armamento aire-aire y aire-tierra en pilones externos; el RF-4C, desarmado, portaba equipo de reconocimiento fotográfico",
     variants: [
-      { name: "F-4C / C.12", desc: "36-40 ejemplares de caza, primeros recibidos en febrero de 1971 para los escuadrones 121 y 122 del Ala 12" },
-      { name: "RF-4C / CR.12", desc: "12 ejemplares de reconocimiento fotográfico (4 desde 1978 y 8 ex Guardia Nacional Aérea de Kentucky desde 1989) para el Escuadrón 123" }
+      { name: "F-4C / C.12", engine: "2 × General Electric J79-GE-15, 75,6 kN cada uno con postcombustión", maxSpeed: "2.370 km/h (Mach 2,2)", emptyWeight: "13.760 kg", maxWeight: "26.310 kg", armament: "Hasta 7 toneladas de armamento aire-aire y aire-tierra en pilones externos", desc: "36-40 ejemplares de caza, primeros recibidos en febrero de 1971 para los escuadrones 121 y 122 del Ala 12 36-40 ejemplares, escuadrones 121 y 122 del Ala 12, apoyados por tanqueros KC-97L." },
+      { name: "RF-4C / CR.12", engine: "2 × General Electric J79-GE-15, 75,6 kN cada uno con postcombustión", maxSpeed: "2.340 km/h (Mach 2,1)", emptyWeight: "13.900 kg", maxWeight: "26.300 kg", armament: "Desarmado; equipo de reconocimiento fotográfico en el morro", desc: "12 ejemplares de reconocimiento fotográfico (4 desde 1978 y 8 ex Guardia Nacional Aérea de Kentucky desde 1989) para el Escuadrón 123 12 ejemplares (4 desde 1978 y 8 ex Guardia Nacional de Kentucky desde 1989), Escuadrón 123." }
     ],
     history: "El F-4C, apoyado por reabastecedores KC-97L, se retiró en 1989 tras 28 años de servicio; el RF-4C continuó en servicio hasta 2002. Entre ambas versiones acumularon unas 55.000 horas de vuelo en cerca de 36.200 salidas."
   },
@@ -256,9 +256,9 @@ aircraftData = aircraftData.concat([
     maxSpeed: "1.445 km/h", range: "1.400 km", ceiling: "15.800 m",
     armament: "2 × cañón M39 de 20 mm; hasta 1.680 kg de misiles AIM-9, bombas y cohetes en pilones externos",
     variants: [
-      { name: "SF-5A", desc: "Versión monoplaza de caza ligera" },
-      { name: "SF-5B", desc: "Versión biplaza de entrenamiento" },
-      { name: "SF-5M", desc: "Modernización de aviónica que mantiene la flota en servicio como entrenador avanzado" }
+      { name: "SF-5A", engine: "2 × General Electric J85-GE-13, 22,2 kN cada uno con postcombustión", maxSpeed: "1.445 km/h", emptyWeight: "3.667 kg", maxWeight: "9.379 kg", armament: "2 × cañón M39 de 20 mm; hasta 1.680 kg de misiles, bombas y cohetes", desc: "Versión monoplaza de caza ligera" },
+      { name: "SF-5B", engine: "2 × General Electric J85-GE-13, 22,2 kN cada uno con postcombustión", crew: 2, maxSpeed: "1.430 km/h", emptyWeight: "3.740 kg", maxWeight: "9.300 kg", armament: "1 × cañón M39 de 20 mm (versión biplaza); misiles y bombas ligeras", desc: "Versión biplaza de entrenamiento Versión biplaza de entrenamiento (~34 de los 70 ejemplares construidos)." },
+      { name: "SF-5M", engine: "2 × General Electric J85-GE-13, 22,2 kN cada uno con postcombustión", maxSpeed: "1.460 km/h", emptyWeight: "3.700 kg", maxWeight: "9.400 kg", armament: "2 × cañón M39 de 20 mm; aviónica modernizada, AIM-9 y armamento guiado", desc: "Modernización de aviónica que mantiene la flota en servicio como entrenador avanzado Modernización de aviónica que mantiene la flota en servicio en el Ala 23, con más de 170.000 horas acumuladas desde 1970." }
     ],
     history: "CASA construyó 70 ejemplares, el primero volado el 22 de mayo de 1968; el primero llegó a Talavera la Real el 12 de noviembre de 1970. El tipo alcanzó 50 años de servicio español el 12 de noviembre de 2020, con más de 170.000 horas de vuelo acumuladas y más de 1.000 pilotos de caza formados en él, y sigue operativo con el Ala 23."
   },
@@ -280,8 +280,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "770 km/h", range: "3.700 km", ceiling: "12.500 m",
     armament: "6 puntos subalares (hasta 2.250 kg) más bahía ventral para cañón de 30 mm en versiones de ataque",
     variants: [
-      { name: "C-101EB", desc: "Versión inicial de entrenamiento básico y avanzado, primer vuelo el 27 de junio de 1977, en servicio desde el 17 de marzo de 1980" },
-      { name: "C-101CC", desc: "Versión de ataque ligero con capacidad de armamento ampliada" }
+      { name: "C-101EB", engine: "Garrett TFE731-2 turbofán, 3.500 lbf", maxSpeed: "760 km/h", emptyWeight: "3.470 kg", maxWeight: "5.300 kg", armament: "6 puntos subalares para entrenamiento armado ligero", desc: "Versión inicial de entrenamiento básico y avanzado, primer vuelo el 27 de junio de 1977, en servicio desde el 17 de marzo de 1980 Versión de entrenamiento básico y avanzado, en servicio desde el 17 de marzo de 1980." },
+      { name: "C-101CC", engine: "Garrett TFE731-5 turbofán, 4.300 lbf", maxSpeed: "770 km/h", emptyWeight: "3.700 kg", maxWeight: "5.600 kg", armament: "6 puntos subalares (hasta 2.250 kg) más bahía ventral para cañón de 30 mm o pod fotográfico", desc: "Versión de ataque ligero con capacidad de armamento ampliada Versión de ataque ligero con capacidad de armamento ampliada y motor más potente." }
     ],
     history: "España encargó 88 ejemplares (166 construidos en total contando exportaciones). Monta la Academia General del Aire (Ala 79) desde 1980 y a la Patrulla Águila desde su debut el 4 de junio de 1985. Prevista su sustitución por el Pilatus PC-21 hacia 2026."
   },
@@ -297,14 +297,14 @@ aircraftData = aircraftData.concat([
     typeLabel: "Transporte ligero / Instrucción paracaidista",
     crew: 2,
     description: "Bimotor de transporte ligero de diseño español, el avión más vendido de la historia de CASA. Empleado en transporte táctico, instrucción de salto paracaidista, vigilancia marítima (versión Patrullera) y enlace, en proceso de sustitución por nuevos Airbus C-295.",
-    engine: "2 × Honeywell TPE331 turbohélice, ~900-925 shp cada uno (según serie)",
+    engine: "2 × Honeywell TPE331 turbohélice, ~900-925 shp cada uno",
     wingspan: "20,28 m", length: "16,15 m", height: "6,60 m",
     emptyWeight: "3.780 kg", maxWeight: "8.100 kg",
     maxSpeed: "354 km/h", range: "1.680 km", ceiling: "7.925 m",
     armament: "Ninguno estándar en la versión de transporte; capacidad para 25 paracaidistas",
     variants: [
-      { name: "C-212 Aviocar (transporte)", desc: "Versión estándar de transporte táctico e instrucción de salto" },
-      { name: "C-212 (VIGMA)", desc: "Versión de vigilancia marítima operada por la Armada" }
+      { name: "C-212 Aviocar (transporte)", engine: "2 × Honeywell TPE331 turbohélice, ~900-925 shp cada uno", maxSpeed: "354 km/h", emptyWeight: "3.780 kg", maxWeight: "8.100 kg", armament: "Ninguno estándar; capacidad para 25 paracaidistas", desc: "Versión estándar de transporte táctico e instrucción de salto" },
+      { name: "C-212 (VIGMA)", engine: "2 × Honeywell TPE331 turbohélice, ~900-925 shp cada uno", maxSpeed: "345 km/h", emptyWeight: "3.900 kg", maxWeight: "8.000 kg", armament: "Radar de vigilancia marítima y equipo electro-óptico; sin armamento", desc: "Versión de vigilancia marítima operada por la Armada Versión de vigilancia marítima operada por la Armada." }
     ],
     history: "Se construyeron 483 ejemplares en total (el modelo más exportado de CASA). Los C-212 empleados en instrucción paracaidista acumulan más de 105.000 horas de vuelo y más de 1.000.000 de lanzamientos en paracaídas hasta finales de 2025. En diciembre de 2025 España encargó 18 nuevos Airbus C-295 para sustituir la flota restante de C-212 y CN-235."
   },
@@ -326,9 +326,9 @@ aircraftData = aircraftData.concat([
     maxSpeed: "1.915 km/h (Mach 1,8)", range: "3.330 km", ceiling: "15.240 m",
     armament: "1 × cañón M61 Vulcan de 20 mm; misiles AIM-9, AIM-120 AMRAAM, AGM-88 HARM, AGM-84 Harpoon; bombas guiadas y pods Litening",
     variants: [
-      { name: "EF-18A / EF-18B", desc: "Lote inicial de 72 ejemplares (60 monoplaza + 12 biplaza), primeras entregas desde el 10 de julio de 1986" },
-      { name: "EF-18A+ (ex USN)", desc: "24 ejemplares adicionales ex US Navy recibidos desde diciembre de 1995 para equipar el Ala 46 en Gando" },
-      { name: "EF-18M / EF-18BM", desc: "Modernización a estándar F/A-18C/D (aviónica, radar y armamento) realizada desde 1993 por McDonnell Douglas y CASA" }
+      { name: "EF-18A / EF-18B", engine: "2 × General Electric F404-GE-400, ~71,2 kN cada uno con postcombustión", maxSpeed: "1.915 km/h (Mach 1,8)", emptyWeight: "10.455 kg", maxWeight: "23.541 kg", armament: "1 × cañón M61 Vulcan de 20 mm; AIM-9, bombas convencionales", desc: "Lote inicial de 72 ejemplares (60 monoplaza + 12 biplaza), primeras entregas desde el 10 de julio de 1986 Lote inicial de 72 ejemplares (60 monoplaza + 12 biplaza), primeras entregas desde el 10 de julio de 1986." },
+      { name: "EF-18A+ (ex USN)", engine: "2 × General Electric F404-GE-400, ~71,2 kN cada uno con postcombustión", maxSpeed: "1.915 km/h (Mach 1,8)", emptyWeight: "10.600 kg", maxWeight: "23.541 kg", armament: "1 × cañón M61 Vulcan de 20 mm; AIM-9, AGM-84 Harpoon", desc: "24 ejemplares adicionales ex US Navy recibidos desde diciembre de 1995 para equipar el Ala 46 en Gando 24 ejemplares ex US Navy recibidos desde diciembre de 1995 para el Ala 46 en Gando; retirados en junio de 2026." },
+      { name: "EF-18M / EF-18BM", engine: "2 × General Electric F404-GE-400, ~71,2 kN cada uno con postcombustión", maxSpeed: "1.915 km/h (Mach 1,8)", emptyWeight: "10.810 kg", maxWeight: "23.541 kg", armament: "1 × cañón M61 Vulcan de 20 mm; AIM-120 AMRAAM, AGM-88 HARM, AGM-84 Harpoon, pods Litening", desc: "Modernización a estándar F/A-18C/D (aviónica, radar y armamento) realizada desde 1993 por McDonnell Douglas y CASA Modernización a estándar F/A-18C/D desde 1993 (McDonnell Douglas y CASA): radar, aviónica y armamento mejorados." }
     ],
     history: "Con 96 ejemplares recibidos en total, el EF-18 ha participado en operaciones OTAN sobre Bosnia y Kosovo (Destacamento «Ícaro», 1994-2002), en la Operación Unified Protector sobre Libia (2011) y en sucesivas misiones de Policía Aérea del Báltico de la OTAN («Destacamento Vilkas»). El Ala 46 retiró sus EF-18A+ en junio de 2026, iniciando su relevo por el Eurofighter dentro del programa Halcón."
   },
@@ -350,9 +350,9 @@ aircraftData = aircraftData.concat([
     maxSpeed: "2.470 km/h (Mach 2,0)", range: "3.500 km", ceiling: "19.812 m",
     armament: "1 × cañón Mauser BK-27 de 27 mm; misiles AMRAAM, Meteor e IRIS-T; armamento aire-tierra guiado",
     variants: [
-      { name: "C.16 (monoplaza)", desc: "Versión operativa estándar de caza multirol" },
-      { name: "CE.16 (biplaza)", desc: "Versión de entrenamiento operativo" },
-      { name: "Tranche 4 «Halcón»", desc: "Nueva generación con radar de escaneo electrónico activo (AESA), en proceso de incorporación 2025-2035" }
+      { name: "C.16 (monoplaza)", engine: "2 × Eurojet EJ200 turbofán con postcombustión", maxSpeed: "2.470 km/h (Mach 2,0)", emptyWeight: "11.500 kg", maxWeight: "22.800 kg", armament: "1 × cañón Mauser BK-27 de 27 mm; AMRAAM/Meteor, IRIS-T, armamento guiado aire-tierra", desc: "Versión operativa estándar de caza multirol" },
+      { name: "CE.16 (biplaza)", engine: "2 × Eurojet EJ200 turbofán con postcombustión", crew: 2, maxSpeed: "2.450 km/h (Mach 1,98)", emptyWeight: "11.700 kg", maxWeight: "22.600 kg", armament: "1 × cañón Mauser BK-27 de 27 mm (capacidad reducida); AMRAAM/Meteor", desc: "Versión de entrenamiento operativo Versión de entrenamiento operativo." },
+      { name: "Tranche 4 «Halcón»", engine: "2 × Eurojet EJ200 turbofán con postcombustión", maxSpeed: "2.470 km/h (Mach 2,0)", emptyWeight: "11.700 kg", maxWeight: "23.500 kg", armament: "1 × cañón Mauser BK-27 de 27 mm; radar de escaneo electrónico activo (AESA); AMRAAM/Meteor", desc: "Nueva generación con radar de escaneo electrónico activo (AESA), en proceso de incorporación 2025-2035 45 nuevos ejemplares (Halcón I: 20, junio 2022; Halcón II: 25, diciembre 2024) con radar AESA, en incorporación 2025-2035, para sustituir al EF-18." }
     ],
     history: "El primer prototipo biplaza español (DA-6) voló desde Getafe el 31 de agosto de 1996; las primeras entregas a España llegaron en mayo de 2004, asumiendo la Alerta de Reacción Rápida de la OTAN desde Morón en julio de 2008. España opera hoy unos 69 Eurofighters de un pedido original de 74, cifra que crecerá hasta 115 con el programa Halcón (45 nuevos Tranche 4 para sustituir al EF-18 Hornet: 20 unidades del contrato «Halcón I» de junio de 2022, con primer avión presentado en Getafe el 1 de junio de 2025, y 25 unidades más del contrato «Halcón II» firmado con la NETMA el 20 de diciembre de 2024, con entregas entre 2030 y 2035)."
   },
@@ -374,8 +374,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "1.065 km/h", range: "1.840 km", ceiling: "15.000 m",
     armament: "1 × cañón GAU-12 de 25 mm; misiles AIM-9 Sidewinder, bombas y cohetes en pilones subalares",
     variants: [
-      { name: "EAV-8B «Cobra»", desc: "Primeros 3 ejemplares recibidos el 6 de octubre de 1987" },
-      { name: "EAV-8B+ «Matador II+»", desc: "8 nuevos ejemplares ensamblados en España por CASA entre 1996 y 1997, con radar mejorado; el resto de la flota recibió el mismo estándar" }
+      { name: "EAV-8B «Cobra»", engine: "Rolls-Royce Pegasus 11-21 (F402-RR-406A), ~9.750 kg de empuje vectorial", maxSpeed: "1.050 km/h", emptyWeight: "6.740 kg", maxWeight: "13.500 kg", armament: "1 × cañón GAU-12 de 25 mm; AIM-9, bombas y cohetes", desc: "Primeros 3 ejemplares recibidos el 6 de octubre de 1987 Primeros 3 ejemplares recibidos el 6 de octubre de 1987." },
+      { name: "EAV-8B+ «Matador II+»", engine: "Rolls-Royce Pegasus 11-61 (F402-RR-408A), ~10.700 kg de empuje vectorial", maxSpeed: "1.065 km/h", emptyWeight: "6.940 kg", maxWeight: "14.100 kg", armament: "1 × cañón GAU-12 de 25 mm; radar APG-65 mejorado; AIM-120 AMRAAM, AGM-65 Maverick, bombas y cohetes", desc: "8 nuevos ejemplares ensamblados en España por CASA entre 1996 y 1997, con radar mejorado; el resto de la flota recibió el mismo estándar 8 nuevos ejemplares ensamblados en España por CASA (1996-97), con radar mejorado; el resto de la flota se actualizó al mismo estándar." }
     ],
     history: "La escuadrilla acumula más de 50.000 horas de vuelo. Su relevo (posiblemente por el F-35B) se debate para en torno al año 2030."
   },
@@ -397,7 +397,7 @@ aircraftData = aircraftData.concat([
     maxSpeed: "780 km/h", range: "4.540 km (con carga máxima)", ceiling: "12.190 m",
     armament: "Ninguno estándar; capacidad de reabastecimiento en vuelo y de lanzamiento de carga y paracaidistas",
     variants: [
-      { name: "A400M Atlas", desc: "Versión estándar en servicio con el Ala 31" }
+      { name: "A400M Atlas", engine: "4 × Europrop TP400-D6 turbohélice, ~11.000 shp cada uno", maxSpeed: "780 km/h", emptyWeight: "76.500 kg", maxWeight: "141.000 kg", armament: "Ninguno estándar; reabastecimiento en vuelo y lanzamiento de carga/paracaidistas", desc: "Versión estándar en servicio con el Ala 31 Única versión en servicio con el Ala 31 (Zaragoza)." }
     ],
     history: "Sustituye gradualmente a los C-130 Hércules y CN-235 en misiones de transporte estratégico, habiendo participado en despliegues expedicionarios como el realizado en Australia junto a Eurofighters y el A330 MRTT."
   },
@@ -419,7 +419,7 @@ aircraftData = aircraftData.concat([
     maxSpeed: "880 km/h", range: "16.000 km", ceiling: "12.500 m",
     armament: "Ninguno; sistema de reabastecimiento en vuelo por manguera y cesta (probe-and-drogue)",
     variants: [
-      { name: "A330 MRTT", desc: "Tres unidades adquiridas en noviembre de 2021, convertidas por Airbus en Getafe" }
+      { name: "A330 MRTT", engine: "2 × Rolls-Royce Trent 700 turbofán", maxSpeed: "880 km/h", emptyWeight: "125.000 kg", maxWeight: "233.000 kg", armament: "Ninguno; sistema de reabastecimiento por manguera y cesta (probe-and-drogue)", desc: "Tres unidades adquiridas en noviembre de 2021, convertidas por Airbus en Getafe Tres unidades convertidas por Airbus en Getafe a partir de aviones ex Iberia, en servicio con el Ala 45 (Torrejón) desde 2023." }
     ],
     history: "El 15 de octubre de 2025 el TK-24-03 del Ala 45 realizó, según el propio Ejército del Aire y del Espacio, «el vuelo más largo, realizado sin escalas, de la historia» de la fuerza aérea española: 11.600 km sobre 12 países en 15 horas y 26 minutos, partiendo de Hangzhou (China)."
   },
@@ -439,10 +439,10 @@ aircraftData = aircraftData.concat([
     wingspan: "25,81 m", length: "24,45 m", height: "8,60 m",
     emptyWeight: "11.200 kg", maxWeight: "23.200 kg",
     maxSpeed: "480 km/h", range: "4.167 km", ceiling: "9.144 m",
-    armament: "Ninguno en versión de transporte; la versión MPA/MSA puede portar torpedos y misiles antibuque",
+    armament: "Ninguno estándar; la versión MPA/MSA puede portar torpedos y misiles antibuque",
     variants: [
-      { name: "C-295 (transporte)", desc: "Versión estándar operada por los escuadrones 352 y 353 del Ala 35" },
-      { name: "C-295 MPA/MSA «VIGMA»", desc: "Versión de patrulla y vigilancia marítima; 16 unidades adicionales encargadas junto con las de transporte" }
+      { name: "C-295 (transporte)", engine: "2 × Pratt & Whitney Canada PW127G turbohélice, ~2.645 shp cada uno", maxSpeed: "480 km/h", emptyWeight: "11.200 kg", maxWeight: "23.200 kg", armament: "Ninguno estándar", desc: "Versión estándar operada por los escuadrones 352 y 353 del Ala 35 Escuadrones 352 y 353 del Ala 35, más de 90.000 horas de vuelo acumuladas." },
+      { name: "C-295 MPA/MSA «VIGMA»", engine: "2 × Pratt & Whitney Canada PW127G turbohélice, ~2.645 shp cada uno", maxSpeed: "460 km/h", emptyWeight: "11.900 kg", maxWeight: "23.200 kg", armament: "Radar de vigilancia, sonoboyas y, en la versión MPA, torpedos y misiles antibuque", desc: "Versión de patrulla y vigilancia marítima; 16 unidades adicionales encargadas junto con las de transporte 16 unidades adicionales de patrulla y vigilancia marítima encargadas junto con las de transporte." }
     ],
     history: "Es el mayor operador mundial del tipo, con más de 90.000 horas de vuelo acumuladas. En diciembre de 2025 España encargó 18 unidades adicionales (unos 1.560 millones de euros) para sustituir la flota restante de C-212 y CN-235."
   },
@@ -464,8 +464,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "315 km/h", range: "800 km", ceiling: "4.000 m",
     armament: "1 × cañón de 30 mm; misiles HOT/Spike, cohetes de 68 mm y misiles aire-aire Mistral",
     variants: [
-      { name: "Tigre HAP", desc: "Configuración inicial de apoyo y protección, primeros 6 ejemplares recibidos" },
-      { name: "Tigre HAD/E", desc: "Versión mejorada de apoyo destructivo/español, con mayor capacidad de armamento" }
+      { name: "Tigre HAP", engine: "2 × MTU/Turbomeca/Rolls-Royce MTR390 turboeje", maxSpeed: "315 km/h", emptyWeight: "3.300 kg", maxWeight: "6.000 kg", armament: "1 × cañón de 30 mm; cohetes de 68 mm y misiles aire-aire Mistral", desc: "Configuración inicial de apoyo y protección, primeros 6 ejemplares recibidos Configuración inicial de apoyo y protección, primeros 6 ejemplares recibidos." },
+      { name: "Tigre HAD/E", engine: "2 × MTU/Turbomeca/Rolls-Royce MTR390-E turboeje, potencia incrementada", maxSpeed: "315 km/h", emptyWeight: "3.400 kg", maxWeight: "6.600 kg", armament: "1 × cañón de 30 mm; misiles HOT/Spike, cohetes de 68 mm y misiles aire-aire Mistral", desc: "Versión mejorada de apoyo destructivo/español, con mayor capacidad de armamento Versión mejorada de apoyo destructivo/español, con mayor capacidad de armamento y aviónica." }
     ],
     history: "España adquirió 24 ejemplares desde la elección del programa en 2003. Una versión modernizada del Tigre podría entrar en servicio hacia 2030, según declaraciones del jefe de las FAMET."
   },
@@ -487,8 +487,8 @@ aircraftData = aircraftData.concat([
     maxSpeed: "300 km/h (crucero)", range: "1.600 km", ceiling: "6.000 m",
     armament: "Puntos para ametralladoras de puerta; sin armamento pesado estándar",
     variants: [
-      { name: "NH90 TTH / HT-29 (FAMET)", desc: "Primeras entregas al Ejército de Tierra desde 2015" },
-      { name: "NH90 / HD.29 «Lobo» (Ejército del Aire)", desc: "Entregas al Ejército del Aire desde 2020" }
+      { name: "NH90 TTH / HT-29 (FAMET)", engine: "2 × Rolls-Royce Turbomeca RTM322 turboeje", maxSpeed: "300 km/h (crucero)", emptyWeight: "6.400 kg", maxWeight: "10.600 kg", armament: "Puntos para ametralladoras de puerta; sin armamento pesado estándar", desc: "Primeras entregas al Ejército de Tierra desde 2015 Primeras entregas al Ejército de Tierra desde 2015." },
+      { name: "NH90 / HD.29 «Lobo» (Ejército del Aire)", engine: "2 × Rolls-Royce Turbomeca RTM322 turboeje", maxSpeed: "300 km/h (crucero)", emptyWeight: "6.450 kg", maxWeight: "10.600 kg", armament: "Puntos para ametralladoras de puerta; equipado para combate en rescate (CSAR)", desc: "Entregas al Ejército del Aire desde 2020 Entregas al Ejército del Aire desde 2020, orientado a misiones de rescate de combate." }
     ],
     history: "España encargó 45 unidades repartidas entre los tres ejércitos; las FAMET operan en conjunto unos 75 helicópteros de distintos tipos con cerca de 1.400 efectivos."
   }
