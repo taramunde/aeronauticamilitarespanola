@@ -1,0 +1,508 @@
+// ================================================
+// data-clasica-pioneros.js — Aeronaves pioneras (1910-1922)
+// Ampliación a partir de fuente primaria: J.M. Salas Larrazábal,
+// «Aviones militares españoles 1911-1936», Premio Ejército del Aire.
+// Cubre tipos documentados en la primera etapa de Cuatro Vientos,
+// la Escuadrilla de Tetuán y los años de posguerra europea, ausentes
+// hasta ahora de la base de datos o mal generalizados (caso Nieuport).
+// ================================================
+// Este archivo AMPLÍA aircraftData; debe cargarse después de
+// data-clasica.js y antes de data-moderna.js.
+
+aircraftData = aircraftData.concat([
+  {
+    id: 200,
+    era: "clasica",
+    name: "Henry Farman Militar Modelo 1910",
+    image: "",
+    designation: "Henry Farman Militar Modelo 1910",
+    year: 1911, yearEnd: 1914,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Biplaza de escuela",
+    crew: 2,
+    description: "Los dos primeros Henry Farman, comprados por el capitán Kindelán en París en octubre de 1910 (23.000 ptas. cada uno), fueron las primeras aeronaves militares de España, llegadas a Cuatro Vientos en marzo de 1911. Biplano propulsor con hélice empujando por detrás, timón de altura anterior y piloto expuesto al viento en el borde de ataque del ala inferior.",
+    engine: "Gnôme rotativo, 50 cv",
+    wingspan: "16,5 m", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "unos 600 kg",
+    maxSpeed: "62 km/h (los b.H.F. y el b.E. núm. 1)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "b.H.F. núms. 1 y 2 (originales)", maxSpeed: "62 km/h", desc: "Los dos ejemplares originales comprados en Francia, usados para instruir a los capitanes Kindelán, Herrera y Arrillaga y a los tenientes Barrón y Ortiz Echagüe." },
+      { name: "b.E. núm. 3", maxSpeed: "55 km/h", desc: "Tercer aparato montado en el taller de Cuatro Vientos («biplano Español» o «biplano Escuela»); según el Servicio, algo más lento que los dos primeros." }
+    ],
+    history: "Con estos tres Henry Farman se realizaron 720 vuelos en 1911 (96:06 horas totales, 8 minutos de media). El 30 de diciembre de 1911 el capitán Arrillaga sufrió el primer accidente grave, quedando trastornado mentalmente. Formaron a las promociones segunda y tercera de pilotos militares en 1912-1913, hasta ser sustituidos por los Bristol y los Maurice Farman MF.7. Se especula que no pasaron de 1914. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 201,
+    era: "clasica",
+    name: "Bristol Boxkite",
+    image: "",
+    designation: "Bristol Boxkite Military",
+    year: 1912, yearEnd: 1913,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Biplaza de escuela",
+    crew: 2,
+    description: "Biplano de escuela británico, versión «Military» de ala superior extendida del Bristol Boxkite. Llegó a Cuatro Vientos en enero de 1912, superando claramente en construcción y prestaciones a los Henry Farman ante los pilotos españoles.",
+    engine: "Gnôme rotativo, 70 cv (desde 1913, 80 cv)",
+    wingspan: "14,52 ó 14,17 m (no comprobado)", length: "11,73 m", height: "N/D",
+    emptyWeight: "408 kg", maxWeight: "522 kg",
+    maxSpeed: "64 km/h (posiblemente con Gnôme de 50 cv)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "Boxkite Military", engine: "Gnôme, 70-80 cv", desc: "2 ejemplares adquiridos el 27 de febrero de 1912; velocidad normal según el Servicio de Aeronáutica Militar: 65 km/h." }
+    ],
+    history: "Empleado para el examen de los «biplanistas» de la segunda promoción junto al Doutre. En 1913, con el ingreso del Maurice Farman MF.7, dejó de emplearse. El Museo del Aire de Cuatro Vientos conserva una réplica a escala real de un Nieuport IV, no del Boxkite. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 204,
+    era: "clasica",
+    name: "Bristol Prier",
+    image: "",
+    designation: "Bristol Prier Two Seater / Single Seater / Prier-Dickson",
+    year: 1912, yearEnd: 1915,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Monoplano de escuela",
+    crew: 1,
+    description: "Monoplano de estilo Blériot diseñado por el francés Pierre Prier para la Bristol and Colonial Aeroplane, con mando lateral por alabeo de las alas. Voló en Cuatro Vientos desde enero de 1912 y fue sometido a una demostración táctica con éxito el 22 de febrero de ese año ante el Rey Alfonso XIII.",
+    engine: "Gnôme, 50 cv (biplaza) o Anzani, 35 cv (monoplaza)",
+    wingspan: "9,98 m (biplaza) / 9,19 m (monoplaza) / 10,36 m (Prier-Dickson)", length: "7,47 m (biplaza y monoplaza) / 7,92 m (Prier-Dickson)", height: "N/D",
+    emptyWeight: "295 kg (biplaza)", maxWeight: "454 kg (biplaza)",
+    maxSpeed: "105 km/h (biplaza y Prier-Dickson); 93 km/h (monoplaza)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "Prier Two Seater", engine: "Gnôme, 50 cv", maxSpeed: "105 km/h", emptyWeight: "295 kg", maxWeight: "454 kg", desc: "Primer Bristol Prier adquirido (numerado m.B. núm. 2); velocidad normal según el Servicio, 95 km/h." },
+      { name: "Prier Single Seater", engine: "Anzani, 35 cv", maxSpeed: "93 km/h", emptyWeight: "281 kg", maxWeight: "354 kg", desc: "Monoplaza «para prácticas de alumnos avanzados» (m.B. núm. 1); llegó a Cuatro Vientos el 23 de abril de 1912." },
+      { name: "Prier-Dickson Two Seater", engine: "Probablemente Gnôme, 70 cv", maxSpeed: "105 km/h (posiblemente por el motor de 70 cv)", emptyWeight: "299 kg", maxWeight: "490 kg", desc: "Modelo modificado con fuselaje más largo y plano fijo de cola (m.B. núm. 3), sustituto de un biplaza accidentado antes de su recepción." }
+    ],
+    history: "Los monoplanistas de las primeras promociones se instruyeron principalmente en el Prier biplaza. Se ignora la fecha exacta de baja, estimándose en 1914 ó 1915. Cuatro accidentes documentados en 1912, incluyendo el de Illescas (Henri Jullerot y el coronel Vives, agosto de 1912). (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 205,
+    era: "clasica",
+    name: "Doutre",
+    image: "",
+    designation: "Doutre (sobre célula Henry Farman)",
+    year: 1912, yearEnd: 1913,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Biplaza con estabilizador automático",
+    crew: 2,
+    description: "El «Doutre» debe su nombre al inventor francés de un dispositivo automático de estabilización longitudinal (una placa sensible al viento relativo que, mediante un servomotor de aire comprimido, corregía el timón de altura). El aparato sobre el que se montó no era, pese a la creencia extendida, un Maurice Farman, sino un Henry Farman con motor fijo Renault de ocho cilindros en V.",
+    engine: "Renault, 70 cv",
+    wingspan: "unos 14,5 m", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "85 km/h (velocidad normal según el Servicio)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "Doutre (con estabilizador)", desc: "Configuración original demostrada en Villacoublay en 1911 y adquirida a fines de esa temporada; llegó a Cuatro Vientos a finales de mayo o principios de junio de 1912." },
+      { name: "Doutre (estabilizador desmontado)", desc: "Tras un periodo de pruebas, el dispositivo automático fue retirado, quedando el aparato como un Henry Farman convencional pero con motor fijo." }
+    ],
+    history: "Volado con frecuencia por el capitán Kindelán. Se empleó como aparato de escuela al menos en 1913; el último vuelo documentado es de noviembre de 1913, cuando el capitán de Ingenieros Zorrilla obtuvo sobre él su título de piloto elemental. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 206,
+    era: "clasica",
+    name: "Nieuport IIN «pingüino»",
+    image: "",
+    designation: "Nieuport IIN (rouleur)",
+    year: 1912, yearEnd: 1915,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Monoplaza de escuela (rouleur)",
+    crew: 1,
+    description: "El primero de los tres monoplanos Nieuport autorizados en noviembre de 1911 para iniciar la enseñanza en monoplano en Cuatro Vientos. Era un «rouleur» o «pingüino»: un aparato de ala recortada pensado para practicar carreras por el campo y saltos breves, aunque en la práctica demostró ser capaz de volar.",
+    engine: "Nieuport, 28 cv",
+    wingspan: "8,65 m", length: "7,20 m", height: "N/D",
+    emptyWeight: "240 kg", maxWeight: "N/D",
+    maxSpeed: "120 km/h (velocidad normal según el Servicio, 110 km/h)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "IIN (único ejemplar)", desc: "Recibido en abril de 1923 [sic, 1912] de manos de Charles Weymann tras varios intentos fallidos de recepción por otros pilotos de fábrica." }
+    ],
+    history: "Los mandos del Nieuport (palanca para el timón de altura; alerones por los pedales; dirección por la palanca, al contrario que en el Farman) exigían instrucción aparte; el capitán Herrera fue comisionado a la Escuela Nieuport de Pau para aprender. El capitán Eduardo Barrón, que volaba todo lo que aparecía por Cuatro Vientos, evitó siempre el Nieuport por lo peculiar de sus mandos. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 207,
+    era: "clasica",
+    name: "Nieuport IIG",
+    image: "",
+    designation: "Nieuport IIG",
+    year: 1912, yearEnd: 1915,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Biplaza de escuela",
+    crew: 2,
+    description: "Segundo y tercer monoplano Nieuport de la primera adquisición de 1912: biplazas de escuela para instrucción con profesor y para la realización de los exámenes del título de piloto, ya con el motor Gnôme de 50 cv (el Nieuport de concurso militar francés de 1911 usaba, en cambio, dos Gnôme de 50 unidos, 100 cv en total).",
+    engine: "Gnôme, 50 cv",
+    wingspan: "8,65 m", length: "7,20 m", height: "N/D",
+    emptyWeight: "310 kg", maxWeight: "N/D",
+    maxSpeed: "140 km/h (velocidad normal según el Servicio, 95 km/h)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "IIG (2 ejemplares)", desc: "Recibidos en mayo de 1912, pilotados en su recepción por Marc Bonnier tras el fallo de las pruebas por Emmanuel Helen y Charles Weymann." }
+    ],
+    history: "Solo diez pilotos se instruyeron en Nieuport en Cuatro Vientos a lo largo de los tres años que duró la escuela de «monoplanistas»; seis llegaron a pilotos de primera, la mayoría destinados después a la escuadrilla de Zeluán equipada con los más potentes Nieuport IVG. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 208,
+    era: "clasica",
+    name: "Nieuport IVG",
+    image: "",
+    designation: "Nieuport IVG",
+    year: 1913, yearEnd: 1917,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza militar",
+    crew: 2,
+    description: "Versión de mayor potencia de la familia Nieuport, con motor Gnôme de 80 cv, adquirida en número de cinco a finales de abril de 1913 para formar la primera escuadrilla operativa de monoplanos. Constituyó, junto a Maurice Farman MF.7 y Lohner, la escuadrilla expedicionaria enviada a Tetuán en octubre de 1913.",
+    engine: "Gnôme, 80 cv",
+    wingspan: "10,9 m", length: "7,8 m", height: "N/D",
+    emptyWeight: "350 kg", maxWeight: "N/D",
+    maxSpeed: "117 km/h (velocidad normal según el Servicio, 110 km/h)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "IVG (numerados m.N. 4 a 8)", desc: "Cinco ejemplares recibidos hacia finales de abril de 1913, con los que Herrera y sus alumnos obtuvieron el título de piloto superior." }
+    ],
+    history: "El 22 de octubre de 1913 salió para Tetuán la primera escuadrilla española (4 Lohner, 4 MF.7, 3 Nieuport IVG); el primer avión en volar en Tetuán fue precisamente un Nieuport IVG. En febrero de 1914 el capitán Herrera realizó con uno de ellos la primera travesía en vuelo del Estrecho de Gibraltar. Desde 1914 equiparon la escuadrilla de Zeluán (Melilla), donde se consumieron hacia 1917 por desgaste del material. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 209,
+    era: "clasica",
+    name: "Maurice Farman MF.11",
+    image: "",
+    designation: "Maurice Farman MF.11 «Aceituna»",
+    year: 1914, yearEnd: 1919,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de reconocimiento",
+    crew: 2,
+    description: "Apodado «Aceituna» por el color de su barquilla, el MF.11 (también llamado MF.14) fue el primer Maurice Farman sin el «estabilizador delantero» que había caracterizado al MF.7, con cola horizontal monoplana y dos timones de dirección.",
+    engine: "Renault, 70 cv, o De Dion Bouton, 80 cv",
+    wingspan: "16,13 m", length: "9,48 m", height: "N/D",
+    emptyWeight: "615 kg", maxWeight: "920 kg",
+    maxSpeed: "110 km/h (motor De Dion de 80 cv)", range: "N/D (autonomía 3:45 h)", ceiling: "3.800 m (subida a 2.000 m en 21 min)",
+    armament: "Ninguno estándar en el servicio español; la versión británica «Shorthorn» de la Guerra Europea portaba una ametralladora Lewis",
+    variants: [
+      { name: "MF.11 (motor Renault 70 cv)", engine: "Renault, 70 cv", desc: "Motorización original, en servicio desde 1914; numeración probable b.MF núms. 11 a 16." },
+      { name: "MF.11 (motor De Dion Bouton 80 cv)", engine: "De Dion Bouton, 80 cv", maxSpeed: "110 km/h", desc: "Reequipados desde 1916 con motores importados a fines de 1915 (24 unidades), en paralelo a la fabricación nacional del MF.7 por Carde y Escoriaza." }
+    ],
+    history: "Se estima que se adquirieron unos seis ejemplares, poco antes del estallido de la Guerra Europea. Sirvió en el aeródromo de Arcila (Marruecos) desde 1915 al menos hasta 1919, y en la Península hasta principios de los años veinte. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 210,
+    era: "clasica",
+    name: "Lohner Pfeilflieger",
+    image: "",
+    designation: "Lohner Pfeilflieger",
+    year: 1913, yearEnd: 1917,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza militar",
+    crew: 2,
+    description: "Biplano tractor austríaco de ala en flecha (de ahí «Pfeilflieger», «avión flecha»), notablemente avanzado y eficiente para 1913, y el primer biplano tractor del Servicio de Aeronáutica Militar, sustituyendo el concepto de biplano propulsor de los Farman.",
+    engine: "Austro-Daimler, 90 cv",
+    wingspan: "13,46 m", length: "7,9 m", height: "N/D",
+    emptyWeight: "620 kg", maxWeight: "878 kg",
+    maxSpeed: "130 km/h (velocidad normal según el Servicio, 125 km/h)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno de origen; el 17 de diciembre de 1913 se realizó desde uno de ellos el primer bombardeo de la historia con bombas de aviación auténticas",
+    variants: [
+      { name: "Pfeilflieger (6 ejemplares)", desc: "Demostrado en Cuatro Vientos en mayo de 1913 por Karl Illner, primer piloto de Austria; aceptado el 4 de junio y contratados cinco más el 17 de julio." }
+    ],
+    history: "Fue inmediatamente la «estrella» de Cuatro Vientos por su velocidad. Cuatro Lohner formaron parte de la escuadrilla de Tetuán de octubre de 1913. Los capitanes Barrón y Cifuentes realizaron con uno de ellos, el 17 de diciembre de 1913, el primer bombardeo aéreo de la historia con bombas auténticas de aviación (un fraude periodístico posterior atribuyó erróneamente la foto a una tripulación alemana sobre Bélgica). Sirvió en Tetuán y Cuatro Vientos hasta 1917 al menos, siendo sustituido por el Barrón Flecha, derivado directo del propio Lohner. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 211,
+    era: "clasica",
+    name: "Morane-Saulnier Tipo 1913",
+    image: "",
+    designation: "Morane-Saulnier Tipo G",
+    year: 1913, yearEnd: 1919,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza tándem",
+    crew: 2,
+    description: "Monoplano ágil y precursor de los primeros cazas, adquirido a raíz de la donación de un aeroplano por la colonia española de Buenos Aires (los «Artal») para equipar la escuadrilla de Tetuán, gestionada por el teniente Ortiz Echagüe.",
+    engine: "Gnôme, 80 cv, o Le Rhône, 80 cv",
+    wingspan: "10,20 m", length: "6,38 m", height: "N/D",
+    emptyWeight: "280 kg", maxWeight: "N/D",
+    maxSpeed: "120 km/h", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "Morane-Saulnier «Artal» (3 ejemplares)", desc: "Más ligero y ágil que el Nieuport, con velocidad ascensional especialmente superior; incorporados a la escuadrilla de Tetuán en diciembre de 1913." }
+    ],
+    history: "Uno de los tres «Artal» se incendió en un aterrizaje forzoso en Francia en octubre de 1913 y fue reconstruido en el taller de Tetuán por el propio Ortiz Echagüe. Su historia terminó en septiembre de 1919, cuando dos accidentes mortales sucesivos en Getafe (el segundo con el capitán de la Rocha y el teniente Navarro Margati) llevaron a retirarlos definitivamente, en medio de una fuerte campaña de prensa contra el estado del material de la aviación militar. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 212,
+    era: "clasica",
+    name: "Kondor Taube",
+    image: "",
+    designation: "Kondor Flugzeugwerke Taube",
+    year: 1914, yearEnd: 1916,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza militar",
+    crew: 2,
+    description: "Ejemplar único del clásico monoplano alemán «Taube» (paloma), de alas alabeables características, en la variante fabricada por la Kondor Flugzeugwerke. Fue el aparato con el motor más potente del Servicio en su momento.",
+    engine: "Mercedes, 100 cv",
+    wingspan: "13,20 m", length: "9,10 m", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "Kondor (ejemplar único)", desc: "Traído a Cuatro Vientos en febrero-marzo de 1914 y volado por Josef Suvelack, fundador de la firma, que batió el récord de duración español (8 h 30 min) el 13 de marzo de 1914." }
+    ],
+    history: "Único ejemplar en el Servicio; su motor Mercedes pasó probablemente al Lohner/Flecha del Infante Alfonso de Orleans, lo que sitúa la baja del Kondor antes de mayo de 1916. Su creador, Suvelack, murió en septiembre de 1915 derribado por los británicos mientras volaba un Albatros en la Guerra Europea. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 213,
+    era: "clasica",
+    name: "Barrón Flecha",
+    image: "",
+    designation: "Barrón Flecha (biplano tractor)",
+    year: 1915, yearEnd: 1919,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de reconocimiento y bombardeo ligero",
+    crew: 2,
+    description: "El primer avión de tipo español en prestar servicio en aviación militar (aunque desarrollo de un extranjero, el austríaco Lohner), diseñado por el capitán Eduardo Barrón como evolución modificada del Lohner Pfeilflieger. Se convirtió en la plataforma de pruebas del primer motor de aviación Hispano-Suiza.",
+    engine: "Austro-Daimler, 90 cv (motorización inicial); posteriormente Hispano-Suiza 8A, 140 cv, o tal vez 8Aa, 150 cv",
+    wingspan: "14,00 m", length: "8,60 m", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "casi 1.000 kg",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno de serie",
+    variants: [
+      { name: "Flecha (Cuatro Vientos, núms. 1-6)", engine: "Austro-Daimler, 90 cv (inicial); Hispano-Suiza, 140 cv (desde 1916)", desc: "Serie de 6 aviones construida en los talleres de Cuatro Vientos; primer vuelo el 3 de abril de 1915. El 27 de julio de 1915 Barrón probó el primer Flecha con motor Hispano-Suiza, por lo que el Rey le concedió la Cruz de Caballero de la Orden de Carlos III al día siguiente." },
+      { name: "Flecha (Carde y Escoriaza, Zaragoza, núms. 7-18)", engine: "Hispano-Suiza, 140 cv", desc: "Segunda serie de 12 aviones fabricada en Zaragoza desde fines de 1916, con radiador frontal (a diferencia de los radiadores laterales de la primera serie) y algunas diferencias introducidas por Ortiz Echagüe." }
+    ],
+    history: "Sirvió en Tetuán, Zeluán y la escuadrilla de Sevilla (Tablada). El 27 de mayo de 1916, un Flecha con motor Mercedes (recuperado del Kondor Taube) pilotado por el Infante Alfonso de Orleans voló de Cuatro Vientos a Los Alcázares en vuelo directo. El historial, limpio de accidentes graves, terminó el 12 de mayo de 1919 con la pérdida del capitán Zubia y el observador Rodríguez Echagüe por rotura estructural de un ala, lo que precipitó la retirada de todo el material anticuado. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 214,
+    era: "clasica",
+    name: "Barrón W",
+    image: "",
+    designation: "Barrón W (biplano tractor)",
+    year: 1917, yearEnd: 1919,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de reconocimiento y bombardeo ligero",
+    crew: 2,
+    description: "Segundo diseño original de Eduardo Barrón, encargado directamente por el Rey Alfonso XIII para aprovechar mejor el motor Hispano-Suiza. El ala inferior tenía una forma en planta quebrada, en «W», que dio nombre al aparato, para mejorar la visión del observador hacia abajo.",
+    engine: "Curtiss OX, 90 cv (prototipo, a la espera de motor Hispano); Hispano-Suiza 8A/8Aa, 140-150 cv; Hispano-Suiza 8Ab, 180 cv",
+    wingspan: "14,00 m", length: "8,60 m", height: "N/D",
+    emptyWeight: "650 kg", maxWeight: "1.150 kg",
+    maxSpeed: "130 km/h (velocidad horizontal, motor Hispano de 140 cv)", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno documentado",
+    variants: [
+      { name: "W (motor Hispano 140 cv)", engine: "Hispano-Suiza, 140 cv", desc: "Grueso de la serie de 12 aparatos fabricada en Cuatro Vientos, entregada en 1917." },
+      { name: "W (motor Hispano 180 cv)", engine: "Hispano-Suiza 8Ab, 180 cv", desc: "Al menos parte de la segunda mitad de la serie recibió esta motorización más potente, documentada en el récord de altura con pasajero (4.750 m) batido por el capitán Fanjul en 1918." }
+    ],
+    history: "El prototipo voló por primera vez el 4 de octubre de 1915 con motor Curtiss OX (a la espera del Hispano-Suiza, que tardó más de un año en llegar). Sirvió en las escuadrillas de Madrid y Tetuán; en enero de 1919 cuatro Barrón W compitieron con los Flecha de Sevilla por la Copa Delgado. Ninguna referencia posterior consta tras el accidente mortal de Flecha de mayo de 1919, que provocó la retirada generalizada de material obsoleto. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 215,
+    era: "clasica",
+    name: "Curtiss JN-2",
+    image: "",
+    designation: "Curtiss JN-2 (terrestre)",
+    year: 1915, yearEnd: 1918,
+    branch: "ejercito",
+    type: "entrenamiento",
+    typeLabel: "Biplaza de entrenamiento",
+    crew: 2,
+    description: "Predecesor del célebre JN-4 «Jenny», adquirido en Estados Unidos ante la imposibilidad de comprar en la Europa en guerra. Biplaza tractor de aspecto convencional pero con un sistema de mandos poco ortodoxo (alerones accionados por inclinación lateral del asiento), que hubo que modificar tras la llegada a España.",
+    engine: "Curtiss OX, 90 cv",
+    wingspan: "12,25 m", length: "8,13 m", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "650 kg",
+    maxSpeed: "127 km/h", range: "N/D", ceiling: "N/D (subida a 600 m en 6 min)",
+    armament: "Ninguno",
+    variants: [
+      { name: "JN-2 (rueda, 6 ejemplares)", desc: "Recibidos en América por el comandante Herrera y el teniente de navío Viniegra, reincorporados a Cuatro Vientos en septiembre de 1915." }
+    ],
+    history: "Sirvió para adiestrar a oficiales pilotos de la Armada que debían pasar a los hidros de Los Alcázares. El teniente de navío Viniegra sufrió un grave accidente en su segundo vuelo de prueba, quedando incapacitado como piloto. Continuaron en uso durante gran parte de 1916 en Cuatro Vientos. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 216,
+    era: "clasica",
+    name: "Curtiss JN-2 Seaplane",
+    image: "",
+    designation: "Curtiss JN-2 Seaplane (hidro)",
+    year: 1915, yearEnd: 1919,
+    branch: "armada",
+    type: "hidroavion",
+    typeLabel: "Hidro biplaza de flotador central",
+    crew: 2,
+    description: "Versión hidro del JN-2, con flotador central y dos pequeños flotadores estabilizadores de punta de ala, primeros hidroaviones que tuvo la aviación militar española. Motorizados con el Curtiss OXX, más potente que el de los terrestres, por previsión del comandante Herrera ante las peores actuaciones esperables sobre el agua.",
+    engine: "Curtiss OXX, 100 cv (probablemente)",
+    wingspan: "N/D", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "Ninguno",
+    variants: [
+      { name: "JN-2 Seaplane (6 ejemplares)", desc: "Enviados al nuevo aeródromo marítimo de Los Alcázares, donde fueron montados; primer vuelo por Al J. Engel el 22 de noviembre de 1915." }
+    ],
+    history: "Formaron a los primeros oficiales pilotos de hidros de la Armada española: el capitán Valencia, el teniente White (primer piloto militar español de hidros, autodidacta), el teniente Olivié y el alférez de navío Navarro Capdevila. Agotados prematuramente por falta de repuestos, en enero de 1919 todos los pilotos marinos habían vuelto a destinos de la Armada. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 217,
+    era: "clasica",
+    name: "Pujol «España»",
+    image: "",
+    designation: "Pujol España (copia nacional del SPAD VII)",
+    year: 1917, yearEnd: 1922,
+    branch: "ejercito",
+    type: "caza",
+    typeLabel: "Caza monoplaza",
+    crew: 1,
+    description: "Versión española del SPAD VII, fabricada en Barcelona por Pujol, Comabella y Compañía (después Talleres Hereter) a partir de los planos parciales conseguidos en Francia por el coronel Rodríguez Mourelo, con la colaboración técnica del capitán Eduardo Barrón. Fue el primer intento serio de producir un caza nacional en serie.",
+    engine: "Hispano-Suiza 8Ab, 180 cv",
+    wingspan: "N/D (mayor distancia vertical entre alas que el SPAD 7 original)", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D (datos de Jane's no coinciden con los del SPAD 7 equivalente)", range: "N/D", ceiling: "N/D",
+    armament: "1 ametralladora Vickers sincronizada, como el SPAD VII original",
+    variants: [
+      { name: "«España» (prototipo)", desc: "Probado por el piloto Salvador Hedilla en Barcelona en septiembre de 1917 con resultado satisfactorio; Hedilla murió poco después, el 30 de octubre de 1917, en accidente con otro avión." },
+      { name: "«España» (serie, 12 unidades)", desc: "Contrato de 12 aparatos hacia octubre de 1917; las numerosas modificaciones introducidas por la dirección técnica de Talleres Hereter en los aviones de serie retrasaron y perjudicaron gravemente el programa." }
+    ],
+    history: "Los aparatos de serie, plagados de defectos, permanecieron inmóviles en Getafe desde su entrega forzada. Un informe de 1920 los consideraba, pese a todo, la opción más económica para las inexistentes escuadrillas de caza. El 2 de enero de 1922 el general Echagüe ordenó por fin volarlos, pero decidió poco después cortar por lo sano: los aparatos fueron desmontados y desechados, cerrando así el primer intento fallido de caza de fabricación española en serie. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 218,
+    era: "clasica",
+    name: "Hispano-Barrón (caza y reconocimiento)",
+    image: "",
+    designation: "Hispano-Barrón de caza / de reconocimiento",
+    year: 1919, yearEnd: 1920,
+    branch: "ejercito",
+    type: "caza",
+    typeLabel: "Prototipos de concurso militar",
+    crew: 1,
+    description: "Dos diseños originales de Eduardo Barrón para el concurso militar de 1919, construidos por la Hispano-Suiza de Guadalajara: un caza monoplaza de un solo vano de montantes (sin diedro, como el SPAD) y un biplaza de reconocimiento de dos vanos, ambos con el mismo motor.",
+    engine: "Hispano-Suiza 8Ab, 180 cv (caza, motorización de concurso); Hispano-Suiza 8Ba, 220 cv (caza, tras el concurso); Hispano-Suiza 8Ba, 220 cv (reconocimiento)",
+    wingspan: "N/D", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "840 kg (caza, con motor de 180 cv)",
+    maxSpeed: "188 km/h (caza, motor 180 cv); 206 km/h (caza, motor 220 cv)", range: "N/D", ceiling: "N/D",
+    armament: "N/D (probablemente no llegó a instalarse en el ejemplar de caza)",
+    variants: [
+      { name: "Hispano-Barrón de caza", desc: "Vencedor de la categoría de cazas del concurso militar de 1919, pilotado por el excelente probador chileno Luis O'Page; pese a la victoria, no se pidió ningún ejemplar adicional." },
+      { name: "Hispano-Barrón de reconocimiento", desc: "Obtuvo el segundo premio de su categoría (el primero quedó desierto); participó en el vuelo colectivo Cuatro Vientos-Lisboa del 1 de febrero de 1920, pilotado por el capitán Luis Sousa." }
+    ],
+    history: "La avalancha de excedentes de guerra aliados, vendidos a precios muy bajos, frustró la oportunidad de esta línea de diseños españoles pese a su buena puesta a punto técnica. El propio Barrón dejó constancia amarga de que ni sus prototipos ni los biplazas extranjeros finalmente adoptados cumplían realmente los requisitos de visibilidad exigidos. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 219,
+    era: "clasica",
+    name: "Sousa Mixto",
+    image: "",
+    designation: "Sousa Mixto (biplano tractor)",
+    year: 1919, yearEnd: 1920,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de reconocimiento y bombardeo ligero",
+    crew: 2,
+    description: "Diseño desarrollado en los talleres de Cuatro Vientos por el teniente (después capitán) Luis Sousa Peco, del que se conserva muy poca documentación y ninguna fotografía confirmada.",
+    engine: "Hispano-Suiza 8Ab, 180 cv",
+    wingspan: "N/D", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "N/D",
+    variants: [
+      { name: "Mixto (unos 6 ejemplares)", desc: "Fabricados en 1918 en cantidad de media docena; usados en el curso de observadores de 1919." }
+    ],
+    history: "Operó en las escuadrillas de Tetuán y Zeluán entre septiembre de 1919 y principios de 1920, en compañía de Barrón W, Farman F.50 y Breguet 14. Reformado varias veces sin lograr una puesta a punto plenamente satisfactoria, tuvo una vida operativa muy corta, siendo relevado por el De Havilland DH.4 a principios de 1920. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 220,
+    era: "clasica",
+    name: "Farman F.50",
+    image: "",
+    designation: "Farman F.50 Bn.2",
+    year: 1919, yearEnd: 1920,
+    branch: "ejercito",
+    type: "bombardeo",
+    typeLabel: "Bimotor de bombardeo nocturno",
+    crew: 4,
+    description: "Primer avión polimotor de la aviación militar española: un bimotor biplaza (piloto delante, ametrallador detrás con dos ametralladoras gemelas) de bombardeo nocturno, de entrada demasiado tardía para jugar un papel importante en la aviación francesa antes del armisticio de 1918.",
+    engine: "2 × Lorraine 8B, 250-275 cv cada uno, o 2 × Hispano-Suiza 8F, 300 cv cada uno",
+    wingspan: "22,85 m", length: "12 m", height: "3,3 m",
+    emptyWeight: "1.816 kg", maxWeight: "3.116 kg",
+    maxSpeed: "151 km/h a 1.000 m (motor Lorraine 8B)", range: "N/D (autonomía unas 4 h)", ceiling: "unos 4.200 m",
+    armament: "2 ametralladoras gemelas; 500 kg de bombas",
+    variants: [
+      { name: "F.50 (motor Lorraine-Dietrich)", engine: "2 × Lorraine 8B, 250-275 cv", desc: "Motorización más citada en las referencias de prensa de 1919-1920." },
+      { name: "F.50 (motor Hispano-Suiza 8F)", engine: "2 × Hispano-Suiza 8F, 300 cv", desc: "Alternativa documentada por el coronel Soriano en 1920 como igualmente satisfactoria para el bombardeo nocturno." }
+    ],
+    history: "El primer F.50 llegó a Cuatro Vientos el 9 de mayo de 1919 con tripulación francesa (150.000 ptas.); fue también el primero en llegar a los aeródromos de África, operando en la heterogénea escuadrilla de Tetuán junto con Breguet 14 y Mixtos. En 1921 la fuerza de bombardeo nocturno prevista seguía fijada en solo tres F.50, reflejo de lo modesta que era la aviación de bombardeo pesado española de la época. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 221,
+    era: "clasica",
+    name: "Salmson 2",
+    image: "",
+    designation: "Salmson 2",
+    year: 1919, yearEnd: 1920,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de reconocimiento y bombardeo diurno",
+    crew: 2,
+    description: "Biplaza de reconocimiento francés desarrollado en paralelo al Breguet 14, con motor radial Canton-Unné refrigerado por agua, del que España adquirió probablemente un único ejemplar para evaluación dentro de la llamada «Arca de Noé» de tipos diversos comprados en la posguerra.",
+    engine: "Salmson (Canton-Unné) C.U. 9Z, 270 cv",
+    wingspan: "11,80 m", length: "8,60 m", height: "N/D",
+    emptyWeight: "831 kg", maxWeight: "1.341 kg",
+    maxSpeed: "187 km/h a 2.000 m", range: "N/D (autonomía 2 h 45 min)", ceiling: "6.200 m (techo absoluto)",
+    armament: "1 ametralladora sincronizada; 1 ó 2 de observador; hasta 150 kg de bombas (sin confirmar si el ejemplar español estuvo armado)",
+    variants: [
+      { name: "Salmson 2 (ejemplar único)", desc: "Participó en el vuelo de cuatro biplazas Cuatro Vientos-Lisboa del 1 de febrero de 1920, pilotado por el capitán Las Morenas, con escala técnica en Arroyo de Malpartida." }
+    ],
+    history: "De los 3.200 Salmson 2 fabricados en total (705 para el Ejército de EE. UU.), solo se documenta este ejemplar español, adquirido probablemente para evaluación comparativa. No se conocen más datos de su empleo posterior. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 222,
+    era: "clasica",
+    name: "Ansaldo SVA biplaza",
+    image: "",
+    designation: "Ansaldo SVA.9 / SVA.10",
+    year: 1919, yearEnd: 1921,
+    branch: "ejercito",
+    type: "reconocimiento",
+    typeLabel: "Biplaza de escuela y reconocimiento",
+    crew: 2,
+    description: "Versión biplaza del célebre caza-reconocimiento italiano de la Guerra Europea SVA (Savoia-Verduzio-Ansaldo), regalado por la casa Ansaldo al Rey de España en 1919 junto a un ejemplar monoplaza, con arriostramiento característico de las alas en viga Warren.",
+    engine: "SPA (Fiat) 6A, 200 cv",
+    wingspan: "N/D", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "N/D",
+    variants: [
+      { name: "SVA.9 (escuela)", desc: "Versión biplaza de instrucción." },
+      { name: "SVA.10 (reconocimiento)", desc: "Versión biplaza de reconocimiento; el tipo usado por Arturo Ferrarin en su célebre vuelo Roma-Tokio de 1920 (18.105 km en 109 horas)." }
+    ],
+    history: "El obsequio real, que debía volar desde Turín hasta Cuatro Vientos, se retrasó por mal tiempo y confusiones logísticas; el biplaza tardó más de dos meses en llegar. Participó en el vuelo colectivo a Lisboa del 1 de febrero de 1920, pilotado por el capitán Martínez de Aragón, que tuvo que regresar a Madrid por avería. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  },
+  {
+    id: 223,
+    era: "clasica",
+    name: "Ansaldo A.1 Balilla",
+    image: "",
+    designation: "Ansaldo A.1 Balilla",
+    year: 1919, yearEnd: 1922,
+    branch: "ejercito",
+    type: "caza",
+    typeLabel: "Caza monoplaza",
+    crew: 1,
+    description: "Caza italiano derivado del SVA de reconocimiento, con primer vuelo en 1917 pero llegada demasiado tardía para intervenir en la Primera Guerra Mundial. Su empleo en España es incierto y se documenta solo por una referencia indirecta.",
+    engine: "SPA (Fiat) 6A, 220 cv (tipo general; no confirmado para el ejemplar español)",
+    wingspan: "N/D", length: "N/D", height: "N/D",
+    emptyWeight: "N/D", maxWeight: "N/D",
+    maxSpeed: "N/D", range: "N/D", ceiling: "N/D",
+    armament: "2 ametralladoras sincronizadas (tipo general)",
+    variants: [
+      { name: "Balilla (uso incierto)", desc: "Único (o no) ejemplar posiblemente adquirido en el periodo de tanteo de cazas excedentes de guerra (junto a Macchi M.14, SE.5 y SPAD 13); solo el SPAD 13 llegó a prestar servicio apreciable, en Los Alcázares." }
+    ],
+    history: "La única referencia documentada es la de José Canudas, que afirma haber utilizado un Balilla del Servicio en 1922 para viajes entre Madrid y Valencia. No hay constancia adicional de su adopción ni de su empleo operativo. (Fuente: J.M. Salas Larrazábal, «Aviones militares españoles 1911-1936».)"
+  }
+]);
