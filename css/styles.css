@@ -734,6 +734,20 @@ nav.visible { transform: translateY(0); }
 
 .variant-desc { font-size: 0.85rem; color: var(--fg-dim); }
 
+.variant-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+}
+
+.variant-spec { display: flex; flex-direction: column; }
+.variant-spec.full { grid-column: 1 / -1; }
+.variant-spec .label { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.variant-spec .value { font-size: 0.8rem; color: var(--fg); }
+
 .history-section {
   background: rgba(201,168,76,0.04);
   border: 1px solid var(--border);
@@ -918,6 +932,34 @@ footer {
   position: fixed;
   bottom: 2rem; right: 2rem;
   z-index: 300;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  color: var(--fg-dim);
+  padding: 0.8rem 1.4rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ---------- Animación de revelado ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .ac-grid { grid-template-columns: 1fr; }
+  .modal-body { padding: 1.5rem; }
+  .modal-hero { padding: 1.5rem; }
+  .spec-grid { grid-template-columns: repeat(2, 1f
   background: var(--card);
   border: 1px solid var(--accent);
   color: var(--fg-dim);
