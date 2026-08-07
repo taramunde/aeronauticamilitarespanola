@@ -123,10 +123,29 @@ function openModal(id) {
   var yearRange = a.year !== a.yearEnd ? a.year + '–' + a.yearEnd : String(a.year);
 
   var variantsHTML = a.variants.map(function(v) {
+    var specRows = [
+      ['Motor', v.engine],
+      ['Tripulación', v.crew],
+      ['Vel. máxima', v.maxSpeed],
+      ['Peso vacío', v.emptyWeight],
+      ['Peso máximo', v.maxWeight],
+      ['Alcance', v.range],
+      ['Techo', v.ceiling],
+      ['Armamento', v.armament]
+    ].filter(function(row) { return row[1]; });
+
+    var specHTML = specRows.length ? '<div class="variant-specs">' +
+      specRows.map(function(row) {
+        var cls = row[0] === 'Armamento' ? 'variant-spec full' : 'variant-spec';
+        return '<div class="' + cls + '"><span class="label">' + row[0] + '</span><span class="value">' + row[1] + '</span></div>';
+      }).join('') +
+      '</div>' : '';
+
     return '<div class="variant-item">' +
       '<div class="variant-name">' + v.name + '</div>' +
       '<div class="variant-desc">' + v.desc + '</div>' +
-    '</div>';
+      specHTML +
+      '</div>';
   }).join('');
 
   var imgHTML = buildImageHTML(a.image, a.name, 'modal');
@@ -146,7 +165,7 @@ function openModal(id) {
     '<div class="modal-body">' +
       '<p class="modal-desc">' + a.description + '</p>' +
 
-      '<h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:0.1em; margin-bottom:1rem; text-transform:uppercase;">Especificaciones Técnicas</h3>' +
+      '<h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:0.1em; margin-bottom:1rem; text-transform:uppercase;">Especificaciones Técnicas <span style="color:var(--muted); text-transform:none; letter-spacing:normal;">(modelo estándar / más representativo)</span></h3>' +
       '<div class="spec-grid">' +
         '<div class="spec-item"><div class="label">Planta motriz</div><div class="value">' + a.engine + '</div></div>' +
         '<div class="spec-item"><div class="label">Envergadura</div><div class="value">' + a.wingspan + '</div></div>' +
@@ -398,4 +417,3 @@ document.getElementById('hero-scroll').addEventListener('click', function() {
 
 // ---------- Renderizado inicial ----------
 renderCards();
-    
