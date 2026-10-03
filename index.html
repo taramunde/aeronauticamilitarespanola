@@ -1,1 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alas de España: aeronáutica militar española 1896–2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="roundel" viewBox="0 0 60 60" aria-hidden="true">
+        <circle cx="30" cy="30" r="29" fill="#AA151B"/>
+        <circle cx="30" cy="30" r="20" fill="#F1BF00"/>
+        <circle cx="30" cy="30" r="10" fill="#AA151B"/>
+      </svg>
+      <h1>Alas de España</h1>
+    </div>
+    <p class="lede">La aeronáutica militar española desde los globos de Guadalajara de 1896 hasta el Eurofighter Halcón: aviones, helicópteros, bases, protagonistas y grandes vuelos del Ejército del Aire y del Espacio, la Armada y el Ejército de Tierra.</p>
+
+    <figure class="speedfig">
+      <h2>De 60 a 2.495 km/h en un siglo</h2>
+      <p class="sub">Velocidad máxima de cada aeronave del catálogo por año de entrada en servicio. La línea marca el récord de la flota en cada momento. Toca un punto para abrir su ficha.</p>
+      <svg id="speedChart" viewBox="0 0 800 300" role="img" aria-label="Gráfico de velocidad máxima por año de entrada en servicio"></svg>
+      <div class="readout" id="readout" aria-live="polite"><span>Pasa el dedo o el ratón por el gráfico</span></div>
+      <div class="legend" id="legend"></div>
+    </figure>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" data-tab="cronologia" aria-selected="true">Cronología</button>
+    <button class="tab" role="tab" data-tab="catalogo" aria-selected="false">Catálogo</button>
+    <button class="tab" role="tab" data-tab="comparar" aria-selected="false">Comparar</button>
+    <button class="tab" role="tab" data-tab="bases" aria-selected="false">Bases</button>
+    <button class="tab" role="tab" data-tab="figuras" aria-selected="false">Protagonistas</button>
+    <button class="tab" role="tab" data-tab="gestas" aria-selected="false">Grandes vuelos</button>
+    <button class="tab" role="tab" data-tab="quiz" aria-selected="false">Quiz</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="cronologia" role="tabpanel">
+    <h2 class="sec">Cronología</h2>
+    <p class="intro">Ciento treinta años de aviación militar española, de la aerostación a los programas del caza de sexta generación. Los hitos marcados en rojo y oro cambiaron la organización o la doctrina.</p>
+    <div class="chips" id="eraChips"></div>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <section id="catalogo" role="tabpanel" hidden>
+    <h2 class="sec">Catálogo de aeronaves</h2>
+    <p class="intro">Fichas técnicas con motor, dimensiones, prestaciones, armamento, unidades e historia operativa en España. Los valores corresponden a la versión más representativa en servicio español y son aproximados.</p>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Busca por nombre, apodo o designación (C.16, Chato, Saeta…)" aria-label="Buscar aeronave">
+      <select id="fEra" aria-label="Época"></select>
+      <select id="fBranch" aria-label="Rama"></select>
+      <select id="fType" aria-label="Tipo"></select>
+    </div>
+    <p class="count" id="count"></p>
+    <ul class="reg" id="reg"></ul>
+    <details class="help">
+      <summary>Cómo leer las designaciones españolas</summary>
+      <p>Desde 1955 cada aeronave militar española recibe una designación formada por una o dos letras de misión y un número correlativo; un sufijo de letra indica la variante (C.15M, HT.17D). El Eurofighter es C.16 porque fue el decimosexto tipo de caza.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Letra</th><th>Misión</th><th>Ejemplos</th></tr></thead>
+        <tbody>
+          <tr><td>C</td><td>Caza</td><td>C.5 Sabre, C.11 Mirage III, C.16 Eurofighter</td></tr>
+          <tr><td>A</td><td>Ataque</td><td>A.10 Super Saeta, A.9 SF-5</td></tr>
+          <tr><td>E</td><td>Enseñanza</td><td>E.14 Saeta, E.25 Mirlo, E.27 PC-21</td></tr>
+          <tr><td>AE / CE</td><td>Entrenador avanzado o de caza</td><td>AE.9 SF-5B, CE.15 EF-18B</td></tr>
+          <tr><td>T</td><td>Transporte</td><td>T.10 Hercules, T.12 Aviocar, T.23 A400M</td></tr>
+          <tr><td>TK</td><td>Cisterna</td><td>TK.10 KC-130H</td></tr>
+          <tr><td>UD</td><td>Anfibio contraincendios</td><td>UD.13 CL-215, UD.14 CL-415</td></tr>
+          <tr><td>D</td><td>Salvamento y vigilancia</td><td>D.4 CN-235 VIGMA</td></tr>
+          <tr><td>H + letra</td><td>Helicópteros: HA ataque, HT transporte, HU utilitario, HS antisubmarino, HD salvamento, HE enseñanza</td><td>HA.28 Tigre, HT.17 Chinook, HS.23 Seahawk</td></tr>
+          <tr><td>VA</td><td>Despegue vertical, ataque (Armada)</td><td>VA.1 Matador, VA.2 Harrier II</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </section>
+
+  <section id="comparar" role="tabpanel" hidden>
+    <h2 class="sec">Comparador</h2>
+    <p class="intro">Enfrenta dos aeronaves de cualquier época. Prueba un Henri Farman contra el Eurofighter, o el Chato contra el Chirri, sus rivales directos sobre Madrid en 1936.</p>
+    <div class="cmpsel">
+      <label>Aeronave roja<select id="cA"></select></label>
+      <label>Aeronave azul<select id="cB"></select></label>
+    </div>
+    <div id="cmp"></div>
+  </section>
+
+  <section id="bases" role="tabpanel" hidden>
+    <h2 class="sec">Bases y unidades</h2>
+    <p class="intro">Principales bases aéreas, aeronavales y de helicópteros, actuales e históricas. Toca un punto del mapa o un nombre de la lista.</p>
+    <div class="mapgrid">
+      <div class="mapbox"><svg id="map" viewBox="0 0 680 500" role="img" aria-label="Mapa de España con bases aéreas"></svg></div>
+      <div>
+        <div class="basecard" id="basecard"></div>
+        <ul class="baselist" id="baselist"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="figuras" role="tabpanel" hidden>
+    <h2 class="sec">Protagonistas</h2>
+    <p class="intro">Fundadores, inventores, ases y navegantes que dieron forma a la aviación militar española, en ambos bandos de su historia.</p>
+    <div class="people" id="people"></div>
+  </section>
+
+  <section id="gestas" role="tabpanel" hidden>
+    <h2 class="sec">Grandes vuelos</h2>
+    <p class="intro">Entre 1926 y 1933 la aviación militar española protagonizó algunos de los raids más largos de su tiempo, con aviones de madera y tela y navegación a estima.</p>
+    <div id="raids"></div>
+  </section>
+
+  <section id="quiz" role="tabpanel" hidden>
+    <h2 class="sec">Pon a prueba lo aprendido</h2>
+    <p class="intro">Doce preguntas sobre todo lo que contiene esta app.</p>
+    <div class="quiz" id="quizbox"></div>
+  </section>
+
+</main>
+
+<dialog id="ficha"><div class="dlg" id="fichaBody"></div></dialog>
+
+<footer>
+  <div class="wrap">
+    <p>Fuentes de referencia: J. M. Salas Larrazábal, «Aviones militares españoles 1911-1936»; Instituto de Historia y Cultura Aeroespacial; Museo de Aeronáutica y Astronáutica de Cuatro Vientos; webs oficiales del Ejército del Aire y del Espacio, la Armada y el Ejército de Tierra.</p>
+    <p>Las prestaciones son valores nominales aproximados y varían según versión, carga y fuente. Contrasta cualquier dato antes de citarlo.</p>
+  </div>
+</footer>
+
+<!-- Datos -->
+<script src="js/data/config.js"></script>
+<script src="js/data/aeronaves.js"></script>
+<script src="js/data/cronologia.js"></script>
+<script src="js/data/bases.js"></script>
+<script src="js/data/geografia.js"></script>
+<script src="js/data/protagonistas.js"></script>
+<script src="js/data/gestas.js"></script>
+<script src="js/data/quiz.js"></script>
+<!-- Lógica (main.js siempre el último) -->
+<script src="js/app/utilidades.js"></script>
+<script src="js/app/pestanas.js"></script>
+<script src="js/app/grafico.js"></script>
+<script src="js/app/cronologia.js"></script>
+<script src="js/app/catalogo.js"></script>
+<script src="js/app/ficha.js"></script>
+<script src="js/app/comparador.js"></script>
+<script src="js/app/mapa.js"></script>
+<script src="js/app/protagonistas.js"></script>
+<script src="js/app/quiz.js"></script>
+<script src="js/app/main.js"></script>
+</body>
+  </html>
 
