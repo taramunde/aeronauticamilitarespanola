@@ -1,17 +1,12 @@
 /**
  * Lógica principal de la aplicación
- * Ejército del Aire y del Espacio
  */
 
-// ========== NAVEGACIÓN ==========
 function scrollToSection(id) {
   const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
+  if (section) section.scrollIntoView({ behavior: 'smooth' });
 }
 
-// ========== FLOTA ==========
 function createAircraftCard(aircraft) {
   const badgeText = {
     active: "Operativo",
@@ -38,7 +33,16 @@ function createAircraftCard(aircraft) {
 
 function renderFleet(filter = 'all') {
   const grid = document.getElementById('fleet-grid');
-  if (!grid) return;
+  if (!grid) {
+    console.error('No se encontró el elemento #fleet-grid');
+    return;
+  }
+
+  if (typeof aircraftData === 'undefined') {
+    console.error('aircraftData no está definido. Revisa que js/data/aircraft.js se carga correctamente.');
+    grid.innerHTML = '<p style="color:#c8102e;padding:2rem;">Error: No se han podido cargar los datos de las aeronaves.</p>';
+    return;
+  }
 
   const filtered = filter === 'all'
     ? aircraftData
@@ -46,7 +50,7 @@ function renderFleet(filter = 'all') {
 
   grid.innerHTML = filtered.map(createAircraftCard).join('');
 
-  // Eventos de clic para abrir el modal
+  // Añadir eventos de clic
   grid.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
       openModal(card.dataset.id);
@@ -54,7 +58,6 @@ function renderFleet(filter = 'all') {
   });
 }
 
-// ========== MODAL ==========
 function openModal(id) {
   const aircraft = aircraftData.find(a => a.id === id);
   if (!aircraft) return;
@@ -69,11 +72,10 @@ function openModal(id) {
   const img = document.getElementById('modal-img');
   img.src = aircraft.image;
   img.alt = aircraft.name;
-  img.onerror = function() {
+  img.onerror = function () {
     this.src = `https://via.placeholder.com/600x400/1a2436/8b9bb4?text=${encodeURIComponent(aircraft.name)}`;
   };
 
-  // Especificaciones
   const specsContainer = document.getElementById('modal-specs');
   specsContainer.innerHTML = Object.entries(aircraft.specs || {})
     .map(([key, value]) => `<div><strong>\( {key}</strong> \){value}</div>`)
@@ -86,7 +88,6 @@ function closeModal() {
   document.getElementById('aircraft-modal').classList.remove('show');
 }
 
-// ========== CONTADORES ANIMADOS ==========
 function animateValue(id, start, end, duration) {
   const obj = document.getElementById(id);
   if (!obj) return;
@@ -98,14 +99,12 @@ function animateValue(id, start, end, duration) {
     if (!startTime) startTime = timestamp;
     const progress = Math.min((timestamp - startTime) / duration, 1);
     obj.textContent = Math.floor(progress * range + start);
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
+    if (progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
 
-// ========== DATOS ESTÁTICOS ==========
+// Datos estáticos
 const timelineData = [
   { year: "1792", text: "Primeras experiencias militares con globos aerostáticos en Segovia ante Carlos IV." },
   { year: "1911", text: "Llegada de los primeros aviones Henry Farman a <strong>Cuatro Vientos</strong>. Nacimiento de la aviación militar española." },
@@ -148,11 +147,9 @@ const newsData = [
   { title: "MRTT+ y VIP", date: "2028+", text: "Negociación de 3 A330-800 MRTT+ (2 en configuración VIP) junto con Polonia." }
 ];
 
-// ========== RENDERIZADO DE SECCIONES ==========
 function renderTimeline() {
   const container = document.getElementById('timeline');
   if (!container) return;
-
   container.innerHTML = timelineData.map(item => `
     <div class="timeline-item">
       <div class="timeline-year">${item.year}</div>
@@ -164,7 +161,6 @@ function renderTimeline() {
 function renderBases() {
   const container = document.getElementById('bases-grid');
   if (!container) return;
-
   container.innerHTML = basesData.map(b => `
     <div class="card base-card">
       <h3>${b.name}</h3>
@@ -177,7 +173,6 @@ function renderBases() {
 function renderUnits() {
   const tbody = document.getElementById('units-table');
   if (!tbody) return;
-
   tbody.innerHTML = unitsData.map(u => `
     <tr>
       <td><strong>${u.unit}</strong></td>
@@ -191,7 +186,6 @@ function renderUnits() {
 function renderNews() {
   const container = document.getElementById('news-grid');
   if (!container) return;
-
   container.innerHTML = newsData.map(n => `
     <div class="card">
       <h3>${n.title}</h3>
@@ -203,8 +197,10 @@ function renderNews() {
 
 // ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Aplicación iniciada');
+  console.log('aircraftData disponible:', typeof aircraftData !== 'undefined');
 
-  // Navegación del menú
+  // Navegación
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -214,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Filtros de la flota
+  // Filtros
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -223,18 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar modal
+  // Modal
   const closeBtn = document.querySelector('.modal-close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
   const modal = document.getElementById('aircraft-modal');
   if (modal) {
     modal.addEventListener('click', (e) => {
-      if (e.target.id === 'aircraft-modal') {
-        closeModal();
-      }
+      if (e.target.id === 'aircraft-modal') closeModal();
     });
   }
 
@@ -245,13 +237,15 @@ document.addEventListener('DOMContentLoaded', () => {
   renderUnits();
   renderNews();
 
-  // Contadores del hero
-  const combat = aircraftData
-    .filter(a => a.type === 'caza')
-    .reduce((sum, a) => sum + a.fleet, 0);
+  // Contadores
+  if (typeof aircraftData !== 'undefined') {
+    const combat = aircraftData
+      .filter(a => a.type === 'caza')
+      .reduce((sum, a) => sum + a.fleet, 0);
 
-  const total = aircraftData.reduce((sum, a) => sum + a.fleet, 0);
+    const total = aircraftData.reduce((sum, a) => sum + a.fleet, 0);
 
-  animateValue('stat-combat', 0, combat, 1600);
-  animateValue('stat-total', 0, total, 1800);
+    animateValue('stat-combat', 0, combat, 1600);
+    animateValue('stat-total', 0, total, 1800);
+  }
 });
