@@ -1,15 +1,17 @@
 /**
  * Lógica principal de la aplicación
+ * Ejército del Aire y del Espacio
  */
 
 // ========== NAVEGACIÓN ==========
 function scrollToSection(id) {
   const section = document.getElementById(id);
-  if (section) section.scrollIntoView({ behavior: 'smooth' });
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 // ========== FLOTA ==========
-function createAircraftCard(aircraft) {
 function createAircraftCard(aircraft) {
   const badgeText = {
     active: "Operativo",
@@ -36,15 +38,19 @@ function createAircraftCard(aircraft) {
 
 function renderFleet(filter = 'all') {
   const grid = document.getElementById('fleet-grid');
+  if (!grid) return;
+
   const filtered = filter === 'all'
     ? aircraftData
     : aircraftData.filter(a => a.type === filter);
 
   grid.innerHTML = filtered.map(createAircraftCard).join('');
 
-  // Eventos de clic
+  // Eventos de clic para abrir el modal
   grid.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => openModal(card.dataset.id));
+    card.addEventListener('click', () => {
+      openModal(card.dataset.id);
+    });
   });
 }
 
@@ -63,11 +69,11 @@ function openModal(id) {
   const img = document.getElementById('modal-img');
   img.src = aircraft.image;
   img.alt = aircraft.name;
-  img.onerror = () => {
-    img.src = `https://via.placeholder.com/600x400/1a2436/8b9bb4?text=${encodeURIComponent(aircraft.name)}`;
+  img.onerror = function() {
+    this.src = `https://via.placeholder.com/600x400/1a2436/8b9bb4?text=${encodeURIComponent(aircraft.name)}`;
   };
 
-  // Specs
+  // Especificaciones
   const specsContainer = document.getElementById('modal-specs');
   specsContainer.innerHTML = Object.entries(aircraft.specs || {})
     .map(([key, value]) => `<div><strong>\( {key}</strong> \){value}</div>`)
@@ -80,7 +86,7 @@ function closeModal() {
   document.getElementById('aircraft-modal').classList.remove('show');
 }
 
-// ========== CONTADORES ==========
+// ========== CONTADORES ANIMADOS ==========
 function animateValue(id, start, end, duration) {
   const obj = document.getElementById(id);
   if (!obj) return;
@@ -92,12 +98,14 @@ function animateValue(id, start, end, duration) {
     if (!startTime) startTime = timestamp;
     const progress = Math.min((timestamp - startTime) / duration, 1);
     obj.textContent = Math.floor(progress * range + start);
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
   }
   requestAnimationFrame(step);
 }
 
-// ========== DATOS ESTÁTICOS (bases, unidades, noticias, timeline) ==========
+// ========== DATOS ESTÁTICOS ==========
 const timelineData = [
   { year: "1792", text: "Primeras experiencias militares con globos aerostáticos en Segovia ante Carlos IV." },
   { year: "1911", text: "Llegada de los primeros aviones Henry Farman a <strong>Cuatro Vientos</strong>. Nacimiento de la aviación militar española." },
@@ -140,9 +148,11 @@ const newsData = [
   { title: "MRTT+ y VIP", date: "2028+", text: "Negociación de 3 A330-800 MRTT+ (2 en configuración VIP) junto con Polonia." }
 ];
 
-// ========== RENDERIZADO DE SECCIONES ESTÁTICAS ==========
+// ========== RENDERIZADO DE SECCIONES ==========
 function renderTimeline() {
   const container = document.getElementById('timeline');
+  if (!container) return;
+
   container.innerHTML = timelineData.map(item => `
     <div class="timeline-item">
       <div class="timeline-year">${item.year}</div>
@@ -153,6 +163,8 @@ function renderTimeline() {
 
 function renderBases() {
   const container = document.getElementById('bases-grid');
+  if (!container) return;
+
   container.innerHTML = basesData.map(b => `
     <div class="card base-card">
       <h3>${b.name}</h3>
@@ -164,6 +176,8 @@ function renderBases() {
 
 function renderUnits() {
   const tbody = document.getElementById('units-table');
+  if (!tbody) return;
+
   tbody.innerHTML = unitsData.map(u => `
     <tr>
       <td><strong>${u.unit}</strong></td>
@@ -176,6 +190,8 @@ function renderUnits() {
 
 function renderNews() {
   const container = document.getElementById('news-grid');
+  if (!container) return;
+
   container.innerHTML = newsData.map(n => `
     <div class="card">
       <h3>${n.title}</h3>
@@ -187,7 +203,8 @@ function renderNews() {
 
 // ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', () => {
-  // Navegación
+
+  // Navegación del menú
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -197,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Filtros de flota
+  // Filtros de la flota
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -206,11 +223,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Modal
-  document.querySelector('.modal-close').addEventListener('click', closeModal);
-  document.getElementById('aircraft-modal').addEventListener('click', (e) => {
-    if (e.target.id === 'aircraft-modal') closeModal();
-  });
+  // Cerrar modal
+  const closeBtn = document.querySelector('.modal-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  const modal = document.getElementById('aircraft-modal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target.id === 'aircraft-modal') {
+        closeModal();
+      }
+    });
+  }
 
   // Renderizar todo
   renderFleet('all');
@@ -219,10 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderUnits();
   renderNews();
 
-  // Contadores
+  // Contadores del hero
   const combat = aircraftData
     .filter(a => a.type === 'caza')
     .reduce((sum, a) => sum + a.fleet, 0);
+
   const total = aircraftData.reduce((sum, a) => sum + a.fleet, 0);
 
   animateValue('stat-combat', 0, combat, 1600);
