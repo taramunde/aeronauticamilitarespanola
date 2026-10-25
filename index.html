@@ -1,162 +1,363 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Alas de España: aeronáutica militar española 1896–2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejército del Aire y del Espacio | Aeronáutica Militar Española</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="brand">
-      <svg class="roundel" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="29" fill="#AA151B"/>
-        <circle cx="30" cy="30" r="20" fill="#F1BF00"/>
-        <circle cx="30" cy="30" r="10" fill="#AA151B"/>
-      </svg>
-      <h1>Alas de España</h1>
-    </div>
-    <p class="lede">La aeronáutica militar española desde los globos de Guadalajara de 1896 hasta el Eurofighter Halcón: aviones, helicópteros, bases, protagonistas y grandes vuelos del Ejército del Aire y del Espacio, la Armada y el Ejército de Tierra.</p>
+<nav>
+  <div class="logo">
+    <span>✈</span> EA<span>E</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="scrollToSection('historia')" class="active">Historia</a></li>
+    <li><a onclick="scrollToSection('flota')">Flota</a></li>
+    <li><a onclick="scrollToSection('bases')">Bases</a></li>
+    <li><a onclick="scrollToSection('unidades')">Unidades</a></li>
+    <li><a onclick="scrollToSection('actualidad')">Actualidad</a></li>
+  </ul>
+</nav>
 
-    <figure class="speedfig">
-      <h2>De 60 a 2.495 km/h en un siglo</h2>
-      <p class="sub">Velocidad máxima de cada aeronave del catálogo por año de entrada en servicio. La línea marca el récord de la flota en cada momento. Toca un punto para abrir su ficha.</p>
-      <svg id="speedChart" viewBox="0 0 800 300" role="img" aria-label="Gráfico de velocidad máxima por año de entrada en servicio"></svg>
-      <div class="readout" id="readout" aria-live="polite"><span>Pasa el dedo o el ratón por el gráfico</span></div>
-      <div class="legend" id="legend"></div>
-    </figure>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Ejército del Aire<br>y del Espacio</h1>
+    <p class="subtitle">La fuerza aérea y espacial de España · Datos actualizados a octubre 2026</p>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number" id="stat-combat">178</div>
+        <div class="stat-label">Aeronaves de combate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="stat-total">525</div>
+        <div class="stat-label">Aeronaves totales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="stat-bases">15+</div>
+        <div class="stat-label">Bases principales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="stat-order">+291</div>
+        <div class="stat-label">En pedido</div>
+      </div>
+    </div>
   </div>
 </header>
 
-<nav class="tabs" aria-label="Secciones">
-  <div class="wrap" role="tablist">
-    <button class="tab" role="tab" data-tab="cronologia" aria-selected="true">Cronología</button>
-    <button class="tab" role="tab" data-tab="catalogo" aria-selected="false">Catálogo</button>
-    <button class="tab" role="tab" data-tab="comparar" aria-selected="false">Comparar</button>
-    <button class="tab" role="tab" data-tab="bases" aria-selected="false">Bases</button>
-    <button class="tab" role="tab" data-tab="figuras" aria-selected="false">Protagonistas</button>
-    <button class="tab" role="tab" data-tab="gestas" aria-selected="false">Grandes vuelos</button>
-    <button class="tab" role="tab" data-tab="quiz" aria-selected="false">Quiz</button>
+<!-- HISTORIA -->
+<section id="historia">
+  <h2>📜 Historia</h2>
+  <p class="section-desc">Desde los globos de 1792 hasta la Fuerza Aérea y Espacial del siglo XXI.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1792</div>
+      <p>Primeras experiencias militares con globos aerostáticos en Segovia ante Carlos IV. España es pionera mundial en aerostación militar.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1911</div>
+      <p>Llegada de los primeros aviones Henry Farman a <strong>Cuatro Vientos</strong>. Primer curso de pilotos militares. Nacimiento de la aviación militar española.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1913</div>
+      <p>Creación del <strong>Servicio de Aeronáutica Militar</strong>. Primera participación en combate real (Marruecos) y primer bombardeo aéreo organizado de la historia.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1926</div>
+      <p><strong>Plus Ultra</strong>: Ramón Franco realiza el primer gran raid transatlántico (Palos de la Frontera → Buenos Aires) a bordo de un Dornier Wal.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1939</div>
+      <p>7 de octubre: se crea oficialmente el <strong>Ejército del Aire</strong> como arma independiente tras la Guerra Civil.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1953-1992</div>
+      <p>Acuerdos hispano-estadounidenses. Bases de Torrejón, Zaragoza, Morón y Rota. Modernización con F-86, F-104, F-4 Phantom y F-18.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2003-2026</div>
+      <p>Entrada en servicio del Eurofighter Typhoon. Incorporación del A400M y A330 MRTT. Programa Halcón y Hürjet.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <p>Real Decreto 27 de junio: el Ejército del Aire pasa a denominarse <strong>Ejército del Aire y del Espacio</strong>. Creación del Mando del Espacio.</p>
+    </div>
   </div>
-</nav>
+</section>
 
-<main class="wrap">
+<!-- FLOTA -->
+<section id="flota">
+  <h2>✈️ Flota actual (octubre 2026)</h2>
+  <p class="section-desc">Datos consolidados de FlightGlobal World Air Forces 2026, Infodefensa y entregas oficiales. Solo aeronaves del Ejército del Aire y del Espacio.</p>
 
-  <section id="cronologia" role="tabpanel">
-    <h2 class="sec">Cronología</h2>
-    <p class="intro">Ciento treinta años de aviación militar española, de la aerostación a los programas del caza de sexta generación. Los hitos marcados en rojo y oro cambiaron la organización o la doctrina.</p>
-    <div class="chips" id="eraChips"></div>
-    <ol class="timeline" id="timeline"></ol>
-  </section>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterFleet('all')">Todas</button>
+    <button class="filter-btn" onclick="filterFleet('caza')">Caza</button>
+    <button class="filter-btn" onclick="filterFleet('transporte')">Transporte / Cisterna</button>
+    <button class="filter-btn" onclick="filterFleet('entrenamiento')">Entrenamiento</button>
+    <button class="filter-btn" onclick="filterFleet('otros')">Otros</button>
+  </div>
 
-  <section id="catalogo" role="tabpanel" hidden>
-    <h2 class="sec">Catálogo de aeronaves</h2>
-    <p class="intro">Fichas técnicas con motor, dimensiones, prestaciones, armamento, unidades e historia operativa en España. Los valores corresponden a la versión más representativa en servicio español y son aproximados.</p>
-    <div class="filters">
-      <input id="q" type="search" placeholder="Busca por nombre, apodo o designación (C.16, Chato, Saeta…)" aria-label="Buscar aeronave">
-      <select id="fEra" aria-label="Época"></select>
-      <select id="fBranch" aria-label="Rama"></select>
-      <select id="fType" aria-label="Tipo"></select>
+  <div class="grid" id="fleet-grid">
+    <!-- Caza -->
+    <div class="card" data-type="caza">
+      <div class="role">Caza multirrol</div>
+      <h3>Eurofighter Typhoon (C.16)</h3>
+      <div class="fleet">67</div>
+      <div class="status">+45 Halcón (Tranche 4) en pedido</div>
+      <span class="badge badge-order">En expansión</span>
     </div>
-    <p class="count" id="count"></p>
-    <ul class="reg" id="reg"></ul>
-    <details class="help">
-      <summary>Cómo leer las designaciones españolas</summary>
-      <p>Desde 1955 cada aeronave militar española recibe una designación formada por una o dos letras de misión y un número correlativo; un sufijo de letra indica la variante (C.15M, HT.17D). El Eurofighter es C.16 porque fue el decimosexto tipo de caza.</p>
-      <div class="tbl"><table>
-        <thead><tr><th>Letra</th><th>Misión</th><th>Ejemplos</th></tr></thead>
-        <tbody>
-          <tr><td>C</td><td>Caza</td><td>C.5 Sabre, C.11 Mirage III, C.16 Eurofighter</td></tr>
-          <tr><td>A</td><td>Ataque</td><td>A.10 Super Saeta, A.9 SF-5</td></tr>
-          <tr><td>E</td><td>Enseñanza</td><td>E.14 Saeta, E.25 Mirlo, E.27 PC-21</td></tr>
-          <tr><td>AE / CE</td><td>Entrenador avanzado o de caza</td><td>AE.9 SF-5B, CE.15 EF-18B</td></tr>
-          <tr><td>T</td><td>Transporte</td><td>T.10 Hercules, T.12 Aviocar, T.23 A400M</td></tr>
-          <tr><td>TK</td><td>Cisterna</td><td>TK.10 KC-130H</td></tr>
-          <tr><td>UD</td><td>Anfibio contraincendios</td><td>UD.13 CL-215, UD.14 CL-415</td></tr>
-          <tr><td>D</td><td>Salvamento y vigilancia</td><td>D.4 CN-235 VIGMA</td></tr>
-          <tr><td>H + letra</td><td>Helicópteros: HA ataque, HT transporte, HU utilitario, HS antisubmarino, HD salvamento, HE enseñanza</td><td>HA.28 Tigre, HT.17 Chinook, HS.23 Seahawk</td></tr>
-          <tr><td>VA</td><td>Despegue vertical, ataque (Armada)</td><td>VA.1 Matador, VA.2 Harrier II</td></tr>
-        </tbody>
-      </table></div>
-    </details>
-  </section>
-
-  <section id="comparar" role="tabpanel" hidden>
-    <h2 class="sec">Comparador</h2>
-    <p class="intro">Enfrenta dos aeronaves de cualquier época. Prueba un Henri Farman contra el Eurofighter, o el Chato contra el Chirri, sus rivales directos sobre Madrid en 1936.</p>
-    <div class="cmpsel">
-      <label>Aeronave roja<select id="cA"></select></label>
-      <label>Aeronave azul<select id="cB"></select></label>
+    <div class="card" data-type="caza">
+      <div class="role">Caza multirrol</div>
+      <h3>EF-18 Hornet (C.15)</h3>
+      <div class="fleet">81</div>
+      <div class="status">Retiro gradual Canarias (dic 2026)</div>
+      <span class="badge badge-retire">En retirada parcial</span>
     </div>
-    <div id="cmp"></div>
-  </section>
-
-  <section id="bases" role="tabpanel" hidden>
-    <h2 class="sec">Bases y unidades</h2>
-    <p class="intro">Principales bases aéreas, aeronavales y de helicópteros, actuales e históricas. Toca un punto del mapa o un nombre de la lista.</p>
-    <div class="mapgrid">
-      <div class="mapbox"><svg id="map" viewBox="0 0 680 500" role="img" aria-label="Mapa de España con bases aéreas"></svg></div>
-      <div>
-        <div class="basecard" id="basecard"></div>
-        <ul class="baselist" id="baselist"></ul>
-      </div>
+    <div class="card" data-type="caza">
+      <div class="role">Entrenador avanzado</div>
+      <h3>Northrop F-5M</h3>
+      <div class="fleet">19</div>
+      <div class="status">Sustituido por Hürjet desde 2028</div>
+      <span class="badge badge-retire">A retirar</span>
     </div>
-  </section>
 
-  <section id="figuras" role="tabpanel" hidden>
-    <h2 class="sec">Protagonistas</h2>
-    <p class="intro">Fundadores, inventores, ases y navegantes que dieron forma a la aviación militar española, en ambos bandos de su historia.</p>
-    <div class="people" id="people"></div>
-  </section>
+    <!-- Transporte -->
+    <div class="card" data-type="transporte">
+      <div class="role">Cisterna / Transporte estratégico</div>
+      <h3>Airbus A330 MRTT</h3>
+      <div class="fleet">3</div>
+      <div class="status">Flota completada 20/10/2026 · Ala 45 Torrejón</div>
+      <span class="badge badge-active">Operativo</span>
+    </div>
+    <div class="card" data-type="transporte">
+      <div class="role">Transporte estratégico/táctico</div>
+      <h3>Airbus A400M Atlas</h3>
+      <div class="fleet">14</div>
+      <div class="status">→ 16 antes de fin 2026 · Objetivo 20 · Ala 31 Zaragoza</div>
+      <span class="badge badge-order">En crecimiento</span>
+    </div>
+    <div class="card" data-type="transporte">
+      <div class="role">Transporte táctico / MPA</div>
+      <h3>Airbus C295 / CN235</h3>
+      <div class="fleet">\~35</div>
+      <div class="status">+34 C295 adicionales en pedido</div>
+      <span class="badge badge-order">En expansión</span>
+    </div>
 
-  <section id="gestas" role="tabpanel" hidden>
-    <h2 class="sec">Grandes vuelos</h2>
-    <p class="intro">Entre 1926 y 1933 la aviación militar española protagonizó algunos de los raids más largos de su tiempo, con aviones de madera y tela y navegación a estima.</p>
-    <div id="raids"></div>
-  </section>
+    <!-- Entrenamiento -->
+    <div class="card" data-type="entrenamiento">
+      <div class="role">Entrenamiento básico/avanzado</div>
+      <h3>Pilatus PC-21</h3>
+      <div class="fleet">31</div>
+      <div class="status">+9 en pedido · Academia General del Aire</div>
+      <span class="badge badge-order">En crecimiento</span>
+    </div>
+    <div class="card" data-type="entrenamiento">
+      <div class="role">Entrenador de combate</div>
+      <h3>TAI Hürjet</h3>
+      <div class="fleet">0</div>
+      <div class="status">30 contratados · Entregas desde 2028 · Posible ampliación a 45</div>
+      <span class="badge badge-order">En pedido</span>
+    </div>
 
-  <section id="quiz" role="tabpanel" hidden>
-    <h2 class="sec">Pon a prueba lo aprendido</h2>
-    <p class="intro">Doce preguntas sobre todo lo que contiene esta app.</p>
-    <div class="quiz" id="quizbox"></div>
-  </section>
+    <!-- Otros -->
+    <div class="card" data-type="otros">
+      <div class="role">UAV de vigilancia</div>
+      <h3>MQ-9A Reaper</h3>
+      <div class="fleet">4</div>
+      <div class="status">Armamento pedido 2025</div>
+      <span class="badge badge-active">Operativo</span>
+    </div>
+    <div class="card" data-type="otros">
+      <div class="role">Helicópteros SAR / OE</div>
+      <h3>NH90 / Super Puma / S-76</h3>
+      <div class="fleet">\~21</div>
+      <div class="status">+12 NH90 y 6 H175M en pedido</div>
+      <span class="badge badge-order">En expansión</span>
+    </div>
+    <div class="card" data-type="otros">
+      <div class="role">Extinción de incendios</div>
+      <h3>CL-215T / CL-415</h3>
+      <div class="fleet">14</div>
+      <div class="status">+7 DHC-515 en pedido (retrasados)</div>
+      <span class="badge badge-order">En modernización</span>
+    </div>
+  </div>
 
-</main>
+  <div class="highlight" style="margin-top:2.5rem">
+    <strong>Nota sobre el futuro caza:</strong> España ha optado por el Eurofighter a corto-medio plazo y el sistema FCAS (Future Combat Air System) a largo plazo. No se ha seleccionado el F-35.
+  </div>
+</section>
 
-<dialog id="ficha"><div class="dlg" id="fichaBody"></div></dialog>
+<!-- BASES -->
+<section id="bases">
+  <h2>🏛️ Bases Aéreas Principales</h2>
+  <p class="section-desc">Red estratégica distribuida por la península, Baleares y Canarias.</p>
+
+  <div class="grid">
+    <div class="card base-card">
+      <h3>Torrejón de Ardoz</h3>
+      <div class="base-location">Madrid · LECM</div>
+      <p>Ala 12 (EF-18) · Ala 45 (A330 MRTT) · Cuartel General MACOM · Centro de Operaciones Aéreas</p>
+    </div>
+    <div class="card base-card">
+      <h3>Zaragoza</h3>
+      <div class="base-location">Zaragoza · LEZG</div>
+      <p>Ala 15 (EF-18) · Ala 31 (A400M) · Principal base de transporte estratégico</p>
+    </div>
+    <div class="card base-card">
+      <h3>Los Llanos</h3>
+      <div class="base-location">Albacete · LEAB</div>
+      <p>Ala 14 (Eurofighter) · TLP (Tactical Leadership Programme) · Maestranza Aérea</p>
+    </div>
+    <div class="card base-card">
+      <h3>Morón de la Frontera</h3>
+      <div class="base-location">Sevilla · LEMO</div>
+      <p>Ala 11 (Eurofighter) · Presencia USAF · Base de gran extensión</p>
+    </div>
+    <div class="card base-card">
+      <h3>Gando</h3>
+      <div class="base-location">Gran Canaria · GCLP</div>
+      <p>Ala 46 (EF-18 → Eurofighter) · Defensa del archipiélago · 802 Escuadrón SAR</p>
+    </div>
+    <div class="card base-card">
+      <h3>San Javier</h3>
+      <div class="base-location">Murcia · LELC</div>
+      <p>Academia General del Aire · PC-21 · Formación de pilotos</p>
+    </div>
+    <div class="card base-card">
+      <h3>Talavera la Real</h3>
+      <div class="base-location">Badajoz · LETR</div>
+      <p>Ala 23 · Escuela de Caza y Ataque · F-5M (hasta llegada Hürjet)</p>
+    </div>
+    <div class="card base-card">
+      <h3>Armilla</h3>
+      <div class="base-location">Granada · LEGA</div>
+      <p>Ala 78 · Formación de pilotos de helicóptero · Patrulla Aspa</p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section id="unidades">
+  <h2>🛡️ Unidades de Combate</h2>
+  <p class="section-desc">Alas de caza y principales unidades operativas (octubre 2026).</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Unidad</th>
+        <th>Base</th>
+        <th>Material principal</th>
+        <th>Misión</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ala 11</strong></td>
+        <td>Morón</td>
+        <td>Eurofighter Typhoon</td>
+        <td>Defensa aérea / Multirrol</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 12</strong></td>
+        <td>Torrejón</td>
+        <td>EF-18 Hornet</td>
+        <td>Multirrol / Defensa aérea</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 14</strong></td>
+        <td>Los Llanos</td>
+        <td>Eurofighter Typhoon</td>
+        <td>Caza / TLP</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 15</strong></td>
+        <td>Zaragoza</td>
+        <td>EF-18 Hornet</td>
+        <td>Caza y ataque</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 46</strong></td>
+        <td>Gando</td>
+        <td>EF-18 → Eurofighter</td>
+        <td>Defensa Canarias</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 31</strong></td>
+        <td>Zaragoza</td>
+        <td>A400M</td>
+        <td>Transporte estratégico</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 45</strong></td>
+        <td>Torrejón</td>
+        <td>A330 MRTT</td>
+        <td>Reabastecimiento / Transporte</td>
+      </tr>
+      <tr>
+        <td><strong>Ala 23</strong></td>
+        <td>Talavera</td>
+        <td>F-5M</td>
+        <td>Entrenamiento de combate</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ACTUALIDAD -->
+<section id="actualidad">
+  <h2>📰 Actualidad y Futuro (2026)</h2>
+  <p class="section-desc">Hitos recientes y programas en curso.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>3er A330 MRTT entregado</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">20 de octubre de 2026</p>
+      <p>Airbus entrega en Getafe el tercer y último A330 MRTT. España completa su flota de cisternas estratégicas (111 t de combustible, alcance 16.000 km). Operado por Ala 45 desde Torrejón.</p>
+    </div>
+    <div class="card">
+      <h3>A400M: dos más en 2026</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">Octubre-diciembre 2026</p>
+      <p>Ala 31 (Zaragoza) recibirá dos nuevos A400M antes de fin de año, pasando de 14 a 16. Objetivo final: 20 unidades.</p>
+    </div>
+    <div class="card">
+      <h3>Programa Halcón</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">45 Eurofighters Tranche 4</p>
+      <p>20 + 25 aviones nuevos para reemplazar Hornets, especialmente en Canarias. Primeras entregas pendientes.</p>
+    </div>
+    <div class="card">
+      <h3>Hürjet</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">30 (+15 posibles)</p>
+      <p>Entrenador avanzado turco seleccionado para sustituir al F-5M. Entregas desde 2028. TAI menciona posible ampliación a 45.</p>
+    </div>
+    <div class="card">
+      <h3>Ejercicio SDT26</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">19-30 octubre 2026</p>
+      <p>Sirio-Dragón-Tormenta 26: el mayor ejercicio del año. Participan todas las alas de caza, transporte, SAR y operaciones especiales.</p>
+    </div>
+    <div class="card">
+      <h3>MRTT+ y VIP</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin:0.5rem 0">2028+</p>
+      <p>Negociación con Polonia de 7 A330-800 MRTT+. España recibiría 3 (2 en configuración mixta VIP para sustituir los A310).</p>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap">
-    <p>Fuentes de referencia: J. M. Salas Larrazábal, «Aviones militares españoles 1911-1936»; Instituto de Historia y Cultura Aeroespacial; Museo de Aeronáutica y Astronáutica de Cuatro Vientos; webs oficiales del Ejército del Aire y del Espacio, la Armada y el Ejército de Tierra.</p>
-    <p>Las prestaciones son valores nominales aproximados y varían según versión, carga y fuente. Contrasta cualquier dato antes de citarlo.</p>
-  </div>
+  <p><strong>Ejército del Aire y del Espacio</strong> · Aplicación informativa no oficial</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem">
+    Fuentes: FlightGlobal World Air Forces 2026 · Infodefensa · Defensa.com · Ejército del Aire oficial · Entregas Airbus 2025-2026<br>
+    Datos actualizados a 24 de octubre de 2026
+  </p>
 </footer>
 
-<!-- Datos -->
-<script src="js/data/config.js"></script>
-<script src="js/data/aeronaves.js"></script>
-<script src="js/data/cronologia.js"></script>
-<script src="js/data/bases.js"></script>
-<script src="js/data/geografia.js"></script>
-<script src="js/data/protagonistas.js"></script>
-<script src="js/data/gestas.js"></script>
-<script src="js/data/quiz.js"></script>
-<!-- Lógica (main.js siempre el último) -->
-<script src="js/app/utilidades.js"></script>
-<script src="js/app/pestanas.js"></script>
-<script src="js/app/grafico.js"></script>
-<script src="js/app/cronologia.js"></script>
-<script src="js/app/catalogo.js"></script>
-<script src="js/app/ficha.js"></script>
-<script src="js/app/comparador.js"></script>
-<script src="js/app/mapa.js"></script>
-<script src="js/app/protagonistas.js"></script>
-<script src="js/app/quiz.js"></script>
-<script src="js/app/main.js"></script>
+<script src="script.js"></script>
 </body>
-</html>
+        </html>
