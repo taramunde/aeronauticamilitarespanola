@@ -10,6 +10,7 @@ function scrollToSection(id) {
 
 // ========== FLOTA ==========
 function createAircraftCard(aircraft) {
+function createAircraftCard(aircraft) {
   const badgeText = {
     active: "Operativo",
     order: "En expansión / Pedido",
