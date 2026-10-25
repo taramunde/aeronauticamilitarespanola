@@ -1,9 +1,3 @@
-/**
- * Datos de aeronaves del Ejército del Aire y del Espacio
- * Para añadir una nueva aeronave: copia un objeto y rellena los campos.
- * Las imágenes deben estar en la carpeta /img/
- */
-
 const aircraftData = [
   {
     id: "eurofighter",
