@@ -15,7 +15,7 @@ function createAircraftCard(aircraft) {
   }[aircraft.badge] || aircraft.status;
 
   return `
-    <div class="card" data-type="\( {aircraft.type}" data-id=" \){aircraft.id}">
+    <div class="card" data-type="${aircraft.type}" data-id="${aircraft.id}">
       <img class="card-img" 
            src="${aircraft.image}" 
            alt="${aircraft.name}"
@@ -25,7 +25,7 @@ function createAircraftCard(aircraft) {
         <h3>${aircraft.name}</h3>
         <div class="fleet">${aircraft.fleet}</div>
         <div class="status">${aircraft.status}</div>
-        <span class="badge badge-\( {aircraft.badge}"> \){badgeText}</span>
+        <span class="badge badge-${aircraft.badge}">${badgeText}</span>
       </div>
     </div>
   `;
@@ -78,8 +78,11 @@ function openModal(id) {
 
   const specsContainer = document.getElementById('modal-specs');
   specsContainer.innerHTML = Object.entries(aircraft.specs || {})
-    .map(([key, value]) => `<div><strong>\( {key}</strong> \){value}</div>`)
+    .map(([key, value]) => `<div><strong>${key}</strong>${value}</div>`)
     .join('');
+
+  const specsNote = document.getElementById('modal-specs-note');
+  if (specsNote) specsNote.textContent = aircraft.specsNote || '';
 
   document.getElementById('aircraft-modal').classList.add('show');
 }

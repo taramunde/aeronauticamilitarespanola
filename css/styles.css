@@ -375,8 +375,6 @@ tr:hover td {
 
 .modal.show {
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
 }
 
@@ -386,6 +384,7 @@ tr:hover td {
   border-radius: 16px;
   max-width: 900px;
   width: 100%;
+  margin: auto; /* centra sin recortar la parte superior si el contenido es más alto que la pantalla */
   position: relative;
   animation: modalIn 0.3s ease;
 }
@@ -468,6 +467,17 @@ tr:hover td {
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   line-height: 1.6;
+}
+
+.specs-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.specs-note:empty {
+  display: none;
 }
 
 .specs-grid {
