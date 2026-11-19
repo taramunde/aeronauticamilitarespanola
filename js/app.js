@@ -7,6 +7,19 @@ function scrollToSection(id) {
   if (section) section.scrollIntoView({ behavior: 'smooth' });
 }
 
+/**
+ * Marcador para cuando falta la imagen en img/: un SVG generado aquí mismo
+ * con el nombre de la aeronave (no depende de ninguna web externa).
+ */
+function placeholderSrc(name, width, height) {
+  const safe = String(name).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+    <rect width="100%" height="100%" fill="#1a2436"/>
+    <text x="50%" y="50%" fill="#8b9bb4" font-family="sans-serif" font-size="${Math.round(width / 22)}" text-anchor="middle" dominant-baseline="middle">${safe}</text>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
 function createAircraftCard(aircraft) {
   const badgeText = {
     active: "Operativo",
@@ -19,7 +32,7 @@ function createAircraftCard(aircraft) {
       <img class="card-img" 
            src="${aircraft.image}" 
            alt="${aircraft.name}"
-           onerror="this.src='https://via.placeholder.com/400x200/1a2436/8b9bb4?text=${encodeURIComponent(aircraft.name)}'">
+           onerror="this.onerror=null; this.src=placeholderSrc(this.alt, 400, 200);">
       <div class="card-body">
         <div class="role">${aircraft.role}</div>
         <h3>${aircraft.name}</h3>
@@ -73,7 +86,8 @@ function openModal(id) {
   img.src = aircraft.image;
   img.alt = aircraft.name;
   img.onerror = function () {
-    this.src = `https://via.placeholder.com/600x400/1a2436/8b9bb4?text=${encodeURIComponent(aircraft.name)}`;
+    this.onerror = null;
+    this.src = placeholderSrc(aircraft.name, 600, 400);
   };
 
   const specsContainer = document.getElementById('modal-specs');
