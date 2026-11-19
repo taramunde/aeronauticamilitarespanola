@@ -37,7 +37,7 @@ const aircraftData = [
     }
   },
   {
-    id: "hornet",
+    id: "ef18mhornet",
     name: "EF-18M Hornet (C.15)",
     role: "Caza multirrol",
     type: "caza",
@@ -46,7 +46,7 @@ const aircraftData = [
     unit: "Ala 12 (Torrejón), Ala 15 (Zaragoza) y Ala 46 (Gando)",
     status: "Retiro gradual Canarias (dic 2026)",
     badge: "retire",
-    image: "img/ef18.jpg",
+    image: "img/ef18mhornet.webp",
     description: "Versión española del F/A-18 Hornet de McDonnell Douglas. La E de su nombre se refiere a España. Se compraron 72 aviones (60 monoplazas EF-18A y 12 biplazas EF-18B), y el C.15 entró en servicio el 10 de julio de 1986. Entre 1995 y 2000 se añadieron 24 F/A-18A procedentes de la US Navy, que se modificaron al estándar EF-18A+ y se destinaron a Canarias. La flota peninsular se modernizó al estándar EF-18M, con nueva aviónica y la integración del IRIS-T, el AMRAAM y el misil de crucero Taurus. Los últimos Hornet de Gando se retiran en diciembre de 2026 y los Eurofighter Halcón irán sustituyendo al resto.",
     specsNote: "Datos del EF-18M monoplaza (C.15). El biplaza se designa CE.15.",
     specs: {
