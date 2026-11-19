@@ -87,7 +87,7 @@ function openModal(id) {
   img.alt = aircraft.name;
   img.onerror = function () {
     this.onerror = null;
-    this.src = placeholderSrc(aircraft.name, 600, 400);
+    this.src = placeholderSrc(aircraft.name, 640, 360);
   };
 
   const specsContainer = document.getElementById('modal-specs');
