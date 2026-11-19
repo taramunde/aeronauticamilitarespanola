@@ -145,7 +145,7 @@ const aircraftData = [
     }
   },
   {
-    id: "c295m",
+    id: "airbusc295m",
     name: "Airbus C295M (T.21)",
     role: "Transporte táctico",
     type: "transporte",
@@ -154,7 +154,7 @@ const aircraftData = [
     unit: "Ala 35 (Getafe) · Destacamento en Gando",
     status: "+18 para el GRUEMA (Matacán)",
     badge: "order",
-    image: "img/c295.jpg",
+    image: "img/airbusc295m.webp",
     description: "Bimotor de transporte táctico desarrollado por CASA a partir del CN235, con un fuselaje más largo y motores más potentes. El Ejército del Aire fue su cliente de lanzamiento, y desde 2001 lo opera el Ala 35 de Getafe para transporte logístico y táctico, lanzamiento de paracaidistas y carga, y evacuación médica. Puede despegar en pistas cortas y sin preparar, y reabastecerse en vuelo desde el A400M. En diciembre de 2025 se encargaron 18 más para sustituir a los CN235 y C-212 de la escuela de Matacán. El primero voló en noviembre de 2026.",
     specsNote: "Datos del C295M de transporte.",
     specs: {
