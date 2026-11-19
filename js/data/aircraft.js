@@ -118,7 +118,7 @@ const aircraftData = [
     }
   },
   {
-    id: "a400m",
+    id: "airbusa400matlas",
     name: "Airbus A400M Atlas (T.23)",
     role: "Transporte estratégico/táctico",
     type: "transporte",
@@ -127,7 +127,7 @@ const aircraftData = [
     unit: "Ala 31 (Zaragoza)",
     status: "→ 16 antes de fin 2026 · Objetivo 20",
     badge: "order",
-    image: "img/a400m.jpg",
+    image: "img/airbusa400matlas.webp",
     description: "Transporte militar cuatrimotor de hélices contrarrotatorias. Se monta en la planta de Airbus en San Pablo (Sevilla), donde voló por primera vez el 11 de diciembre de 2009. Llegó al Ala 31 en 2016 para sustituir al C-130 Hércules. Combina capacidad estratégica, con alcance y velocidad de reactor, y táctica, porque opera en pistas cortas y sin preparar. También puede reabastecer en vuelo a cazas y helicópteros. España ha subido el objetivo de flota a 20 aviones.",
     specsNote: "Datos del A400M estándar de producción.",
     specs: {
