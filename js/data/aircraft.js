@@ -19,7 +19,7 @@ const aircraftData = [
     unit: "Ala 11 (Morón), Ala 14 (Los Llanos) y Ala 46 (Gando)",
     status: "En expansión (Halcón)",
     badge: "order",
-    image: "img/eurofighter.jpg",
+    image: "img/eurofighter.webp",
     description: "Caza bimotor de ala en delta con planos canard, desarrollado por Alemania, Reino Unido, Italia y España. Es el principal avión de superioridad aérea y ataque del Ejército del Aire, donde entró en servicio en 2003 con la designación C.16. Opera en el Ala 11 de Morón y el Ala 14 de Albacete, y desde junio de 2026 también en el Ala 46 de Gando, que ha recibido sus primeros ejemplares Tranche 3. España ha encargado 45 aviones nuevos Tranche 4 en dos lotes: Halcón I (20 aviones, junio de 2022) y Halcón II (25 aviones, diciembre de 2024). El primero se presentó en junio de 2026 y sustituirán a los EF-18 más antiguos.",
     specsNote: "Datos del C.16 monoplaza. La versión biplaza de entrenamiento se designa CE.16.",
     specs: {
