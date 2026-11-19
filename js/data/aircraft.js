@@ -90,7 +90,7 @@ const aircraftData = [
 
   // ===================== TRANSPORTE / CISTERNA =====================
   {
-    id: "a330mrtt",
+    id: "airbusa330mrtt",
     name: "Airbus A330 MRTT (TK.24)",
     role: "Cisterna / Transporte estratégico",
     type: "transporte",
@@ -99,7 +99,7 @@ const aircraftData = [
     unit: "Ala 45 (Torrejón)",
     status: "Flota completada 20/10/2026",
     badge: "active",
-    image: "img/a330mrtt.jpg",
+    image: "img/airbusa330mrtt.webp",
     description: "Avión cisterna y de transporte multimisión basado en el A330-200. Los tres aviones españoles son A330-200 que habían volado con Iberia y que Airbus convirtió en Getafe. Antes de la conversión volaron como transportes T.24. El primero llegó en 2025 y el tercero completó la flota en octubre de 2026. Reabastecen en vuelo con dos pods subalares de manguera y cesta, compatibles con el Eurofighter y el Hornet. También sirven para transporte estratégico y evacuación médica.",
     specsNote: "Datos de la conversión española (A330-200 ex-Iberia), equipada solo con manguera y cesta.",
     specs: {
