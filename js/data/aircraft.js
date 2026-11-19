@@ -64,7 +64,7 @@ const aircraftData = [
     }
   },
   {
-    id: "f5m",
+    id: "northropf5m",
     name: "Northrop F-5M (AE.9)",
     role: "Entrenador avanzado de combate",
     type: "caza",
@@ -73,7 +73,7 @@ const aircraftData = [
     unit: "Ala 23 (Talavera la Real)",
     status: "A retirar (Hürjet desde 2028)",
     badge: "retire",
-    image: "img/f5m.jpg",
+    image: "img/northropf5m.webp",
     description: "Biplaza supersónico que CASA fabricó bajo licencia de Northrop. Llegó a Talavera la Real el 12 de noviembre de 1970 para sustituir al T-33 y al F-86 Sabre. Se recibieron 34 F-5B biplazas, a los que se sumaron F-5A monoplazas y RF-5A de reconocimiento. Hoy solo siguen en vuelo 19 biplazas, modernizados al estándar F-5M con cabina y aviónica nuevas. Con ellos el Ala 23 forma a todos los pilotos de caza del Ejército del Aire. El Hürjet los sustituirá desde 2028.",
     specsNote: "Datos del F-5B biplaza, la célula sobre la que se hizo la modernización F-5M.",
     specs: {
