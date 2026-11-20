@@ -301,7 +301,7 @@ const aircraftData = [
     }
   },
   {
-    id: "hurjet",
+    id: "taihurjet",
     name: "TAI Hürjet",
     role: "Entrenador de combate avanzado",
     type: "entrenamiento",
@@ -310,7 +310,7 @@ const aircraftData = [
     unit: "Futuro (Ala 23, Talavera la Real)",
     status: "Entregas desde 2028 · Posible ampliación a 45",
     badge: "order",
-    image: "img/hurjet.jpg",
+    image: "img/taihurjet.webp",
     description: "Entrenador supersónico biplaza de Turkish Aerospace, que voló por primera vez el 25 de abril de 2023. España firmó la compra de 30 aviones el 28 de diciembre de 2025, con opción a llegar a 45, para sustituir al F-5M del Ala 23 dentro de un sistema integrado de entrenamiento con Airbus. Los primeros llegarán en configuración básica en 2028 y 2029, y el equipo español se instalará entre 2031 y 2035.",
     specsNote: "Datos del fabricante (TAI). La configuración española definitiva aún no se ha publicado.",
     specs: {
