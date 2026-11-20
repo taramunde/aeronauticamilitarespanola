@@ -226,7 +226,7 @@ const aircraftData = [
     }
   },
   {
-    id: "c295msa",
+    id: "casac295msasar",
     name: "Airbus C295 MSA/SAR (D.6)",
     role: "Vigilancia marítima y salvamento (SAR)",
     type: "uav",
@@ -235,7 +235,7 @@ const aircraftData = [
     unit: "Ala 46 (Gando) · Esc. 802",
     status: "2 de 8 entregados (nov 2026)",
     badge: "order",
-    image: "img/c295msa.jpg",
+    image: "img/casac295msasar.webp",
     description: "Versión de vigilancia marítima y búsqueda y salvamento del C295, fabricada en Sevilla. Forma parte del pedido de 16 C295 de diciembre de 2023: 8 MSA/SAR y 8 MPA. El primero se entregó en junio de 2026 para Gando y el segundo en noviembre del mismo año. Sustituirá a los CN235 VIGMA en misiones contra el contrabando, el narcotráfico y la inmigración irregular, y en la búsqueda y rescate en el mar.",
     specsNote: "Datos del fabricante para la célula C295. El equipo de misión es propio de esta versión.",
     specs: {
