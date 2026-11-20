@@ -409,8 +409,8 @@ const aircraftData = [
     variants: [
       {
         name: "AS332B",
-        image: "img/variantes/superpuma-as332b.webp",
-        imageCredit: "",
+        image: "img/variantes/aerospatialeas332bsuperpuma.webp",
+        imageCredit: "https://www.aviationcorner.net/",
         designation: "HD.21",
         branch: "Ejército del Aire",
         years: "1982 – hoy",
