@@ -586,6 +586,25 @@ tr:hover td {
   border-top: 1px solid var(--border);
 }
 
+.variant-img {
+  margin: 0.9rem 0 0;
+}
+
+.variant-img img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background: #0d1520;
+}
+
+.variant-img figcaption {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
 .variant-body dl {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

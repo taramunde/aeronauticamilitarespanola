@@ -87,6 +87,11 @@ function renderVariants(variants) {
           <span class="variant-meta">${esc(v.branch)}${v.years ? ` · ${esc(v.years)}` : ''}</span>
         </summary>
         <div class="variant-body">
+          ${v.image ? `
+          <figure class="variant-img">
+            <img src="${esc(v.image)}" alt="${esc(v.name)}${v.designation ? ' (' + esc(v.designation) + ')' : ''}" loading="lazy" onerror="this.closest('figure').remove()">
+            ${v.imageCredit ? `<figcaption>${esc(v.imageCredit)}</figcaption>` : ''}
+          </figure>` : ''}
           <dl>
             ${rows.filter(([, k]) => v[k]).map(([label, k]) => `<div><dt>${label}</dt><dd>${esc(v[k])}</dd></div>`).join('')}
           </dl>

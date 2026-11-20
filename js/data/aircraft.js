@@ -409,6 +409,8 @@ const aircraftData = [
     variants: [
       {
         name: "AS332B",
+        image: "img/variantes/superpuma-as332b.webp",
+        imageCredit: "",
         designation: "HD.21",
         branch: "Ejército del Aire",
         years: "1982 – hoy",
@@ -420,6 +422,8 @@ const aircraftData = [
       },
       {
         name: "AS332B1",
+        image: "img/variantes/superpuma-as332b1.webp",
+        imageCredit: "",
         designation: "HD.21 y HT.21",
         branch: "Ejército del Aire",
         years: "Década de 1980 – hoy",
@@ -431,6 +435,8 @@ const aircraftData = [
       },
       {
         name: "AS332C",
+        image: "img/variantes/superpuma-as332c.webp",
+        imageCredit: "",
         designation: "HD.21",
         branch: "Ejército del Aire",
         years: "2017",
@@ -442,6 +448,8 @@ const aircraftData = [
       },
       {
         name: "AS332C1e (H215)",
+        image: "img/variantes/superpuma-as332c1e.webp",
+        imageCredit: "",
         designation: "HD.21",
         branch: "Ejército del Aire",
         years: "2016 – hoy",
@@ -453,6 +461,8 @@ const aircraftData = [
       },
       {
         name: "AS332M1",
+        image: "img/variantes/superpuma-as332m1.webp",
+        imageCredit: "",
         designation: "HT.21A",
         branch: "Ejército del Aire",
         years: "1994 – hoy",
@@ -464,6 +474,8 @@ const aircraftData = [
       },
       {
         name: "AS532UL Cougar",
+        image: "img/variantes/cougar-as532ul-ea.webp",
+        imageCredit: "",
         designation: "HT.27",
         branch: "Ejército del Aire",
         years: "Hoy en servicio",
@@ -475,6 +487,8 @@ const aircraftData = [
       },
       {
         name: "AS332B / B1",
+        image: "img/variantes/superpuma-famet.webp",
+        imageCredit: "",
         designation: "HT.21, hoy HU.21",
         branch: "Ejército de Tierra (FAMET)",
         years: "1985 – hoy",
