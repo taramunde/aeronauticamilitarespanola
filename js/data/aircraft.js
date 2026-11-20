@@ -250,7 +250,7 @@ const aircraftData = [
     }
   },
   {
-    id: "c295mpa",
+    id: "casac295mpa",
     name: "Airbus C295 MPA",
     role: "Patrulla marítima y antisubmarina",
     type: "uav",
@@ -259,7 +259,7 @@ const aircraftData = [
     unit: "Futuro (pendiente de asignación)",
     status: "Primera entrega prevista en 2028",
     badge: "order",
-    image: "img/c295mpa.jpg",
+    image: "img/casac295mpa.webp",
     description: "Versión de patrulla marítima del C295 y la más compleja de la familia. Hará misiones antisubmarinas, antisuperficie, de inteligencia y de reconocimiento, y podrá llevar torpedos y otras armas. Con ella el Ejército del Aire recuperará la capacidad antisubmarina que perdió al retirar los P-3 Orion. Se encargaron 8 en diciembre de 2023 junto con los MSA/SAR, y la primera entrega está prevista para 2028.",
     specsNote: "Avión aún no entregado. Las cifras de la célula son las del C295; el equipo y el armamento concretos no se han publicado.",
     specs: {
