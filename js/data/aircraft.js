@@ -274,7 +274,7 @@ const aircraftData = [
 
   // ===================== ENTRENAMIENTO =====================
   {
-    id: "pc21",
+    id: "pilatuspc21",
     name: "Pilatus PC-21 (E.27)",
     role: "Entrenamiento básico y avanzado",
     type: "entrenamiento",
@@ -283,7 +283,7 @@ const aircraftData = [
     unit: "Academia General del Aire (San Javier) · 2 en el CLAEX",
     status: "+9 en pedido",
     badge: "order",
-    image: "img/pc21.jpg",
+    image: "img/pilatuspc21.webp",
     description: "Entrenador suizo de turbohélice. Su cabina reproduce la de los cazas modernos y puede simular radar y armamento. Sustituyó al reactor C-101 Aviojet en la Academia General del Aire de San Javier. El primer lote de 24 aviones estaba completo a mediados de 2022, y un segundo pedido de 16 elevará la flota a 40. Dos ejemplares están destinados al Centro Logístico de Armamento y Experimentación (CLAEX) de Torrejón.",
     specsNote: "Datos del PC-21 de serie con motor PT6A-68B.",
     specs: {
