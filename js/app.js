@@ -20,56 +20,7 @@ function placeholderSrc(name, width, height) {
   return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 
-function createAircraftCard(aircraft) {
-  const badgeText = {
-    active: "Operativo",
-    order: "En expansión / Pedido",
-    retire: "En retirada"
-  }[aircraft.badge] || aircraft.status;
-
-  return `
-    <div class="card" data-type="${aircraft.type}" data-id="${aircraft.id}">
-      <img class="card-img" 
-           src="${aircraft.image}" 
-           alt="${aircraft.name}"
-           onerror="this.onerror=null; this.src=placeholderSrc(this.alt, 400, 200);">
-      <div class="card-body">
-        <div class="role">${aircraft.role}</div>
-        <h3>${aircraft.name}</h3>
-        <div class="fleet">${aircraft.fleet}</div>
-        <div class="status">${aircraft.status}</div>
-        <span class="badge badge-${aircraft.badge}">${badgeText}</span>
-      </div>
-    </div>
-  `;
-}
-
-function renderFleet(filter = 'all') {
-  const grid = document.getElementById('fleet-grid');
-  if (!grid) {
-    console.error('No se encontró el elemento #fleet-grid');
-    return;
-  }
-
-  if (typeof aircraftData === 'undefined') {
-    console.error('aircraftData no está definido. Revisa que js/data/aircraft.js se carga correctamente.');
-    grid.innerHTML = '<p style="color:#c8102e;padding:2rem;">Error: No se han podido cargar los datos de las aeronaves.</p>';
-    return;
-  }
-
-  const filtered = filter === 'all'
-    ? aircraftData
-    : aircraftData.filter(a => a.type === filter);
-
-  grid.innerHTML = filtered.map(createAircraftCard).join('');
-
-  // Añadir eventos de clic
-  grid.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      openModal(card.dataset.id);
-    });
-  });
-}
+// Las tarjetas, filtros y menús de la flota están en js/fleet.js
 
 function openModal(id) {
   const aircraft = aircraftData.find(a => a.id === id);
@@ -77,7 +28,8 @@ function openModal(id) {
 
   document.getElementById('modal-name').textContent = aircraft.name;
   document.getElementById('modal-role').textContent = aircraft.role;
-  document.getElementById('modal-fleet').textContent = aircraft.fleet;
+  const historic = aircraft.badge === 'historic';
+  document.getElementById('modal-fleet').textContent = historic ? `Retirado (${aircraft.service || '—'})` : aircraft.fleet;
   document.getElementById('modal-order').textContent = aircraft.onOrder || '—';
   document.getElementById('modal-unit').textContent = aircraft.unit;
   document.getElementById('modal-description').textContent = aircraft.description;
@@ -214,27 +166,8 @@ function renderNews() {
 
 // ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Aplicación iniciada');
-  console.log('aircraftData disponible:', typeof aircraftData !== 'undefined');
-
-  // Navegación
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      link.classList.add('active');
-      scrollToSection(link.dataset.section);
-    });
-  });
-
-  // Filtros
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderFleet(btn.dataset.filter);
-    });
-  });
+  initNav();
+  initFleet();
 
   // Modal
   const closeBtn = document.querySelector('.modal-close');
@@ -246,21 +179,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.id === 'aircraft-modal') closeModal();
     });
   }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
 
-  // Renderizar todo
-  renderFleet('all');
   renderTimeline();
   renderBases();
   renderUnits();
   renderNews();
 
-  // Contadores
+  // Contadores: solo la flota actual (sin históricas)
   if (typeof aircraftData !== 'undefined') {
-    const combat = aircraftData
-      .filter(a => a.type === 'caza')
+    const current = aircraftData.filter(a => a.badge !== 'historic');
+    const combatTypes = fleetCategories.find(c => c.id === 'combate').types.map(t => t.id);
+    const combat = current
+      .filter(a => combatTypes.includes(a.type))
       .reduce((sum, a) => sum + a.fleet, 0);
-
-    const total = aircraftData.reduce((sum, a) => sum + a.fleet, 0);
+    const total = current.reduce((sum, a) => sum + a.fleet, 0);
 
     animateValue('stat-combat', 0, combat, 1600);
     animateValue('stat-total', 0, total, 1800);
