@@ -18,7 +18,7 @@
   <ul class="nav-links" id="nav-menu">
     <li><a href="#historia" data-section="historia" class="active">Historia</a></li>
     <li class="dropdown nav-dropdown" id="nav-fleet">
-      <button type="button" class="dropdown-btn nav-dd-btn" aria-expanded="false" aria-haspopup="true">Flota <span class="caret" aria-hidden="true"></span></button>
+      <button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Flota <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="dropdown-menu mega" id="nav-fleet-menu"></div>
     </li>
     <li><a href="#bases" data-section="bases">Bases</a></li>
@@ -66,25 +66,33 @@
   <p class="section-desc">Elige una categoría en el menú o despliega los grupos. Toca cualquier aeronave para ver su ficha.</p>
 
   <div class="fleet-toolbar">
-    <div class="dropdown" id="cat-dropdown">
-      <button type="button" class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
-        <span class="dd-label">Categoría</span>
-        <strong id="cat-current">Todas</strong>
-        <span class="caret" aria-hidden="true"></span>
+    <div class="dropdown tb-cat" id="cat-dropdown">
+      <button type="button" class="tb-btn" aria-expanded="false" aria-haspopup="true">
+        <span class="tb-ico" id="cat-icon"></span>
+        <span class="tb-text"><span class="tb-label">Categoría</span><span class="tb-value" id="cat-current">Todas las categorías</span></span>
+        <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
-      <div class="dropdown-menu" id="cat-menu"></div>
+      <div class="dropdown-menu menu-cats" id="cat-menu"></div>
     </div>
 
-    <label class="select-wrap">
-      <span class="dd-label">Estado</span>
-      <select id="status-select"></select>
-    </label>
+    <div class="dropdown tb-status" id="status-dropdown">
+      <button type="button" class="tb-btn" aria-expanded="false" aria-haspopup="true">
+        <span class="tb-text"><span class="tb-label">Estado</span><span class="tb-value" id="status-current">Flota actual</span></span>
+        <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="dropdown-menu menu-status" id="status-menu"></div>
+    </div>
 
     <div class="view-toggle" role="group" aria-label="Vista">
-      <button type="button" data-view="grid" aria-pressed="true" title="Tarjetas">▦</button>
-      <button type="button" data-view="list" aria-pressed="false" title="Lista compacta">☰</button>
+      <button type="button" data-view="grid" aria-pressed="true" title="Tarjetas" aria-label="Tarjetas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>
+      </button>
+      <button type="button" data-view="list" aria-pressed="false" title="Lista compacta" aria-label="Lista compacta">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16 M4 12h16 M4 18h16"/></svg>
+      </button>
     </div>
   </div>
+  <div class="sheet-backdrop" id="sheet-backdrop"></div>
 
   <div class="filter-summary" id="filter-summary" aria-live="polite"></div>
 
@@ -130,7 +138,8 @@
 <section id="unidades">
   <h2>🛡️ Unidades de Combate</h2>
   <p class="section-desc">Alas de caza y principales unidades operativas.</p>
-  <table>
+  <div class="table-wrap">
+  <table class="stack">
     <thead>
       <tr>
         <th>Unidad</th>
@@ -141,6 +150,7 @@
     </thead>
     <tbody id="units-table"></tbody>
   </table>
+  </div>
 </section>
 
 <!-- ACTUALIDAD -->

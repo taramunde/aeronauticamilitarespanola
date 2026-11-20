@@ -144,10 +144,10 @@ function renderUnits() {
   if (!tbody) return;
   tbody.innerHTML = unitsData.map(u => `
     <tr>
-      <td><strong>${u.unit}</strong></td>
-      <td>${u.base}</td>
-      <td>${u.material}</td>
-      <td>${u.mission}</td>
+      <td data-l="Unidad"><strong>${u.unit}</strong></td>
+      <td data-l="Base">${u.base}</td>
+      <td data-l="Material">${u.material}</td>
+      <td data-l="Misión">${u.mission}</td>
     </tr>
   `).join('');
 }
