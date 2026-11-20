@@ -172,7 +172,7 @@ const aircraftData = [
     }
   },
   {
-    id: "cn235",
+    id: "casacn235",
     name: "CASA CN235 (T.19B)",
     role: "Transporte y enseñanza",
     type: "transporte",
@@ -181,7 +181,7 @@ const aircraftData = [
     unit: "744 Escuadrón · GRUEMA (Matacán, Salamanca)",
     status: "A sustituir por C295 (2026-2028)",
     badge: "retire",
-    image: "img/cn235.jpg",
+    image: "img/casacn235.webp",
     description: "Transporte bimotor desarrollado por CASA e IPTN (Indonesia) dentro del programa FATAM, que buscaba un avión entre el C-212 Aviocar y el C-130 Hércules. Entró en servicio en 1988 y en los años noventa formó parte del Ala 35 de Getafe hasta la llegada del C295. Desde 2008 ocho ejemplares vuelan en el 744 Escuadrón de Matacán, donde forman a pilotos de transporte y lanzan paracaidistas. Los nuevos C295 los relevarán entre 2026 y 2028.",
     specsNote: "Datos del CN235-100M de transporte (T.19B).",
     specs: {
