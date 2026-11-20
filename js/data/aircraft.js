@@ -422,7 +422,7 @@ const aircraftData = [
       },
       {
         name: "AS332B1",
-        image: "img/variantes/superpuma-as332b1.webp",
+        image: "img/variantes/aerospatialeas332b1superpuma.webp",
         imageCredit: "",
         designation: "HD.21 y HT.21",
         branch: "Ejército del Aire",
