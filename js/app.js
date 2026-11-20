@@ -50,7 +50,51 @@ function openModal(id) {
   const specsNote = document.getElementById('modal-specs-note');
   if (specsNote) specsNote.textContent = aircraft.specsNote || '';
 
-  document.getElementById('aircraft-modal').classList.add('show');
+  renderVariants(aircraft.variants);
+
+  const modal = document.getElementById('aircraft-modal');
+  modal.classList.add('show');
+  modal.scrollTop = 0;
+}
+
+/**
+ * Variantes de un modelo (campo opcional `variants` de cada aeronave).
+ * Cada variante se muestra plegada; al tocarla se ven sus datos.
+ */
+function renderVariants(variants) {
+  const container = document.getElementById('modal-variants');
+  if (!container) return;
+  if (!Array.isArray(variants) || variants.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const rows = [
+    ['Ejemplares', 'count'],
+    ['Unidades', 'units'],
+    ['Motores', 'engine'],
+    ['Fuselaje', 'fuselage']
+  ];
+
+  container.innerHTML = `
+    <h3 class="variants-title">Variantes en España <span>${variants.length}</span></h3>
+    ${variants.map(v => `
+      <details class="variant">
+        <summary>
+          <span class="variant-name">${esc(v.name)}</span>
+          ${v.designation ? `<span class="variant-desig">${esc(v.designation)}</span>` : ''}
+          <span class="variant-meta">${esc(v.branch)}${v.years ? ` · ${esc(v.years)}` : ''}</span>
+        </summary>
+        <div class="variant-body">
+          <dl>
+            ${rows.filter(([, k]) => v[k]).map(([label, k]) => `<div><dt>${label}</dt><dd>${esc(v[k])}</dd></div>`).join('')}
+          </dl>
+          ${v.desc ? `<p>${esc(v.desc)}</p>` : ''}
+        </div>
+      </details>
+    `).join('')}
+  `;
 }
 
 function closeModal() {

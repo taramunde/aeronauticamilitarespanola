@@ -395,8 +395,8 @@ const aircraftData = [
     status: "Retiro progresivo (NH90 y H175M)",
     badge: "retire",
     image: "img/superpuma.jpg",
-    description: "Helicóptero medio que llegó al Ejército del Aire en diciembre de 1982 y fue durante cuatro décadas la base de su flota de búsqueda y salvamento. Dentro del Super Puma conviven varias versiones. Los AS332B/B1 se dedican al rescate en combate y entre 2005 y 2013 hicieron más de 1.200 evacuaciones médicas en Afganistán. Los AS332C1e (H215), incorporados desde 2016, se dedican al SAR. Los AS332M1 (HT.21) del 402 Escuadrón llevan autoridades. Los NH90 y H175M los irán sustituyendo.",
-    specsNote: "Datos del AS332B1 de rescate en combate. Las demás versiones de la flota (C1e, M1) tienen otro peso y otro equipo.",
+    description: "Helicóptero medio que llegó al Ejército del Aire en diciembre de 1982 y fue durante cuatro décadas la base de su flota de búsqueda y salvamento. En España han volado seis versiones de la familia: AS332B, B1, C, C1e (H215), M1 y AS532UL Cougar, repartidas entre el Ejército del Aire y las FAMET del Ejército de Tierra. Los B/B1 del 803 Escuadrón hicieron más de 1.200 evacuaciones médicas en Afganistán entre 2005 y 2013. Los NH90 y H175M los irán sustituyendo.",
+    specsNote: "Datos del AS332B1 de rescate en combate. Las diferencias de cada versión están abajo, en «Variantes».",
     specs: {
       "Diámetro del rotor": "15,60 m",
       "Peso máx. despegue": "8.600 kg",
@@ -404,7 +404,87 @@ const aircraftData = [
       "Velocidad de crucero": "262 km/h",
       "Capacidad": "21 soldados",
       "Equipo": "Radio táctica V/UHF ARC-210, teléfono por satélite Iridium"
-    }
+    },
+    // Fuselaje corto: B, B1, C, C1e. Fuselaje largo (+0,76 m): M1 y AS532UL.
+    variants: [
+      {
+        name: "AS332B",
+        designation: "HD.21",
+        branch: "Ejército del Aire",
+        years: "1982 – hoy",
+        count: "10 (HD.21-1 a HD.21-10)",
+        units: "801 (Palma), 802 (Gando) y 803 (Cuatro Vientos) Escuadrones",
+        engine: "2 × Turbomeca Makila 1A (≈1.330 kW)",
+        fuselage: "Corto · 21 soldados",
+        desc: "Primera versión militar del Super Puma y la primera que recibió España: los cuatro primeros en diciembre de 1982 y el resto en 1983. Formaron la flota SAR de los tres escuadrones y el núcleo CSAR del 803. Cinco se perdieron en accidentes (1985 en Alcudia, 1992 en Canarias, 2007 en Afganistán, 2014 frente a Gran Canaria y 2015 entre Gando y Dakar), y varios están retirados en la Maestranza de Cuatro Vientos."
+      },
+      {
+        name: "AS332B1",
+        designation: "HD.21 y HT.21",
+        branch: "Ejército del Aire",
+        years: "Década de 1980 – hoy",
+        count: "4 (HD.21-11, HD.21-12, HT.21-01 y HT.21-02)",
+        units: "803 Escuadrón (Cuatro Vientos)",
+        engine: "2 × Turbomeca Makila 1A1 (1.400 kW)",
+        fuselage: "Corto · 21 soldados",
+        desc: "Mismo fuselaje que el B, pero con el motor Makila 1A1, más potente. Se dedican al rescate en combate (CSAR) y a operaciones especiales en el 803 Escuadrón, y fueron los que desplegaron en Afganistán. El HD.21-12 quedó dañado en 2012 al aterrizar de noche en Afganistán y no volvió a volar. Entre 2014 y 2016 el 803 usó además un B1 prestado por las FAMET (HU.21-09)."
+      },
+      {
+        name: "AS332C",
+        designation: "HD.21",
+        branch: "Ejército del Aire",
+        years: "2017",
+        count: "1 (HD.21-15)",
+        units: "801 Escuadrón (Palma)",
+        engine: "2 × Turbomeca Makila 1A",
+        fuselage: "Corto",
+        desc: "Ejemplar usado que Francia donó cuando la Armée de l'Air retiró sus Super Puma. Se revisó y adaptó para SAR, pero hoy se guarda en la Maestranza de Cuatro Vientos como fuente de repuestos."
+      },
+      {
+        name: "AS332C1e (H215)",
+        designation: "HD.21",
+        branch: "Ejército del Aire",
+        years: "2016 – hoy",
+        count: "6 (HD.21-16 a HD.21-21)",
+        units: "802 Escuadrón (Gando) y 801 Escuadrón (Palma)",
+        engine: "2 × Turbomeca Makila 1A1 (1.400 kW)",
+        fuselage: "Corto · cabina digital",
+        desc: "Versión modernizada que Airbus vende como H215. Trae pantallas multifunción, cabina compatible con gafas de visión nocturna, depósitos extra (hasta 560 km de alcance), flotadores de emergencia y grúa de rescate. Cuatro llegaron nuevos entre 2016 y 2018 tras recibir en Albacete los equipos de misión SAR del Ejército del Aire; el HD.21-19 es un ex francés incorporado en 2019 y el HD.21-20 se sumó en 2023. Cubren sobre todo el SAR de Canarias."
+      },
+      {
+        name: "AS332M1",
+        designation: "HT.21A",
+        branch: "Ejército del Aire",
+        years: "1994 – hoy",
+        count: "4 (HT.21A-1 a HT.21A-4)",
+        units: "402 Escuadrón (Cuatro Vientos)",
+        engine: "2 × Turbomeca Makila 1A1 (1.400 kW)",
+        fuselage: "Largo (+0,76 m) · cabina VIP",
+        desc: "Versión militar de fuselaje alargado, configurada para el transporte de la Casa Real, la Presidencia del Gobierno y otras autoridades del Estado. Los H175M los sustituirán a partir de 2028."
+      },
+      {
+        name: "AS532UL Cougar",
+        designation: "HT.27",
+        branch: "Ejército del Aire",
+        years: "Hoy en servicio",
+        count: "2 (HT.27-01 y HT.27-02)",
+        units: "402 Escuadrón (Cuatro Vientos)",
+        engine: "2 × Turbomeca Makila 1A1 (1.400 kW)",
+        fuselage: "Largo · cabina VIP",
+        desc: "Desde 1990 Aérospatiale vende los Super Puma militares con el nombre AS532 Cougar; UL significa versión de transporte sin armar (U) y fuselaje largo (L). Iban a ser los HT.21A-5 y HT.21A-6 y acabaron matriculados HT.27. Vuelan junto a los M1 en el transporte de autoridades y también los relevará el H175M."
+      },
+      {
+        name: "AS332B / B1",
+        designation: "HT.21, hoy HU.21",
+        branch: "Ejército de Tierra (FAMET)",
+        years: "1985 – hoy",
+        count: "18 recibidos · unos 15–16 en servicio",
+        units: "BHELMA IV (El Copero), Colmenar Viejo y BHELMA VI (Tenerife)",
+        engine: "2 × Turbomeca Makila 1A / 1A1",
+        fuselage: "Corto · 21 soldados",
+        desc: "Helicópteros de maniobra y transporte del Ejército de Tierra (indicativos ET-501 en adelante). Se matricularon HT.21 y después pasaron a HU.21. Desde 2010 van sustituyendo a los AB-212 del BHELMA VI en Canarias, a medida que el NH90 libera ejemplares en la península."
+      }
+    ]
   },
   {
     id: "s76",
