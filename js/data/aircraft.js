@@ -201,7 +201,7 @@ const aircraftData = [
 
   // ===================== VIGILANCIA MARÍTIMA / SAR =====================
   {
-    id: "cn235vigma",
+    id: "casacn235vigma",
     name: "CASA CN235 VIGMA (D.4)",
     role: "Vigilancia marítima y salvamento (SAR)",
     type: "uav",
@@ -210,7 +210,7 @@ const aircraftData = [
     unit: "Ala 37 · vuela con los Esc. 801 (Palma), 802 (Gando) y 803 (Cuatro Vientos)",
     status: "A sustituir por C295 MSA antes de 2031",
     badge: "retire",
-    image: "img/cn235vigma.jpg",
+    image: "img/casacn235vigma.webp",
     description: "En 2008 y 2009 se modernizaron ocho CN235 para vigilancia marítima y búsqueda y salvamento. Se les instaló el sistema táctico FITS de CASA y pasaron a llamarse D.4. Desde 2012 dependen administrativamente del Ala 37 de Villanubla, aunque operan desde las bases de los escuadrones SAR 801, 802 y 803. Vigilan el tráfico marítimo y la inmigración irregular, participan en la lucha contra el narcotráfico y buscan náufragos. Desde 2019 llevan pintura gris con rotulación SAR negra. Los C295 MSA los sustituirán.",
     specsNote: "Célula del CN235 con el sistema de misión FITS. Las cifras de vuelo coinciden con las del T.19B; cambian la tripulación y el equipo.",
     specs: {
