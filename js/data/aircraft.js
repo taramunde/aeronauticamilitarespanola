@@ -488,7 +488,7 @@ const aircraftData = [
       {
         name: "AS332B / B1",
         image: "img/variantes/aerospatialeas332b1superpumafamet.webp",
-        imageCredit: "",
+        imageCredit: "F. Javier Chao",
         designation: "HT.21, hoy HU.21",
         branch: "Ejército de Tierra (FAMET)",
         years: "1985 – hoy",
