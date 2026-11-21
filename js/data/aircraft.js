@@ -422,7 +422,7 @@ const aircraftData = [
       },
       {
         name: "AS332B1",
-        image: "img/variantes/aerospatialeas332b1superpuma.webp",
+        image: "img/variantes/superpuma-as332b1.webp",
         imageCredit: "",
         designation: "HD.21 y HT.21",
         branch: "Ejército del Aire",
@@ -487,7 +487,7 @@ const aircraftData = [
       },
       {
         name: "AS332B / B1",
-        image: "img/variantes/superpuma-famet.webp",
+        image: "img/variantes/aerospatialeas332b1superpumafamet.webp",
         imageCredit: "",
         designation: "HT.21, hoy HU.21",
         branch: "Ejército de Tierra (FAMET)",
