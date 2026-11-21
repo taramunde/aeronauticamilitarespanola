@@ -422,8 +422,8 @@ const aircraftData = [
       },
       {
         name: "AS332B1",
-        image: "img/variantes/superpuma-as332b1.webp",
-        imageCredit: "",
+        image: "img/variantes/aerospatialeas332b1superpumaea.webp",
+        imageCredit: "Fernando Herreros Hidalgo",
         designation: "HD.21 y HT.21",
         branch: "Ejército del Aire",
         years: "Década de 1980 – hoy",
